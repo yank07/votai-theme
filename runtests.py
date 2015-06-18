@@ -17,6 +17,8 @@ try:
             "django.contrib.contenttypes",
             "django.contrib.sites",
             "votai_theme",
+            "popolo",
+            "candidator",
         ],
         SITE_ID=1,
         NOSE_ARGS=['-s'],
