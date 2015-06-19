@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from votai_theme.models import YQSTakenPosition
+from votai_theme.models import AnswerValue
 from candidator.models import TakenPosition, Topic, Position
 from popolo.models import Person
 import unittest
 
 
-class YQSTakenPositionTestCase(unittest.TestCase):
+class YQSAnswerValueTestCase(unittest.TestCase):
 
     def setUp(self):
         self.topic = Topic.objects.create(
@@ -18,12 +18,12 @@ class YQSTakenPositionTestCase(unittest.TestCase):
             label=u"Yes",
             description=u"Yes, means that it is considered a good thing for marijuana to be legalized"
         )
-        self.person = Person.objects.create(name=u"Felipe")
 
     def test_has_value(self):
-        taken_position = YQSTakenPosition.objects.create(position=self.position, person=self.person, topic=self.topic, value=-2)
-        self.assertIsInstance(taken_position, TakenPosition)
-        self.assertEquals(taken_position.value, -2)
+        answer_value = AnswerValue.objects.create(position=self.position, value=-2)
+        self.assertEquals(answer_value.value, -2)
+        self.assertEquals(answer_value.position, self.position)
+        self.assertEquals(self.position.answervalue, answer_value)
 
     def tearDown(self):
         pass
