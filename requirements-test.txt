@@ -8,3 +8,5 @@ flake8>=2.1.0
 tox>=1.7.0
 
 # Additional test requirements go here
+-e git+https://github.com/openpolis/django-popolo.git#egg=django_popolo-dev
+-e git://github.com/lfalvarez/django-candidator.git#egg=django-candidator
