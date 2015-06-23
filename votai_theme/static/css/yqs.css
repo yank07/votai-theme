@@ -2,12 +2,12 @@
 
 @font-face {
     font-family: yqsFont;
-    src: url(../static/fonts/POLITICA.TTF);
+    src: url(../fonts/POLITICA.TTF);
 }
 
 @font-face {
    font-family: yqsFont;
-   src: url(../static/fonts/POLITICA_BOLD.TTF);
+   src: url(../fonts/POLITICA_BOLD.TTF);
    font-weight: bold;
 }
 header{
@@ -266,7 +266,7 @@ header {
    //border-width:10px;
    //border-color: #20a685 transparent transparent transparent;
    //background-color:rgba(0, 0, 0, 0));
-   background: url(../static/img/triang1.png) no-repeat;
+   background: url(../img/triang1.png) no-repeat;
    background-size: 100%;
 }
 .triangle2{
@@ -277,7 +277,7 @@ header {
    //border-width:10px;
    //border-color: #dd3975 transparent transparent transparent;
    //background-color:rgba(0, 0, 0, 0));
-   background: url(../static/img/triang2.png) no-repeat;
+   background: url(../img/triang2.png) no-repeat;
    background-size: 100%;
 
 }
@@ -318,7 +318,7 @@ header {
 	//color:#40d9b3;
 	color:#fff;
 	border: none;
-	background: url(../static/img/tresLineas.png) no-repeat;
+	background: url(../img/tresLineas.png) no-repeat;
 	//width:226px;
 	//height:74px;
 }
@@ -498,7 +498,7 @@ header {
 	width:50px;
 	height:50px;
 	position:absolute;
-	background: url(../static/img/closeBtn.png) no-repeat;
+	background: url(../img/closeBtn.png) no-repeat;
 	background-size: 100%;
 	vertical-align:top;	
 	top:5%;
