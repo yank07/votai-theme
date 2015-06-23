@@ -46,38 +46,9 @@
 
 
     </head>
-
     <body data-ng-app="votainteligente">
-        <div id="wrapper">
-            <div class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="/"><img src="{% static 'img/logo-votainteligente.png' %}" class="img-responsive" title="Vota Inteligente" alt="Vota Inteligente"></a>
-                    </div>
-                    <div class="collapse navbar-collapse">
-                        {% get_flatpages as flatpages %}
-                        <ul class="nav navbar-nav">
-                            {% for page in flatpages %}
-                                    <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </div><!--/.nav-collapse -->
-                </div>
-            </div>
 
-            <div class="container">
-                {% block content %}
-                {% endblock content %}
-            </div>
-        </div>
-
-
-	<div id="sideLeft">
+    <div id="sideLeft">
 	<div class="descubriendo">
 		<h4>Descubriendo<br/> con qu&#233; candidato coincid&#237;s m&#225;s...</h4>
 	<select name="elecci&#243;n" id="eleccion1"></select>
@@ -170,7 +141,7 @@
 
 		<div class="pregunta">
 			<!--	<div class="page-header"> -->
-				<h3 class="tPreg">¿El aborto debería ser legal y para todos?</h3>
+				<h3 class="tPreg">&#191;El aborto debería ser legal y para todos?</h3>
 				<!--	</div> -->
 		</div>
 	</div>
@@ -220,6 +191,35 @@
 		</div>
 	</div>
 </div>
+
+        <div id="wrapper">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/"><img src="{% static 'img/logo-votainteligente.png' %}" class="img-responsive" title="Vota Inteligente" alt="Vota Inteligente"></a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        {% get_flatpages as flatpages %}
+                        <ul class="nav navbar-nav">
+                            {% for page in flatpages %}
+                                    <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+
+            <div class="container">
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
+
         
        <footer class="footer">
 	<div class="calendario"><h3 class="faltan">Calendario electoral: faltan 62 d&#237;as para las PASO</h3>
