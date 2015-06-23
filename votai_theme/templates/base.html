@@ -47,7 +47,9 @@
 
     </head>
     <body data-ng-app="votainteligente">
-
+<header>
+	<div class="hLogo"><span></span><img src="img/YQSlogo.jpg" class='imgHeader'></div>
+</header>
     <div id="sideLeft">
 	<div class="descubriendo">
 		<h4>Descubriendo<br/> con qu&#233; candidato coincid&#237;s m&#225;s...</h4>
@@ -191,28 +193,8 @@
 		</div>
 	</div>
 </div>
-        <div id="wrapper">
-            <div class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="/"><img src="{% static 'img/YQSlogo.jpg' %}" class="img-responsive" title="Vota Inteligente" alt="Vota Inteligente"></a>
-                    </div>
-                    <div class="collapse navbar-collapse">
-                        {% get_flatpages as flatpages %}
-                        <ul class="nav navbar-nav">
-                            {% for page in flatpages %}
-                                    <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </div><!--/.nav-collapse -->
-                </div>
-            </div>
 
+        <div id="wrapper">
             <div class="container">
                 {% block content %}
                 {% endblock content %}
