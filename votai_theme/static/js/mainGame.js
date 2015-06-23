@@ -656,7 +656,7 @@ function jugar(){
 				$(".footer").hide();
 				$(".sideLeft").hide();
 				$("#inicioD").hide();
-				$(".VI").hide();
+				$("#wrapper").hide();
 			}else{
 				$("#inicio").hide();
 				//$("#inicio").css("left",($(window).width()*0.5-parseFloat($("#inicio").css("width"))*0.5)+"px");
