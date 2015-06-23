@@ -574,9 +574,9 @@ var app = (function(){
 				posBG+="<img class=chatIMG src="+preguntas["Candidatos"][canInd]["Foto"]+" width=25% height="+pH+"px >";
 				var r = preguntas["Candidatos"][canInd]["Respuestas"][pregCount];
 				if(r<2){
-					posBG+="<img class=chatBG"+i+" src='img/chatBackground.png' width=75% height="+pH+"px >";
+					posBG+="<img class=chatBG"+i+" src='static/img/chatBackground.png' width=75% height="+pH+"px >";
 				}else{
-					posBG+="<img class=chatBG"+i+" src='img/chatBackground2.png' width=75% height="+pH+"px >";
+					posBG+="<img class=chatBG"+i+" src='static/img/chatBackground2.png' width=75% height="+pH+"px >";
 				}				
 				posBG+="<br/>";
 				posT+="<div width=75% height="+pH+"px ><h3 class=posNom"+i+" >"+preguntas["Candidatos"][canInd]["Nombre"]+"</h3>";				
@@ -585,9 +585,9 @@ var app = (function(){
 			}else{
 				var r = preguntas["Candidatos"][canInd]["Respuestas"][pregCount];
 				if(r<2){
-					posBG+="<img class=chatBG"+i+" id=right src='img/chatBackground.png' width=75% height="+pH+"px >";			
+					posBG+="<img class=chatBG"+i+" id=right src='static/img/chatBackground.png' width=75% height="+pH+"px >";			
 				}else{
-					posBG+="<img class=chatBG"+i+" id=right src='img/chatBackground2.png' width=75% height="+pH+"px >";			
+					posBG+="<img class=chatBG"+i+" id=right src='static/img/chatBackground2.png' width=75% height="+pH+"px >";			
 				}
 				posBG+="<img class=chatIMG  src="+preguntas["Candidatos"][canInd]["Foto"]+" width=25% height="+pH+"px >";				
 				posBG+="<br/>";
@@ -604,8 +604,8 @@ var app = (function(){
 	}
 
 function jugar(){
-		console.log("data/yqs"+id+".json");
-				$.getJSON( "data/yqs"+id+".json", function( data ) {			
+		console.log("static/data/yqs"+id+".json");
+				$.getJSON( "static/data/yqs"+id+".json", function( data ) {			
 					//console.log(data);
 					eleccion = data;
 					preguntas = eleccion["Preguntas"];			
@@ -882,7 +882,7 @@ function jugar(){
 			});
 
 			//console.log("ACA");
-			$.getJSON( "data/yqs.json", function( data ) {
+			$.getJSON( "static/data/yqs.json", function( data ) {
 				//console.log(data);
 				var options_eleccion = '';
 				var VI_frame = '';

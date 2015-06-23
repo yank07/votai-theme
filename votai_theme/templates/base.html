@@ -21,7 +21,7 @@
         <meta property="og:image" content="{% static 'image'|ogpdata %}">
         <!--eoff-->
 
-        <link rel="shortcut icon" sizes="196x196" href="{% static 'img/votai-196.png' %}">
+        <link rel="shortcut icon" sizes="196x196" href="{% static 'img/YQSlogo.jpg' %}">
         <!-- Browser out of date -->
         <script type="text/javascript"> 
         var $buoop = {} 
@@ -72,7 +72,7 @@
 </div>
 <div id=inicio>
 	<div class="row">
-		<img src="img/YQSlogo.jpg" class='imgInicio' >
+		<img src="{% static 'img/YQSlogo.jpg' %}" class='imgInicio' >
 	</div>
 	<div class="row"></br></div>
 	<div class="row">
@@ -149,7 +149,7 @@
 			<div class="col-xs-6 col-md-6" id="tarjeta1" style="text-align:right"><button type="button" class='voto' id="vSi" alt="Si" >SI</button></div>
 			<div class="col-xs-6 col-md-6" id="tarjeta2" style="text-align:left"><button type="button" class='voto' id="vNo" alt="No" >NO</button></div>
 
-			<div class="opciones"><img class="popupBg" src="img/popup.png">
+			<div class="opciones"><img class="popupBg" src="{% static 'img/popup.png' %}">
 				<button class="closeBtn"></button>
 				<button class="bOp1"><div class="op1" id="opc"></div></button>
 				<button class="bOp2"><div class="op2" id="opc"></div></button>
@@ -158,13 +158,13 @@
 			</div>	
 
 		<div class="sobreFondo" style="text-align:center;z-index:1">
-			<img src="img/sobre_fondo.png">
+			<img src="{% static 'img/sobre_fondo.png' %}">
 		</div>
 		<div class="sobreFrente" style="text-align:center;z-index:3">
-			<img src="img/sobre_frente.png">
+			<img src="{% static 'img/sobre_frente.png' %}">
 		</div>
 		<div class="sobreChicos" style="text-align:center;z-index:2">
-			<img src="img/sobresChicos.png">
+			<img src="{% static 'img/sobresChicos.png' %}">
 		</div>
 
 		<button type="button" class="bMasO">
@@ -179,10 +179,10 @@
 		</button>
 		
 		<div class="urna1" style="text-align:center;z-index:1">
-			<img src="img/ranura1.png">
+			<img src="{% static 'img/ranura1.png' %}">
 		</div>
 		<div class="urna2" style="text-align:center;z-index:2">
-			<img src="img/ranura2.png">
+			<img src="{% static 'img/ranura2.png' %}">
 		</div>
 	
 		<div class="afiT">Afinidad</div>
@@ -201,7 +201,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="/"><img src="{% static 'img/logo-votainteligente.png' %}" class="img-responsive" title="Vota Inteligente" alt="Vota Inteligente"></a>
+                        <a class="navbar-brand" href="/"><img src="{% static 'img/YQSlogo.jpg' %}" class="img-responsive" title="Vota Inteligente" alt="Vota Inteligente"></a>
                     </div>
                     <div class="collapse navbar-collapse">
                         {% get_flatpages as flatpages %}
