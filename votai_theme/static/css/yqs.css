@@ -1154,7 +1154,8 @@ header {
 		border-radius: 1.8em;
 	}
 
-	#wrapper{
+	#container{
+		position:absolute;
 		top:600px;
 	}
 
