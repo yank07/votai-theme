@@ -91,10 +91,10 @@ outline: none;
   border-color: #080808;
 }
 .container{
-	background-color:#155847;
+	//background-color:#155847;
 }
 .margVI{
-	height:600px;
+	height:500px;
 	width:100%;
 }
 
@@ -428,7 +428,7 @@ header {
 [class*="col-"] {
 	// padding-top: 15px;
 	// padding-bottom: 15px;
-	background-color: #155847;
+	//background-color: #155847;
 	border: none;
 	//border: 1px solid #155847;
 	//border: 1px solid rgba(86,61,124,.2);
@@ -1074,7 +1074,8 @@ header {
 }
 @media only screen and (min-width:768px){
 	body{
-		background-color:#dddddd;
+		//background-color:#dddddd;
+		background-color:#eaedf2;
 	}
 	#inicioD{
 		//width:30%;
@@ -1154,13 +1155,9 @@ header {
 		//height:70%;		
 		width:360px;
 		height:460px;
-		top:15%;
+		top:150px
 		//left:35%;	
 		border-radius: 1.8em;
-	}
-
-	.container{
-		//margin-top:600px;
 	}
 
 	.imgInicio{
