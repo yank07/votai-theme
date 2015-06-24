@@ -1099,15 +1099,18 @@ header {
 	#inviDC1{
 		border-right: 1px solid black;
 		text-align:right;
-		background-color:#dddddd;		
+		//background-color:#dddddd;		
+		background-color:#eaedf2;
 	}
 	#inviDC2{
-		background-color:#dddddd;
+		//background-color:#dddddd;
+		background-color:#eaedf2;
 		//border-left: 1px solid black;
 		text-align:left;
 	}
 	#inviDC3{
-		background-color:#dddddd;
+		//background-color:#dddddd;
+		background-color:#eaedf2;
 	}
 	#sideLeft{
 		position:absolute;
@@ -1155,7 +1158,7 @@ header {
 		//height:70%;		
 		width:360px;
 		height:460px;
-		top:150px
+		top:150px;
 		//left:35%;	
 		border-radius: 1.8em;
 	}
