@@ -2,6 +2,7 @@ from elections.views import SoulMateDetailView
 from votai_theme.calculator import YQSCalculator
 from django.http import JsonResponse
 from candidator.models import TakenPosition
+from votai_theme.models import AnswerValue
 
 
 class MediaNaranjaView(SoulMateDetailView):
@@ -34,9 +35,12 @@ class MedianaranjaJsonView(MediaNaranjaView):
                                  }
                 for position in topic.positions.all():
                     position_dict = {"answer_id": position.id,
-                                     "answer_text": position.label,
-                                     "answer_value": position.answervalue.value
+                                     "answer_text": position.label
                                      }
+                    try:
+                        position_dict['answer_value'] = position.answervalue.value
+                    except AnswerValue.DoesNotExist, e:
+                        position_dict['answer_value'] = 0
                     question_dict['answers'].append(position_dict)
                 category_dict['questions'].append(question_dict)
             response['categories'].append(category_dict)
