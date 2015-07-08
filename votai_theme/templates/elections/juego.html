@@ -3,6 +3,31 @@
 {% load thumbnail %}
 {% load votainteligente_extras %}
 
+
+    <div id="sideLeft">
+        <div class="descubriendo">
+                <h4>Descubriendo<br/> con qu&#233; candidato coincid&#237;s m&#225;s...</h4>
+        <select name="elecci&#243;n" id="eleccion1"></select>
+        <br/>
+        <br/>
+        <button type="button" class="bEmpez">
+                <span style="font-size:1.5em;vertical-align:middle;">Empezar</span>
+        </button>
+        </div>
+        <div class="menu">
+                <hr>
+                <a><b>Comenzar de nuevo</b></a><br/>
+                <hr>
+                <a><b>Compartir con amigos</b></a><br/>
+                <hr>
+                <a><b>Acerca de YQS</b></a><br/>
+                <hr>
+                <a><b>Plataforma de investigacion</b></a>
+                <hr>
+                </div>
+</div>
+
+
 <div id=inicio>
 	<div class="row">
 		<img src="{% static 'img/YQSlogo.jpg' %}" class='imgInicio' >
@@ -28,22 +53,7 @@
 	</button>        
 	</div>
 </div>
-<div id="inicioD">
-	<div class="descubIni">
-		
-			<div class="col-xs-3 col-md-3" id="inviDC3"></div>
-			<div class="col-xs-3 col-md-3" id="inviDC1">Informate sobre los pre-candidatos<br/> nacionales y de tu provincia</div>		
-		<div class="col-xs-3 col-md-3" id="inviDC2"><select name="elecci&#243;n" id="eleccion"></select></div>
-			<div class="col-xs-3 col-md-3" id="inviDC3"></div>
-			<br/>
-			<br/>
-			<h4>Descubr&#237; con qu&#233; pre-candidato a<br/><b style="color:#dd3975;">presidente</b> coincid&#237;s m&#225;s...</h4>
 
-	<button type="button" class="bEmpez">
-		<span style="font-size:1.5em;vertical-align:middle;">Jugar</span>
-	</button>        
-	</div>
-</div>
 <div id=game>
 	<button type="button" class="bMenuH"></button>
 	<div class="resultados">

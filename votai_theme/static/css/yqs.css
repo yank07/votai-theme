@@ -1,5 +1,3 @@
-/* TEST AUTODEPLOY 4 */
-
 @font-face {
     font-family: yqsFont;
     src: url(../fonts/POLITICA.TTF);
@@ -10,10 +8,15 @@
    src: url(../fonts/POLITICA_BOLD.TTF);
    font-weight: bold;
 }
+
+
+html {
+	padding: 0;
+}
 header{
-	position:absolute;
 	width:100%;
 	height:10%;	
+	min-height:37px;
 	box-shadow: 5px 0px 6px #174c3e;	
 }
 .hLogo{

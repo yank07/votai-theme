@@ -659,10 +659,12 @@ function jugar(){
 				$("#wrapper").hide();
 			}else{
 				$("#inicio").hide();
+				$("#inicioD").hide();
+	
 				//$("#inicio").css("left",($(window).width()*0.5-parseFloat($("#inicio").css("width"))*0.5)+"px");
 				$(".bMenuH").hide();
 				$("#game").css("left",($(window).width()*0.5-parseFloat($("#game").css("width"))*0.5)+"px");
-				$("#sideLeft").hide();	
+				//$("#sideLeft").hide();	
 			}
 			
 			w = $("#game").width();
