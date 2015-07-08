@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% load thumbnail %}
 {% load votainteligente_extras %}
-
+{% load flatpages %}
 
     <div id="sideLeft">
         <div class="descubriendo">
@@ -15,18 +15,19 @@
         </button>
         </div>
         <div class="menu">
-                <hr>
-                <a><b>Comenzar de nuevo</b></a><br/>
-                <hr>
-                <a><b>Compartir con amigos</b></a><br/>
-                <hr>
-                <a><b>Acerca de YQS</b></a><br/>
-                <hr>
-                <a><b>Plataforma de investigacion</b></a>
-                <hr>
-                </div>
+                <ul><li>
+                <a>Comenzar de nuevo</a></li>
+                <li>
+                <a>Compartir con amigos</a></li>
+                </ul>
+{% get_flatpages as about_pages %}
+<ul>
+    {% for page in about_pages %}
+        <li><a href="/pages{{ page.url }}">{{ page.title }}</a></li>
+    {% endfor %}
+</ul>
 </div>
-
+</div>
 
 <div id=inicio>
 	<div class="row">
