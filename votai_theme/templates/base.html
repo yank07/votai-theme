@@ -72,130 +72,13 @@
 		<hr>
 		</div>
 </div>
-<div id=inicio>
-	<div class="row">
-		<img src="{% static 'img/YQSlogo.jpg' %}" class='imgInicio' >
-	</div>
-	<div class="row"></br></div>
-	<div class="row">
-		<div class="col-xs-1 col-md-4" id="iniColS">
-		</div>
-		<div class="col-xs-10 col-md-4" id="iniColC">
 
-			<h4 class="invita">&#191;Con  cu&#225;l candidato tengo</br>m&#225;s afinidad?<br/><br/>
-				<select name="elecci&#243;n" id="eleccion1"></select>
-				</h4><br/>
-		</div>
-		<div class="col-xs-1 col-md-4" id="iniColS">
-		</div>
-	</div>
-	<div class="row"></div>
-	<div class="row">
-		<button type="button" class="bJugar">
-		<span style="font-size:1.5em;vertical-align:middle;">Empezar</span>
-		<span style="font-size:3em; vertical-align:middle;"><b>&#20;&#20;>></b></span>
-	</button>        
-	</div>
-</div>
-<div id="inicioD">
-	<div class="descubIni">
-		
-			<div class="col-xs-3 col-md-3" id="inviDC3"></div>
-			<div class="col-xs-3 col-md-3" id="inviDC1">Informate sobre los pre-candidatos<br/> nacionales y de tu provincia</div>		
-		<div class="col-xs-3 col-md-3" id="inviDC2"><select name="elecci&#243;n" id="eleccion"></select></div>
-			<div class="col-xs-3 col-md-3" id="inviDC3"></div>
-			<br/>
-			<br/>
-			<h4>Descubr&#237; con qu&#233; pre-candidato a<br/><b style="color:#dd3975;">presidente</b> coincid&#237;s m&#225;s...</h4>
-
-	<button type="button" class="bEmpez">
-		<span style="font-size:1.5em;vertical-align:middle;">Jugar</span>
-	</button>        
-	</div>
-</div>
-<div id=game>
-	<button type="button" class="bMenuH"></button>
-	<div class="resultados">
-		<h3 class="pregResu"></h3>
-		<div class="postuCont">
-		<div class="posturas"></div>
-		<div class="posturasBG"></div>
-		</div>
-		<button type="button" class="sigue">
-		<span style="font-size:1.5em;vertical-align:middle;">Siguiente</span>
-		<span style="font-size:3em; vertical-align:middle;"><b>&#20;&#20;>></b></span>
-		</button>
-	</div>
-	<div class="preguntas">
-	<div class="row" id="encabezado">
-		<div class="recorrido">
-			<ul>
-				<div class="dots" id="p0"></div>
-				<div class="dots" id="p1"></div>
-				<div class="dots" id="p2"></div>
-				<div class="dots" id="p3"></div>
-				<div class="dots" id="p4"></div>
-				<div class="dots" id="p5"></div>
-				<div class="dots" id="p6"></div>
-				<div class="dots" id="p7"></div>
-			</ul>
-		</div>
-
-		<div class="pregunta">
-			<!--	<div class="page-header"> -->
-				<h3 class="tPreg">&#191;El aborto deber&#237;a ser legal y para todos?</h3>
-				<!--	</div> -->
-		</div>
-	</div>
-		
-			<div class="col-xs-6 col-md-6" id="tarjeta1" style="text-align:right"><button type="button" class='voto' id="vSi" alt="Si" >SI</button></div>
-			<div class="col-xs-6 col-md-6" id="tarjeta2" style="text-align:left"><button type="button" class='voto' id="vNo" alt="No" >NO</button></div>
-
-			<div class="opciones"><img class="popupBg" src="{% static 'img/popup.png' %}">
-				<button class="closeBtn"></button>
-				<button class="bOp1"><div class="op1" id="opc"></div></button>
-				<button class="bOp2"><div class="op2" id="opc"></div></button>
-				<button class="bOp3"><div class="op3" id="opc"></div></button>
-				<button class="bOp4"><div class="op4" id="opc"></div></button>		
-			</div>	
-
-		<div class="sobreFondo" style="text-align:center;z-index:1">
-			<img src="{% static 'img/sobre_fondo.png' %}">
-		</div>
-		<div class="sobreFrente" style="text-align:center;z-index:3">
-			<img src="{% static 'img/sobre_frente.png' %}">
-		</div>
-		<div class="sobreChicos" style="text-align:center;z-index:2">
-			<img src="{% static 'img/sobresChicos.png' %}">
-		</div>
-
-		<button type="button" class="bMasO">
-		<span style="font-size:2em; vertical-align:middle;"><b>+  </b></span>
-		<span style="font-size:1.5em;vertical-align:middle;">OPCIONES</span>
-		</button>
-
-		<button type="button" class="bSaltear">
-		<span style="font-size:1.5em;vertical-align:middle;">SALTEAR</span>
-		<span style="font-size:2em; vertical-align:middle;"><b>>></b></span>
-		
-		</button>
-		
-		<div class="urna1" style="text-align:center;z-index:1">
-			<img src="{% static 'img/ranura1.png' %}">
-		</div>
-		<div class="urna2" style="text-align:center;z-index:2">
-			<img src="{% static 'img/ranura2.png' %}">
-		</div>
-	
-		<div class="afiT">Afinidad</div>
-		<div class="afinidad">
-			<div class="afiniImg"></div>
-		</div>
-	</div>
-</div>
+{% block juego %}		
+{% endblock %}
 
         <div id="wrapper">
-		<div class="margVI"></div>
+{%block juego-margen %}
+{% endblock%}
             <div class="container">
                 {% block content %}
                 {% endblock content %}
@@ -232,8 +115,6 @@
         <script src="{% static 'js/jquery.expander.js' %}"></script>
 
         <script src="{% static 'js/main.js' %}"></script>
-        <script src="{% static 'js/mainGame.js' %}"></script>
-        <script src="{% static 'js/jstween-1.2.min.js' %}"></script>
         <script type="text/javascript">
         var app = angular.module('votainteligente', []);
         </script>
@@ -241,6 +122,10 @@
         {% block extrajs %}
         {% endblock extrajs %}
         </script>
+
+        {% block extrascripts %}
+        {% endblock extrascripts %}
+
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>

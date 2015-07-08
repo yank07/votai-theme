@@ -7,7 +7,24 @@
 {% include 'elections/home.js' %}
 {% endblock extrajs %}
 
-{% block content %}
+{% block extrascripts %}
+<script src="{% static 'js/mainGame.js' %}"></script>
+<script src="{% static 'js/jstween-1.2.min.js' %}"></script>
+{% endblock %}
+
+
+{% load votainteligente_extras %}
+
+{% block juego %}
+{% include 'elections/juego.html' %}
+{% endblock %}
+
+{%block juego-margen %}
+<div class="margVI"></div>
+{% endblock%}
+
+
+{% block content%}
 <div>
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
