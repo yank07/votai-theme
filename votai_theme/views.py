@@ -3,7 +3,7 @@ from votai_theme.calculator import YQSCalculator
 from django.http import JsonResponse
 from candidator.models import TakenPosition
 from votai_theme.models import AnswerValue
-
+from sorl.thumbnail import get_thumbnail
 
 class MediaNaranjaView(SoulMateDetailView):
     calculator_class = YQSCalculator
@@ -45,11 +45,14 @@ class MedianaranjaJsonView(MediaNaranjaView):
                 category_dict['questions'].append(question_dict)
             response['categories'].append(category_dict)
         for candidate in election.candidates.all():
+            im = get_thumbnail(candidate.image, '100x100', format='PNG', crop='center', quality=99)
             candidate_dict = {'candidate_id': candidate.id,
                               'candidate_name': candidate.name,
-                              'candidate_pic': candidate.image,
+                              'candidate_pic': im.url,
+                              'candidate_color': candidate.extra_info['color'],
                               'positions': []
                               }
+            
             taken_positions = TakenPosition.objects.filter(position__topic__category__in=election.categories.all(), person=candidate)
             for taken_position in taken_positions:
                 taken_position_dict = {'question_id': taken_position.topic.id,

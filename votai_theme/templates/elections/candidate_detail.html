@@ -24,8 +24,8 @@
 					<div id="candidate-img-profile">
 						{% if candidate.image %}
 
-						{% thumbnail candidate.image "300x300" crop="center" as im %}
-						    <img src="{{ im.url }}" alt="{{candidate.name}}" height="300" width="300" border="0" class="img-responsive">
+						{% thumbnail candidate.image "300x300" crop="center"  format="PNG" as im %}
+						    <img src="{{ im.url }}" alt="{{candidate.name}}" height="300" width="300" border="0" class="img-responsive" style="background-color: {{candidate.extra_info.color}} ">
 						{% endthumbnail %}
 						
 						{% else %}

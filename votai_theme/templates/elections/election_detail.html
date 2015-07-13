@@ -59,8 +59,8 @@
 		<div class="col-md-2">
 			
 			{% if candidate.image %}
-				{% thumbnail candidate.image "300x300" crop="center" as im %}
-				<a href="{% url 'candidate_detail_view' election_slug=election.slug slug=candidate.id %}"><img src="{{im.url}}" alt="{{candidate.name}}" border="0" class="img-responsive">{% if candidate.extra_info.custom_ribbon %}<div class="ribbon">{{ candidate.extra_info.custom_ribbon }}</div>{% endif %}</a>
+				{% thumbnail candidate.image "300x300" crop="center" format="PNG" as im %}
+				<a href="{% url 'candidate_detail_view' election_slug=election.slug slug=candidate.id %}"><img src="{{im.url}}" alt="{{candidate.name}}" border="0" class="img-responsive" style="background-color: {{ candidate.extra_info.color }}">{%if candidate.extra_info.custom_ribbon %}<div class="ribbon">{{ candidate.extra_info.custom_ribbon }}</div>{% endif %}</a>
 				{% endthumbnail %}
 			{% else %}
 				<a href="{% url 'candidate_detail_view' election_slug=election.slug slug=candidate.id %}"><img src="{% static 'img/candidate-default.jpg' %}" alt="{{candidate.name}}" border="0" class="img-responsive">{% if candidate.extra_info.custom_ribbon %}<div class="ribbon">{{ candidate.extra_info.custom_ribbon }}</div>{% endif %}</a>

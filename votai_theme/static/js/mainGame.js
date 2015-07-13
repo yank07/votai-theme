@@ -605,7 +605,7 @@ var app = (function(){
 
 function jugar(){
 		console.log("static/data/yqs"+id+".json");
-				$.getJSON( "static/data/yqs"+id+".json", function( data ) {			
+				$.getJSON( "/static/data/yqs"+id+".json", function( data ) {			
 					//console.log(data);
 					eleccion = data;
 					preguntas = eleccion["Preguntas"];			
