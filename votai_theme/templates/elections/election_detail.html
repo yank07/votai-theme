@@ -10,47 +10,25 @@
 {% block mainelection %}
 
 
-<div id="inicioD">
-        <div class="descubIni">
-
+<div id="inicioD" style="padding-top: 0">
+        <div class="descubIni" style="overflow: hidden">
+                <div class="col-xs-                        <div class="col-xs-3 col-md-3" id="inviDC3"></div>
                         <div class="col-xs-3 col-md-3" id="inviDC3"></div>
-                        <div class="col-xs-3 col-md-3" id="inviDC1">Informate sobre los pre-candidatos<br/> nacionales y de tu provincia</div>
+		<div class="col-md-3" id="inviDC1">Informate sobre los pre-candidatos nacionales y de tu provincia</div>
                 <div class="col-xs-3 col-md-3" id="inviDC2"><select name="elecci&#243;n" id="eleccion"></select></div>
-                        <div class="col-xs-3 col-md-3" id="inviDC3"></div>
-                        <br/>
-                        <br/>
-                        <h4>Descubr&#237; con qu&#233; pre-candidato a<br/><b style="color:#dd3975;">presidente</b> coincid&#237;s m&#225;s...</h4>
-
-        <button type="button" class="bEmpez">
-                <span style="font-size:1.5em;vertical-align:middle;">Jugar</span>
-        </button>
         </div>
+{% if 'soulmate'|val_navbars and election.uses_soul_mate  %}
+<div class="soulmate-link" style="border-radius: 1em; padding: 1em; background: #ccc; clear: both; margin-top: 1em;">
+        <h4>Descubr&#237; con cuál de los <b style="color:#dd3975;">{{ election }}</b> coincid&#237;s m&#225;s...</h4>
+	<a style="padding: 1em 3em" class="bEmpez" href="{% url 'soul_mate_detail_view' slug=election.slug %}" accesskey="n" title="{% trans "1/2 Naranja" %} (Alt+n)">
+<span style="font-size:1.5em;vertical-align:middle;">{% trans "1/2 Naranja" %}</span>
+	</a>
 </div>
-        <div class="row">
-                <div class="nav-candidator">
-                        <nav class="col-md-12">
-                                <ul class="list-inline">
-					{% if 'profiles'|val_navbars  %}
-					<li {% block tab_profile %}{% endblock %}><a href="{% url 'election_view' slug=election.slug %}" accesskey="p" title="{% trans "Perfiles" %} (Alt+p)"><i class="icon-group"></i> {% trans "Perfiles" %}</a></li>
-					{% endif %}
-					{% if 'questionary'|val_navbars and election.uses_questionary  %}
-					<li {% block tab_questionary %}{% endblock %}><a href="{% url 'questionary_detail_view' slug=election.slug %}" accesskey="c" title="{% trans "Cuestionario" %} (Alt+c)"><i class="icon-list"></i> {% trans "Cuestionario" %}</a></li>
-					{% endif %}
-					{% if 'soulmate'|val_navbars and election.uses_soul_mate  %}
-					<li {% block tab_soulmate %}{% endblock %}><a href="{% url 'soul_mate_detail_view' slug=election.slug %}" accesskey="n" title="{% trans "1/2 Naranja" %} (Alt+n)"><i class="icon-heart"></i> {% trans "1/2 Naranja" %}</a></li>
-					{% endif %}
-					{% if 'facetoface'|val_navbars and election.uses_face_to_face  %}
-					<li {% block tab_facetoface %}{% endblock %}><a href="{% block url_face_to_face %}{% url 'face_to_face_no_candidate_detail_view' slug=election.slug %}{% endblock url_face_to_face %}" accesskey="f" title="{% trans "Frente a Frente" %} (Alt+f)"><i class="icon-bolt"></i> {% trans "Frente a Frente" %}</a></li>
-					{% endif %}
-					
-					{% if election.extra_info_title %}
-					<li {% block tab_extrainfo %}{% endblock %}><a href="{% url 'election_extra_info' slug=election.slug %}"><i class="icon-info"></i> {{election.extra_info_title}} </a></li>
-					{% endif %}
-                                </ul>
-                        </nav>
-                </div>
+{% endif %}
         </div>
-
+        <div>
+                <h2 class="text-center">{{ election }}</h2>
+        </div>
 
 
 <div class="row">
@@ -81,4 +59,24 @@
 		{% endfor %}
 	</div>
 </div>
+        <div class="row">
+                <div class="nav-candidator">
+                        <nav class="col-md-12">
+                                <ul class="list-inline">
+                                       {% if 'questionary'|val_navbars and election.uses_questionary  %}
+                                       <li {% block tab_questionary %}{% endblock %}><a href="{% url 'questionary_detail_view' slug=election.slug %}" accesskey="c" title="{% trans "Cuestionario" %} (Alt+c)"><i class="icon-list"></i> {% trans "Cuestionario" %}</a></li>
+                                       {% endif %}
+                                       {% if 'facetoface'|val_navbars and election.uses_face_to_face  %}
+                                       <li {% block tab_facetoface %}{% endblock %}><a href="{% block url_face_to_face %}{% url 'face_to_face_no_candidate_detail_view' slug=election.slug %}{% endblock url_face_to_face %}" accesskey="f" title="{% trans "Frente a Frente" %} (Alt+f)"><i class="icon-bolt"></i> {% trans "Frente a Frente" %}</a></li>
+                                       {% endif %}
+                                       
+                                       {% if election.extra_info_title %}
+                                       <li {% block tab_extrainfo %}{% endblock %}><a href="{% url 'election_extra_info' slug=election.slug %}"><i class="icon-info"></i> {{election.extra_info_title}} </a></li>
+                                       {% endif %}
+                                </ul>
+                        </nav>
+                </div>
+        </div>
+
+
 {% endblock mainelection %}

@@ -50,7 +50,47 @@
     </head>
     <body data-ng-app="votainteligente">
 <header>
-	<div class="hLogo"><span></span><img src="{% static 'img/YQSlogo.jpg' %}" class='imgHeader'></div>
+<div class="hLogo"><span></span><img src="{% static 'img/YQSlogo.jpg' %}" class='imgHeader'></div>
+
+<style type="text/css">
+header {
+height: auto;
+}
+#headermenu { 
+margin-top: 1em;
+font-family: yqsFont, "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; 
+font-size: 1.5em;
+}
+#headermenu a {
+	color: white;
+padding: 0 0.5em;
+}
+
+#headermenu a:hover {
+	text-decoration: underline;
+}
+
+</style>
+<ul class="list-inline" id="headermenu">
+	<li>
+		<a href="/election/pre-candidato-a-presidente">Presidentes</a>
+	</li>
+	<li>
+		<a href="/pages/gobernadores">Gobernadores</a>
+	</li>
+	<li>
+		<a href="http://investigacion.yoquierosaber.org/posts">Otros cargos</a>
+	<li>
+	<li>
+		<a href="http://investigacion.yoquierosaber.org/">Investigación</a>
+	</li>
+        <li>
+                <a href="/pages/medios/">Medios</a>
+        </li>
+        <li>
+                <a href="/pages/nosotros/">Nosotros</a>
+        </li>
+
 </header>
 
 {% block juego %}		
@@ -67,21 +107,42 @@
 
        <footer class="footer">
 	<div class="calendario"><h3 class="faltan">Calendario electoral: faltan 62 d&#237;as para las PASO</h3>
-				<p>colabor&#225; con nuestra investigaci&#243;n</p>
 				</div>
+<button class="colabora"><a href="http://investigacion.yoquierosaber.org/">Colabor&#225; con nuestra investigaci&#243;n</a></button>
 
 				<div class="about">
-					<br/>
-					<h4>Coordinan</h4>
-					<p>Acci&#243;n Social Di Tella, Congreso Interactivo, Open Knowledge Argentina, Data Conception</p>
-					<h4>Apoyan</h4>
-					<p>Hacklabs, MySociety</p>
-					<h4>Directorio Legislativo</h4>
-					<p>WeMe, Fundaci&#243;n Conciencia</p>
-					<h4>Desarrollado por Ciudadano Inteligente</h4>
 
-					<p><a>Revisa nuestro c&#243;digo en GitHub</a></p>
-					<p><a>&#191;Quieres tener un sitio como este para tus elecciones?</a></p>
+      <div class="footer__bylines">
+        <h4>Hecho por</h4>
+        <p>
+          <a href="http://www.congresointeractivo.org"><img src="/static/img/logo-congreso-interactivo.png" width="107" height="40" alt="Congreso Interactivo"></a>
+          <a href="http://ar.okfn.org"><img src="/static/img/logo-okf-argentina.png" width="172" height="40" alt="Open Knowledge Argentina"></a>
+          <a href="http://twitter.com/dataconcepcion"><img src="/static/img/logo-datos-concepcion.png" width="35" height="40" alt="Datos Concepción"></a>
+          <a href="http://www.directoriolegislativo.org/"><img src="/static/img/logo-directorio-legislativo.png" width="130" height="40" alt="Directorio Legislativo"></a>
+        </p>
+        <h4>Socios</h4>
+        <p>
+          <a href="http://www.taringa.com">Taringa</a> &middot;
+          <a href="http://www.acij.org.ar">ACIJ</a> &middot;
+          <a href="http://www.conciencia.org">Asociación Conciencia</a> &middot;
+          <a href="http://www.we-me.org">We-Me</a>
+        </p>
+        <h4>Apoyado por </h4>
+        <p>
+          <a href="http://hackslabs.org/">HacksLabs</a> &middot;
+          <a href="http://www.worldbank.org/">World Bank</a> &middot;
+          <a href="http://www.icfj.org/">ICFJ</a>
+        </p>
+        <h4>Desarrollado por </h4>
+        <p>
+          <a href="https://mysociety.org">mySociety</a> &middot;
+          <a href="http://www.ciudadanointeligente.org">Ciudadano Inteligente</a> &middot;
+          <a href="http://www.clinica-web.com.ar">Clínica Web</a>
+        </p>
+        <p>
+          <a href="/pages/nosotros/">Mostrar todos los colaboradores y voluntarios</a>
+        </p>
+      </div>
 
 				</div>
 </footer> 
