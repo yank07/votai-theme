@@ -8,30 +8,30 @@
 <script type="text/javascript">
 elections_json = {% elections_json %};
 </script>
-
-    <div id="sideLeft">
+<div id="telon" style=""><img class="loading" src="img/loading.gif"></div>
+<div id="sideLeft">
         <div class="descubriendo">
                 <h4>Descubriendo<br/> con qu&#233; candidato coincid&#237;s m&#225;s...</h4>
         <select name="elecci&#243;n" id="eleccion1"></select>
         <br/>
         <br/>
         <button type="button" class="bEmpez">
-                <span style="font-size:1.5em;vertical-align:middle;">Empezar</span>
+                <span style="font-size:1.5em;vertical-align:middle;">Jugar</span>
         </button>
         </div>
-        <div class="menu">
+        	<div class="menu" id="menuDesk">
                 <ul><li>
                 <a>Comenzar de nuevo</a></li>
                 <li>
                 <a>Compartir con amigos</a></li>
                 </ul>
-{% get_flatpages as about_pages %}
-<ul>
-    {% for page in about_pages %}
-        <li><a href="/pages{{ page.url }}">{{ page.title }}</a></li>
-    {% endfor %}
-</ul>
-</div>
+		{% get_flatpages as about_pages %}
+		<ul>
+		    {% for page in about_pages %}
+		<li><a href="/pages{{ page.url }}">{{ page.title }}</a></li>
+		{% endfor %}
+		</ul>
+	</div>
 </div>
 
 <div id=inicio>
@@ -60,18 +60,74 @@ elections_json = {% elections_json %};
 	</div>
 </div>
 
+<div id="inicioD">
+	<div class="descubIni">
+		
+			<div class="col-xs-3 col-md-3" id="inviDC3"></div>
+			<div class="col-xs-3 col-md-3" id="inviDC1">Informate sobre los pre-candidatos<br/> nacionales y de tu provincia</div>		
+		<div class="col-xs-3 col-md-3" id="inviDC2"><select name="elecci&#243;n" id="eleccion1"></select></div>
+			<div class="col-xs-3 col-md-3" id="inviDC3"></div>
+			<br/>
+			<br/>
+			<h4>Descubr&#237; con qu&#233; pre-candidato a<br/><b style="color:#dd3975;">presidente</b> coincid&#237;s m&#225;s...</h4>
+
+	<button type="button" class="bEmpez">
+		<span style="font-size:1.5em;vertical-align:middle;">Jugar</span>
+	</button>        
+	</div>
+</div>
+
 <div id=game>
 	<button type="button" class="bMenuH"></button>
+	<button type="button" class="bShare"></button>
 	<div class="resultados">
 		<h3 class="pregResu"></h3>
-		<div class="postuCont">
 		<div class="posturas"></div>
-		<div class="posturasBG"></div>
+		<img class="loading" src="img/loading.gif">
+
+		<button type="button" class="encSi">S&#237</button>
+		<button type="button" class="encNo">No</button>
+
+		<div class="correoU">
+			Si quer&#233;s dejanos tu mail<br>para enviarte m&#225;s informaci&#243;n antes de las elecciones:<br><br>
+		<input type="text" name="correo" id="inCorreo">		
 		</div>
+
+		<button type="button" class="enviar">Enviar</button>
+		<div class="resuFooter">
 		<button type="button" class="sigue">
 		<span style="font-size:1.5em;vertical-align:middle;">Siguiente</span>
 		<span style="font-size:3em; vertical-align:middle;"><b>&#20;&#20;>></b></span>
 		</button>
+		</div>
+	</div>
+	<div class="intermedio">
+				<button class="closeInter"></button>
+		<div class="afiniCand">
+				<div class="afiniCHead">
+					<img class='afiniCImg' width=90px height=90px><div class="afiniCNom"></div>				
+				</div>
+				<div class="coincide"><div class="tit">Coincide con vos:</div><br/>
+					<!--<div class="AfiniCV"><div class="afVot" id="afVSi"><span style="vertical-align:middle;">Si</span></div><div class"afPreg">¿La inseguridad se combate aumentado las penas de los delitos?</div></div>-->
+				</div>
+				<div class="noCoincide"><div class="tit">No coincide con vos:</div><br/></div>
+				
+		</div>	
+		<div class="menu" id="menuMob">
+		<img src=""{% static 'img/YQSlogo.png' %}"" class='imgHeader'>
+		<div style="margin-top:10px">&nbsp;</div>
+		<hr>
+		<a><b>Comenzar de nuevo</b></a><br/>
+		<hr>
+		<a><b>Compartir con amigos</b></a><br/>
+		<hr>
+		<a><b>{% get_flatpages as about_pages %}</b></a><br/>
+		{% for page in about_pages %}
+		<hr>
+		<a href="/pages{{ page.url }}">{{ page.title }}<b>Plataforma de investigacion</b></a><br/>
+		{% endfor %}
+		</div>
+		<div class="share"><div data-social-share-privacy='true'></div></div>
 	</div>
 	<div class="preguntas">
 	<div class="row" id="encabezado">
@@ -95,48 +151,63 @@ elections_json = {% elections_json %};
 		</div>
 	</div>
 		
-			<div class="col-xs-6 col-md-6" id="tarjeta1" style="text-align:right"><button type="button" class='voto' id="vSi" alt="Si" >SI</button></div>
-			<div class="col-xs-6 col-md-6" id="tarjeta2" style="text-align:left"><button type="button" class='voto' id="vNo" alt="No" >NO</button></div>
+			<div class="col-xs-4 col-md-4" id="tarjeta1" ><button type="button" class='voto' id="vSi" alt="Si" >SI</button></div>
+			<div class="col-xs-4 col-md-4" id="tarjeta3" ><button type="button" id="vOp">MAS<br/>OPCIONES</button></div>
+			<div class="col-xs-4 col-md-4" id="tarjeta2" ><button type="button" class='voto' id="vNo" alt="No" >NO</button></div>
 
-			<div class="opciones"><img class="popupBg" src="{% static 'img/popup.png' %}">
-				<button class="closeBtn"></button>
+			<div class="opciones">
 				<button class="bOp1"><div class="op1" id="opc"></div></button>
 				<button class="bOp2"><div class="op2" id="opc"></div></button>
 				<button class="bOp3"><div class="op3" id="opc"></div></button>
-				<button class="bOp4"><div class="op4" id="opc"></div></button>		
+				<button class="bOp4"><div class="op4" id="opc"></div></button>				
+				<br/>
+				<span style="vertical-align:middle;">
+				<button type="button" id="nav2" class="bBack"></button>
+				<button class="closeBtn"></button>
+				<button type="button" id="nav2" class="bSaltear"></button>
+				</span>
 			</div>	
 
-		<div class="sobreFondo" style="text-align:center;z-index:1">
-			<img src="{% static 'img/sobre_fondo.png' %}">
+		<div class="sobreFondo1" style="text-align:center;z-index:1">
+			<img class="sobreTapa" src="{% static 'img/sobre_fondo1.png' %}">
 		</div>
-		<div class="sobreFrente" style="text-align:center;z-index:3">
+		<div class="sobreFondo2" style="text-align:center;z-index:1">
+			<img class="sobreFImg" src="{% static 'img/sobre_fondo2.png' %}">
+		</div>
+		<div class="tapaCerrada" style="text-align:center;z-index:5">
+			<img class="sobreTapa2" src="{% static 'img/tapaCerrada.png' %}" >
+		</div>
+		
+		<div class="sobreFrente" style="text-align:center;z-index:6">
 			<img src="{% static 'img/sobre_frente.png' %}">
 		</div>
 		<div class="sobreChicos" style="text-align:center;z-index:2">
-			<img src="{% static 'img/sobresChicos.png' %}">
 		</div>
+		<div class="sobreCerrado" >
+			<img class="sCerrImg" src="{% static 'img/sobreCerrado.png' %}">
+		</div>
+		<button type="button" id="nav1" class="bBack"></button>
 
-		<button type="button" class="bMasO">
-		<span style="font-size:2em; vertical-align:middle;"><b>+  </b></span>
-		<span style="font-size:1.5em;vertical-align:middle;">OPCIONES</span>
-		</button>
-
-		<button type="button" class="bSaltear">
-		<span style="font-size:1.5em;vertical-align:middle;">SALTEAR</span>
-		<span style="font-size:2em; vertical-align:middle;"><b>>></b></span>
+		<button type="button" id="nav1" class="bSaltear"></button>
 		
-		</button>
+		<div class="pre-urna"></div>
 		
-		<div class="urna1" style="text-align:center;z-index:1">
+		<div class="urna1" style="text-align:center;z-index:5">
 			<img src="{% static 'img/ranura1.png' %}">
 		</div>
-		<div class="urna2" style="text-align:center;z-index:2">
+		<div class="urna2" style="text-align:center;z-index:10">
 			<img src="{% static 'img/ranura2.png' %}">
 		</div>
 	
-		<div class="afiT">Afinidad</div>
-		<div class="afinidad">
-			<div class="afiniImg"></div>
+		<div class="afiT" style="z-index:20">Afinidad</div>
+		<div class="afinidad" style="z-index:20">
+			<span class="afiniImg"></span>
 		</div>
+	</div>
+</div>
+<div class="afiniSide">
+	<div class="afiT2">Afinidad</div>
+	<div class="afinidad2" style="z-index:20">
+		<span class="afiniImg2"></span>
 	</div>
 </div>
