@@ -1486,8 +1486,9 @@ var app = (function(){
 function jugar(){
 
 		//console.log("data/yqs"+id+".json");
-				$.getJSON( "{% static 'data/yqs"+id+".json' %}", function( data ) {			
+				//$.getJSON( "{% static 'data/yqs"+id+".json' %}", function( data ) {			
 					//console.log(data);
+					$.getJSON( "http://elecciones2015.yoquierosaber.org/theme/election/pre-candidato-a-presidente/media-naranja.json", function( data ) {			
 					eleccion = data;
 					//preguntas = eleccion["Preguntas"];			
 					//categorias = eleccion["Preguntas"]["Categorias"];
@@ -1910,7 +1911,7 @@ function jugar(){
 
 			//console.log("ACA");
 
-			$.getJSON( "{% static 'data/yqs.json' %}", function( data ) {
+			/*$.getJSON( "{% static 'data/yqs.json' %}", function( data ) {
 				//console.log(data);
 				var options_eleccion = '';
 				$.each(data, function(key,value){				
@@ -1923,8 +1924,10 @@ function jugar(){
 					var index = $(this).get(0).selectedIndex;
 					var d = data[index-1];  // -1 because index 0 is for empty 'Select' option
 				});*/
-				$("#telon").hide();
-			});
+			//	$("#telon").hide();
+			//});
+			
+			$("#telon").hide();
 
 			$( "select#eleccion" ).change( function(){
 				id=$( "select#eleccion option:selected").val();
