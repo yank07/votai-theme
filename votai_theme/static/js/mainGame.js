@@ -1484,8 +1484,9 @@ var app = (function(){
 	}
 
 function jugar(){
-		console.log("data/yqs"+id+".json");
-				$.getJSON( "data/yqs"+id+".json", function( data ) {			
+
+		//console.log("data/yqs"+id+".json");
+				$.getJSON( "{% static 'data/yqs"+id+".json' %}", function( data ) {			
 					//console.log(data);
 					eleccion = data;
 					//preguntas = eleccion["Preguntas"];			
@@ -1908,7 +1909,8 @@ function jugar(){
 			});
 
 			//console.log("ACA");
-			$.getJSON( "data/yqs.json", function( data ) {
+
+			$.getJSON( "{% static 'data/yqs.json' %}", function( data ) {
 				//console.log(data);
 				var options_eleccion = '';
 				$.each(data, function(key,value){				
