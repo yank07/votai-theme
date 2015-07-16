@@ -1675,7 +1675,7 @@ button:focus {
 	#tarjeta1,#tarjeta2{
 		padding-top:40px;
 		//height:50%;
-		height:112px;
+		height:280px;
 	}
 
 	#tarjeta3{
@@ -1689,7 +1689,7 @@ button:focus {
 	
 	.urna1,.urna2{
 		//top:90%;
-		top:622px;
+		top:504px;
 	}
 
 	.urna1 img, .urna2 img{
