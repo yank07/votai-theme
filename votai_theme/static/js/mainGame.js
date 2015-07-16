@@ -1714,6 +1714,11 @@ console.log(url);
 			// Listener por resize de la ventana
 			window.addEventListener("resize", function() {
 				if(mobile){
+				$("header").hide();
+				$(".footer").hide();
+				$(".sideLeft").hide();
+				$("#inicioD").hide();
+				$(".afiniSide").hide();
 				// Get screen size (inner/outerWidth, inner/outerHeight)
 				w = $("#game").width();
 				h = $("#game").height();
@@ -1735,6 +1740,8 @@ console.log(url);
 					var cant = candidatos.length;
 					var aH = $(".afinidad").height();				
 					if(pregCount>0){
+						$(".afiniImg").show();
+						$(".afiT").show();
 						var invMaxPunt = 1/puntajes[0][0];
 						for(var i=0;i<cant;i++){						
 							var fW = (aH*0.5)+(aH*0.5)*puntajes[i][0]*invMaxPunt;
