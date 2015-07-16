@@ -1663,7 +1663,9 @@ button:focus {
 	.tPreg{
 		font-size:2.5em;
 		padding-top:10px;
-		height:25%;
+		height:128px;
+		padding-left:48px;
+		padding-right:48px;
 	}
 	.recorrido ul {
 		padding-top: 20px;
