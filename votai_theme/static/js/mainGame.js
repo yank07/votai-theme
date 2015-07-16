@@ -1485,10 +1485,17 @@ var app = (function(){
 
 function jugar(){
 
+url = "/theme/election/pre-candidato-a-presidente/media-naranja.json";
+
+if (/theme\/election\/(.*)\//.test(location.href)) {
+	election = /theme\/election\/([^\/]*)\//.exec(location.href)[1];
+	url =  "/theme/election/"+election+"/media-naranja.json";
+}
+console.log(url);
 		//console.log("data/yqs"+id+".json");
 				//$.getJSON( "{% static 'data/yqs"+id+".json' %}", function( data ) {			
 					//console.log(data);
-					$.getJSON( "http://elecciones2015.yoquierosaber.org/theme/election/pre-candidato-a-presidente/media-naranja.json", function( data ) {			
+					$.getJSON( url, function( data ) {			
 					eleccion = data;
 					//preguntas = eleccion["Preguntas"];			
 					//categorias = eleccion["Preguntas"]["Categorias"];
