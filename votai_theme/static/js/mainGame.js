@@ -1343,6 +1343,7 @@ var app = (function(){
 			var cant = candidatos.length;
 			for(var i=0;i<cant;i++){
 				if($(this).attr("src")==fotos[i].src){
+					console.log("Lo encotro");
 					showAfinidad(i);
 					break;
 				}
@@ -1390,7 +1391,8 @@ var app = (function(){
 		$(".afiniCand").show();
 
 		openIntermedio();
-		//console.log("opciones");
+		console.log("Candidate Nr: "+candN);
+		console.log(fotos[candN].src);
 		
 		$(".afiniCIMG").attr("src",fotos[candN].src);
 		$(".afiniCNom").html(candidatos[candN]["candidate_name"]+"<br/><span style='font-size:0.6em;vertical-align:middle;'>"+candidatos[candN]["candidate_id"]+"</span>");
