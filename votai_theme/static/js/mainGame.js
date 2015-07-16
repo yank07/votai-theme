@@ -842,7 +842,7 @@ var app = (function(){
 		var fS = parseFloat($(".tPreg").css("font-size"));
 		var par = $(".tPreg").get(0);
 		var count = 0;
-		while (count<1000 && (par.offsetHeight <par.scrollHeight) {
+		while (count<1000 && (par.offsetHeight <par.scrollHeight)){
 			fS*=0.95;
 			$(".tPreg").css("font-size",fS+"em");
 			count++;
