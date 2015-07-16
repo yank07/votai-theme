@@ -729,6 +729,7 @@ button:focus {
 	font-size:2.5em;
 	font-family:yqsFont;
 	color:#444;
+	font-weight: 100;
 }
 .row #encabezado{
 	display:block;
