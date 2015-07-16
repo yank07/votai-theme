@@ -1275,6 +1275,7 @@ button:focus {
 	.tPreg{
 		font-size:1.3em;
 		padding-top:5px;
+		height:42px;
 	}
 	.pregResu{
 		font-size:1.0em;
@@ -1388,7 +1389,7 @@ button:focus {
 	.tPreg{
 		font-size:1.8em;
 		padding-top:5px;
-		height:20%;
+		height:90px;
 	}
 	.pregResu{
 		font-size:1.5em;
@@ -1481,7 +1482,7 @@ button:focus {
 	.tPreg{
 		font-size:2em;
 		padding-top:10px;
-		height:25%
+		height:140px;
 	}
 	.recorrido ul {
 		padding-top: 20px;
@@ -1545,7 +1546,7 @@ button:focus {
 	.tPreg{
 		font-size:2.5em;
 		padding-top:10px;
-		height:25%
+		height:158px;
 	}
 
 	.pregResu{
