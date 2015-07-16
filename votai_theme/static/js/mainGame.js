@@ -773,6 +773,19 @@ var app = (function(){
 		return (angle < 0) ? angle + 360 : angle;
 	}
 
+	function resetSacudir(){
+		esperando=false;
+		//$.stop();
+		var rot = -5-getRotDegrees($("#vSi"));
+		$("#vSi").css({ 'transform': 'rotate(' + rot + 'deg)'});
+
+		rot = 5-getRotDegrees($("#vNo"));
+		$("#vNo").css({ 'transform': 'rotate(' + rot + 'deg)'});
+
+		rot = 0-getRotDegrees($("#vOp"));
+		$("#vOp").css({ 'transform': 'rotate(' + rot + 'deg)'});	
+	}	
+
 	function sacudir(element){
 		var rot = getRotDegrees(element);
 		if(esperando){
@@ -816,7 +829,7 @@ var app = (function(){
 		$.play();	
 		}	
 	}
-
+	
 	function nextQuest(id){		
 
 		$(".sobreFondo1").children("img").hide();
@@ -826,6 +839,14 @@ var app = (function(){
 		// Escribe el texto de la siguiente pregunta
 		//$(".tPreg").html(categorias[pregCount%categorias.length]["Texto"][categorias[pregCount%categorias.length]["orden"][parseInt(pregCount/categorias.length)]]);
 		$(".tPreg").html(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_text"]);
+		var fS = parseFloat($(".tPreg").css("font-size"));
+		var par = $(".tPreg").get(0);
+		var count = 0;
+		while (count<1000 && (par.offsetHeight <par.scrollHeight) {
+			fS*=0.95;
+			$(".tPreg").css("font-size",fS+"em");
+			count++;
+		}
 
 		if(pregCount>0){
 			if(mobile){
@@ -1897,7 +1918,7 @@ console.log(url);
 
 			$(".bSaltear").click(function() {
 				//console.log("saltear");
-				esperando=false;
+				resetSacudir();
 				lastPreg = pregCount;
 				pregCount++;
 				if(pregCount>=MaxPreg){
@@ -1912,7 +1933,7 @@ console.log(url);
 
 			$(".bBack").click(function() {
 				//console.log("saltear");
-				esperando=false;
+				resetSacudir();
 				lastPreg = pregCount;
 				pregCount--;
 				if(pregCount<=0)pregCount=0;
@@ -1992,21 +2013,21 @@ console.log(url);
 
 
 			$("#vSi").click(function(){
-				esperando=false;
+				resetSacudir();
 				userRes[pregCount] = 0;
 				puntajeCalc(userRes[pregCount]);
 				animaSi();
 			});
 
 			$("#vNo").click(function() {
-				esperando=false;
+				resetSacudir();
 				userRes[pregCount] = 3;
 				puntajeCalc(userRes[pregCount]);
 				animaNo();
 			});
 
 			$(".bOp1").click(function() {
-				esperando=false;
+				resetSacudir();
 				userRes[pregCount] = 0;
 				puntajeCalc(userRes[pregCount]);
 				$(".opciones").css("top",h+"px");
@@ -2015,7 +2036,7 @@ console.log(url);
 			});
 			//##
 			$(".bOp2").click(function() {
-				esperando=false;
+				resetSacudir();
 				userRes[pregCount] = 1;
 				puntajeCalc(userRes[pregCount]);
 				$(".opciones").css("top",h+"px");
@@ -2023,7 +2044,7 @@ console.log(url);
 				animaSi();
 			});
 			$(".bOp3").click(function() {
-				esperando=false;
+				resetSacudir();
 				userRes[pregCount] = 2;
 				puntajeCalc(userRes[pregCount]);
 				$(".opciones").css("top",h+"px");
@@ -2031,7 +2052,7 @@ console.log(url);
 				animaNo();
 			});
 			$(".bOp4").click(function() {
-				esperando=false;
+				resetSacudir();
 				userRes[pregCount] = 3;
 				puntajeCalc(userRes[pregCount]);		
 				$(".opciones").css("top",h+"px");
