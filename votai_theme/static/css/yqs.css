@@ -752,8 +752,8 @@ button:focus {
 	//overflow:hidden;
 	//position:absolute;
 //	width:50%;
-	height:50%;
-
+	//height:50%;
+	height:200px;
 }
 #tarjeta1{
 	text-align:right;
