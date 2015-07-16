@@ -210,6 +210,7 @@ var app = (function(){
 		}
 
 		tarjeH100 = tarjeFactor*parseFloat($("#tarjeta1").css("height"))/h;
+		console.log(tarjeH100);
 		//tarjeH100 = w<=480?tarjeH100*0.75:tarjeH100;
 
 		//console.log(w);
