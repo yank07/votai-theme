@@ -1243,7 +1243,7 @@ var app = (function(){
 					posBG+="<div class='resuIMG1'><img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div>";
 					posBG+="<div class='resuDatos1'>";
 					posBG+="<div class='resuPor1'>"+parseInt(puntajes[i][0]*invTotal*100)+"%</div>";
-					posBG+="<div class='resuNom1'>"+candidatos[canInd]["candidate_name"]+"<br/><span style='font-size:0.6em;vertical-align:middle;'>"+candidatos[canInd]["candidate_id"]+"</span></div>";
+					posBG+="<div class='resuNom1'>"+candidatos[canInd]["candidate_name"]+"<br/></div>";
 					posBG+="<div class='resuBarra'><div class='barraLlena' style='width:"+parseInt(puntajes[i][0]*invTotal*100)+"%;'>&nbsp;</div><div class='barraVacia' style='width:"+(100-parseInt(puntajes[i][0]*invTotal*100))+"%;'>&nbsp;</div></div>";
 					posBG+="</div>";
 					posBG+="</div>";
@@ -1259,7 +1259,7 @@ var app = (function(){
 					posBG+="<div class='resuCand2'>";
 					posBG+="<div class='resuIMG2'><img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div>";
 					posBG+="<div class='resuDatos2'>";
-					posBG+="<div class='resuNom2'>"+candidatos[canInd]["candidate_name"]+"<br/><span style='font-size:0.6em;vertical-align:middle;'>"+candidatos[canInd]["candidate_id"]+"</span></div>";
+					posBG+="<div class='resuNom2'>"+candidatos[canInd]["candidate_name"]+"<br/></div>";
 					posBG+="<div class='resuBarra'><div class='barraLlena' style='width:"+parseInt(puntajes[i][0]*invTotal*100)+"%;'>&nbsp;</div><div class='barraVacia' style='width:"+(100-parseInt(puntajes[i][0]*invTotal*100))+"%;'>&nbsp;</div></div>";
 					posBG+="<div class='resuPor2'>"+parseInt(puntajes[i][0]*invTotal*100)+"%</div>";
 					posBG+="</div>";
@@ -1299,12 +1299,12 @@ var app = (function(){
 						}else{
 							posBG+="<div class='chatBoxHeader' id='chatNo'>";
 						}				
-						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" <span style='font-size:0.6em;vertical-align:middle;'>"+candidatos[canInd]["candidate_id"]+"</span></h3></div>";
+						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" </h3></div>";
 						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+anTxt+"</p></div></div></div>";
 					//$(".posNom"+i).css("top",$(".chatBG"+i).offset().top);
 					}else{
 						posBG+="<div class='chatBoxHeader' id='chatNo'>";						
-						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" <span style='font-size:0.6em;vertical-align:middle;'>"+candidatos[canInd]["candidate_id"]+"</span></h3></div>";
+						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" </h3></div>";
 						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+" "+"</p></div></div></div>";
 					}
 				}else{
@@ -1325,11 +1325,11 @@ var app = (function(){
 						}else{
 							posBG+="<div class='chatBoxHeader' id='chatNo'>";
 						}
-						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" <span style='font-size:0.6em;vertical-align:middle;'>"+candidatos[canInd]["candidate_id"]+"</span></h3></div>";
+						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" </h3></div>";
 						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+anTxt+"</p></div></div></div>";
 					}else{
 						posBG+="<div class='chatBoxHeader' id='chatNo'>";						
-						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" <span style='font-size:0.6em;vertical-align:middle;'>"+candidatos[canInd]["candidate_id"]+"</span></h3></div>";
+						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" </h3></div>";
 						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+" "+"</p></div></div></div>";
 					}
 				}
@@ -1395,7 +1395,7 @@ var app = (function(){
 		console.log(fotos[candN].src);
 		
 		$(".afiniCIMG").attr("src",fotos[candN].src);
-		$(".afiniCNom").html(candidatos[candN]["candidate_name"]+"<br/><span style='font-size:0.6em;vertical-align:middle;'>"+candidatos[candN]["candidate_id"]+"</span>");
+		$(".afiniCNom").html(candidatos[candN]["candidate_name"]+"<br/>");
 
 		var isCoin = false;
 		var isNCoin = false;
@@ -1454,40 +1454,6 @@ var app = (function(){
 
 		$(".coincide").html(htC);		
 		$(".noCoincide").html(htNC);
-
-		/*for(var i=0;i<cantOp;i++){
-			$(".op"+(i+1)).html("<span>"+categorias[pregCount%categorias.length]["Opciones"][categorias[pregCount%categorias.length]["orden"][parseInt(pregCount/categorias.length)]][i]+"</span>");
-			$(".op"+(i+1)).children("span").css("height",$(".op"+(i+1)).css("height"));
-			if(!opScroll){						
-				var lH = parseFloat($(".op"+(i+1)).children("span").css("height"));
-				var fS = lH*0.75;
-				$(".op"+(i+1)).children("span").css("line-height",lH+"px");
-				//console.log(lH);
-				var par = $(".op"+(i+1)).get(0);
-				//var chil = $(".op"+(i+1)).children("span").get(0);
-				$(".op"+(i+1)).children("span").css("font-size",fS+"px");
-				var count = 0;
-				var fL=30;
-				while (count<1000 && (par.offsetHeight <par.scrollHeight ||par.offsetWidth <par.scrollWidth)) {
-					if(fS>fL){
-						fS-=1;
-						$(".op"+(i+1)).children("span").css("font-size",fS+"px");
-						//console.log("fs"+i+": "+fS);
-					}else{
-						lH=fS*1.25;
-						fL*=0.95;
-						$(".op"+(i+1)).children("span").css("line-height",lH+"px");
-					}
-					count++;
-				}
-			if(count>=1000){
-				var lH = parseFloat($(".op"+(i+1)).children("span").css("height"));
-				$(".op"+(i+1)).children("span").css("line-height",lH+"px");
-						$(".op"+(i+1)).children("span").css("font-size",lH*0.5+"px");
-						
-					}
-				}
-			}*/
 		
 	}
 
@@ -1652,10 +1618,6 @@ console.log(url);
 					}
 				}
 			}
-		/*$(".op1").html("<span>"+preguntas["Opciones"][pregCount][0]+"</span>");
-		$(".op2").html("<span>"+preguntas["Opciones"][pregCount][1]+"</span>");
-		$(".op3").html("<span>"+preguntas["Opciones"][pregCount][2]+"</span>");
-		$(".op4").html("<span>"+preguntas["Opciones"][pregCount][3]+"</span>");*/
 	}
 
 	function encuesta(){
