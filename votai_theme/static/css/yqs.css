@@ -1674,7 +1674,7 @@ button:focus {
 	}
 	#tarjeta1,#tarjeta2{
 		padding-top:40px;
-		height:100px;
+		height:50%;
 	}
 
 	#tarjeta3{
