@@ -1674,7 +1674,8 @@ button:focus {
 	}
 	#tarjeta1,#tarjeta2{
 		padding-top:40px;
-		height:50%;
+		//height:50%;
+		height:112px;
 	}
 
 	#tarjeta3{
@@ -1682,11 +1683,13 @@ button:focus {
 	}
 
 	.sobreFrente,.sobreChicos,.sobreFondo1,.sobreFondo2,.sobreCerrado,.tapaCerrada{
-		top:65%;
+		//top:65%;
+		top:364px;
 	}
 	
 	.urna1,.urna2{
-		top:90%;
+		//top:90%;
+		top:622px;
 	}
 
 	.urna1 img, .urna2 img{
