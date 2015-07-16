@@ -77,7 +77,8 @@ class MedianaranjaJsonView(MediaNaranjaView):
             taken_positions = TakenPosition.objects.filter(position__topic__category__in=election.categories.all(), person=candidate)
             for taken_position in taken_positions:
                 taken_position_dict = {'question_id': taken_position.topic.id,
-                                       'answer_id': taken_position.position.id
+                                       'answer_id': taken_position.position.id,
+                                       'answer_text': taken_position.description
                                        }
                 candidate_dict['positions'].append(taken_position_dict)
             response['candidates'].append(candidate_dict)
