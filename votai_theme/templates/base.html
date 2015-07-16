@@ -52,25 +52,6 @@
 <header>
 <div class="hLogo"><span></span><img src="{% static 'img/YQSlogo.jpg' %}" class='imgHeader'></div>
 
-<style type="text/css">
-header {
-height: auto;
-}
-#headermenu { 
-margin-top: 1em;
-font-family: yqsFont, "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; 
-font-size: 1.5em;
-}
-#headermenu a {
-	color: white;
-padding: 0 0.5em;
-}
-
-#headermenu a:hover {
-	text-decoration: underline;
-}
-
-</style>
 <ul class="list-inline" id="headermenu">
 	<li>
 		<a href="/election/pre-candidato-a-presidente">Presidentes</a>
@@ -93,15 +74,16 @@ padding: 0 0.5em;
 
 </header>
 
-{% block juego %}		
-{% endblock %}
-
         <div id="wrapper">
-{%block juego-margen %}
-{% endblock%}
+
             <div class="container">
+
                 {% block content %}
                 {% endblock content %}
+{% block juego %}
+{% endblock %}
+
+
             </div>
         </div>
 

@@ -10,15 +10,14 @@
 {% block mainelection %}
 
 
-<div id="inicioD" style="padding-top: 0">
-        <div class="descubIni" style="overflow: hidden">
-                <div class="col-xs-                        <div class="col-xs-3 col-md-3" id="inviDC3"></div>
-                        <div class="col-xs-3 col-md-3" id="inviDC3"></div>
-		<div class="col-md-3" id="inviDC1">Informate sobre los pre-candidatos nacionales y de tu provincia</div>
-                <div class="col-xs-3 col-md-3" id="inviDC2"><select name="elecci&#243;n" id="eleccion"></select></div>
+<div class="game-cta">
+       <div class="descubIni" style="overflow: hidden">
+                   <div class="col-md-2" id="inviDC3"></div>
+		<div class="col-md-5" id="inviDC1">Informate sobre los pre-candidatos nacionales y de tu provincia</div>
+                <div class="col-md-4" id="inviDC2"><select name="elecci&#243;n" id="eleccion"></select></div>
         </div>
 {% if 'soulmate'|val_navbars and election.uses_soul_mate  %}
-<div class="soulmate-link" style="border-radius: 1em; padding: 1em; background: #ccc; clear: both; margin-top: 1em;">
+<div class="soulmate-link">
         <h4>Descubr&#237; con cuál de los <b style="color:#dd3975;">{{ election }}</b> coincid&#237;s m&#225;s...</h4>
 	<a style="padding: 1em 3em" class="bEmpez" href="{% url 'soul_mate_detail_view' slug=election.slug %}" accesskey="n" title="{% trans "1/2 Naranja" %} (Alt+n)">
 <span style="font-size:1.5em;vertical-align:middle;">{% trans "1/2 Naranja" %}</span>

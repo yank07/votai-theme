@@ -4,12 +4,25 @@ from django.http import JsonResponse
 from candidator.models import TakenPosition
 from votai_theme.models import AnswerValue
 from sorl.thumbnail import get_thumbnail
+from django.views.decorators.clickjacking import xframe_options_exempt
+
+
+
+class juegoView(SoulMateDetailView):
+    @xframe_options_exempt
+    def dispatch(self, *args, **kwargs):
+        return super(juegoView, self).dispatch(*args, **kwargs)
+
 
 class MediaNaranjaView(SoulMateDetailView):
     calculator_class = YQSCalculator
-
+    @xframe_options_exempt
+    def dispatch(self, *args, **kwargs):
+        return super(MediaNaranjaView, self).dispatch(*args, **kwargs)
+	
 
 class MedianaranjaJsonView(MediaNaranjaView):
+    @xframe_options_exempt
     def dispatch(self, *args, **kwargs):
         super(MedianaranjaJsonView, self).dispatch(*args, **kwargs)
         election = self.object
@@ -45,10 +58,18 @@ class MedianaranjaJsonView(MediaNaranjaView):
                 category_dict['questions'].append(question_dict)
             response['categories'].append(category_dict)
         for candidate in election.candidates.all():
-            im = get_thumbnail(candidate.image, '100x100', format='PNG', crop='center', quality=99)
+
+            imurl =  candidate.extra_info['portrait_photo'];
+            try:
+              im = get_thumbnail(candidate.image, '100x100', format='PNG', crop='center', quality=99);
+              if im is not None: imurl = im.url;
+            
+            except e:
+		pass
+
             candidate_dict = {'candidate_id': candidate.id,
                               'candidate_name': candidate.name,
-                              'candidate_pic': im.url,
+                              'candidate_pic': imurl,
                               'candidate_color': candidate.extra_info['color'],
                               'positions': []
                               }
