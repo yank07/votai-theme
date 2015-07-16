@@ -224,10 +224,10 @@ var app = (function(){
 
 		tar3FS = tarjeH100*h*0.02;
 		tar12FS = tarjeH100*h*0.04;
-		$( "#vNo" ).css("font-size",tar12FS+"px");
-		$( "#vSi" ).css("font-size",tar12FS+"px");
+		$( "#vNo" ).css("font-size",tar12FS+"em");
+		$( "#vSi" ).css("font-size",tar12FS+"em");
 
-		$( "#vOp" ).css("font-size",tar3FS+"px");
+		$( "#vOp" ).css("font-size",tar3FS+"em");
 
 		var tOpW = parseFloat($(".sCerrImg").css("width"))*0.9;		
 		/*$("#vOp").css("width",tOpW+"px");
@@ -1715,7 +1715,14 @@ console.log(url);
 				$("#game").css("left",($(window).width()*0.5-parseFloat($("#game").css("width"))*0.5)+"px");
 				$("#sideLeft").show();
 				var margR=parseFloat($("#sideLeft").css("margin-right"));
-				$("#sideLeft").css("left",($(window).width()*0.5-parseFloat($("#game").css("width"))*0.5-parseFloat($("#sideLeft").css("width"))-margR)+"px");
+				if($(window).width()>960){
+					$("#sideLeft").css("left",($(window).width()*0.5-parseFloat($("#game").css("width"))*0.5-parseFloat($("#sideLeft").css("width"))-margR)+"px");
+				}else{
+					$("#sideLeft").css("width","150px")
+					margR = margR*($(window).width()-768)/(960-768);
+					$("#sideLeft").css("left",($(window).width()*0.5-parseFloat($("#game").css("width"))*0.5-parseFloat($("#sideLeft").css("width"))-margR)+"px");
+					$(".afiniSide").css("margin-left",margR+"px");
+				}
 				$(".afiniSide").css("left",($(window).width()*0.5+parseFloat($("#game").css("width"))*0.5)+"px");
 				$(".afiniSide").css("height",(0.9*$("#game").height())+"px");
 				$(".afiniSide").hide();
@@ -1773,6 +1780,61 @@ console.log(url);
 				}
 				
 				//if($(".resultados").is(":visible"))posiResize();
+				}else{
+				
+				// Get screen size (inner/outerWidth, inner/outerHeight)
+				w = $("#game").width();
+				h = $("#game").height();
+				//h = $(window).height()-$(".navbar").height();
+
+				//$("#game").css("top",$(".navbar").height()+"px");
+				//$("#game").css("width",w+"px");
+				//console.log(w);
+				//$("#game").css("height",h+"px");
+				if(h<480)iniPadH=0.05;
+				$("#inicio").css("padding-top",h*iniPadH+"px");
+				$("#inicio").css("padding-bottom",h*iniPadH+"px");
+
+				$("#inicioD").hide();
+				//$("#inicio").css("left",($(window).width()*0.5-parseFloat($("#inicio").css("width"))*0.5)+"px");
+				$(".bMenuH").hide();
+				$("#game").css("left",($(window).width()*0.5-parseFloat($("#game").css("width"))*0.5)+"px");
+				$("#sideLeft").show();
+				var margR=parseFloat($("#sideLeft").css("margin-right"));
+				if($(window).width()>960){
+					$("#sideLeft").css("left",($(window).width()*0.5-parseFloat($("#game").css("width"))*0.5-parseFloat($("#sideLeft").css("width"))-margR)+"px");
+				}else{
+					$("#sideLeft").css("width","150px")
+					margR = margR*($(window).width()-768)/(960-768);
+					$("#sideLeft").css("left",($(window).width()*0.5-parseFloat($("#game").css("width"))*0.5-parseFloat($("#sideLeft").css("width"))-margR)+"px");
+					$(".afiniSide").css("margin-left",margR+"px");
+				}
+				$(".afiniSide").css("left",($(window).width()*0.5+parseFloat($("#game").css("width"))*0.5)+"px");
+				$(".afiniSide").css("height",(0.9*$("#game").height())+"px");				
+
+				pregResize();	
+
+				//opcionResize();
+
+				if(candidatos){
+					var cant = candidatos.length;
+					var aH = $(".afinidad").height();				
+					if(pregCount>0){
+						var invMaxPunt = 1/puntajes[0][0];
+						for(var i=0;i<cant;i++){						
+							var fW = (aH*0.5)+(aH*0.5)*puntajes[i][0]*invMaxPunt;
+							$(".cFoto"+i).css("width",fW+"px");
+							$(".cFoto"+i).css("height",fW+"px");
+						}
+					}else{
+						for(var i=0;i<cant;i++){												
+							$(".cFoto"+i).css("width",aH+"px");
+							$(".cFoto"+i).css("height",aH+"px");
+						}
+					}
+				}
+				
+				
 				}
 			}, false);
 
