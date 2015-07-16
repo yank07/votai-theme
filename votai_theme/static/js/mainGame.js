@@ -735,7 +735,7 @@ var app = (function(){
 				},
 				top:{
 				start: offset.top, 
-				stop: offUrna.top+h*tarjeH100*0.35,
+				stop: offUrna.top+h*tarjeH100*0.35-2,
 				time: 0,
 				units: 'px',
 				duration: 1,
@@ -1488,18 +1488,9 @@ var app = (function(){
 	}
 
 function jugar(){
-
-url = "/theme/election/pre-candidato-a-presidente/media-naranja.json";
-
-if (/theme\/election\/(.*)\//.test(location.href)) {
-	election = /theme\/election\/([^\/]*)\//.exec(location.href)[1];
-	url =  "/theme/election/"+election+"/media-naranja.json";
-}
-console.log(url);
-		//console.log("data/yqs"+id+".json");
-				//$.getJSON( "{% static 'data/yqs"+id+".json' %}", function( data ) {			
+		console.log("data/yqs"+id+".json");
+				$.getJSON( "data/yqs"+id+".json", function( data ) {			
 					//console.log(data);
-					$.getJSON( url, function( data ) {			
 					eleccion = data;
 					//preguntas = eleccion["Preguntas"];			
 					//categorias = eleccion["Preguntas"]["Categorias"];
@@ -1807,6 +1798,7 @@ console.log(url);
 				var margR=parseFloat($("#sideLeft").css("margin-right"));
 				if($(window).width()>960){
 					$("#sideLeft").css("left",($(window).width()*0.5-parseFloat($("#game").css("width"))*0.5-parseFloat($("#sideLeft").css("width"))-margR)+"px");
+					$(".afiniSide").css("margin-left",margR+"px");
 				}else{
 					$("#sideLeft").css("width","150px")
 					margR = margR*($(window).width()-768)/(960-768);
@@ -1898,9 +1890,9 @@ console.log(url);
 
 			$(".bShare").click(function(){				
 				$(".afiniCand").hide();
-				//$.fn.socialSharePrivacy.settings.title = "Jugu&#233; a YoQuieroSaber";
-				//$.fn.socialSharePrivacy.settings.description = shareTxt;
-				//$.fn.socialSharePrivacy.settings.body = shareTxt;
+				$.fn.socialSharePrivacy.settings.title = "Jugu&#233; a YoQuieroSaber";
+				$.fn.socialSharePrivacy.settings.description = shareTxt;
+				$.fn.socialSharePrivacy.settings.body = shareTxt;
 				$(".share").show();
 				openIntermedio();					
 			});
@@ -1983,8 +1975,7 @@ console.log(url);
 			});
 
 			//console.log("ACA");
-
-			/*$.getJSON( "{% static 'data/yqs.json' %}", function( data ) {
+			$.getJSON( "data/yqs.json", function( data ) {
 				//console.log(data);
 				var options_eleccion = '';
 				$.each(data, function(key,value){				
@@ -1997,10 +1988,8 @@ console.log(url);
 					var index = $(this).get(0).selectedIndex;
 					var d = data[index-1];  // -1 because index 0 is for empty 'Select' option
 				});*/
-			//	$("#telon").hide();
-			//});
-			
-			$("#telon").hide();
+				$("#telon").hide();
+			});
 
 			$( "select#eleccion" ).change( function(){
 				id=$( "select#eleccion option:selected").val();
@@ -2087,4 +2076,5 @@ console.log(url);
 
 })();
 app.init();
+
 

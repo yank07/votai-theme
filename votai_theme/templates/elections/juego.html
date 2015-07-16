@@ -28,7 +28,7 @@ elections_json = {% elections_json %};
 		<a><b>{% get_flatpages as about_pages %}</b></a><br/>
 		<hr>
 		{% for page in about_pages %}
-		<a href="/pages{{ page.url }}">{{ page.title }}<b>Plataforma de investigacion</b></a><br/>
+		<a href="/pages{{ page.url }}"><b>{{ page.title }}</b></a><br/>
 		<hr>
 		{% endfor %}
 	</div>
@@ -123,7 +123,7 @@ elections_json = {% elections_json %};
 		<a><b>{% get_flatpages as about_pages %}</b></a><br/>
 		{% for page in about_pages %}
 		<hr>
-		<a href="/pages{{ page.url }}">{{ page.title }}<b>Plataforma de investigacion</b></a><br/>
+		<a href="/pages{{ page.url }}"><b>{{ page.title }}</b></a><br/>
 		{% endfor %}
 		</div>
 		<div class="share"><div data-social-share-privacy='true'></div></div>	
