@@ -833,7 +833,7 @@ var app = (function(){
 				$(".afiniImg").show();
 				$(".afiT").show();
 			}else{
-				$(".afiniside").show();
+				$(".afiniSide").show();
 				//$(".afiniImg").show();
 			}
 			puntajes.sort(function(a, b){
@@ -1338,6 +1338,7 @@ var app = (function(){
 			$(".posturas").html(posBG);
 		}
 		$("img.rFoto").click(function(){
+			console.log("mostrarAfinidad");
 			var cant = candidatos.length;
 			for(var i=0;i<cant;i++){
 				if($(this).attr("src")==fotos[i].src){
