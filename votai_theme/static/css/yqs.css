@@ -1396,7 +1396,7 @@ button:focus {
 	}
 	#tarjeta1,#tarjeta2,#tarjeta3{
 		//height:40%;
-		height:75px; 
+		height:190px; 
 	}	
 	.sobreFrente,.sobreChicos,.sobreFondo1,.sobreFondo2,.sobreCerrado,.tapaCerrada{
 		//top:55%;
@@ -1496,7 +1496,7 @@ button:focus {
 	}
 	#tarjeta1,#tarjeta2,#tarjeta3{
 		//height:35%; 
-		height:75px;
+		height:210px;
 	}
 	.sobreFrente,.sobreChicos,.sobreFondo1,.sobreFondo2,.sobreCerrado,.tapaCerrada{
 		//top:60%;
