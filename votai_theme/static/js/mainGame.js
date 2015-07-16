@@ -1337,7 +1337,8 @@ var app = (function(){
 			//$(".posturasBG").html(posBG);
 			$(".posturas").html(posBG);
 		}
-		$("img.rFoto").click(function(){
+		//$("img.rFoto").click(function(){
+		$("img#fCand").click(function(){
 			console.log("mostrarAfinidad");
 			var cant = candidatos.length;
 			for(var i=0;i<cant;i++){
