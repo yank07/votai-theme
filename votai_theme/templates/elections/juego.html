@@ -78,7 +78,6 @@ elections_json = {% elections_json %};
 
 <div id=game>
 	<button type="button" class="bMenuH"></button>
-	<button type="button" class="bShare"></button>
 	<div class="resultados">
 		<h3 class="pregResu"></h3>
 		<div class="posturas"></div>
@@ -96,7 +95,7 @@ elections_json = {% elections_json %};
 		<div class="resuFooter">
 		<button type="button" class="bShare">
 		<span style="font-size:1.3em;vertical-align:middle;">Compartir</span>
-		<img src="img/share.png" width=20px height=20px style="margin-left:4px;">
+		<img src="{% static 'img/share.png' %}" width=20px height=20px style="margin-left:4px;">
 		</button>
 			
 		<button type="button" class="sigue">
@@ -106,7 +105,7 @@ elections_json = {% elections_json %};
 
 		<button type="button" class="rejugar">
 		<span style="font-size:1.3em;vertical-align:middle;">Re-Jugar</span>
-		<img src="img/reload.png" width=30px height=30px>
+		<img src="{% static 'img/reload.png' %}" width=30px height=30px>
 		</button>	
 		</div>
 	</div>
