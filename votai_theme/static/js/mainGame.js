@@ -1670,7 +1670,7 @@ console.log(url);
 
 			if(GetUrlValue("frame"))mobile=true;
 
-			gameTop = parseFloat($("#game").css("top"));=
+			gameTop = parseFloat($("#game").css("top"));
 			pregFS = parseFloat($(".tPreg").css("font-size"));
 			resuFS = parseFloat($(".pregResu").css("font-size"));
 
