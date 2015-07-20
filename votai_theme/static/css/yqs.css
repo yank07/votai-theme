@@ -232,6 +232,15 @@ button:focus {
 	text-overflow: ellipsis;
 	white-space: nowrap;*/
 }
+#sideLeft{
+	position:absolute;
+	//left:200px;
+	margin-right:50px;
+	top:120px;
+	text-align:right;
+	width:200px;
+	color:black;
+}
 .bJugar{
 	top:66%;
 	background-color:#da3b75;	
@@ -257,8 +266,12 @@ button:focus {
 	left:0;
 	top:0;
 	padding-top:5px;
-	width:100%;
-	height:100%;
+	//width:100%;
+	//height:100%;
+	width:450px;
+	height:560px;
+	top:150px;
+	border-radius: 1.8em;
 	background-color:#86e895;	
 	//z-index:0;
 	overflow:hidden;
@@ -285,21 +298,10 @@ button:focus {
 	margin-bottom:0;
 	height:18%;
 	overflow:hidden;
-	font-size:2.5em;
+	font-size:1.6em;
 	font-family:yqsFont;
 	color:white;
 }
-/*.postuCont{
-	position:absolute;
-	text-align:center;
-	background-color:rgba(255, 255, 255, 0.0);
-	display:block;	
-	overflow-y:scroll;
-	overflow-x:hidden;
-	height:60%;
-	top:21%;
-	z-index:11
-}*/
 .posturas::-webkit-scrollbar {
  	width: 5px;
 	height: 5px;
@@ -311,19 +313,6 @@ button:focus {
 	//-webkit-border-radius: 0px;
 	height:10px;
 }
-/*.posturas{
-	position:absolute;
-	text-align:center;
-	background-color:rgba(255, 255, 255, 0.0);
-	//width:90%;
-	height:60%;	
-	//width:450px;
-	//height:487px;
-	//left:5%;
-	z-index:10;		
-	//font-family:yqsFont;
-	font-family:Arial;
-}*/
 .posturas
 {
 	width:90%;
@@ -500,17 +489,7 @@ button:focus {
 	height:100%;
 }
 
-/*.posturasBG{
-	position:absolute;
-	text-align:center;
-	background-color:#86e895;
-	//width:90%;
-	//height:65%;
-	//width:450px;
-	//height:487px;
-	//left:5%;
-	z-index:0;
-}*/
+
 .triangle1{
    width:20px;
    height:10px;
@@ -543,6 +522,7 @@ button:focus {
 	text-align:left;
 	//background-color:#20a685;
 	background-color:rgba(0, 0, 0, 0));
+	font-size:1.0em;
 	margin-top:0px;
 	padding:0px;
 	height:1em;
@@ -605,6 +585,38 @@ button:focus {
 	//width:226px;
 	//height:74px;
 }
+.menu{
+	position:absolute;
+	left:0px;
+	top:200%;
+	text-align:right;
+	width:100%;	
+}
+.menu,.menu a{
+	color:black;
+	font-size:0.9em;
+	line-height:1px;
+}
+.menu hr{		
+	line-height:1px;
+	margin-top:10px;
+	margin-bottom:10px;
+	box-shadow: 0px -1px black ;
+}
+.descubriendo{
+	font-family: yqsFont;
+}
+.bEmpez{
+	background-color:#dd3975;
+	background-size: 100%;
+	color:#fff;
+	border: none;
+	width:120px;
+	height:30px;
+	border-radius: 0.5em;
+	box-shadow: 2px 2px 1px black;
+	font-size:0.9em;
+}
 #menuMob{
 	width: 80%;
 	margin-top: 20%;
@@ -622,7 +634,7 @@ button:focus {
 	border-color: white;
 }
 
-.bShare{
+/*.bShare{
 	position:absolute;
 	width:44px;
 	height:47px;
@@ -636,7 +648,7 @@ button:focus {
 	background: url(../img/share.png) no-repeat;
 	//width:226px;
 	//height:74px;
-}
+}*/
 .share{
 	margin-top: 20%;
 	margin-left: 35%;
@@ -660,40 +672,15 @@ button:focus {
 }
 
 .dots {
-	/*	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	outline: none;
-	border-radius: 100%;
-	background-color: #000;
-	background-color: rgba(100,100,100,0.3);
-	text-indent: -999em;
-	cursor: pointer; /* make the text accessible to screen readers */
-	//	position: absolute;
-
 	display: inline-block;
 	width: 12px;
 	height: 12px;
 	margin-right:2%;
 	margin-left:2%;
-	//margin-top:4px;
-	//margin-bottom:8px
-	//padding-bottom:2px;
-	//margin-bottom:2px;
-
 	text-indent: -999em;
-
 	border: 1px solid #86e895;
 	border-radius: 12px;
-	//padding-botton:4px;
-
-	//cursor: pointer;
-	//opacity: .4;
-
 	background-color: #fff;
-
-	//line-height: normal;
 	vertical-align:middle;
 }
 
@@ -724,7 +711,7 @@ button:focus {
 	padding-right:15%;
 	margin-top:0;
 	margin-bottom:0;
-	height:18%;
+	height:25%;
 	overflow:hidden;
 	font-size:2.5em;
 	font-family:yqsFont;
@@ -745,15 +732,13 @@ button:focus {
 }
 #tarjeta1,#tarjeta2,#tarjeta3{
 	text-align:center;
-	//height:25%;
-	padding-top:20px;
+	padding-top:5px;
 	//padding-top:75px;
-
 	//overflow:hidden;
 	//position:absolute;
 //	width:50%;
 	//height:50%;
-	height:200px;
+	height:50%;
 }
 #tarjeta1{
 	text-align:right;
@@ -767,7 +752,7 @@ button:focus {
 }
 #tarjeta3{
 	text-align:center;
-	padding-top: 15px;
+	padding-top: 0px;
 	margin-left: -5px;
 	margin-right: -5px;
 	//left:50%;
@@ -854,12 +839,13 @@ button:focus {
 	height:90px;
 	margin-top:5%;
 	margin-bottom:10px;
-	margin-left:15%;
+	margin-left:5%;
 	text-align:left;
 	display:block;
 }
 .afiniCNom{
 	margin-left:10%;
+	font-size: 1.5em;
 }
 .afiniCImg{
 	border-radius: 10%;
@@ -925,7 +911,7 @@ button:focus {
 	transform: rotate(5deg);
 }
 .afPreg{
-	font-size: 0.8em;
+	font-size: 1em;
 	height: 50px;
 	margin-left: 100px;
 	margin-top: 3px;
@@ -1065,6 +1051,7 @@ button:focus {
 }
 .bSaltear#nav1{
 	position:absolute;
+	top:65%;
 	background-color:#86e895;
 	width:50px;
 	height:50px;
@@ -1092,7 +1079,7 @@ button:focus {
 }
 
 #vOp {
-	background-color:#ecb000;
+	background-color:#F4D33D;
 	overflow:auto;
 	border-radius: 10%;
 	box-shadow: 2px 2px 3px black;		
@@ -1103,7 +1090,7 @@ button:focus {
 	color:black;
 	border:none;
 }
-.sobreFrente img{
+/*.sobreFrente img{
 	width:101px;
 	height:79px;
 }
@@ -1115,17 +1102,17 @@ button:focus {
 	width:93px;
 	height:79px;
 }
-
 .sobreFondo1 img{
 	width:101px;
 	height:47.988;	
-}
-.sobreFondo2 img{
-	width:101px;
-	height:81.012px;	
-}
+}*/
 .sobreCerrado{
 	z-index:6;
+}
+.sobreFondo2 img{
+	width:117px;
+	//height:81.012px;	
+	height:73px;	
 }
 .pre-urna{
 	position:absolute;
@@ -1135,7 +1122,7 @@ button:focus {
 }
 .urna1,.urna2{
 	position:absolute;
-	top:75%;
+	top:79%;
 	width:100%;
 	margin:0;
 	padding:0;
@@ -1144,12 +1131,12 @@ button:focus {
 }
 
 .urna1 img{
-	width:110px;
+	width:130px;
 	height:16px;
 }
 
 .urna2 img{
-	width:110px;
+	width:130px;
 	height:2px;
 }
 .resuFooter{
@@ -1171,15 +1158,41 @@ button:focus {
 	//background: url(../img/siguiente.png) no-repeat;
 	//width:100%;
 	//height:100%;
-	width:210px;
-	height:60px;
-	border-radius: 1.8em;
+	width:130px;
+	height:50px;
+	border-radius: 1.2em;
+	box-shadow: 5px 5px 3px black;
+	font-family: yqsFont;
+}
+.bShare{
+	margin-top:10px;
+	text-align:center;
+	background-color:#00a92c;	
+	background-size: 100%;
+	color:white;
+	border: none;
+	width:130px;
+	height:50px;
+	border-radius: 1.2em;
+	box-shadow: 5px 5px 3px black;
+	font-family: yqsFont;
+}
+.rejugar{
+	margin-top:10px;
+	text-align:center;
+	background-color:#00a92c;	
+	background-size: 100%;
+	color:white;
+	border: none;
+	width:130px;
+	height:50px;
+	border-radius: 1.2em;
 	box-shadow: 5px 5px 3px black;
 	font-family: yqsFont;
 }
 .afiT{
 	position:absolute;
-	top:80%;
+	top:78%;
 	left:2%;
 	font-family:yqsFont;
 	font-size:2em;
@@ -1213,7 +1226,11 @@ button:focus {
 	margin-top:2%;
 	display:block;	
 }
+.afiniImg{
+	height:64px;
+}
 .afiniImg2{
+	width:64px;
 	text-align:left;
 }
 #fCand{
@@ -1230,7 +1247,7 @@ button:focus {
 }
 .afiniSide{
 	position:absolute;
-	top:170px;
+	top:120px;
 	margin-left:50px;
 	width:80px;
 	height:60%;
@@ -1256,316 +1273,49 @@ button:focus {
 	//-webkit-border-radius: 0px;
 	height:10px;
 }
-@media only screen and (max-height:360px) {
-	#inicio h4{
-		font-size:1.2em;
-	}
-	.bJugar{		
-		width:150px;		
-		height:40px;
-		font-size:0.6em;
-	}
-	.imgInicio{
-		width:172px;
-		height:37px;
-	}
-	.recorrido ul {
-		padding-top: 8px;
+@media only screen and (max-height:360px){
+	.recorrido ul{
+		padding-top:0px;
 	}
 	.tPreg{
-		font-size:1.3em;
-		padding-top:5px;
-		height:42px;
-	}
-	.pregResu{
-		font-size:1.0em;
-		padding-top:1%;
-	}
-	.sobreFrente,.sobreChicos,.sobreFondo1,.sobreFondo2,.sobreCerrado,.tapaCerrada{
-		top:55%;
-	}
-	#vOp {
-		font-size:0.7em;
-	}
-
-	.bBack#nav1,.bSaltear#nav1{
-		width:30px;
-		height:30px;	
-	}
-
-	.urna1 img,.urna2 img{
-		width:60px;
-	}
-	.urna1,.urna2{
-		top:78%;
-	}
-	.bBack#nav1,.bSaltear#nav1{
-		font-size:0.7em;
-		top:60%;
-	}
-	.opciones{
-		top:10%;
-	}
-	.closeBtn {
-		width:6.75px;
-		height:18.75px;
-	}
-	.afiT{
-		top:73%;
-		font-size:1.3em;
-	}
-	.postuCont{		
-		height:75%;
-		top:18%;	
-	}
-	[class^="posNom"] {
-		font-size:1.0em;
-		padding:0px;
-	}
-	[class^="postu-"] {
-		font-size:1.0em;
-	}
-	/*.sigue{
-		top:90%;
-		width:75px;
-		height:25px;
-		font-size:0.5em;
-	}*/
-}
-@media only screen  and (max-width:320px) {
-	#inicio h4{
-		font-size:1.2em;
-	}
-	.bJugar{
-		width:125px;		
-		height:40px;
-		font-size:0.6em;
-	}
-	.imgInicio{
-		width:172px;
-		height:37px;
-	}
-	.dots{
-		width: 10px;
-		height: 10px;
-		border-radius: 10px;
-	}
-	.tPreg{
-		font-size:1.3em;
-		padding-top:5px;
-	}
-	.pregResu{
-		font-size:1.0em;
-		padding-top:1%;
-	}
-	.sobreFrente,.sobreChicos,.sobreFondo1,.sobreFondo2,.sobreCerrado,.tapaCerrada{
-		top:55%;
-	}	
-	
-	.urna1,.urna2{
-		top:78%;
-	}
-	.bBack#nav1,.bSaltear#nav1{
-		font-size:0.7em;
-		top:60%;
-	}
-	[class^="posNom"] {
-		font-size:1.0em;
-		padding:0px;
-	}
-	[class^="postu-"] {
-		font-size:1.0em;
-	}
-}
-
-@media only screen and (min-height:361px) {
-	.imgInicio{
-		width:230px;
-		height:50px;
-	}
-	.recorrido ul {
-		padding-top: 13px;
-	}
-	.tPreg{
-		font-size:1.8em;
-		padding-top:5px;
-		height:90px;
-	}
-	.pregResu{
-		font-size:1.5em;
-		padding-top:3%;
-	}
-	#tarjeta1,#tarjeta2,#tarjeta3{
-		//height:40%;
-		height:190px; 
-	}	
-	.sobreFrente,.sobreChicos,.sobreFondo1,.sobreFondo2,.sobreCerrado,.tapaCerrada{
-		//top:55%;
-		top:260px;
-	}	
-	
-	.bBack#nav1,.bSaltear#nav1{		
-		top:60%;
-	}	
-	.closeBtn {
-		width:8px;
-		height:25px;
-	}
-	.afiT{
-		top:78%;
-		font-size:1.5em;
-	}
-	.postuCont{
-		height:60%;
-		top:21%;	
-	}
-	[class^="posNom"] {
-		font-size:1.0em;
-		padding:0px;
-	}
-	[class^="postu-"] {
-		font-size:1.0em;
+		//font-size:1.5em;
+		padding-top:10px;
+		height:15%;
 	}
 	
-	/*.sigue{
-		top:85%;
-		width:210px;
-		height:60px;
-	}*/
-}
-
-@media screen and (min-width:321px) {
-	.imgInicio{
-		width:230px;
-		height:50px;
-	}
-	.dots{
-		width: 12px;
-		height: 12px;
-		border-radius: 12px;
-	}
-	.tPreg{
-		font-size:1.3em;
-		padding-top:5px;
-	}
-	.pregResu{
-		font-size:1.5em;
-		padding-top:3%;
-	}
 	.sobreFrente,.sobreChicos,.sobreFondo1,.sobreFondo2,.sobreCerrado,.tapaCerrada{
 		top:50%;
-	}	
-	
-	.bBack#nav1,.bSaltear#nav1{		
-		top:60%;
 	}
-	.closeBtn {
-		width:11px;
-		height:33px;
-	}	
+	.sigue{
+		width:105px;
+		height:30px;
+	}
 	.afiT{
 		font-size:1.5em;
 	}
-	[class^="posNom"] {
-		font-size:1.0em;
-		padding:0px;
-	}
-	[class^="postu-"] {
-		font-size:1.0em;
-	}
 	
-	/*.sigue{
-		top:85%;
-	}*/
 }
-@media only screen and (min-height:481px) {
-	.tPreg{
-		font-size:2em;
-		padding-top:10px;
-		height:140px;
+@media only screen and (max-width:449px){
+	.imgInicio{
+		width:172px;
+		height:37px;
 	}
-	.recorrido ul {
-		padding-top: 20px;
-	}	
-	.dots{
-		width: 12px;
-		height: 12px;
-		border-radius: 12px;
+	#game{
+		width:100%;
+		height:100%;
+		border-radius: 0px;
 	}
-	.pregResu{
-		font-size:1.75em;
+	#tarjeta1,#tarjeta2{
+		height:207px;
 	}
-	#tarjeta1,#tarjeta2,#tarjeta3{
-		//height:35%; 
-		height:210px;
-	}
-	.sobreFrente,.sobreChicos,.sobreFondo1,.sobreFondo2,.sobreCerrado,.tapaCerrada{
-		//top:60%;
-		top:337px;
-	}
-	.bBack#nav1,.bSaltear#nav1{		
-		top:65%;
+	.afinidad{
+		height:70px;
 	}
 	.urna1,.urna2{
-		top:79%;
-	}
-	.closeBtn {
-		width:11px;
-		height:33px;
-	}	
-	[class^="posNom"] {
-		font-size:1.0em;
-		padding:0px;
-	}
-	[class^="postu-"] {
-		font-size:1.0em;
-	}
-	.afiT{
-		top:80%;
-	}
-	/*.urna1 img,.urna2 img{
-		width: 140px;
-	}*/
-}
-@media screen and (min-width:481px) {
-	.tPreg{
-		font-size:1.8em;
-		padding-top:10px;
-	}
-	.pregResu{
-		font-size:1.8em;
-	}
-	.bBack#nav1,.bSaltear#nav1{
-		font-size:0.8em;
-	}
-	.urna1,.urna2{
-		top:79%;
+		top:82%;
 	}
 }
-@media only screen and (min-height:600px) {	
-	.tPreg{
-		font-size:2.5em;
-		padding-top:10px;
-		height:158px;
-	}
 
-	.pregResu{
-		font-size:2.0em;
-	}
-	.urna1,.urna2{
-		top:79%;
-	}	
-	[class^="posNom"] {
-		font-size:1.0em;
-		padding:0px;
-	}
-	[class^="postu-"] {
-		font-size:1.0em;
-	}
-	.afiT{
-		top:80%;
-	}
-}
 @media only screen and (min-width:768px){
 	.ng-scope{
 		height:750px;
@@ -1573,7 +1323,6 @@ button:focus {
 	body{
 		background-color:#dddddd;
 	}
-
 	#inicioD{
 		//width:30%;
 		//height:70%;		
@@ -1610,7 +1359,7 @@ button:focus {
 		position:absolute;
 		//left:200px;
 		margin-right:50px;
-		top:170px;
+		top:100px;
 		text-align:right;
 		width:200px;
 		color:black;
@@ -1685,7 +1434,7 @@ button:focus {
 	#tarjeta1,#tarjeta2{
 		padding-top:40px;
 		//height:50%;
-		height:280px;
+		height:277px;
 	}
 
 	#tarjeta3{
@@ -1694,12 +1443,12 @@ button:focus {
 
 	.sobreFrente,.sobreChicos,.sobreFondo1,.sobreFondo2,.sobreCerrado,.tapaCerrada{
 		//top:65%;
-		top:364px;
+		top:360px;
 	}
 	
 	.urna1,.urna2{
 		//top:90%;
-		top:504px;
+		top:500px;
 	}
 
 	.urna1 img, .urna2 img{
@@ -1733,6 +1482,7 @@ button:focus {
 	#fCand{
 		padding-top:2px;
 		padding-bottom:2px;		
+		margin-right:50%;
 	}
 	.afPreg{
 		padding-right:15px;

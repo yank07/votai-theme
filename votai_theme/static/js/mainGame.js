@@ -24,7 +24,10 @@ var app = (function(){
 
 	var w=0;
 	var h=0;
+	var pregFS=0;
+	var resuFS=0;
 	var iniPadH=0.2;
+	var gameTop=100;
 	var tarjeH100=0;
 	var tarjeFactor = 0.45; 
 	var tarjePadF = 0.05;
@@ -43,6 +46,7 @@ var app = (function(){
 	var opScroll = false;
 
 	var puntajes = [];
+	var punParcial = [];
 	var punPreg = [];
 	var fotos = [];
 
@@ -102,8 +106,7 @@ var app = (function(){
 			if(qresp!=null){
 				console.log(qresp);
 				var ansId = qresp.answer_id;
-				console.log("A: "+ansId);
-			
+				console.log("A: "+ansId);			
 				qresp = $.grep(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["answers"], function(e){ return e.answer_id == ansId; })[0];
 				var candR = qresp.answer_value;
 				console.log("B: "+candR);
@@ -133,9 +136,21 @@ var app = (function(){
 					puntajes[i][2]++;
 				}			
 			}
+				punParcial[i][1]=cInd;
+				punParcial[i][2]=puntajes[i][2];
+				punParcial[i][0] = puntajes[i][0]/punParcial[i][2];
+				console.log("PunPar "+candidatos[cInd]["candidate_name"]+": "+punParcial[i]);
 			}else{
-			
+				punParcial[i][1]=cInd;
+				punParcial[i][2]=puntajes[i][2];
+				if(punParcial[i][2]>0){
+					punParcial[i][0] = puntajes[i][0]/punParcial[i][2];
+				}else{
+					punParcial[i][0] = -1;
+				}
+				//console.log("PunPar "+candidatos[cInd]["candidate_name"]+": "+punParcial[i]);
 			}
+			
 		}	
 	}
 
@@ -179,6 +194,17 @@ var app = (function(){
 		return array;
 	}
 
+	function resizeFont(element){
+		var fS = parseFloat(element.css("font-size"));
+		var par = element.get(0);
+		var count = 0;
+		while (count<1000 && (par.offsetHeight <par.scrollHeight)){
+			fS*=0.95;
+			element.css("font-size",fS+"em");
+			count++;
+		}	
+	}
+
 	function pregResize(){
 
 		punSize = parseFloat($("#p7").css("height"));
@@ -187,33 +213,10 @@ var app = (function(){
 		$("#p"+pregCount).css("width",punSize*factorDot+"px");
 		$("#p"+pregCount).css("height",punSize*factorDot+"px");
 
-		var fS = $(".tPreg").css("font-size");
-		$(".tPreg").css("line-height",1+"em");
-		var lH = 1;
-		//$(".tPreg").css("font-size",fS+"em");
-		var par = $(".tPreg").get(0);				
-		var count = 0;
-		var line=true;
-		while (count<1000 && (par.offsetHeight <par.scrollHeight ||par.offsetWidth <par.scrollWidth)) {
-			if(line){
-				lH-=0.1;
-				$(".tPreg").css("line-height",lH+"em");
-				//console.log("lH: "+lH);
-				if(parseFloat($(".tPreg").css("line-height"))<parseFloat($(".tPreg").css("font-size")))line=false;
-			}else{
-				fS-=0.1;
-				$(".tPreg").css("font-size",fS+"em");
-				//console.log("fs: "+fS);
-				if(parseFloat($(".tPreg").css("line-height"))>=parseFloat($(".tPreg").css("font-size")))line=true;
-			}
-			count++;
-		}
-
+		$(".tPreg").css("font-size",pregFS+"em");
+		resizeFont($(".tPreg"));
+		
 		tarjeH100 = tarjeFactor*parseFloat($("#tarjeta1").css("height"))/h;
-		console.log(tarjeH100);
-		console.log("T1_H: "+parseFloat($("#tarjeta1").css("height")));
-		console.log("H: "+h);
-		console.log("TF: "+tarjeFactor);
 		//tarjeH100 = w<=480?tarjeH100*0.75:tarjeH100;
 
 		//console.log(w);
@@ -237,7 +240,8 @@ var app = (function(){
 		/*$("#vOp").css("width",tOpW+"px");
 		$("#vOp").css("height",(tOpW*0.75)+"px");*/
 
-		var sFonH = tarjeH100*h*0.9*0.65;
+		//var sFonH = tarjeH100*h*0.9*0.65;
+		var sFonH = parseFloat($(".sobreFondo2").children("img").css("height"));
 
 		$(".sobreFondo2").children("img").css("height",sFonH+"px");
 		$(".sobreFondo1").children("img").css("height",(sFonH*sobreF1HFact)+"px");
@@ -266,6 +270,12 @@ var app = (function(){
 		$(".sobreChicos").children("img").css("width",sobW+"px");
 		$(".sobreCerrado").children("img").css("width",sobW+"px");
 
+		$(".sobreFondo1").css("left","0px");
+		$(".sobreFondo2").css("left","0px");
+		$(".tapaCerrada").css("left","0px");
+		$(".sobreFrente").css("left","0px");
+		$(".sobreChicos").css("left","0px");
+		$(".sobreCerrado").css("left","0px");
 		
 
 		urna1H = parseFloat($(".urna1").css("top"));
@@ -349,113 +359,6 @@ var app = (function(){
 		$(".bOp3").css("top",((opH*0.6)+8+opH+8+opH)+"px");
 		$(".bOp4").css("top",((opH*0.6)+8+opH+8+opH+8+opH)+"px");
 	}
-	
-	/*function posiResize(){
-		var cant = candidatos.length;
-		var pH = parseFloat($(".postuCont").css("height"));
-		var pH2 = pH*postuAlt*cant;
-		var pT = parseFloat($(".postuCont").css("top"));
-	
-		$(".postuCont").css("width",(pH*postuWFac*1.05)+"px");		
-		$(".posturas").css("width",(pH*postuWFac)+"px");
-		$(".posturasBG").css("width",(pH*postuWFac)+"px");		
-		$(".posturas").css("height",pH2+"px");		
-		$(".posturasBG").css("height",pH2+"px")
-
-		$(".postuCont").css("left",((w*0.5)-(pH*postuWFac*0.5))+"px");		
-		//$(".posturas").css("left",((w*0.5)-(pH*postuWFac*0.5))+"px");		
-		//$(".posturasBG").css("left",((w*0.5)-(pH*postuWFac*0.5))+"px");
-
-		var pL = $(".posturas"+i).offset();
-		//var postW = parseFloat($(".posturas").css("width"))*0.65;
-		var postW = pH*postuWFac*(1-(postuAlt*1.2));
-		var pNpad = h<480?0.08:0.04;
-		var r = 0;
-		for(var i=0;i<cant;i++){
-			//var pL = $(".chatBG"+i).offset();
-			//var r = (i*0.25*pH)-i*0.001*pH;
-			if(resuFinal){
-			
-				
-				if(i>0){
-					if(i==1||puntajes[0][0]==puntajes[i-1][0]){
-						r += ((postuAlt*pH)+(barraH*0.5));
-					}else{
-						r += (postuAlt*pH*0.8)+(barraH*0.5);
-					}
-				}
-
-
-				if(i==0||puntajes[0][0]==puntajes[i][0]){
-					$(".posNom"+i).css("top",(r+(postuAlt*pH*0.8)-3-(2*barraH))+"px");
-					$(".postu-"+i).css("top",(r+5)+"px");			
-					$(".postu-"+i).css("width",(postW*0.5)+"px");
-					$(".postu-"+i).css("height",(pH*postuAlt*0.5)+"px");
-					$(".posNom"+i).css("left",(postW*0.8)+"px");
-					$(".postu-"+i).css("left",(postW*0.8)+"px");
-					$(".postu-"+i).css("font-size","2.0em");
-					$(".posNom"+i).css("font-size","1.2em");
-					$(".postu-"+i).css("color","#c5fdfa");
-				}else{
-					$(".posNom"+i).css("top",(barraH+r+5)+"px");						
-					$(".postu-"+i).css("top",(barraH+r+5+2*barraH)+"px");			
-					$(".postu-"+i).css("width",(postW*0.5)+"px");
-					$(".postu-"+i).css("height",(pH*postuAlt*0.5)+"px");
-					$(".posNom"+i).css("left",(postW*0.8)+"px");
-					$(".postu-"+i).css("left",(postW*0.8)+"px");
-					$(".postu-"+i).css("font-size","1.5em");
-					$(".postu-"+i).css("color","#c5fdfa");
-				}
-			}else{
-				var r = i*((postuAlt*pH)+(barraH*0.5));
-				var lPad = 5;
-				$(".posNom"+i).css("top",(r+(barraH*0.5))+"px");						
-				$(".postu-"+i).css("top",(r+pH*0.075+(barraH*0.1))+"px");			
-				$(".postu-"+i).css("width",(postW-(lPad*4))+"px");
-				$(".postu-"+i).css("height",(pH*postuAlt*0.5)+"px");
-				if(i%2==0){
-					$(".posNom"+i).css("left",(postW*0.5+lPad*0.125)+"px");
-					$(".postu-"+i).css("left",(postW*0.5+lPad*0.125)+"px");
-					var elem = $(".postu-"+i).get(0);
-					if (elem.offsetHeight + 5 < elem.scrollHeight) {
-						var canInd = punPreg[i][1];
-						/*var src="";
-						if(candidatos[canInd][categorias[pregCount%categorias.length]["Id"]]["Respuestas"][categorias[pregCount%categorias.length]["orden"][parseInt(pregCount/categorias.length)]]<2){
-							src="triangle1";
-						}else{
-							src="triangle2";
-						}*/
-/*						var t = r+(pH*postuAlt*0.7);
-						var posLH = $(".postu-"+i).css("line-height");
-						var ht= $(".posturas").html();
-						//ht+="<button type='button' class='"+src+"' id='tri"+i+"' style='position:absolute;left:90%;top:"+t+"px;'></button>";
-						ht+="<div style='position:absolute;left:90%;top:"+(t)+"px;'>...</div>";
-						$(".posturas").html(ht);				
-					}
-				}else{
-					$(".posNom"+i).css("left",(postW*0.05)+"px");
-					$(".postu-"+i).css("left",(postW*0.05)+"px");
-					var elem = $(".postu-"+i).get(0);				
-					if (elem.offsetHeight + 5 <elem.scrollHeight) {
-						var canInd = punPreg[i][1];
-						/*var src="";
-						if(candidatos[canInd][categorias[pregCount%categorias.length]["Id"]]["Respuestas"][categorias[pregCount%categorias.length]["orden"][parseInt(pregCount/categorias.length)]]<2){
-							src="triangle1";
-						}else{
-							src="triangle2";
-						}*/
-/*						var t = r+(pH*postuAlt*0.7);
-						var ht= $(".posturas").html();
-						//ht+="<button type='button' class='"+src+"' id='tri"+i+"' style='position:absolute;left:"+(100*(1-(1.4*postuAlt)))+"%;top:"+t+"px;'></button>";
-						ht+="<div style='position:absolute;left:90%;top:"+(t)+"px;'>...</div>";
-						$(".posturas").html(ht);				
-					}
-				}
-			}			
-		}	
-		var sW = parseFloat($(".sigue").css("width"));
-		$(".sigue").css("left",((w*0.5)-(sW*0.5))+"px");
-	}*/
 	
 	function animaSobre(){
 		var sH =parseFloat($(".sobreFondo1").css("height"));
@@ -555,7 +458,8 @@ var app = (function(){
 
 			$(".sCerrImg").css("position","absolute");			
 			
-			$(".sCerrImg").css("left",offset.left+"px");
+			var center =  (($("#game").width())*0.5)-($(".sCerrImg").width()*0.5);
+			$(".sCerrImg").css("left",center+"px");
 			$(".sCerrImg").css("top",offset.top+"px");
 
 			$( ".sCerrImg" ).tween({		
@@ -589,7 +493,7 @@ var app = (function(){
 			offset.top = offset.top-contOS.top;
 			offset.left = offset.left-contOS.left;
 
-			var offUrna = $(".sobreChicos").offset();
+			var offUrna = $(".sobreFrente").offset();
 			offUrna.top = offUrna.top-contOS.top;
 
 			$("#vSi").css("position","absolute");
@@ -643,7 +547,8 @@ var app = (function(){
 				top:{
 				start: offset.top, 
 				//stop: offset.top+h*tarjeH100+h*tarjeH100*0.6,
-				stop: offUrna.top+h*tarjeH100*0.30,
+				//stop: offUrna.top+h*tarjeH100*0.30,
+				stop: offUrna.top,
 				time: 0,
 				units: 'px',
 				duration: 1,
@@ -829,17 +734,6 @@ var app = (function(){
 		$.play();	
 		}	
 	}
-
-	function resizeFont(element){
-		var fS = parseFloat(element.css("font-size"));
-		var par = element.get(0);
-		var count = 0;
-		while (count<1000 && (par.offsetHeight <par.scrollHeight)){
-			fS*=0.95;
-			element.css("font-size",fS+"em");
-			count++;
-		}	
-	}
 	
 	function nextQuest(id){		
 
@@ -851,6 +745,7 @@ var app = (function(){
 		//$(".tPreg").html(categorias[pregCount%categorias.length]["Texto"][categorias[pregCount%categorias.length]["orden"][parseInt(pregCount/categorias.length)]]);
 		$(".tPreg").html(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_text"]);
 		resizeFont($(".tPreg"));
+		
 		if(pregCount>0){
 			if(mobile){
 				//$(".afinidad").css("background-color","#002B15");
@@ -866,14 +761,32 @@ var app = (function(){
 			var cant = candidatos.length;
 			//console.log($(".afinidad").height());
 			//var aH = $(".afinidad").height()*h*0.008;
-			var aH = $(".afinidad").height()*0.8;			
+			var aH = parseFloat($(".afiniImg").css("height"));			
 			console.log("preg respon: "+puntajes[0][2]);
-			var invMaxPunt = 1/(puntajes[0][0]/puntajes[0][2]);
+			//var invMaxPunt = 1/(puntajes[0][0]/puntajes[0][2]);
+			var invMaxPunt = 1/(valorPuntos[0]);			
 			for(var i=0;i<cant;i++){
 				var canInd = puntajes[i][1];
-				console.log("Puntaje "+(candidatos[canInd]["candidate_name"])+": "+(puntajes[i][0]/puntajes[i][2]));								
+				//console.log("Puntaje "+(candidatos[canInd]["candidate_name"])+": "+(puntajes[i][0]/puntajes[i][2]));								
 				$(".cFoto"+i).attr("src",fotos[canInd].src);
-				var fW = (aH*0.5)+(aH*0.5)*(puntajes[i][0]/puntajes[i][2])*invMaxPunt;
+				var fW = 0;
+				if(punParcial[i][2]>0){
+					fW = (aH*0.5)+(aH*0.5)*(punParcial[i][0])*invMaxPunt;
+					$(".cFoto"+i).css({
+					    '-webkit-filter':'grayscale(0%)',
+					    '-moz-filter': 'grayscale(0%)',
+					    '-o-filter': 'grayscale(0%)',
+					    '-ms-filter': 'grayscale(0%)'
+					});
+				}else{
+					fW = (aH*0.5);
+					$(".cFoto"+i).css({
+					    '-webkit-filter':'grayscale(100%)',
+					    '-moz-filter': 'grayscale(100%)',
+					    '-o-filter': 'grayscale(100%)',
+					    '-ms-filter': 'grayscale(100%)'
+					});
+				}
 				$(".cFoto"+i).css("width",fW+"px");
 				$(".cFoto"+i).css("height",fW+"px");
 			}
@@ -1216,15 +1129,13 @@ var app = (function(){
 				setTimeout(function () {
 					sacudir($("#vOp"));
 				}, 2200);
+				animando=false;
 			}
 
 		});		
 		
 		$.play();	
 	};
-
-	
-
 
 	// #Animación muestra el resultado a partir del voto elegido
 	function pregResult(){
@@ -1246,6 +1157,7 @@ var app = (function(){
 			$(".pregResu").css("padding-top","5%");
 			$(".posturasBG").css("text-align","right");
 			$(".bShare").show();
+			$(".rejugar").show();
 			postuAlt=0.3;
 
 			var cant = candidatos.length;
@@ -1295,7 +1207,8 @@ var app = (function(){
 		}else{
 		
 			$(".pregResu").html(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_text"]);
-
+			$(".pregResu").css("font-size",resuFS+"em");
+			resizeFont($(".pregResu"));
 			var cant = candidatos.length;
 			var posBG="";
 			punPreg.sort(function(a, b){
@@ -1304,14 +1217,14 @@ var app = (function(){
 			for(var i=0;i<cant;i++){
 				var canInd = punPreg[i][1];
 				console.log("Pun Preg "+candidatos[canInd]["candidate_name"]+": "+punPreg[i]);
-				if(i%2==0){						
-					posBG+="<div class='chatLeft'><div class='chatIMG'>";
-					posBG+="<img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowLeft'>&nbsp;</div><div class='chatBoxLeft'>";
+				if(i%2==0){	
 					//var r = candidatos[canInd][categorias[pregCount%categorias.length]["Id"]]["Respuestas"][categorias[pregCount%categorias.length]["orden"][parseInt(pregCount/categorias.length)]];
 					var pregId = categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_id"];
 					var qresp = {};
 					qresp = $.grep(candidatos[canInd]["positions"], function(e){ return e.question_id == pregId; })[0];
 					if(qresp!=null){
+						posBG+="<div class='chatLeft'><div class='chatIMG'>";
+						posBG+="<img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowLeft'>&nbsp;</div><div class='chatBoxLeft'>";
 						var ansId = qresp.answer_id;
 						qresp = $.grep(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["answers"], function(e){ return e.answer_id == ansId; })[0];						
 						var anTxt = qresp.answer_text;
@@ -1327,17 +1240,19 @@ var app = (function(){
 						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+anTxt+"</p></div></div></div>";
 					//$(".posNom"+i).css("top",$(".chatBG"+i).offset().top);
 					}else{
+						posBG+="<div class='chatLeft'><div class='chatIMG'>";
+						posBG+="<img id='fCand' class='rFoto' style='-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-o-filter:grayscale(100%);-ms-filter:grayscale(100%);' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowLeft'>&nbsp;</div><div class='chatBoxLeft'>";
 						posBG+="<div class='chatBoxHeader' id='chatNo'>";						
 						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" </h3></div>";
 						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+" "+"</p></div></div></div>";
 					}
 				}else{
-					posBG+="<div class='chatRight'><div class='chatPhotoRight'>";
-					posBG+="<img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowRight'>&nbsp;</div><div class='chatBoxRight'>";
 					var pregId = categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_id"];
 					var qresp = {};
 					qresp = $.grep(candidatos[canInd]["positions"], function(e){ return e.question_id == pregId; })[0];
 					if(qresp!=null){
+						posBG+="<div class='chatRight'><div class='chatPhotoRight'>";
+						posBG+="<img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowRight'>&nbsp;</div><div class='chatBoxRight'>";
 						var ansId = qresp.answer_id;
 						qresp = $.grep(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["answers"], function(e){ return e.answer_id == ansId; })[0];						
 						var anTxt = qresp.answer_text;
@@ -1352,6 +1267,8 @@ var app = (function(){
 						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" </h3></div>";
 						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+anTxt+"</p></div></div></div>";
 					}else{
+						posBG+="<div class='chatRight'><div class='chatPhotoRight'>";
+						posBG+="<img id='fCand' class='rFoto' style='-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-o-filter:grayscale(100%);-ms-filter:grayscale(100%);' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowRight'>&nbsp;</div><div class='chatBoxRight'>";
 						posBG+="<div class='chatBoxHeader' id='chatNo'>";						
 						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" </h3></div>";
 						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+" "+"</p></div></div></div>";
@@ -1512,12 +1429,14 @@ console.log(url);
 
 					var afCont="";
 					//var aH = $(".afinidad").height()*h*0.008;
-					var aH = $(".afinidad").height()*0.8;
+					var aH = parseFloat($(".afiniImg").css("height"));			
+					//var aH = $(".afinidad").height()*0.8;
 					for(var i=0;i<cant;i++){						
 						fotos[i] = new Image(aH, aH);
 						fotos[i].src=candidatos[i]["candidate_pic"];
-						afCont+="<img id=fCand class=cFoto"+i+" src="+candidatos[i]["candidate_pic"]+" width="+aH+"px height="+aH+"px >";
+						afCont+="<img id=fCand class=cFoto"+i+" width="+aH+"px height="+aH+"px"+" src="+candidatos[i]["candidate_pic"]+" >";
 						puntajes[i]=[0,i,0];						
+						punParcial[i]=[0,i,0];						
 						punPreg[i]=[0,i];						
 					}
 					
@@ -1553,6 +1472,8 @@ console.log(url);
 							}
 						}	
 					});
+
+					rejugar=false;
 
 					/*$("div.chatimg").click(function(){
 						console.log("ACA");
@@ -1683,6 +1604,51 @@ console.log(url);
 	
 	}
 
+	function resizeMobile(){
+		mobile=true;
+		$("header").hide();
+		$(".footer").hide();
+		$("#sideLeft").hide();
+		$("#inicioD").hide();
+		$(".afiniSide").hide();
+		$(".bMenuH").show();
+		$("#game").css("top","0px");
+		$(".afinidad").css("overflow-x","auto");
+		$(".afinidad").css("overflow-y","hidden");
+		if(pregCount>0){
+			$(".afiT").show();
+			$(".afiniImg").show();
+		}
+	}
+	
+	function resizeDesktop(){
+		mobile=false;
+		$("header").show();
+		$(".footer").show();
+		$("#sideLeft").show();
+		$("#inicioD").hide();
+		if(pregCount>0)$(".afiniSide").show();
+		$(".bMenuH").hide();
+		$(".afiT").hide();
+		$(".afiniImg").hide();
+		$(".afinidad").css("overflow-y","auto");
+		$(".afinidad").css("overflow-x","hidden");
+		$("#game").css("top",gameTop+"px");
+		//$("#inicio").css("left",($(window).width()*0.5-parseFloat($("#inicio").css("width"))*0.5)+"px");
+		var margR=parseFloat($("#sideLeft").css("margin-right"));
+		if($(window).width()>960){
+			$("#sideLeft").css("left",($(window).width()*0.5-parseFloat($("#game").css("width"))*0.5-parseFloat($("#sideLeft").css("width"))-margR)+"px");
+			$(".afiniSide").css("margin-left",margR+"px");
+		}else if($(window).width()>768){
+			$("#sideLeft").css("width","150px")
+			margR = margR*($(window).width()-768)/(960-768);
+			$("#sideLeft").css("left",($(window).width()*0.5-parseFloat($("#game").css("width"))*0.5-parseFloat($("#sideLeft").css("width"))-margR)+"px");
+			$(".afiniSide").css("margin-left",margR+"px");
+		}
+		$(".afiniSide").css("left",($(window).width()*0.5+parseFloat($("#game").css("width"))*0.5)+"px");
+		$(".afiniSide").css("height",(0.9*$("#game").height())+"px");				
+	}
+
 	return {//funcion de inicio de la aplicación
 		init : function(){
 			
@@ -1693,19 +1659,33 @@ console.log(url);
 
 			mobile = $.browser.mobile;
 
-			if($(window).height()>768)mobile=false;
+			if($(window).width()>768){
+				mobile=false;
+			}else {
+				mobile=true;
+				/*if($(window).height()<360)
+				//document.getElementById("viewport").setAttribute("content", "width=450; initial-scale=0.5");
+				$("#viewport").attr("content", "width=450;height=560");*/
+			}
 
 			if(GetUrlValue("frame"))mobile=true;
 
+			gameTop = parseFloat($("#game").css("top"));=
+			pregFS = parseFloat($(".tPreg").css("font-size"));
+			resuFS = parseFloat($(".pregResu").css("font-size"));
+
+			$("#game").css("left",($(window).width()*0.5-parseFloat($("#game").css("width"))*0.5)+"px");
 			if(mobile){
+				$("#game").css("top","0px");
 				$("header").hide();
 				$(".footer").hide();
-				$(".sideLeft").hide();
+				$("#sideLeft").hide();
 				$("#inicioD").hide();
 				$(".afiniSide").hide();
+				if(pregCount>0){
+					$(".afiT").show();
+				}
 			}else{
-				console.log($(":root").css("var-isMobile"));
-				$(":root").css("--isMobile","0");
 				$("#inicioD").hide();
 				//$("#inicio").css("left",($(window).width()*0.5-parseFloat($("#inicio").css("width"))*0.5)+"px");
 				$(".bMenuH").hide();
@@ -1740,107 +1720,28 @@ console.log(url);
 
 			// Listener por resize de la ventana
 			window.addEventListener("resize", function() {
-				if(mobile){
-				$("header").hide();
-				$(".footer").hide();
-				$(".sideLeft").hide();
-				$("#inicioD").hide();
-				$(".afiniSide").hide();
-				// Get screen size (inner/outerWidth, inner/outerHeight)
+
 				w = $("#game").width();
 				h = $("#game").height();
-				//h = $(window).height()-$(".navbar").height();
 
-				//$("#game").css("top",$(".navbar").height()+"px");
-				//$("#game").css("width",w+"px");
-				//console.log(w);
-				//$("#game").css("height",h+"px");
 				if(h<480)iniPadH=0.05;
 				$("#inicio").css("padding-top",h*iniPadH+"px");
 				$("#inicio").css("padding-bottom",h*iniPadH+"px");
-
-				pregResize();	
-
-				//opcionResize();
-
-				if(candidatos){
-					var cant = candidatos.length;
-					var aH = $(".afinidad").height();				
-					if(pregCount>0){
-						$(".afiniImg").show();
-						$(".afiT").show();
-						var invMaxPunt = 1/puntajes[0][0];
-						for(var i=0;i<cant;i++){						
-							var fW = (aH*0.5)+(aH*0.5)*puntajes[i][0]*invMaxPunt;
-							$(".cFoto"+i).css("width",fW+"px");
-							$(".cFoto"+i).css("height",fW+"px");
-						}
-					}else{
-						for(var i=0;i<cant;i++){												
-							$(".cFoto"+i).css("width",aH+"px");
-							$(".cFoto"+i).css("height",aH+"px");
-						}
-					}
-				}
 				
-				//if($(".resultados").is(":visible"))posiResize();
-				}else{
-				
-				// Get screen size (inner/outerWidth, inner/outerHeight)
-				w = $("#game").width();
-				h = $("#game").height();
-				//h = $(window).height()-$(".navbar").height();
-
-				//$("#game").css("top",$(".navbar").height()+"px");
-				//$("#game").css("width",w+"px");
-				//console.log(w);
-				//$("#game").css("height",h+"px");
-				if(h<480)iniPadH=0.05;
-				$("#inicio").css("padding-top",h*iniPadH+"px");
-				$("#inicio").css("padding-bottom",h*iniPadH+"px");
-
-				$("#inicioD").hide();
-				//$("#inicio").css("left",($(window).width()*0.5-parseFloat($("#inicio").css("width"))*0.5)+"px");
-				$(".bMenuH").hide();
 				$("#game").css("left",($(window).width()*0.5-parseFloat($("#game").css("width"))*0.5)+"px");
-				$("#sideLeft").show();
-				var margR=parseFloat($("#sideLeft").css("margin-right"));
-				if($(window).width()>960){
-					$("#sideLeft").css("left",($(window).width()*0.5-parseFloat($("#game").css("width"))*0.5-parseFloat($("#sideLeft").css("width"))-margR)+"px");
-					$(".afiniSide").css("margin-left",margR+"px");
+
+				if($(window).width()>768){
+					resizeDesktop();
 				}else{
-					$("#sideLeft").css("width","150px")
-					margR = margR*($(window).width()-768)/(960-768);
-					$("#sideLeft").css("left",($(window).width()*0.5-parseFloat($("#game").css("width"))*0.5-parseFloat($("#sideLeft").css("width"))-margR)+"px");
-					$(".afiniSide").css("margin-left",margR+"px");
+					resizeMobile();
 				}
-				$(".afiniSide").css("left",($(window).width()*0.5+parseFloat($("#game").css("width"))*0.5)+"px");
-				$(".afiniSide").css("height",(0.9*$("#game").height())+"px");				
 
 				pregResize();	
+				$(".pregResu").css("font-size",resuFS+"em");
+				resizeFont($(".pregResu"));
 
 				//opcionResize();
-
-				if(candidatos){
-					var cant = candidatos.length;
-					var aH = $(".afinidad").height();				
-					if(pregCount>0){
-						var invMaxPunt = 1/puntajes[0][0];
-						for(var i=0;i<cant;i++){						
-							var fW = (aH*0.5)+(aH*0.5)*puntajes[i][0]*invMaxPunt;
-							$(".cFoto"+i).css("width",fW+"px");
-							$(".cFoto"+i).css("height",fW+"px");
-						}
-					}else{
-						for(var i=0;i<cant;i++){												
-							$(".cFoto"+i).css("width",aH+"px");
-							$(".cFoto"+i).css("height",aH+"px");
-						}
-					}
-				}
 				
-				
-				}
 			}, false);
 
 			
@@ -1889,6 +1790,7 @@ console.log(url);
 			$(".enviar").hide();
 			$(".correoU").hide();
 			$(".bShare").hide();
+			$(".rejugar").hide();
 			$(".share").hide();
 
 			$(".bMenuH").click(function(){
@@ -1904,6 +1806,11 @@ console.log(url);
 				//$.fn.socialSharePrivacy.settings.body = shareTxt;
 				$(".share").show();
 				openIntermedio();					
+			});
+
+			$(".rejugar").click(function(){
+				rejugar=true;
+				location.reload(true);
 			});
 
 			$(".sobreFrente").click(function() {
@@ -2087,5 +1994,10 @@ console.log(url);
 	};
 
 })();
+var rejugar=true;
 app.init();
+$(window).bind('beforeunload', function(){
+	if(!rejugar)
+  return '\u00bfEst\u00e1s seguro de que quer\u00e9s abandonar el juego?\nPara volver atr\u00e1s en las preguntas pod\u00e9s usar las flechas que aparecen a ambos lados del sobre.';
+});
 
