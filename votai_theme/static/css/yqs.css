@@ -738,7 +738,7 @@ button:focus {
 	//position:absolute;
 //	width:50%;
 	//height:50%;
-	height:50%;
+	height:277px;
 }
 #tarjeta1{
 	text-align:right;
@@ -1293,6 +1293,9 @@ button:focus {
 	.afiT{
 		font-size:1.5em;
 	}
+	.urna1,.urna2{
+		top:192px;
+	}
 	
 }
 @media only screen and (max-width:449px){
@@ -1312,7 +1315,7 @@ button:focus {
 		height:70px;
 	}
 	.urna1,.urna2{
-		top:82%;
+		top:389px;
 	}
 }
 
@@ -1359,7 +1362,7 @@ button:focus {
 		position:absolute;
 		//left:200px;
 		margin-right:50px;
-		top:100px;
+		top:170px;
 		text-align:right;
 		width:200px;
 		color:black;
