@@ -236,7 +236,7 @@ button:focus {
 	position:absolute;
 	//left:200px;
 	margin-right:50px;
-	top:120px;
+	top:170px;
 	text-align:right;
 	width:200px;
 	color:black;
@@ -1247,7 +1247,7 @@ button:focus {
 }
 .afiniSide{
 	position:absolute;
-	top:120px;
+	top:170px;
 	margin-left:50px;
 	width:80px;
 	height:60%;
