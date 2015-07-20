@@ -829,6 +829,17 @@ var app = (function(){
 		$.play();	
 		}	
 	}
+
+	function resizeFont(element){
+		var fS = parseFloat(element.css("font-size"));
+		var par = element.get(0);
+		var count = 0;
+		while (count<1000 && (par.offsetHeight <par.scrollHeight)){
+			fS*=0.95;
+			element.css("font-size",fS+"em");
+			count++;
+		}	
+	}
 	
 	function nextQuest(id){		
 
@@ -839,15 +850,7 @@ var app = (function(){
 		// Escribe el texto de la siguiente pregunta
 		//$(".tPreg").html(categorias[pregCount%categorias.length]["Texto"][categorias[pregCount%categorias.length]["orden"][parseInt(pregCount/categorias.length)]]);
 		$(".tPreg").html(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_text"]);
-		var fS = parseFloat($(".tPreg").css("font-size"));
-		var par = $(".tPreg").get(0);
-		var count = 0;
-		while (count<1000 && (par.offsetHeight <par.scrollHeight)){
-			fS*=0.95;
-			$(".tPreg").css("font-size",fS+"em");
-			count++;
-		}
-
+		resizeFont($(".tPreg"));
 		if(pregCount>0){
 			if(mobile){
 				//$(".afinidad").css("background-color","#002B15");
@@ -1526,12 +1529,15 @@ console.log(url);
 					}
 					
 
-					if(mobile){
+					/*if(mobile){
 						$(".afiniImg").html(afCont);
 					}else{
 						$(".afiniImg2").html(afCont);
-					}
+					}*/
 					//console.log(id);			
+
+					$(".afiniImg").html(afCont);
+					$(".afiniImg2").html(afCont);
 
 					$("#inicio").hide();
 					$("#game").show();
