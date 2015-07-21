@@ -1243,8 +1243,8 @@ var app = (function(){
 						posBG+="<div class='chatLeft'><div class='chatIMG'>";
 						posBG+="<img id='fCand' class='rFoto' style='-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-o-filter:grayscale(100%);-ms-filter:grayscale(100%);' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowLeft'>&nbsp;</div><div class='chatBoxLeft'>";
 						posBG+="<div class='chatBoxHeader' id='chatNo'>";						
-						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" </h3></div>";
-						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+" "+"</p></div></div></div>";
+						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" <span style='font-size:0.6em;vertical-align:middle;'>"+candidatos[canInd]["candidate_id"]+"</span></h3></div>";
+						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+"*El candidato no respondi\u00f3 esta pregunta"+"</p></div></div></div>";
 					}
 				}else{
 					var pregId = categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_id"];
@@ -1270,8 +1270,8 @@ var app = (function(){
 						posBG+="<div class='chatRight'><div class='chatPhotoRight'>";
 						posBG+="<img id='fCand' class='rFoto' style='-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-o-filter:grayscale(100%);-ms-filter:grayscale(100%);' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowRight'>&nbsp;</div><div class='chatBoxRight'>";
 						posBG+="<div class='chatBoxHeader' id='chatNo'>";						
-						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" </h3></div>";
-						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+" "+"</p></div></div></div>";
+						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" <span style='font-size:0.6em;vertical-align:middle;'>"+candidatos[canInd]["candidate_id"]+"</span></h3></div>";
+						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+"*El candidato no respondi\u00f3 esta pregunta"+"</p></div></div></div>";
 					}
 				}
 			}
