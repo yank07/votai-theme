@@ -591,9 +591,9 @@ button:focus {
 #menuDesk{
 	position:absolute;
 	left:0px;
-	top:200vh;
+	top:200%;
 	text-align:right;
-	width:100vw;	
+	width:100%;	
 }
 .menu,.menu a{
 	color:black;
@@ -1400,9 +1400,9 @@ button:focus {
 	#menuDesk{
 		position:absolute;
 		left:0px;
-		top:200vh;
+		top:200%;
 		text-align:right;
-		width:100vw;	
+		width:100%;	
 	}
 	.menu,.menu a{
 		color:black;
