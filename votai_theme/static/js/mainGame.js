@@ -1811,9 +1811,9 @@ console.log(url);
 
 			$(".bShare").click(function(){				
 				$(".afiniCand").hide();
-				//$.fn.socialSharePrivacy.settings.title = "Jugu&#233; a YoQuieroSaber";
-				//$.fn.socialSharePrivacy.settings.description = shareTxt;
-				//$.fn.socialSharePrivacy.settings.body = shareTxt;
+				$.fn.socialSharePrivacy.settings.title = "Jugu&#233; a YoQuieroSaber";
+				$.fn.socialSharePrivacy.settings.description = shareTxt;
+				$.fn.socialSharePrivacy.settings.body = shareTxt;
 				$(".share").show();
 				openIntermedio();					
 			});
