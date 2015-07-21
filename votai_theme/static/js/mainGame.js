@@ -1199,7 +1199,7 @@ var app = (function(){
 				
 				if(i==0||puntajes[0][0]==puntajes[i][0]){
 					posBG+="<div class='resuCand1'>";
-					posBG+="<div class='resuIMG1'><img id='fCand' class='rFoto' style='margin-right:0px' src="+candidatos[canInd]["candidate_pic"]+" ></div>";
+					posBG+="<div class='resuIMG1'><img id='fCand' class='rFoto' style='margin-right:0px;background-color:"+candidatos[canInd]["candidate_color"]+";' src="+candidatos[canInd]["candidate_pic"]+" ></div>";
 					posBG+="<div class='resuDatos1'>";
 					posBG+="<div class='resuPor1'>"+parseInt(puntajes[i][0]*invTotal*100)+"%</div>";
 					posBG+="<div class='resuNom1'>"+candidatos[canInd]["candidate_name"]+"<br/></div>";
@@ -1216,7 +1216,7 @@ var app = (function(){
 						shareTxt+="&#191;Cuál es tu candidato?";
 					}
 					posBG+="<div class='resuCand2'>";
-					posBG+="<div class='resuIMG2'><img id='fCand' class='rFoto' style='margin-right:0px' src="+candidatos[canInd]["candidate_pic"]+" ></div>";
+					posBG+="<div class='resuIMG2'><img id='fCand' class='rFoto' style='margin-right:0px;background-color:"+candidatos[canInd]["candidate_color"]+";' src="+candidatos[canInd]["candidate_pic"]+" ></div>";
 					posBG+="<div class='resuDatos2'>";
 					posBG+="<div class='resuNom2'>"+candidatos[canInd]["candidate_name"]+"<br/></div>";
 					posBG+="<div class='resuBarra'><div class='barraLlena' style='width:"+parseInt(puntajes[i][0]*invTotal*100)+"%;'>&nbsp;</div><div class='barraVacia' style='width:"+(100-parseInt(puntajes[i][0]*invTotal*100))+"%;'>&nbsp;</div></div>";
@@ -1251,7 +1251,7 @@ var app = (function(){
 							candTxt = "<button type=button class='detalleButton"+canInd+"' style='margin-top:4px;border:none' onclick='showDetalle("+canInd+")'>+</button><div class=detalle"+canInd+" style='display:none;'>"+candTxt+"</div>";
 						}
 						posBG+="<div class='chatLeft'><div class='chatIMG'>";
-						posBG+="<img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowLeft'>&nbsp;</div><div class='chatBoxLeft'>";
+						posBG+="<img id='fCand' class='rFoto' style='background-color:"+candidatos[canInd]["candidate_color"]+";' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowLeft'>&nbsp;</div><div class='chatBoxLeft'>";
 						var ansId = qresp.answer_id;
 						qresp = $.grep(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["answers"], function(e){ return e.answer_id == ansId; })[0];						
 						var anTxt = qresp.answer_text;
@@ -1268,7 +1268,7 @@ var app = (function(){
 					//$(".posNom"+i).css("top",$(".chatBG"+i).offset().top);
 					}else{
 						posBG+="<div class='chatLeft'><div class='chatIMG'>";
-						posBG+="<img id='fCand' class='rFoto' style='-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-o-filter:grayscale(100%);-ms-filter:grayscale(100%);' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowLeft'>&nbsp;</div><div class='chatBoxLeft'>";
+						posBG+="<img id='fCand' class='rFoto' style='background-color:"+candidatos[canInd]["candidate_color"]+";-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-o-filter:grayscale(100%);-ms-filter:grayscale(100%);' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowLeft'>&nbsp;</div><div class='chatBoxLeft'>";
 						posBG+="<div class='chatBoxHeader' id='chatNo'>";						
 						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" </h3></div>";
 						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+"*El candidato no respondi\u00f3 esta pregunta"+"</p></div></div></div>";
@@ -1283,7 +1283,7 @@ var app = (function(){
 							candTxt = "<button type=button class='detalleButton"+canInd+"' style='margin-top:4px;border:none' onclick='showDetalle("+canInd+")'>+</button><div class=detalle"+canInd+" style='display:none;'>"+candTxt+"</div>";
 						}
 						posBG+="<div class='chatRight'><div class='chatPhotoRight'>";
-						posBG+="<img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowRight'>&nbsp;</div><div class='chatBoxRight'>";
+						posBG+="<img id='fCand' class='rFoto' style='background-color:"+candidatos[canInd]["candidate_color"]+";' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowRight'>&nbsp;</div><div class='chatBoxRight'>";
 						var ansId = qresp.answer_id;
 						qresp = $.grep(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["answers"], function(e){ return e.answer_id == ansId; })[0];						
 						var anTxt = qresp.answer_text;
@@ -1299,7 +1299,7 @@ var app = (function(){
 						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+anTxt+candTxt+"</p></div></div></div>";
 					}else{
 						posBG+="<div class='chatRight'><div class='chatPhotoRight'>";
-						posBG+="<img id='fCand' class='rFoto' style='-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-o-filter:grayscale(100%);-ms-filter:grayscale(100%);' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowRight'>&nbsp;</div><div class='chatBoxRight'>";
+						posBG+="<img id='fCand' class='rFoto' style='background-color:"+candidatos[canInd]["candidate_color"]+";-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-o-filter:grayscale(100%);-ms-filter:grayscale(100%);' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowRight'>&nbsp;</div><div class='chatBoxRight'>";
 						posBG+="<div class='chatBoxHeader' id='chatNo'>";						
 						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" </h3></div>";
 						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+"*El candidato no respondi\u00f3 esta pregunta"+"</p></div></div></div>";
@@ -1499,7 +1499,7 @@ function loadGame(){
 					for(var i=0;i<cant;i++){						
 						fotos[i] = new Image(aH, aH);
 						fotos[i].src=candidatos[i]["candidate_pic"];
-						afCont+="<img id=fCand class=cFoto"+i+" width="+aH+"px height="+aH+"px"+" src="+candidatos[i]["candidate_pic"]+" >";
+						afCont+="<img id=fCand style='background-color:"+candidatos[canInd]["candidate_color"]+";' class=cFoto"+i+" width="+aH+"px height="+aH+"px"+" src="+candidatos[i]["candidate_pic"]+" >";
 						puntajes[i]=[0,i,0];						
 						punParcial[i]=[0,i,0];						
 						punPreg[i]=[0,i];						
