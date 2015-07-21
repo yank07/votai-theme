@@ -1383,11 +1383,11 @@ var app = (function(){
 						console.log("Coincide!");
 				}
 				if(parseInt(resC*0.5)==0){
-					htC += "<div class='AfiniCV'><div class='afVot' id='afVSi'><span style='line-height:100%;'>&nbsp;</span><br><span style='vertical-align:middle;'>Si</span><br><span style='line-height:100%;'>&nbsp;</span></div><div class='afPreg'>"
+					htC += "<div class='AfiniCV'><div class='afVot' id='afVSi'><span>Si</span></div><div class='afPreg'>"
 					htC+=anTxt;	
 					htC+='</div></div>'				
 				}else if(parseInt(resC*0.5)==1){					
-					htC += "<div class='AfiniCV'><div class='afVot' id='afVNo'><span style='line-height:100%;'>&nbsp;</span><br><span style='vertical-align:middle;'>No</span><br><span style='line-height:100%;'>&nbsp;</span></div><div class='afPreg'>"
+					htC += "<div class='AfiniCV'><div class='afVot' id='afVNo'><span>No</span></div><div class='afPreg'>"
 					htC+=anTxt;	
 					htC+="</div></div>"								
 				}			
@@ -1399,11 +1399,11 @@ var app = (function(){
 					console.log("No Coincide!");
 				}
 				if(parseInt(resC*0.5)==0){
-					htNC += "<div class='AfiniCV'><div class='afVot' id='afVSi'><span style='line-height:100%;'>&nbsp;</span><br><span style='vertical-align:middle;'>Si</span><br><span style='line-height:100%;'>&nbsp;</span></div><div class='afPreg'>"
+					htNC += "<div class='AfiniCV'><div class='afVot' id='afVSi'><span>Si</span></div><div class='afPreg'>"
 					htNC+=anTxt;	
 					htNC+='</div></div>'				
 				}else if(parseInt(resC*0.5)==1){					
-					htNC += "<div class='AfiniCV'><div class='afVot' id='afVNo'><span style='line-height:100%;'>&nbsp;</span><br><span style='vertical-align:middle;'>No</span><br><span style='line-height:100%;'>&nbsp;</span></div><div class='afPreg'>"
+					htNC += "<div class='AfiniCV'><div class='afVot' id='afVNo'><span>No</span></div><div class='afPreg'>"
 					htNC+=anTxt;	
 					htNC+="</div></div>"								
 				}
