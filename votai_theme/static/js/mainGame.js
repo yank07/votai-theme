@@ -1222,8 +1222,8 @@ var app = (function(){
 					var pregId = categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_id"];
 					var qresp = {};
 					qresp = $.grep(candidatos[canInd]["positions"], function(e){ return e.question_id == pregId; })[0];
-					var candTxt = qresp.answer_text;
 					if(qresp!=null){
+						var candTxt = qresp.answer_text;
 						posBG+="<div class='chatLeft'><div class='chatIMG'>";
 						posBG+="<img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowLeft'>&nbsp;</div><div class='chatBoxLeft'>";
 						var ansId = qresp.answer_id;
@@ -1251,8 +1251,8 @@ var app = (function(){
 					var pregId = categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_id"];
 					var qresp = {};
 					qresp = $.grep(candidatos[canInd]["positions"], function(e){ return e.question_id == pregId; })[0];
-					var candTxt = qresp.answer_text;
 					if(qresp!=null){
+						var candTxt = qresp.answer_text;
 						posBG+="<div class='chatRight'><div class='chatPhotoRight'>";
 						posBG+="<img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowRight'>&nbsp;</div><div class='chatBoxRight'>";
 						var ansId = qresp.answer_id;

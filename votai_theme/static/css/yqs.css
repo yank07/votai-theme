@@ -1135,9 +1135,6 @@ button:focus {
 	background-color:#86e895;
 	height:16px;
 }
-.urna2{
-	top:16px;
-}
 
 .urna1 img{
 	width:130px;
@@ -1147,6 +1144,7 @@ button:focus {
 .urna2 img{
 	width:130px;
 	height:2px;
+	vertical-align:top;
 }
 .resuFooter{
 	position:absolute;
@@ -1319,7 +1317,7 @@ button:focus {
 	.afinidad{
 		height:70px;
 	}
-	.urna1{
+	.urna1,.urna2{
 		//top:389px;
 		top:82vh;
 	}
@@ -1455,11 +1453,14 @@ button:focus {
 		top:360px;
 	}
 	
-	.urna1{
+	.urna1,.urna2{
 		//top:90%;
 		top:500px;
 	}
-	
+
+	.urna1 img, .urna2 img{
+		width:130px;
+	}
 	.closeBtn {
 		width:11px;
 		height:33px;
