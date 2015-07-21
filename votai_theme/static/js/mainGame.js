@@ -1225,7 +1225,7 @@ var app = (function(){
 					if(qresp!=null){
 						var candTxt = qresp.answer_text;
 						if(candTxt.length>1){
-							candTxt = "<br><br><button type=button onclick='function(){$(#detalle+"+candInd+").show();});'>+</button><div class=detalle style='display:hidden;'>"+candTxt+"</div>";
+							candTxt = "<br><br><button type=button onclick='function(){$(#detalle+"+canInd+").show();});'>+</button><div class=detalle style='display:hidden;'>"+candTxt+"</div>";
 						}
 						posBG+="<div class='chatLeft'><div class='chatIMG'>";
 						posBG+="<img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowLeft'>&nbsp;</div><div class='chatBoxLeft'>";
