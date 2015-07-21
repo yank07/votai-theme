@@ -1294,7 +1294,9 @@ var app = (function(){
 			var cant = candidatos.length;
 			for(var i=0;i<cant;i++){
 				console.log($(this).attr("src")+" - "+fotos[i].src);
-				if($(this).attr("src")==fotos[i].src){
+				var f1 = $(this).attr("src").split("/");
+				var f2 = fotos[i].src.split("/");
+				if(f1[f1.length-1]==f2[f2.length-1]){
 					console.log("Lo encotro");
 					showAfinidad(i);
 					break;
