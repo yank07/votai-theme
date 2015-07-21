@@ -18,7 +18,7 @@ var app = (function(){
 	var MaxPreg=8;
 	var valorPuntos = [100,66,33,0];
 
-	var id=0;
+	var elecUrl="/election/pre-candidato-a-presidente";
 
 	var animando=false;
 
@@ -735,7 +735,7 @@ var app = (function(){
 		}	
 	}
 	
-	function nextQuest(id){		
+	function nextQuest(){		
 
 		$(".sobreFondo1").children("img").hide();
 		$(".sobreChicos").hide();
@@ -1410,12 +1410,14 @@ var app = (function(){
 
 function jugar(){
 
-url = "/theme/election/pre-candidato-a-presidente/media-naranja.json";
+//url = "/theme/election/pre-candidato-a-presidente/media-naranja.json";
+url=elecUrl+"/media-naranja.json";
+location.href="/theme/"+elecUrl;
 
-if (/theme\/election\/(.*)\//.test(location.href)) {
+/*if (/theme\/election\/(.*)\//.test(location.href)) {
 	election = /theme\/election\/([^\/]*)\//.exec(location.href)[1];
 	url =  "/theme/election/"+election+"/media-naranja.json";
-}
+}*/
 console.log(url);
 		//console.log("data/yqs"+id+".json");
 				//$.getJSON( "{% static 'data/yqs"+id+".json' %}", function( data ) {			
@@ -1471,7 +1473,7 @@ console.log(url);
 					$("#inicio").hide();
 					$("#game").show();
 					pregResize();
-					nextQuest(id);
+					nextQuest();
 
 					$("img#fCand").click(function(){
 						var cant = candidatos.length;
@@ -1851,7 +1853,7 @@ console.log(url);
 				}
 				$("#vSi").hide();
 				$("#vNo").hide();
-				nextQuest(id);				
+				nextQuest();				
 			});
 
 			$(".bBack").click(function() {
@@ -1862,7 +1864,7 @@ console.log(url);
 				if(pregCount<=0)pregCount=0;
 				$("#vSi").hide();
 				$("#vNo").hide();
-				nextQuest(id);				
+				nextQuest();				
 			});
 
 			$(".bSaltear#nav2").click(function() {
@@ -1895,7 +1897,7 @@ console.log(url);
 						encuesta();
 					}
 				}else{
-					nextQuest(id);
+					nextQuest();
 					$(".resultados").hide();
 				}				
 			});
@@ -1917,13 +1919,21 @@ console.log(url);
 				});*/
 			//	$("#telon").hide();
 			//});
+			//
+
+			var options_eleccion = '';
+			$.each(elections_json, function(key,value){				
+				console.log(value["detaillink"]);
+				options_eleccion += '<option value="' + value["detaillink"] + '"><h4>' +  value["name"] + '</h4><\/option>';				
+			});
+			$("select#eleccion").html(options_eleccion);
 			
 			$("#telon").hide();
 
 			$( "select#eleccion" ).change( function(){
-				id=$( "select#eleccion option:selected").val();
+				elecUrl=$( "select#eleccion option:selected").val();
 				//id=$( "#eleccion" ).val();
-				console.log(id);
+				console.log(elecUrl);
 			});
 
 			$(".bJugar").click(function() {
