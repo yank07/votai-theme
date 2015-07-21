@@ -1255,7 +1255,7 @@ var app = (function(){
 					if(qresp!=null){
 						var candTxt = qresp.answer_text;
 						if(candTxt.length>1){
-							candTxt = "<button type=button style='margin-top:4px;border:none' onclick='showDetalle("+canInd+",1)'>+</button><div class=detalle"+canInd+" style='display:none;'>"+candTxt+"</div>";
+							candTxt = "<button type=button class='detalleButton"+canInd+"' style='margin-top:4px;border:none' onclick='showDetalle("+canInd+",1)'>+</button><div class=detalle"+canInd+" style='display:none;'>"+candTxt+"</div>";
 						}
 						posBG+="<div class='chatLeft'><div class='chatIMG'>";
 						posBG+="<img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowLeft'>&nbsp;</div><div class='chatBoxLeft'>";
@@ -1287,7 +1287,7 @@ var app = (function(){
 					if(qresp!=null){
 						var candTxt = qresp.answer_text;
 						if(candTxt.length>1){
-							candTxt = "<button type=button style='margin-top:4px;border:none' onclick='showDetalle("+canInd+",1)'>+</button><div class=detalle"+canInd+" style='display:none;'>"+candTxt+"</div>";
+							candTxt = "<button type=button class='detalleButton"+canInd+"' style='margin-top:4px;border:none' onclick='showDetalle("+canInd+",1)'>+</button><div class=detalle"+canInd+" style='display:none;'>"+candTxt+"</div>";
 						}
 						posBG+="<div class='chatRight'><div class='chatPhotoRight'>";
 						posBG+="<img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowRight'>&nbsp;</div><div class='chatBoxRight'>";
