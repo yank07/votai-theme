@@ -751,9 +751,11 @@ var app = (function(){
 				//$(".afinidad").css("background-color","#002B15");
 				$(".afiniImg").show();
 				$(".afiT").show();
+				$(".afinidad").scrollTop(0);
 			}else{
 				$(".afiniSide").show();
 				//$(".afiniImg").show();
+				$(".afinidad2").scrollTop(0);
 			}
 			punParcial.sort(function(a, b){
 					return b[0] - a[0];					
@@ -1152,6 +1154,8 @@ var app = (function(){
 		$(".resuFooter").show();
 		//$(".pregResu").show();
 	 	}, 500);
+
+		$(".posturas").scrollTop(0);
 	
 		$(".resultados").show();
 		if(resuFinal){		
@@ -1343,6 +1347,7 @@ var app = (function(){
 	function showAfinidad(candN){
 		$("#menuMob").hide();
 		$(".afiniCand").show();
+		$(".afiniCand").scrollTop(0);
 
 		openIntermedio();
 		console.log("Candidate Nr: "+candN);
