@@ -8,13 +8,13 @@ function showDetalle(eleNum,val){
 	if(val==0){
 		$(".detalle"+eleNum).hide();
 		$(".detalleButton"+eleNum).html("+");
-		$( ".detalleButton" ).mouseup(function() {
+		$( ".detalleButton"+eleNum).mouseup(function() {
 			 $(".detalleButton"+eleNum).click(showDetalle(eleNum,1));
 		});		
 	}else if(val==1){
 		$(".detalle"+eleNum).show();
 		$(".detalleButton"+eleNum).html("-");
-		$( ".detalleButton" ).mouseup(function() {
+		$( ".detalleButton"+eleNum).mouseup(function() {
 			 $(".detalleButton"+eleNum).click(showDetalle(eleNum,0));
 		});
 	}
