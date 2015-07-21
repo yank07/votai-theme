@@ -1293,6 +1293,7 @@ var app = (function(){
 			console.log("mostrarAfinidad");
 			var cant = candidatos.length;
 			for(var i=0;i<cant;i++){
+				console.log($(this).attr("src")+" - "+fotos[i].src);
 				if($(this).attr("src")==fotos[i].src){
 					console.log("Lo encotro");
 					showAfinidad(i);
