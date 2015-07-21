@@ -1225,7 +1225,7 @@ var app = (function(){
 					if(qresp!=null){
 						var candTxt = qresp.answer_text;
 						if(candTxt.length>1){
-							candTxt = "<br><br><button type=button onclick='function(){$(#detalle+"+canInd+").show();});'>+</button><div class=detalle style='display:hidden;'>"+candTxt+"</div>";
+							candTxt = "<br><button type=button onclick='function(){$(#detalle+"+canInd+").show();});'>+</button><div class=detalle"+i+" style='display:none;'>"+candTxt+"</div>";
 						}
 						posBG+="<div class='chatLeft'><div class='chatIMG'>";
 						posBG+="<img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowLeft'>&nbsp;</div><div class='chatBoxLeft'>";
@@ -1241,7 +1241,7 @@ var app = (function(){
 							posBG+="<div class='chatBoxHeader' id='chatNo'>";
 						}				
 						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" </h3></div>";
-						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+anTxt+"<br>"+candTxt+"</p></div></div></div>";
+						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+anTxt+candTxt+"</p></div></div></div>";
 					//$(".posNom"+i).css("top",$(".chatBG"+i).offset().top);
 					}else{
 						posBG+="<div class='chatLeft'><div class='chatIMG'>";
