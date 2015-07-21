@@ -1559,7 +1559,7 @@ function loadGame(){
 		$(".opciones").tween({
 			top:{
 				start: h,
-				stop:h*0.3+5,
+				stop:h*0.3+10,
 				time: 0,
 				units: 'px',
 				duration:1.0,
