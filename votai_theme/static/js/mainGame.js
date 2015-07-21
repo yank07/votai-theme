@@ -280,7 +280,7 @@ var app = (function(){
 
 		urna1H = parseFloat($(".urna1").css("top"));
 		var urna2Diff = parseFloat($(".urna1").css("height"));
-		$(".urna2").css("top",(urna1H+urna2Diff)+"px");
+		//$(".urna2").css("top",(urna1H+urna2Diff)+"px");
 
 		var u2H = parseFloat($(".afinidad").css("top"))-urna1H+urna2Diff;
 		$(".urna2").css("height",u2H+"px");
@@ -1222,6 +1222,7 @@ var app = (function(){
 					var pregId = categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_id"];
 					var qresp = {};
 					qresp = $.grep(candidatos[canInd]["positions"], function(e){ return e.question_id == pregId; })[0];
+					var candTxt = qresp.answer_text;
 					if(qresp!=null){
 						posBG+="<div class='chatLeft'><div class='chatIMG'>";
 						posBG+="<img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowLeft'>&nbsp;</div><div class='chatBoxLeft'>";
@@ -1237,7 +1238,7 @@ var app = (function(){
 							posBG+="<div class='chatBoxHeader' id='chatNo'>";
 						}				
 						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" </h3></div>";
-						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+anTxt+"</p></div></div></div>";
+						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+anTxt+"<br>"+candTxt+"</p></div></div></div>";
 					//$(".posNom"+i).css("top",$(".chatBG"+i).offset().top);
 					}else{
 						posBG+="<div class='chatLeft'><div class='chatIMG'>";
@@ -1250,6 +1251,7 @@ var app = (function(){
 					var pregId = categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_id"];
 					var qresp = {};
 					qresp = $.grep(candidatos[canInd]["positions"], function(e){ return e.question_id == pregId; })[0];
+					var candTxt = qresp.answer_text;
 					if(qresp!=null){
 						posBG+="<div class='chatRight'><div class='chatPhotoRight'>";
 						posBG+="<img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowRight'>&nbsp;</div><div class='chatBoxRight'>";
@@ -1265,7 +1267,7 @@ var app = (function(){
 							posBG+="<div class='chatBoxHeader' id='chatNo'>";
 						}
 						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" </h3></div>";
-						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+anTxt+"</p></div></div></div>";
+						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+anTxt+"<br>"+candTxt+"</p></div></div></div>";
 					}else{
 						posBG+="<div class='chatRight'><div class='chatPhotoRight'>";
 						posBG+="<img id='fCand' class='rFoto' style='-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-o-filter:grayscale(100%);-ms-filter:grayscale(100%);' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowRight'>&nbsp;</div><div class='chatBoxRight'>";
