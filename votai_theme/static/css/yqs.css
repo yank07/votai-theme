@@ -631,6 +631,19 @@ button:focus {
 .descubriendo{
 	font-family: yqsFont;
 }
+
+.soulmate-link .bEmpez {
+padding: 0.5em 2.3em 0.8em;
+font-size: 1em;
+line-height: 2em;
+height: auto;
+width: auto;
+}
+
+.soulmate-link {
+font-size: 2em;
+}
+
 .bEmpez{
 	background-color:#dd3975;
 	background-size: 100%;
