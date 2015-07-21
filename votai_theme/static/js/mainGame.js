@@ -1823,6 +1823,7 @@ function loadGame(){
 			$(".share").hide();
 
 			$(".bMenuH").click(function(){
+				resetSacudir();
 				$("#menuMob").show();
 				$(".afiniCand").hide();
 				openIntermedio();				
@@ -1843,17 +1844,21 @@ function loadGame(){
 			});
 
 			$(".sobreFrente").click(function() {
+				resetSacudir();
 				showOpt();
 			});
 			$("#vOp").click(function() {
+				resetSacudir();
 				showOpt();
 			});
 
 			$(".closeBtn").click(function() {				
+				resetSacudir();
 				closeOpt();
 			});
 
-			$(".closeInter").click(function() {				
+			$(".closeInter").click(function() {
+				resetSacudir();
 				closeIntermedio();
 			})
 			
@@ -1885,10 +1890,12 @@ function loadGame(){
 			});
 
 			$(".bSaltear#nav2").click(function() {
+				resetSacudir();
 				closeOpt();
 			});
 
 			$(".bBack#nav2").click(function() {
+				resetSacudir();
 				closeOpt();
 			});
 
