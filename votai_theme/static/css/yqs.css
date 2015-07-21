@@ -1263,7 +1263,7 @@ button:focus {
 	height:64px;
 }
 .afiniImg2{
-	width:128px;
+	width:96px;
 	text-align:left;
 }
 #fCand{
@@ -1282,7 +1282,7 @@ button:focus {
 	position:absolute;
 	top:170px;
 	margin-left:50px;
-	width:160px;
+	width:120px;
 	height:60%;
 	background-color:#dddddd;	
 }
