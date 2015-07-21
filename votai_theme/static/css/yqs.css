@@ -1382,8 +1382,16 @@ font-size: 2em;
 		top:50%;
 	}
 	.sigue{
-		width:105px;
 		height:30px;
+		border-radius:0.75em;
+	}
+	.rejugar,.bShare{
+		height:30px;
+		border-radius:0.75em;
+	}
+	.rejugar img,.bShare img{
+		width:10px;
+		height:10px;
 	}
 	.afiT{
 		font-size:1.5em;
