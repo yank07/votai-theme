@@ -21,7 +21,7 @@ elections_json = {% elections_json %};
         </div>
         	<div class="menu" id="menuDesk">
                 <hr>
-		<a><b>Comenzar de nuevo</b></a><br/>
+		<a onclick="location.reload()"><b>Comenzar de nuevo</b></a><br/>
 		<hr>
 		<a><b>Compartir con amigos</b></a><br/>
 		<a><b>{% get_flatpages as about_pages %}</b></a><br/>
@@ -124,10 +124,9 @@ elections_json = {% elections_json %};
 		<img src="{% static 'img/YQSlogo.png' %}" class='imgHeader'>
 		<div style="margin-top:10px">&nbsp;</div>
 		<hr>
-		<a><b>Comenzar de nuevo</b></a><br/>
+		<a onclick="location.reload()"><b>Comenzar de nuevo</b></a><br/>
 		<hr>
 		<a><b>Compartir con amigos</b></a><br/>
-		<hr>
 		<a><b>{% get_flatpages as about_pages %}</b></a><br/>
 		<hr>
 		{% for page in about_pages %}

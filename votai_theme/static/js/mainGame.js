@@ -1839,7 +1839,7 @@ function loadGame(){
 
 			$(".rejugar").click(function(){
 				rejugar=true;
-				location.reload(true);
+				location.reload();
 			});
 
 			$(".sobreFrente").click(function() {
