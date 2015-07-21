@@ -1160,6 +1160,7 @@ var app = (function(){
 			$(".pregResu").css("font-size","3em");
 			$(".pregResu").css("padding-top","5%");
 			$(".posturasBG").css("text-align","right");
+			$("#fcand")
 			$(".bShare").show();
 			$(".rejugar").show();
 			postuAlt=0.3;
@@ -1180,7 +1181,7 @@ var app = (function(){
 				
 				if(i==0||puntajes[0][0]==puntajes[i][0]){
 					posBG+="<div class='resuCand1'>";
-					posBG+="<div class='resuIMG1'><img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div>";
+					posBG+="<div class='resuIMG1'><img id='fCand' class='rFoto' style='margin-right:0px' src="+candidatos[canInd]["candidate_pic"]+" ></div>";
 					posBG+="<div class='resuDatos1'>";
 					posBG+="<div class='resuPor1'>"+parseInt(puntajes[i][0]*invTotal*100)+"%</div>";
 					posBG+="<div class='resuNom1'>"+candidatos[canInd]["candidate_name"]+"<br/></div>";
@@ -1197,7 +1198,7 @@ var app = (function(){
 						shareTxt+="&#191;Cuál es tu candidato?";
 					}
 					posBG+="<div class='resuCand2'>";
-					posBG+="<div class='resuIMG2'><img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div>";
+					posBG+="<div class='resuIMG2'><img id='fCand' class='rFoto' style='margin-right:0px' src="+candidatos[canInd]["candidate_pic"]+" ></div>";
 					posBG+="<div class='resuDatos2'>";
 					posBG+="<div class='resuNom2'>"+candidatos[canInd]["candidate_name"]+"<br/></div>";
 					posBG+="<div class='resuBarra'><div class='barraLlena' style='width:"+parseInt(puntajes[i][0]*invTotal*100)+"%;'>&nbsp;</div><div class='barraVacia' style='width:"+(100-parseInt(puntajes[i][0]*invTotal*100))+"%;'>&nbsp;</div></div>";
