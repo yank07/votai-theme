@@ -1362,6 +1362,7 @@ var app = (function(){
 
 		var isCoin = false;
 		var isNCoin = false;
+		var isNResp = false
 
 		var htC = "";
 		var htNC = "";
@@ -1387,7 +1388,7 @@ var app = (function(){
 						$(".coincide").show();
 						htC = "<div class='tit'>Coincide con vos:</div><br style='line-height:25px;'>";
 						isCoin=true;					
-						console.log("Coincide!");
+						//console.log("Coincide!");
 				}
 				if(parseInt(resC*0.5)==0){
 					htC += "<div class='AfiniCV'>";
@@ -1407,7 +1408,7 @@ var app = (function(){
 					$(".noCoincide").show();
 					htNC = "<div class='tit';>No coincide con vos:</div><br style='line-height:25px;'>";
 					isNCoin=true;
-					console.log("No Coincide!");
+					//console.log("No Coincide!");
 				}
 				if(parseInt(resC*0.5)==0){
 					htNC += "<div class='AfiniCV'>";
@@ -1424,6 +1425,16 @@ var app = (function(){
 					htNC+="</div>";
 				}
 			}
+		}else{
+			if(!isNResp){
+					$(".coincide").show();
+					htNTR = "<div class='tit';>No tiene respuesta:</div><br style='line-height:25px;'>";
+					isNResp=true;					
+			}
+			
+			htNTR += "<div class='AfiniCV'>";
+			htNTR+="<div class='afPTit'>"+qTxt+"</div>";
+			htNTR+="</div>";
 		}
 		}
 

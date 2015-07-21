@@ -874,7 +874,7 @@ button:focus {
 .coincide{
 	//margin-top:5%;
 }
-.coincide,.noCoincide{
+.coincide,.noCoincide,.noResp{
 	width:90%;	
 	margin-left:10%;
 	display:block;
