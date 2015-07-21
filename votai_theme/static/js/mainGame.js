@@ -148,6 +148,7 @@ var app = (function(){
 				}else{
 					punParcial[i][0] = -1;
 				}
+				punPreg[i][0]=-1;
 				console.log("PunPar "+candidatos[cInd]["candidate_name"]+": "+punParcial[i]);
 			}
 			
