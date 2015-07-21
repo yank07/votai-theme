@@ -1390,14 +1390,14 @@ var app = (function(){
 						console.log("Coincide!");
 				}
 				if(parseInt(resC*0.5)==0){
-					htNC += "<div class='AfiniCV'>;
+					htNC += "<div class='AfiniCV'>";
 					htNC+="<div class='afPTit'>"+qTxt+"</div>";
 					htC += "<div class='afVot' id='afVSi'><span>Si</span></div>";
 					htC+="<div class='afPTit'>"+qTxt+"</div>";
 					htC+="<div class='afPreg'>"+anTxt+"</div>";	
 					htC+="</div>";
 				}else if(parseInto(resC*0.5)==1){					
-					htNC += "<div class='AfiniCV'>;
+					htNC += "<div class='AfiniCV'>";
 					htNC+="<div class='afPTit'>"+qTxt+"</div>";
 					htC += "<div class='afVot' id='afVNo'><span>No</span></div>";
 					htC+="<div class='afPTit'>"+qTxt+"</div>";
@@ -1412,13 +1412,13 @@ var app = (function(){
 					console.log("No Coincide!");
 				}
 				if(parseInt(resC*0.5)==0){
-					htNC += "<div class='AfiniCV'>;
+					htNC += "<div class='AfiniCV'>";
 					htNC+="<div class='afPTit'>"+qTxt+"</div>";
 					htNC += "<div class='afVot' id='afVSi'><span>Si</span></div>"					
 					htNC+="<div class='afPreg'>"+anTxt+"</div>";	
 					htNC+="</div>";
 				}else if(parseInt(resC*0.5)==1){					
-					htNC += "<div class='AfiniCV'>;
+					htNC += "<div class='AfiniCV'>";
 					htNC+="<div class='afPTit'>"+qTxt+"</div>";
 					htNC += "<div class='afVot' id='afVNo'><span>No</span></div>"
 					htNC+="<div class='afPTit'>"+qTxt+"</div>";
