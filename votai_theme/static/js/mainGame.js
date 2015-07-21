@@ -1473,7 +1473,7 @@ console.log(url);
 						}	
 					});
 
-					rejugar=false;
+					//rejugar=false;
 
 					/*$("div.chatimg").click(function(){
 						console.log("ACA");
