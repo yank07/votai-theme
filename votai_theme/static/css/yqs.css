@@ -591,9 +591,9 @@ button:focus {
 .menu{
 	position:absolute;
 	left:0px;
-	top:200%;
+	top:200vh;
 	text-align:right;
-	width:100%;	
+	width:100vw;	
 }
 .menu,.menu a{
 	color:black;
@@ -626,9 +626,9 @@ button:focus {
 	font-size:0.9em;
 }
 #menuMob{
-	width: 80%;
-	margin-top: 20%;
-	margin-left: 10%;;
+	width: 80vw;
+	margin-top: 20vh;
+	margin-left: 10vw;
 }
 #menuMob a:hover {
   text-decoration: none;
@@ -1400,9 +1400,9 @@ button:focus {
 	.menu{
 		position:absolute;
 		left:0px;
-		top:200%;
+		top:200vh;
 		text-align:right;
-		width:100%;	
+		width:100vw;	
 	}
 	.menu,.menu a{
 		color:black;
