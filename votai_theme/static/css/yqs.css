@@ -894,11 +894,20 @@ button:focus {
 .afVot{
 
 }
+.afPTit{
+	width: 80%;
+	margin-left: 10%;
+	font-size: 1em;
+	line-height: 0.9em;
+	margin-bottom: 10px;
+	color: #999;
+}
 #afVSi{
 	float: left;
 	background-color: #00a92c;
 	width: 60px;
 	height: 60px;
+	line-height: 60px;
 	border-radius: 10%;
 	border: none;
 	-webkit-box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
@@ -912,11 +921,17 @@ button:focus {
 	margin-bottom:10px;
 	transform: rotate(-5deg);
 }
+#afVSi span{
+	display: inline-block;
+	vertical-align: middle;
+	line-height: normal;
+}
 #afVNo{
 	float: left;
 	background-color:#e4324c;
 	width:60px;
 	height:60px;
+	line-height: 60px;
 	border-radius: 10%;
 	border:none;
 	-webkit-box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
@@ -930,14 +945,18 @@ button:focus {
 	margin-bottom:10px;
 	transform: rotate(5deg);
 }
+#afVNo span{
+	display: inline-block;
+	vertical-align: middle;
+	line-height: normal;
+}
 .afPreg{
 	font-size: 1em;
-	#height: 50px;
+	height: 50px;
 	margin-left: 100px;
 	margin-top: 3px;
-    padding-right: 15px;
-	
-	
+	padding-right: 15px;
+	line-height: 0.9em;	
 }
 
 .closeBtn {
