@@ -755,19 +755,19 @@ var app = (function(){
 				$(".afiniSide").show();
 				//$(".afiniImg").show();
 			}
-			puntajes.sort(function(a, b){
+			punParcial.sort(function(a, b){
 					return b[0] - a[0];					
 			});
 			var cant = candidatos.length;
 			//console.log($(".afinidad").height());
 			//var aH = $(".afinidad").height()*h*0.008;
 			var aH = parseFloat($(".afiniImg").css("height"));			
-			console.log("preg respon: "+puntajes[0][2]);
-			//var invMaxPunt = 1/(puntajes[0][0]/puntajes[0][2]);
+			console.log("preg respon: "+punParcial[0][2]);
+			//var invMaxPunt = 1/(punParcial[0][0]);
 			var invMaxPunt = 1/(valorPuntos[0]);			
 			for(var i=0;i<cant;i++){
-				var canInd = puntajes[i][1];
-				//console.log("Puntaje "+(candidatos[canInd]["candidate_name"])+": "+(puntajes[i][0]/puntajes[i][2]));								
+				var canInd = punParcial[i][1];
+				//console.log("Puntaje "+(candidatos[canInd]["candidate_name"])+": "+(punParcial[i][0]));								
 				$(".cFoto"+i).attr("src",fotos[canInd].src);
 				var fW = 0;
 				if(punParcial[i][2]>0){
