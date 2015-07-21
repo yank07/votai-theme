@@ -1137,6 +1137,10 @@ var app = (function(){
 		$.play();	
 	};
 
+	function showDetalle(eleNum){
+		$(".detalle"+eleNum).show();
+	});
+
 	// #Animación muestra el resultado a partir del voto elegido
 	function pregResult(){
 		$(".preguntas").hide();
@@ -1225,7 +1229,7 @@ var app = (function(){
 					if(qresp!=null){
 						var candTxt = qresp.answer_text;
 						if(candTxt.length>1){
-							candTxt = "<br><button type=button style='margin-top:4px;border:none' onclick="+"'function(){$("+"'#detalle"+canInd+"'"+").show();});'>+</button><div class=detalle"+i+" style='display:none;'>"+candTxt+"</div>";
+							candTxt = "<br><button type=button style='margin-top:4px;border:none' onclick='showDetalle("+canInd+")'>+</button><div class=detalle"+i+" style='display:none;'>"+candTxt+"</div>";
 						}
 						posBG+="<div class='chatLeft'><div class='chatIMG'>";
 						posBG+="<img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowLeft'>&nbsp;</div><div class='chatBoxLeft'>";
