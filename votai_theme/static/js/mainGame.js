@@ -4,6 +4,7 @@
 	$(".detalleButton"+eleNum).click(hideDetalle(eleNum));
 };*/
 function showDetalle(eleNum,val){
+	console.log("val: "+val);
 	if(val==0){
 		$(".detalle"+eleNum).hide();
 		$(".detalleButton"+eleNum).html("+");
@@ -1435,7 +1436,6 @@ var app = (function(){
 					htNC += "<div class='AfiniCV'>";
 					htNC+="<div class='afPTit'>"+qTxt+"</div>";
 					htNC += "<div class='afVot' id='afVNo'><span>No</span></div>"
-					htNC+="<div class='afPTit'>"+qTxt+"</div>";
 					htNC+="<div class='afPreg'>"+anTxt+"</div>";	
 					htNC+="</div>";
 				}
