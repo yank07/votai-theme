@@ -280,7 +280,7 @@ var app = (function(){
 
 		urna1H = parseFloat($(".urna1").css("top"));
 		var urna2Diff = parseFloat($(".urna1").css("height"));
-		//$(".urna2").css("top",(urna1H+urna2Diff)+"px");
+		$(".urna2").css("top",(urna1H+urna2Diff)+"px");
 
 		var u2H = parseFloat($(".afinidad").css("top"))-urna1H+urna2Diff;
 		$(".urna2").css("height",u2H+"px");
