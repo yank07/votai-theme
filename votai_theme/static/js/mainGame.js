@@ -1139,7 +1139,7 @@ var app = (function(){
 
 	function showDetalle(eleNum){
 		$(".detalle"+eleNum).show();
-	});
+	};
 
 	// #Animación muestra el resultado a partir del voto elegido
 	function pregResult(){
