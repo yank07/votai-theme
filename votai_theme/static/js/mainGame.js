@@ -118,12 +118,12 @@ var app = (function(){
 			var qresp = {};
 			qresp = $.grep(candidatos[cInd]["positions"], function(e){ return e["question_id"] == pregId; })[0];
 			if(qresp!=null){
-				console.log(qresp);
+				//console.log(qresp);
 				var ansId = qresp.answer_id;
-				console.log("A: "+ansId);			
+				//console.log("A: "+ansId);			
 				qresp = $.grep(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["answers"], function(e){ return e.answer_id == ansId; })[0];
 				var candR = qresp.answer_value;
-				console.log("B: "+candR);
+				//console.log("B: "+candR);
 			
 			//var candR = candidatos[cInd][categorias[pregCount%categorias.length]["Id"]]["Respuestas"][categorias[pregCount%categorias.length]["orden"][parseInt(pregCount/categorias.length)]];
 			
@@ -153,7 +153,7 @@ var app = (function(){
 				punParcial[i][1]=cInd;
 				punParcial[i][2]=puntajes[i][2];
 				punParcial[i][0] = puntajes[i][0]/punParcial[i][2];
-				console.log("PunPar "+candidatos[cInd]["candidate_name"]+": "+punParcial[i]);
+				//console.log("PunPar "+candidatos[cInd]["candidate_name"]+": "+punParcial[i]);
 			}else{
 				punParcial[i][1]=cInd;
 				punParcial[i][2]=puntajes[i][2];
@@ -163,7 +163,7 @@ var app = (function(){
 					punParcial[i][0] = -1;
 				}
 				punPreg[i][0]=-1;
-				console.log("PunPar "+candidatos[cInd]["candidate_name"]+": "+punParcial[i]);
+				//console.log("PunPar "+candidatos[cInd]["candidate_name"]+": "+punParcial[i]);
 			}
 			
 		}	
@@ -782,7 +782,7 @@ var app = (function(){
 			//console.log($(".afinidad").height());
 			//var aH = $(".afinidad").height()*h*0.008;
 						
-			console.log("preg respon: "+punParcial[0][2]);
+			//console.log("preg respon: "+punParcial[0][2]);
 			//var invMaxPunt = 1/(punParcial[0][0]);
 			var invMaxPunt = 1/(valorPuntos[0]);			
 			for(var i=0;i<cant;i++){
@@ -1173,7 +1173,7 @@ var app = (function(){
 	
 		$(".resultados").show();
 		if(resuFinal){		
-			console.log("TERMINO");
+			//console.log("TERMINO");
 			$(".pregResu").html("Resultado");
 			$(".pregResu").css("font-size","3em");
 			$(".pregResu").css("padding-top","5%");
@@ -1190,12 +1190,12 @@ var app = (function(){
 			});
 
 			var invTotal = 1/(valorPuntos[0]*puntajes[0][2]);
-			console.log("Mayor Puntaje: "+(valorPuntos[0]*puntajes[0][2]))	
+			//console.log("Mayor Puntaje: "+(valorPuntos[0]*puntajes[0][2]))	
 			var segundos = true;
 
 			for(var i=0;i<cant;i++){
 				var canInd = puntajes[i][1];
-				console.log("Pun Preg "+candidatos[canInd]["candidate_name"]+": "+puntajes[i]);
+				//console.log("Pun Preg "+candidatos[canInd]["candidate_name"]+": "+puntajes[i]);
 				
 				if(i==0||puntajes[0][0]==puntajes[i][0]){
 					posBG+="<div class='resuCand1'>";
@@ -1239,7 +1239,7 @@ var app = (function(){
 			});
 			for(var i=0;i<cant;i++){
 				var canInd = punPreg[i][1];
-				console.log("Pun Preg "+candidatos[canInd]["candidate_name"]+": "+punPreg[i]);
+				//console.log("Pun Preg "+candidatos[canInd]["candidate_name"]+": "+punPreg[i]);
 				if(i%2==0){	
 					//var r = candidatos[canInd][categorias[pregCount%categorias.length]["Id"]]["Respuestas"][categorias[pregCount%categorias.length]["orden"][parseInt(pregCount/categorias.length)]];
 					var pregId = categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_id"];
@@ -1255,8 +1255,8 @@ var app = (function(){
 						var ansId = qresp.answer_id;
 						qresp = $.grep(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["answers"], function(e){ return e.answer_id == ansId; })[0];						
 						var anTxt = qresp.answer_text;
-						console.log(qresp);
-						console.log("Texto: "+anTxt);
+						//console.log(qresp);
+						//console.log("Texto: "+anTxt);
 						var r = qresp.answer_value;
 						if(r<2){
 							posBG+="<div class='chatBoxHeader' id='chatSi'>";
@@ -1287,8 +1287,8 @@ var app = (function(){
 						var ansId = qresp.answer_id;
 						qresp = $.grep(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["answers"], function(e){ return e.answer_id == ansId; })[0];						
 						var anTxt = qresp.answer_text;
-						console.log(qresp);
-						console.log("Texto: "+anTxt);
+						//console.log(qresp);
+						//console.log("Texto: "+anTxt);
 						var r = qresp.answer_value;
 						if(r<2){
 							posBG+="<div class='chatBoxHeader' id='chatSi'>";
@@ -1311,14 +1311,12 @@ var app = (function(){
 		}
 		//$("img.rFoto").click(function(){
 		$("img#fCand").click(function(){
-			console.log("mostrarAfinidad");
 			var cant = candidatos.length;
 			for(var i=0;i<cant;i++){
-				console.log($(this).attr("src")+" - "+fotos[i].src);
 				var f1 = $(this).attr("src").split("/");
 				var f2 = fotos[i].src.split("/");
 				if(f1[f1.length-1]==f2[f2.length-1]){
-					console.log("Lo encotro");
+					//console.log("Lo encotro");
 					showAfinidad(i);
 					break;
 				}
@@ -1354,7 +1352,7 @@ var app = (function(){
 			},
 			onStop: function( element ){
 				$(".intermedio").hide();
-				console.log("closeInter");
+				//console.log("closeInter");
 			}
 		});
 		$.play();	
@@ -1367,10 +1365,11 @@ var app = (function(){
 		$(".afiniCand").scrollTop(0);
 
 		openIntermedio();
-		console.log("Candidate Nr: "+candN);
-		console.log(fotos[candN].src);
-		
+		//console.log("Candidate Nr: "+candN);
+		//console.log(fotos[candN].src);
+
 		$(".afiniCImg").attr("src",fotos[candN].src);
+		$(".afiniCImg").css("background-color",candidatos[candN]["candidate_color"]);
 		$(".afiniCNom").html(candidatos[candN]["candidate_name"]+"<br/>");
 
 		var isCoin = false;
@@ -1382,7 +1381,6 @@ var app = (function(){
 		var htNTR = "";
 		
 		for(var i=0;i<userRes.length;i++){
-			console.log(i);
 			var pregId = categorias[i%categorias.length]["questions"][parseInt(i/categorias.length)]["question_id"];
 			var qTxt = categorias[i%categorias.length]["questions"][parseInt(i/categorias.length)]["question_text"];
 			var qresp = {};
@@ -1391,8 +1389,8 @@ var app = (function(){
 				var ansId = qresp.answer_id;
 				qresp = $.grep(categorias[i%categorias.length]["questions"][parseInt(i/categorias.length)]["answers"], function(e){ return e.answer_id == ansId; })[0];						
 				var anTxt = qresp.answer_text;
-				console.log(qresp);
-				console.log("Texto: "+anTxt);
+				//console.log(qresp);
+				//console.log("Texto: "+anTxt);
 				var resC = qresp.answer_value;
 
 			//var resC = candidatos[candN][categorias[i%categorias.length]["Id"]]["Respuestas"][categorias[i%categorias.length]["orden"][parseInt(i/categorias.length)]];
@@ -1471,7 +1469,7 @@ function loadGame(){
 		election = /theme\/election\/([^\/]*)\//.exec(location.href)[1];
 		url =  "/theme/election/"+election+"/media-naranja.json";
 	}
-	console.log(url);
+	//console.log(url);
 		//console.log("data/yqs"+id+".json");
 				//$.getJSON( "{% static 'data/yqs"+id+".json' %}", function( data ) {			
 					//console.log(data);
@@ -1720,7 +1718,7 @@ function loadGame(){
 			w = $("#game").width();
 			h = $("#game").height();
 
-			console.log("mobile: "+$.browser.mobile);
+			//console.log("mobile: "+$.browser.mobile);
 
 			mobile = $.browser.mobile;
 
@@ -1841,13 +1839,13 @@ function loadGame(){
 
 			$(".enviar").click(function(){
 				correoUser = $( "#inCorreo" ).val();
-				console.log(correoUser);
+				//console.log(correoUser);
 				sendMail();				
 			});
 
 			$( "#inCorreo" ).change(function() {
   				correoUser = $( "#inCorreo" ).val();
-				console.log(correoUser);
+				//console.log(correoUser);
 			});
 
 			$(".encSi").hide();
@@ -1980,7 +1978,7 @@ function loadGame(){
 
 			var options_eleccion = '';
 			$.each(elections_json, function(key,value){				
-				console.log(value["detaillink"]);
+				//console.log(value["detaillink"]);
 				options_eleccion += '<option value="' + value["detaillink"] + '"><h4>' +  value["name"] + '</h4><\/option>';				
 			});
 			$("select#eleccion").html(options_eleccion);
@@ -1990,7 +1988,7 @@ function loadGame(){
 			$( "select#eleccion" ).change( function(){
 				elecUrl=$( "select#eleccion option:selected").val();
 				//id=$( "#eleccion" ).val();
-				console.log(elecUrl);
+				//console.log(elecUrl);
 			});
 
 			$(".bJugar").click(function() {
