@@ -19,8 +19,10 @@ a{
 	position:absolute;
 	left:0px;
 	top:0px;
-	width:100%;
-	height:500%;
+	width:450px;
+	height:560px;
+	//width:100%;
+	//height:500%;
 	z-index=10000;
 	background-color:#86e895;
 	z-index:10000;	
@@ -185,8 +187,10 @@ button:focus {
 	position:absolute;
 	left:0;
 	top:0;
-	width:100%;
-	height:100%;
+	//width:100%;
+	//height:100%;
+	width:450px;
+	height:560px;
 	background-color:#86e895;
 	//z-index:1;
 	text-align:center;
@@ -1304,6 +1308,14 @@ button:focus {
 	.imgInicio{
 		width:172px;
 		height:37px;
+	}
+	#telon{
+		width:100%;
+		height:100%;
+	}
+	#inicio{
+		width:100%;
+		height:100%;
 	}
 	#game{
 		width:100%;
