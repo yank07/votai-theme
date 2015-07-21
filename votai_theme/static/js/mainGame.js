@@ -1499,7 +1499,7 @@ function loadGame(){
 					for(var i=0;i<cant;i++){						
 						fotos[i] = new Image(aH, aH);
 						fotos[i].src=candidatos[i]["candidate_pic"];
-						afCont+="<img id=fCand style='background-color:"+candidatos[canInd]["candidate_color"]+";' class=cFoto"+i+" width="+aH+"px height="+aH+"px"+" src="+candidatos[i]["candidate_pic"]+" >";
+						afCont+="<img id=fCand style='background-color:"+candidatos[i]["candidate_color"]+";' class=cFoto"+i+" width="+aH+"px height="+aH+"px"+" src="+candidatos[i]["candidate_pic"]+" >";
 						puntajes[i]=[0,i,0];						
 						punParcial[i]=[0,i,0];						
 						punPreg[i]=[0,i];						
