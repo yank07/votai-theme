@@ -1412,7 +1412,7 @@ function jugar(){
 
 //url = "/theme/election/pre-candidato-a-presidente/media-naranja.json";
 url=elecUrl+"/media-naranja.json";
-location.href="/theme/"+elecUrl;
+location.href="/theme"+elecUrl;
 
 /*if (/theme\/election\/(.*)\//.test(location.href)) {
 	election = /theme\/election\/([^\/]*)\//.exec(location.href)[1];
