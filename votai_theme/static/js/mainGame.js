@@ -1345,7 +1345,7 @@ var app = (function(){
 		console.log("Candidate Nr: "+candN);
 		console.log(fotos[candN].src);
 		
-		$(".afiniCIMG").attr("src",fotos[candN].src);
+		$(".afiniCImg").attr("src",fotos[candN].src);
 		$(".afiniCNom").html(candidatos[candN]["candidate_name"]+"<br/>");
 
 		var isCoin = false;
