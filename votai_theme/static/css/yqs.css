@@ -588,7 +588,7 @@ button:focus {
 	//width:226px;
 	//height:74px;
 }
-.menu{
+#menuDesk{
 	position:absolute;
 	left:0px;
 	top:200vh;
@@ -1397,7 +1397,7 @@ button:focus {
 		width:300px;
 		color:black;
 	}
-	.menu{
+	#menuDesk{
 		position:absolute;
 		left:0px;
 		top:200vh;
