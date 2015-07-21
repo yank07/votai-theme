@@ -1365,9 +1365,11 @@ var app = (function(){
 
 		var htC = "";
 		var htNC = "";
+		
 		for(var i=0;i<userRes.length;i++){
 			console.log(i);
 			var pregId = categorias[i%categorias.length]["questions"][parseInt(i/categorias.length)]["question_id"];
+			var qTxt = categorias[i%categorias.length]["questions"][parseInt(i/categorias.length)]["question_text"];
 			var qresp = {};
 			qresp = $.grep(candidatos[candN]["positions"], function(e){ return e.question_id == pregId; })[0];
 			if(qresp!=null){
@@ -1388,10 +1390,12 @@ var app = (function(){
 				}
 				if(parseInt(resC*0.5)==0){
 					htC += "<div class='AfiniCV'><div class='afVot' id='afVSi'><span>Si</span></div><div class='afPreg'>"
+					htC+=qTxt+"<br>";
 					htC+=anTxt;	
 					htC+='</div></div>'				
 				}else if(parseInt(resC*0.5)==1){					
 					htC += "<div class='AfiniCV'><div class='afVot' id='afVNo'><span>No</span></div><div class='afPreg'>"
+					htC+=qTxt+"<br>";
 					htC+=anTxt;	
 					htC+="</div></div>"								
 				}			
@@ -1404,10 +1408,12 @@ var app = (function(){
 				}
 				if(parseInt(resC*0.5)==0){
 					htNC += "<div class='AfiniCV'><div class='afVot' id='afVSi'><span>Si</span></div><div class='afPreg'>"
+					htNC+=qTxt+"<br>";
 					htNC+=anTxt;	
 					htNC+='</div></div>'				
 				}else if(parseInt(resC*0.5)==1){					
 					htNC += "<div class='AfiniCV'><div class='afVot' id='afVNo'><span>No</span></div><div class='afPreg'>"
+					htNC+=qTxt+"<br>";
 					htNC+=anTxt;	
 					htNC+="</div></div>"								
 				}
