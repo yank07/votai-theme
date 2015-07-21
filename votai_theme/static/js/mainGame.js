@@ -748,15 +748,18 @@ var app = (function(){
 		resizeFont($(".tPreg"));
 		
 		if(pregCount>0){
+			var aH = 0;
 			if(mobile){
 				//$(".afinidad").css("background-color","#002B15");
 				$(".afiniImg").show();
 				$(".afiT").show();
 				$(".afinidad").scrollTop(0);
+				aH = parseFloat($(".afiniImg").css("height"));
 			}else{
 				$(".afiniSide").show();
 				//$(".afiniImg").show();
 				$(".afinidad2").scrollTop(0);
+				aH = parseFloat($(".afiniImg2").css("width"));
 			}
 			punParcial.sort(function(a, b){
 					return b[0] - a[0];					
@@ -764,7 +767,7 @@ var app = (function(){
 			var cant = candidatos.length;
 			//console.log($(".afinidad").height());
 			//var aH = $(".afinidad").height()*h*0.008;
-			var aH = parseFloat($(".afiniImg").css("height"));			
+						
 			console.log("preg respon: "+punParcial[0][2]);
 			//var invMaxPunt = 1/(punParcial[0][0]);
 			var invMaxPunt = 1/(valorPuntos[0]);			
