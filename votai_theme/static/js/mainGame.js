@@ -1412,14 +1412,19 @@ var app = (function(){
 function jugar(){
 
 //url = "/theme/election/pre-candidato-a-presidente/media-naranja.json";
-url=elecUrl+"/media-naranja.json";
-location.href="/theme"+elecUrl+"/media-naranja";
 
-/*if (/theme\/election\/(.*)\//.test(location.href)) {
-	election = /theme\/election\/([^\/]*)\//.exec(location.href)[1];
-	url =  "/theme/election/"+election+"/media-naranja.json";
-}*/
-console.log(url);
+	location.href="/theme"+elecUrl+"/media-naranja";
+
+}
+
+function loadGame(){
+		
+	url=elecUrl+"/media-naranja.json";
+	if (/theme\/election\/(.*)\//.test(location.href)) {
+		election = /theme\/election\/([^\/]*)\//.exec(location.href)[1];
+		url =  "/theme/election/"+election+"/media-naranja.json";
+	}
+	console.log(url);
 		//console.log("data/yqs"+id+".json");
 				//$.getJSON( "{% static 'data/yqs"+id+".json' %}", function( data ) {			
 					//console.log(data);
@@ -1996,6 +2001,7 @@ console.log(url);
 			
 
 			$(".faltan").html("Calendario electoral: faltan <span class='dias'>"+getDayCount()+" d&#237;as</span> para las PASO");
+			loadGame();
 		},
 
 	stop : function(){
