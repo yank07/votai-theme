@@ -715,8 +715,8 @@ button:focus {
 	padding-right:15%;
 	margin-top:0;
 	margin-bottom:0;
-	//height:25%;
-	height:138px;
+	height:25vh;
+	//height:138px;
 	overflow:hidden;
 	font-size:2.5em;
 	font-family:yqsFont;
@@ -1127,7 +1127,7 @@ button:focus {
 }
 .urna1,.urna2{
 	position:absolute;
-	top:79%;
+	top:79vh;
 	width:100%;
 	margin:0;
 	padding:0;
@@ -1286,7 +1286,7 @@ button:focus {
 	.tPreg{
 		//font-size:1.5em;
 		padding-top:10px;
-		height:15%;
+		height:15vh;
 	}
 	
 	.sobreFrente,.sobreChicos,.sobreFondo1,.sobreFondo2,.sobreCerrado,.tapaCerrada{
@@ -1299,10 +1299,6 @@ button:focus {
 	.afiT{
 		font-size:1.5em;
 	}
-	.urna1,.urna2{
-		top:192px;
-	}
-	
 }
 @media only screen and (max-width:449px){
 	.imgInicio{
@@ -1321,7 +1317,8 @@ button:focus {
 		height:70px;
 	}
 	.urna1,.urna2{
-		top:389px;
+		//top:389px;
+		top:82vh;
 	}
 }
 
