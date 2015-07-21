@@ -711,7 +711,8 @@ button:focus {
 	padding-right:15%;
 	margin-top:0;
 	margin-bottom:0;
-	height:25%;
+	//height:25%;
+	height:138px;
 	overflow:hidden;
 	font-size:2.5em;
 	font-family:yqsFont;
@@ -1128,6 +1129,7 @@ button:focus {
 	padding:0;
 	text-align: center;
 	background-color:#86e895;
+	height:16px;
 }
 
 .urna1 img{
