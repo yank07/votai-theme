@@ -1823,7 +1823,6 @@ function loadGame(){
 			$(".share").hide();
 
 			$(".bMenuH").click(function(){
-				resetSacudir();
 				$("#menuMob").show();
 				$(".afiniCand").hide();
 				openIntermedio();				
@@ -1844,11 +1843,9 @@ function loadGame(){
 			});
 
 			$(".sobreFrente").click(function() {
-				resetSacudir();
 				showOpt();
 			});
 			$("#vOp").click(function() {
-				resetSacudir();
 				showOpt();
 			});
 
