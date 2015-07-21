@@ -1224,6 +1224,9 @@ var app = (function(){
 					qresp = $.grep(candidatos[canInd]["positions"], function(e){ return e.question_id == pregId; })[0];
 					if(qresp!=null){
 						var candTxt = qresp.answer_text;
+						if(candTxt.length>1){
+							candTxt = "<br><br><button type=button onclick='function(){$(#detalle+"+candInd+").show();});'>+</button><div class=detalle style='display:hidden;'>"+candTxt+"</div>";
+						}
 						posBG+="<div class='chatLeft'><div class='chatIMG'>";
 						posBG+="<img id='fCand' class='rFoto' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowLeft'>&nbsp;</div><div class='chatBoxLeft'>";
 						var ansId = qresp.answer_id;
