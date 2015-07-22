@@ -1474,7 +1474,7 @@ function loadGame(){
 		url =  "/theme/election/"+election+"/media-naranja.json";
 	}
 	
-	$('select').val(elecUrl);
+	$("select#eleccion").val(elecUrl);
 	//console.log(url);
 		//console.log("data/yqs"+id+".json");
 				//$.getJSON( "{% static 'data/yqs"+id+".json' %}", function( data ) {			
