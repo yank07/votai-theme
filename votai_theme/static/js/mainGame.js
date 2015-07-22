@@ -33,6 +33,7 @@ var app = (function(){
 	var valorPuntos = [100,66,33,0];
 
 	var elecUrl="/election/pre-candidato-a-presidente";
+	var jsonUrl= elections_json[0].medianaranja_link;
 
 	var animando=false;
 
@@ -1472,27 +1473,28 @@ function jugar(){
 //url = "/theme/election/pre-candidato-a-presidente/media-naranja.json";
 
 	location.href="/theme"+elecUrl+"/media-naranja";
+	jsonUrl=elecUrl+"/media-naranja.json";
 
 }
 
 function loadGame(){
 		
-	url=elecUrl+"/media-naranja.json";
+	/*url=elecUrl+"/media-naranja.json";
 	if (/theme\/election\/(.*)\//.test(location.href)) {
 		election = /theme\/election\/([^\/]*)\//.exec(location.href)[1];
 		url =  "/theme/election/"+election+"/media-naranja.json";
-	}
+	}*/
 	
 	console.log(elecUrl);
 	var qresp = {};
 	qresp = $.grep(elections_json, function(e){ return e["detaillink"] == elecUrl; })[0];
 	console.log(qresp.name);
-	$("#eleccion").val(qresp.name);
+	$("select#eleccion").val(qresp.name);
 	
 		//console.log("data/yqs"+id+".json");
 				//$.getJSON( "{% static 'data/yqs"+id+".json' %}", function( data ) {			
 					//console.log(data);
-					$.getJSON( url, function( data ) {			
+					$.getJSON( jsonUrl, function( data ) {			
 					eleccion = data;
 					//preguntas = eleccion["Preguntas"];			
 					//categorias = eleccion["Preguntas"]["Categorias"];
