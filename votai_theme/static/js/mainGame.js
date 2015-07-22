@@ -714,7 +714,7 @@ var app = (function(){
 		var rot = 0;
 		if(element.is('#vSi'){
 			rot=-5;
-		}else if(element.is('#vNo'){{
+		}else if(element.is('#vNo'){
 			rot=5;
 		}
 		//var rot = getRotDegrees(element);
