@@ -1483,8 +1483,9 @@ function loadGame(){
 		url =  "/theme/election/"+election+"/media-naranja.json";
 	}
 	
+	console.log(elecUrl);
 	$("select#eleccion").val(elecUrl);
-	//console.log(url);
+	
 		//console.log("data/yqs"+id+".json");
 				//$.getJSON( "{% static 'data/yqs"+id+".json' %}", function( data ) {			
 					//console.log(data);
@@ -1899,7 +1900,8 @@ function loadGame(){
 
 			$(".rejugar").click(function(){
 				rejugar=true;
-				location.reload();
+				//location.reload();
+				loadGame();
 			});
 
 			$(".sobreFrente").click(function() {
