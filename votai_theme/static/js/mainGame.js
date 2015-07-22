@@ -696,13 +696,16 @@ var app = (function(){
 	function resetSacudir(){
 		esperando=false;
 		//$.stop();
-		var rot = -5-getRotDegrees($("#vSi"));
+		//var rot = -5-getRotDegrees($("#vSi"));
+		var rot = -5;
 		$("#vSi").css({ 'transform': 'rotate(' + rot + 'deg)'});
 
-		rot = 5-getRotDegrees($("#vNo"));
+		//rot = 5-getRotDegrees($("#vNo"));
+		rot = 5;
 		$("#vNo").css({ 'transform': 'rotate(' + rot + 'deg)'});
 
-		rot = 0-getRotDegrees($("#vOp"));
+		//rot = 0-getRotDegrees($("#vOp"));
+		rot = 0;
 		$("#vOp").css({ 'transform': 'rotate(' + rot + 'deg)'});	
 	}	
 
