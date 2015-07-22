@@ -1484,7 +1484,7 @@ function loadGame(){
 		election = /theme\/election\/([^\/]*)\//.exec(location.href)[1];
 		url =  "/theme/election/"+election+"/media-naranja.json";
 	}*/
-	
+	console.log(jsonUrl);	
 	console.log(elecUrl);
 	var qresp = {};
 	qresp = $.grep(elections_json, function(e){ return e["detaillink"] == elecUrl; })[0];
