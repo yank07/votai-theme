@@ -1,6 +1,13 @@
 {% load i18n %}
 {% if taken_position %}
         {{taken_position.position.label}}
+        <!--ul>
+        {% for source in taken_position.sources.all %}
+            
+            <li><a href="{{source.url}}">{{source.note}}</a></li>
+            
+        {% endfor %}
+        </ul-->
 {% else %}
     {% trans "Esta(e) candidata(o) aún no responde" %} 
 {% endif %}
