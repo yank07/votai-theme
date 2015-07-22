@@ -765,7 +765,8 @@ var app = (function(){
 		resizeFont($(".tPreg"));
 		
 		if(pregCount>0){
-			$(".bBack").show();
+			//$(".bBack").show();
+			$(".bBack").css("visibility", "show");
 			var aH = 0;
 			if(mobile){
 				//$(".afinidad").css("background-color","#002B15");
@@ -819,7 +820,8 @@ var app = (function(){
 				}
 			}
 		}else{
-			$(".bBack").hide();
+			//$(".bBack").hide();
+			$(".bBack").css("visibility", "hidden");
 		}
 
 
@@ -1943,7 +1945,8 @@ function loadGame(){
 				$("#vNo").hide();
 				nextQuest();				
 			});
-			$(".bBack").hide();
+			//$(".bBack").hide();
+			$(".bBack").css("visibility", "hidden");
 
 			$(".bSaltear#nav2").click(function() {
 				resetSacudir();
