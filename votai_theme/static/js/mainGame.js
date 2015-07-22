@@ -1679,6 +1679,7 @@ function loadGame(){
 		$(".bMenuH").show();
 		$("#game").css("top","0px");
 		$("#telon").css("top","0px");
+		$("#inicio").css("top","0px");
 		$(".afinidad").css("overflow-x","auto");
 		$(".afinidad").css("overflow-y","hidden");
 		if(pregCount>0){
@@ -1701,6 +1702,7 @@ function loadGame(){
 		$(".afinidad").css("overflow-x","hidden");
 		$("#game").css("top",gameTop+"px");
 		$("#telon").css("top",gameTop+"px");
+		$("#inicio").css("top",gameTop+"px");
 		//$("#inicio").css("left",($(window).width()*0.5-parseFloat($("#inicio").css("width"))*0.5)+"px");
 		var margR=parseFloat($("#sideLeft").css("margin-right"));
 		if($(window).width()>960){
@@ -1739,6 +1741,7 @@ function loadGame(){
 
 			gameTop = parseFloat($("#game").css("top"));
 			$("#telon").css("top",gameTop+"px");
+			$("#inicio").css("top",gameTop+"px");
 			pregFS = parseFloat($(".tPreg").css("font-size"));
 			resuFS = parseFloat($(".pregResu").css("font-size"));
 
