@@ -779,38 +779,41 @@ var app = (function(){
 			punParcial.sort(function(a, b){
 					return b[0] - a[0];					
 			});
-			var cant = candidatos.length;
-			//console.log($(".afinidad").height());
-			//var aH = $(".afinidad").height()*h*0.008;
-						
-			//console.log("preg respon: "+punParcial[0][2]);
-			//var invMaxPunt = 1/(punParcial[0][0]);
-			var invMaxPunt = 1/(valorPuntos[0]);			
-			for(var i=0;i<cant;i++){
-				var canInd = punParcial[i][1];
-				//console.log("Puntaje "+(candidatos[canInd]["candidate_name"])+": "+(punParcial[i][0]));								
-				$(".cFoto"+i).attr("src",fotos[canInd].src);
-				$(".cFoto"+i).css("background-color",candidatos[canInd]["candidate_color"]);
-				var fW = 0;
-				if(punParcial[i][2]>0){
-					fW = (aH*0.5)+(aH*0.5)*(punParcial[i][0])*invMaxPunt;
-					$(".cFoto"+i).css({
-					    '-webkit-filter':'grayscale(0%)',
-					    '-moz-filter': 'grayscale(0%)',
-					    '-o-filter': 'grayscale(0%)',
-					    '-ms-filter': 'grayscale(0%)'
-					});
-				}else{
-					fW = (aH*0.5);
-					$(".cFoto"+i).css({
-					    '-webkit-filter':'grayscale(100%)',
-					    '-moz-filter': 'grayscale(100%)',
-					    '-o-filter': 'grayscale(100%)',
-					    '-ms-filter': 'grayscale(100%)'
-					});
+			
+			if(userRes[pregCount-1]>-1){
+				var cant = candidatos.length;
+				//console.log($(".afinidad").height());
+				//var aH = $(".afinidad").height()*h*0.008;
+							
+				//console.log("preg respon: "+punParcial[0][2]);
+				//var invMaxPunt = 1/(punParcial[0][0]);
+				var invMaxPunt = 1/(valorPuntos[0]);			
+				for(var i=0;i<cant;i++){
+					var canInd = punParcial[i][1];
+					//console.log("Puntaje "+(candidatos[canInd]["candidate_name"])+": "+(punParcial[i][0]));								
+					$(".cFoto"+i).attr("src",fotos[canInd].src);
+					$(".cFoto"+i).css("background-color",candidatos[canInd]["candidate_color"]);
+					var fW = 0;
+					if(punParcial[i][2]>0){
+						fW = (aH*0.5)+(aH*0.5)*(punParcial[i][0])*invMaxPunt;
+						$(".cFoto"+i).css({
+						    '-webkit-filter':'grayscale(0%)',
+						    '-moz-filter': 'grayscale(0%)',
+						    '-o-filter': 'grayscale(0%)',
+						    '-ms-filter': 'grayscale(0%)'
+						});
+					}else{
+						fW = (aH*0.5);
+						$(".cFoto"+i).css({
+						    '-webkit-filter':'grayscale(100%)',
+						    '-moz-filter': 'grayscale(100%)',
+						    '-o-filter': 'grayscale(100%)',
+						    '-ms-filter': 'grayscale(100%)'
+						});
+					}
+					$(".cFoto"+i).css("width",fW+"px");
+					$(".cFoto"+i).css("height",fW+"px");
 				}
-				$(".cFoto"+i).css("width",fW+"px");
-				$(".cFoto"+i).css("height",fW+"px");
 			}
 		}else{
 			$(".bBack").hide();
@@ -1385,73 +1388,74 @@ var app = (function(){
 		var htNTR = "";
 		
 		for(var i=0;i<userRes.length;i++){
-			var pregId = categorias[i%categorias.length]["questions"][parseInt(i/categorias.length)]["question_id"];
-			var qTxt = categorias[i%categorias.length]["questions"][parseInt(i/categorias.length)]["question_text"];
-			var qresp = {};
-			qresp = $.grep(candidatos[candN]["positions"], function(e){ return e.question_id == pregId; })[0];
-			if(qresp!=null){
-				var ansId = qresp.answer_id;
-				qresp = $.grep(categorias[i%categorias.length]["questions"][parseInt(i/categorias.length)]["answers"], function(e){ return e.answer_id == ansId; })[0];						
-				var anTxt = qresp.answer_text;
-				//console.log(qresp);
-				//console.log("Texto: "+anTxt);
-				var resC = qresp.answer_value;
+			if(userRes[i]>-1){
+				var pregId = categorias[i%categorias.length]["questions"][parseInt(i/categorias.length)]["question_id"];
+				var qTxt = categorias[i%categorias.length]["questions"][parseInt(i/categorias.length)]["question_text"];
+				var qresp = {};
+				qresp = $.grep(candidatos[candN]["positions"], function(e){ return e.question_id == pregId; })[0];
+				if(qresp!=null){
+					var ansId = qresp.answer_id;
+					qresp = $.grep(categorias[i%categorias.length]["questions"][parseInt(i/categorias.length)]["answers"], function(e){ return e.answer_id == ansId; })[0];						
+					var anTxt = qresp.answer_text;
+					//console.log(qresp);
+					//console.log("Texto: "+anTxt);
+					var resC = qresp.answer_value;
 
-			//var resC = candidatos[candN][categorias[i%categorias.length]["Id"]]["Respuestas"][categorias[i%categorias.length]["orden"][parseInt(i/categorias.length)]];
-			if(parseInt(resC*0.5)==parseInt(userRes[i]*0.5)){
-				if(!isCoin){
-						$(".coincide").show();
-						htC = "<div class='tit'>Coincide con vos:</div><br style='line-height:25px;'>";
-						isCoin=true;					
-						//console.log("Coincide!");
-				}
-				if(parseInt(resC*0.5)==0){
-					htC += "<div class='AfiniCV'>";
-					htC+="<div class='afPTit'>"+qTxt+"</div>";
-					htC += "<div class='afVot' id='afVSi'><span>Si</span></div>";
-					htC+="<div class='afPreg'>"+anTxt+"</div>";	
-					htC+="</div>";
-				}else if(parseInt(resC*0.5)==1){					
-					htC += "<div class='AfiniCV'>";
-					htC+="<div class='afPTit'>"+qTxt+"</div>";
-					htC += "<div class='afVot' id='afVNo'><span>No</span></div>";
-					htC+="<div class='afPreg'>"+anTxt+"</div>";	
-					htC+="</div>";
-				}			
-			}else{
-				if(!isNCoin){
-					$(".noCoincide").show();
-					htNC = "<div class='tit';>No coincide con vos:</div><br style='line-height:25px;'>";
-					isNCoin=true;
-					//console.log("No Coincide!");
-				}
-				if(parseInt(resC*0.5)==0){
-					htNC += "<div class='AfiniCV'>";
-					htNC+="<div class='afPTit'>"+qTxt+"</div>";
-					htNC += "<div class='afVot' id='afVSi'><span>Si</span></div>"					
-					htNC+="<div class='afPreg'>"+anTxt+"</div>";	
-					htNC+="</div>";
-				}else if(parseInt(resC*0.5)==1){					
-					htNC += "<div class='AfiniCV'>";
-					htNC+="<div class='afPTit'>"+qTxt+"</div>";
-					htNC += "<div class='afVot' id='afVNo'><span>No</span></div>"
-					htNC+="<div class='afPreg'>"+anTxt+"</div>";	
-					htNC+="</div>";
+					//var resC = candidatos[candN][categorias[i%categorias.length]["Id"]]["Respuestas"][categorias[i%categorias.length]["orden"][parseInt(i/categorias.length)]];
+					if(parseInt(resC*0.5)==parseInt(userRes[i]*0.5)){
+						if(!isCoin){
+								$(".coincide").show();
+								htC = "<div class='tit'>Coincide con vos:</div><br style='line-height:25px;'>";
+								isCoin=true;					
+								//console.log("Coincide!");
+						}
+						if(parseInt(resC*0.5)==0){
+							htC += "<div class='AfiniCV'>";
+							htC+="<div class='afPTit'>"+qTxt+"</div>";
+							htC += "<div class='afVot' id='afVSi'><span>Si</span></div>";
+							htC+="<div class='afPreg'>"+anTxt+"</div>";	
+							htC+="</div>";
+						}else if(parseInt(resC*0.5)==1){					
+							htC += "<div class='AfiniCV'>";
+							htC+="<div class='afPTit'>"+qTxt+"</div>";
+							htC += "<div class='afVot' id='afVNo'><span>No</span></div>";
+							htC+="<div class='afPreg'>"+anTxt+"</div>";	
+							htC+="</div>";
+						}			
+					}else{
+						if(!isNCoin){
+							$(".noCoincide").show();
+							htNC = "<div class='tit';>No coincide con vos:</div><br style='line-height:25px;'>";
+							isNCoin=true;
+							//console.log("No Coincide!");
+						}
+						if(parseInt(resC*0.5)==0){
+							htNC += "<div class='AfiniCV'>";
+							htNC+="<div class='afPTit'>"+qTxt+"</div>";
+							htNC += "<div class='afVot' id='afVSi'><span>Si</span></div>"					
+							htNC+="<div class='afPreg'>"+anTxt+"</div>";	
+							htNC+="</div>";
+						}else if(parseInt(resC*0.5)==1){					
+							htNC += "<div class='AfiniCV'>";
+							htNC+="<div class='afPTit'>"+qTxt+"</div>";
+							htNC += "<div class='afVot' id='afVNo'><span>No</span></div>"
+							htNC+="<div class='afPreg'>"+anTxt+"</div>";	
+							htNC+="</div>";
+						}
+					}
+				}else{
+					if(!isNResp){
+							$(".coincide").show();
+							htNTR = "<div class='tit';>No tiene respuesta:</div><br style='line-height:25px;'>";
+							isNResp=true;					
+					}
+					
+					htNTR += "<div class='AfiniCV'>";
+					htNTR+="<div class='afPTit'>"+qTxt+"</div>";
+					htNTR+="</div>";
 				}
 			}
-		}else{
-			if(!isNResp){
-					$(".coincide").show();
-					htNTR = "<div class='tit';>No tiene respuesta:</div><br style='line-height:25px;'>";
-					isNResp=true;					
-			}
-			
-			htNTR += "<div class='AfiniCV'>";
-			htNTR+="<div class='afPTit'>"+qTxt+"</div>";
-			htNTR+="</div>";
 		}
-		}
-
 		$(".coincide").html(htC);		
 		$(".noCoincide").html(htNC);
 		$(".noResp").html(htNTR);
@@ -2067,6 +2071,7 @@ function loadGame(){
 				animaNo();
 			});
 			
+			for(var i=0;i<MaxPreg;i++)userRes[i]=-1;
 
 			$(".faltan").html("Calendario electoral: faltan <span class='dias'>"+getDayCount()+" d&#237;as</span> para las PASO");
 			loadGame();
