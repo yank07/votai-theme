@@ -1749,6 +1749,8 @@ function loadGame(){
 			$("#telon").css("left",($(window).width()*0.5-parseFloat($("#telon").css("width"))*0.5)+"px");
 			if(mobile){
 				$("#game").css("top","0px");
+				$("#telon").css("top","0px");
+				$("#inicio").css("top","0px");
 				$("header").hide();
 				$(".footer").hide();
 				$("#sideLeft").hide();
