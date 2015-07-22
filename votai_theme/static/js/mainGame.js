@@ -767,7 +767,7 @@ var app = (function(){
 		
 		if(pregCount>0){
 			//$(".bBack").show();
-			$(".bBack").css("visibility", "show");
+			$(".bBack").css("visibility", "visible");
 			var aH = 0;
 			if(mobile){
 				//$(".afinidad").css("background-color","#002B15");
