@@ -1171,9 +1171,10 @@ var app = (function(){
 	        $(".posturas").show();   
 		$(".resuFooter").show();
 		//$(".pregResu").show();
+		$(".posturas").scrollTop(0);
 	 	}, 500);
 
-		$(".posturas").scrollTop(0);
+		
 	
 		$(".resultados").show();
 		if(resuFinal){		
