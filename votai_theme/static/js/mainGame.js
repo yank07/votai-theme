@@ -1496,7 +1496,7 @@ function loadGame(){
 	qresp = $.grep(elections_json, function(e){ return e["detaillink"] == elecUrl; })[0];
 	console.log(qresp.name);
 	$("select#eleccion").val(qresp.name);
-	var choose = $("select#eleccion).bind('change',function(){
+	var choose = $("select#eleccion").bind('change',function(){
     		choose.find('option:selected').prependTo(choose);
 	});
 	
