@@ -812,6 +812,8 @@ var app = (function(){
 				$(".cFoto"+i).css("width",fW+"px");
 				$(".cFoto"+i).css("height",fW+"px");
 			}
+		}else{
+			$(".bBack").hide();
 		}
 
 
