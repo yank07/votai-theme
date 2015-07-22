@@ -447,6 +447,9 @@ button:focus {
 #chatNo{
 	background-color:#e4324c;	
 }
+#chatSR{
+	background-color:#999;	
+}
 .resuCand1,.resuCand2{
 	margin-bottom:10px;
 }
