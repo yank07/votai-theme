@@ -1487,7 +1487,7 @@ function loadGame(){
 	var qresp = {};
 	qresp = $.grep(elections_json, function(e){ return e["detaillink"] == elecUrl; })[0];
 	console.log(qresp.name);
-	$("select#eleccion").val(2);
+	$("#eleccion").val(qresp.name);
 	
 		//console.log("data/yqs"+id+".json");
 				//$.getJSON( "{% static 'data/yqs"+id+".json' %}", function( data ) {			
