@@ -1473,9 +1473,6 @@ function loadGame(){
 		election = /theme\/election\/([^\/]*)\//.exec(location.href)[1];
 		url =  "/theme/election/"+election+"/media-naranja.json";
 	}
-	var choose = $("select#eleccion").bind('change',function(){
-    		choose.find('option:selected').prependTo(choose);
-	});
 	//console.log(url);
 		//console.log("data/yqs"+id+".json");
 				//$.getJSON( "{% static 'data/yqs"+id+".json' %}", function( data ) {			
@@ -2007,6 +2004,9 @@ function loadGame(){
 
 			$( "select#eleccion" ).change( function(){
 				elecUrl=$( "select#eleccion option:selected").val();
+				var choose = $("select#eleccion").bind('change',function(){
+    					choose.find('option:selected').prependTo(choose);
+				});
 				//id=$( "#eleccion" ).val();
 				//console.log(elecUrl);
 			});
