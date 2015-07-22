@@ -1441,7 +1441,10 @@ font-size: 2em;
 		width:15px;
 		height:15px;
 	}
-	
+	.closeBtn {
+		margin-left:60px;
+		margin-right:60px;
+	}
 }
 
 @media only screen and (min-width:768px){
