@@ -762,6 +762,7 @@ var app = (function(){
 		resizeFont($(".tPreg"));
 		
 		if(pregCount>0){
+			$(".bBack").show();
 			var aH = 0;
 			if(mobile){
 				//$(".afinidad").css("background-color","#002B15");
@@ -1926,6 +1927,7 @@ function loadGame(){
 				$("#vNo").hide();
 				nextQuest();				
 			});
+			$(".bBack").hide();
 
 			$(".bSaltear#nav2").click(function() {
 				resetSacudir();

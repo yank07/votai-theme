@@ -19,9 +19,9 @@ a{
 	position:absolute;
 	left:0px;
 	top:0px;
-	width:450px;
+	//width:450px;
 	height:560px;
-	//width:100%;
+	width:100%;
 	//height:500%;
 	z-index=10000;
 	background-color:#86e895;
@@ -554,7 +554,7 @@ button:focus {
 	padding-top:6px;
 	overflow:hidden;
 	background-color:rgba(0, 0, 0, 0));
-	//padding-bottom: 10px;
+	padding-bottom: 10px;
 }
 [class^="detalle"] {
 	text-align:left;
