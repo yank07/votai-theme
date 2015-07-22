@@ -1366,8 +1366,7 @@ var app = (function(){
 
 	function showAfinidad(candN){
 		$("#menuMob").hide();
-		$(".afiniCand").show();
-		$(".afiniCand").scrollTop(0);
+		$(".afiniCand").show();	
 
 		openIntermedio();
 		//console.log("Candidate Nr: "+candN);
@@ -1456,7 +1455,7 @@ var app = (function(){
 		$(".coincide").html(htC);		
 		$(".noCoincide").html(htNC);
 		$(".noResp").html(htNTR);
-		
+		$(".afiniCand").scrollTop(0);
 	}
 
 function jugar(){
