@@ -1473,6 +1473,9 @@ function loadGame(){
 		election = /theme\/election\/([^\/]*)\//.exec(location.href)[1];
 		url =  "/theme/election/"+election+"/media-naranja.json";
 	}
+	var choose = $("select#eleccion").bind('change',function(){
+    		choose.find('option:selected').prependTo(choose);
+	});
 	//console.log(url);
 		//console.log("data/yqs"+id+".json");
 				//$.getJSON( "{% static 'data/yqs"+id+".json' %}", function( data ) {			
@@ -1993,6 +1996,7 @@ function loadGame(){
 			//
 
 			var options_eleccion = '';
+			options_eleccion += '<option value="' + elecUrl + '"><h4>Elige tu distrito</h4><\/option>';
 			$.each(elections_json, function(key,value){				
 				//console.log(value["detaillink"]);
 				options_eleccion += '<option value="' + value["detaillink"] + '"><h4>' +  value["name"] + '</h4><\/option>';				
