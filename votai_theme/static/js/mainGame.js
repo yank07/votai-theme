@@ -1911,8 +1911,8 @@ function loadGame(){
 
 			$(".rejugar").click(function(){
 				rejugar=true;
-				//location.reload();
-				loadGame();
+				location.reload();
+				//loadGame();
 			});
 
 			$(".sobreFrente").click(function() {
