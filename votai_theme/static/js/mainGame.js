@@ -1867,6 +1867,7 @@ function loadGame(){
 				_gaq.push(['_setCustomVar',2,'Email',correoUser,1]);
 				$( ".correoU" ).hide();
 				$(".pregResu").css("visibility", "visible");
+				$(".enviar").hide();
 				//console.log(correoUser);
 			});
 
