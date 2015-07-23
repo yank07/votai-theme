@@ -1890,7 +1890,8 @@ function loadGame(){
 				openIntermedio();				
 			});
 
-			$(".bShare").click(function(){				
+			$(".bShare").click(function(){								
+				$("#menuMob").hide();
 				$(".afiniCand").hide();
 				$.fn.socialSharePrivacy.settings.title = "Jugu&#233; a YoQuieroSaber";
 				$.fn.socialSharePrivacy.settings.description = shareTxt;
