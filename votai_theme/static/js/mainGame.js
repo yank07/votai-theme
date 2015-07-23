@@ -773,7 +773,7 @@ var app = (function(){
 				$(".afiniImg").show();
 				$(".afiT").show();				
 				aH = parseFloat($(".afiniImg").css("height"));
-				$(".afinidad").scrollLeft(aH);
+				$(".afinidad").scrollLeft(2*aH);
 			}else{
 				$(".afiniSide").show();
 				//$(".afiniImg").show();
