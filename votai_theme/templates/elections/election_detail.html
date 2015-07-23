@@ -18,7 +18,7 @@
         </div>
 {% if 'soulmate'|val_navbars and election.uses_soul_mate  %}
 <div class="soulmate-link">
-        <p class="soulmate-text">Descubr&#237; con cuál de los <b style="color:#dd3975;">{{ election }}</b> coincid&#237;s m&#225;s...</p>
+        <p class="soulmate-text">Descubr&#237; con cuál de los <b>{{ election }}</b> coincid&#237;s m&#225;s...</p>
 	<a class="bEmpez" href="{% url 'soul_mate_detail_view' slug=election.slug %}" accesskey="n" title="{% trans "1/2 Naranja" %} (Alt+n)">
 <span style="font-size:1.5em;vertical-align:middle;">{% trans "1/2 Naranja" %}</span>
 	</a>

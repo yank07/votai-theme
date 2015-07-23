@@ -101,15 +101,37 @@ color: #777;
 .breadcrumb {
 padding: 0;
 }
+
+#election nav,
+#election .nav-candidator ul.list-inline  {
+	background: none;
+}
+
+#election .nav-candidator .list-inline>li a {
+	background: #5a7;
+	color: white;
+	text-decoration: none;
+	border-radius: 1em;
+	padding: 1em 3em;
+	margin: 1em;
+	font-size: 1.5em;
+}
+
 .soulmate-link {
 	text-align: center;
 	border-radius: 1em;
 	padding: 1em;
-	background: #86e895;
+	background: #454;
+	color: white;
 	clear: both;
 	margin-top: 1em;
 	font-family: yqsFont;
 }
+
+.soulmate-link b{
+	color: #5a7;
+}
+
 .breadscrumb-social .social-button {
 	display: hidden;
 }
@@ -675,6 +697,7 @@ font-size: 1em;
 line-height: 2em;
 height: auto;
 width: auto;
+background-color: #5a7;
 }
 
 .soulmate-link {
