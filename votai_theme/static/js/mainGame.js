@@ -170,14 +170,7 @@ var app = (function(){
 		}	
 	}
 
-	function getDayCount(){
-		var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-		var firstDate = new Date();
-		var secondDate = new Date(2015,07,09);
-
-		var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
-		return diffDays;
-	}
+	
 
 	function GetUrlValue(varsearch){
 		var searchstring = window.location.search.substring(1);
@@ -2070,8 +2063,7 @@ function loadGame(){
 			});
 			
 			for(var i=0;i<MaxPreg;i++)userRes[i]=-1;
-
-			$(".faltan").html("Calendario electoral: faltan <span class='dias'>"+getDayCount()+" d&#237;as</span> para las PASO");
+			
 			loadGame();
 		},
 

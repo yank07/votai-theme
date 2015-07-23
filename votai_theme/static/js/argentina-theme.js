@@ -1,4 +1,14 @@
-if (elections_json) {
+function getDayCount(){
+		var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+		var firstDate = new Date();
+		var secondDate = new Date(2015,07,09);
+
+		var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
+		return diffDays;
+	}
+
+$(".faltan").html("Calendario electoral: faltan <span class='dias'>"+getDayCount()+" d&#237;as</span> para las PASO");
+if (window.elections_json) {
         var elecUrl="/election/pre-candidato-a-presidente";
         var jsonUrl= elections_json[0].medianaranja_link;
 
