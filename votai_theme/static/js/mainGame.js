@@ -1469,12 +1469,12 @@ var app = (function(){
 
 function loadGame(){
 		
-	/*url=elecUrl+"/media-naranja.json";
+	url=elecUrl+"/media-naranja.json";
 	if (/theme\/election\/(.*)\//.test(location.href)) {
 		election = /theme\/election\/([^\/]*)\//.exec(location.href)[1];
 		url =  "/theme/election/"+election+"/media-naranja.json";
-	}*/
-	console.log(jsonUrl);	
+	}
+	console.log(url);	
 	console.log(elecUrl);
 	/*var qresp = {};
 	qresp = $.grep(elections_json, function(e){ return e["detaillink"] == elecUrl; })[0];
@@ -1487,7 +1487,7 @@ function loadGame(){
 		//console.log("data/yqs"+id+".json");
 				//$.getJSON( "{% static 'data/yqs"+id+".json' %}", function( data ) {			
 					//console.log(data);
-					$.getJSON( jsonUrl, function( data ) {			
+					$.getJSON( url, function( data ) {			
 					eleccion = data;
 					//preguntas = eleccion["Preguntas"];			
 					//categorias = eleccion["Preguntas"]["Categorias"];
