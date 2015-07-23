@@ -1469,7 +1469,7 @@ var app = (function(){
 
 function loadGame(){
 		
-	var url=elecUrl+"/media-naranja.json";
+	var url="/theme"elecUrl+"/media-naranja.json";
 	if (/theme\/election\/(.*)\//.test(location.href)) {
 		election = /theme\/election\/([^\/]*)\//.exec(location.href)[1];
 		url =  "/theme/election/"+election+"/media-naranja.json";
