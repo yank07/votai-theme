@@ -1474,15 +1474,6 @@ var app = (function(){
 		$(".afiniCand").scrollTop(0);
 	}
 
-function jugar(){
-
-//url = "/theme/election/pre-candidato-a-presidente/media-naranja.json";
-
-	location.href="/theme"+elecUrl+"/media-naranja";
-	jsonUrl=elecUrl+"/media-naranja.json";
-
-}
-
 function loadGame(){
 		
 	/*url=elecUrl+"/media-naranja.json";
@@ -2009,7 +2000,7 @@ function loadGame(){
 				$.each(data, function(key,value){				
 					options_eleccion += '<option value="' + value[0] + '"><h4>' + key + '</h4><\/option>';				
 				});
-				$("select#eleccion").html(options_eleccion);
+//				$("select#eleccion").html(options_eleccion);
 
 				/*$("select#eleccion").change(function(){
 					console.log($( "select#eleccion" ).val());
@@ -2020,27 +2011,9 @@ function loadGame(){
 			//});
 			//
 
-			var options_eleccion = '';
-			options_eleccion += '<option value="' + elecUrl + '"><h4>Elige tu distrito</h4><\/option>';
-			$.each(elections_json, function(key,value){				
-				//console.log(value["detaillink"]);
-				options_eleccion += '<option value="' + value["detaillink"] + '"><h4>' +  value["name"] + '</h4><\/option>';				
-			});
-			$("select#eleccion").html(options_eleccion);
-			
 			$("#telon").hide();
 
-			$( "select#eleccion" ).change( function(){
-				elecUrl=$( "select#eleccion option:selected").val();
-				//id=$( "#eleccion" ).val();
-				//console.log(elecUrl);
-			});
-
 			$(".bJugar").click(function() {
-				jugar();
-			});
-			
-			$(".bEmpez").click(function() {
 				jugar();
 			});
 

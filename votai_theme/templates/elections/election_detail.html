@@ -8,6 +8,11 @@
 {% endblock extrajs %}
 
 {% block mainelection %}
+{% load yqs_extras %}
+
+<script type="text/javascript">
+elections_json = {% elections_json %};
+</script>
 
 
 <div class="game-cta">
