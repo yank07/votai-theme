@@ -1668,19 +1668,14 @@ function loadGame(){
 		//$(".pregResu").css("margin-top","25%");
 		$(".pregResu").css("height","30%");
 		$(".pregResu").html("<div style='width:100%;height:50%;'>&nbsp;</div>&#161;Gracias!");	
+		$(".pregResu").hide();
 		$(".encSi").hide();
 		$(".encNo").hide();
 		$(".enviar").show();	
 		$(".correoU").show();	
-
 	
 	}
-
-	function sendMail(){
 	
-	
-	}
-
 	function resizeMobile(){
 		mobile=true;
 		$("header").hide();
@@ -1858,17 +1853,21 @@ function loadGame(){
 			$("#vOp").hide();
 
 			$(".encSi").click(function(){
+				_gaq.push(['_setCustomVar',1,'Encuesta','si',2]);
 				getMail();
 			});
 
 			$(".encNo").click(function(){
+				_gaq.push(['_setCustomVar',1,'Encuesta','no',2]);
 				getMail();				
 			});
 
 			$(".enviar").click(function(){
 				correoUser = $( "#inCorreo" ).val();
+				_gaq.push(['_setCustomVar',2,'Email',correoUser,1]);
+				$( ".correoU" ).hide();
+				$(".pregResu").show();
 				//console.log(correoUser);
-				sendMail();				
 			});
 
 			$( "#inCorreo" ).change(function() {
