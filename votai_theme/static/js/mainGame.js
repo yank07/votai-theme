@@ -1483,13 +1483,13 @@ function loadGame(){
 	}*/
 	console.log(jsonUrl);	
 	console.log(elecUrl);
-	var qresp = {};
+	/*var qresp = {};
 	qresp = $.grep(elections_json, function(e){ return e["detaillink"] == elecUrl; })[0];
 	console.log(qresp.name);
 	$("select#eleccion").val(qresp.name);
 	var choose = $("select#eleccion").bind('change',function(){
     		choose.find('option:selected').prependTo(choose);
-	});
+	});*/
 	
 		//console.log("data/yqs"+id+".json");
 				//$.getJSON( "{% static 'data/yqs"+id+".json' %}", function( data ) {			
@@ -1701,6 +1701,7 @@ function loadGame(){
 		$("#inicio").css("top","0px");
 		$(".afinidad").css("overflow-x","auto");
 		$(".afinidad").css("overflow-y","hidden");
+		$("#homecontent").hide();
 		if(pregCount>0){
 			$(".afiT").show();
 			$(".afiniImg").show();
@@ -1709,6 +1710,7 @@ function loadGame(){
 	
 	function resizeDesktop(){
 		mobile=false;
+		$("#homecontent").show();
 		$("header").show();
 		$(".footer").show();
 		$("#sideLeft").show();
@@ -1775,6 +1777,7 @@ function loadGame(){
 				$("#sideLeft").hide();
 				$("#inicioD").hide();
 				$(".afiniSide").hide();
+				$("#homecontent").hide();
 				if(pregCount>0){
 					$(".afiT").show();
 				}
