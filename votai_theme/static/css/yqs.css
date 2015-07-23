@@ -65,6 +65,44 @@ header, footer {
 	background-color: #454;
 }
 
+.header__nav__social a[href*="facebook"] {
+        background-color: #3b5998;
+        background-image: url("../img/logo-facebook.png");
+}
+
+.header__nav__social a[href*="twitter"] {
+        background-color: #55acee;
+        background-image: url("../img/logo-twitter.png");
+}
+.header__nav__social a[href*="taringa"] {
+        background-color: #23b;
+        background-image: url("../img/logo-taringa.png");
+}
+
+.header__nav__social a:hover, .header__nav__social a:focus {
+height: 54px;
+background-position: 8px 26px;
+}
+a.header__logo:hover, a.header__logo:focus, .header__nav__social a:hover, .header__nav__social a:focus {
+margin-bottom: 0;
+border-bottom: 0;
+}
+.header__nav__social a {
+display: block;
+float: left;
+width: 36px;
+height: 50px;
+text-indent: -9999px;
+background-position: 8px 22px;
+background-repeat: no-repeat;
+}
+.header__nav__social {
+position: absolute;
+top: 0;
+right: .9375rem;
+}
+
+
 .hLogo{
 	height: 100%;      
 	white-space: nowrap;    
