@@ -14,7 +14,7 @@ if (window.elections_json) {
 	jsonUrl= elections_json[0].medianaranja_link;
 
         var options_eleccion = '';
-        options_eleccion += '<option value="' + elecUrl + '"><h4>Elige tu distrito</h4><\/option>';
+        options_eleccion += '<option value="' + elecUrl + '"><h4>Elegí tu distrito</h4><\/option>';
         $.each(elections_json, function(key,value){
                 //console.log(value["detaillink"]);
                 options_eleccion += '<option value="' + value["detaillink"] + '"><h4>' +  value["name"] + '</h4><\/option>';
