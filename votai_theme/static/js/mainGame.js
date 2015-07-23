@@ -1668,7 +1668,7 @@ function loadGame(){
 		//$(".pregResu").css("margin-top","25%");
 		$(".pregResu").css("height","30%");
 		$(".pregResu").html("<div style='width:100%;height:50%;'>&nbsp;</div>&#161;Gracias!");	
-		$(".pregResu").hide();
+		$(".pregResu").css("visibility", "hidden");
 		$(".encSi").hide();
 		$(".encNo").hide();
 		$(".enviar").show();	
@@ -1866,7 +1866,7 @@ function loadGame(){
 				correoUser = $( "#inCorreo" ).val();
 				_gaq.push(['_setCustomVar',2,'Email',correoUser,1]);
 				$( ".correoU" ).hide();
-				$(".pregResu").show();
+				$(".pregResu").css("visibility", "visible");
 				//console.log(correoUser);
 			});
 
