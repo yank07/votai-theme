@@ -1900,7 +1900,7 @@ function loadGame(){
 				openIntermedio();					
 			});
 
-			$(".bCompartir").click(function(){								
+			$("#bCompartir").click(function(){								
 				$("#menuMob").hide();
 				$(".afiniCand").hide();
 				$.fn.socialSharePrivacy.settings.title = "Jugu&#233; a YoQuieroSaber";
