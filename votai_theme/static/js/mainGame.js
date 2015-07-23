@@ -32,7 +32,7 @@ var app = (function(){
 	var MaxPreg=8;
 	var valorPuntos = [100,66,33,0];
 
-	var elecUrl="/election/pre-candidato-a-presidente";
+	//var elecUrl="/election/pre-candidato-a-presidente";
 	var jsonUrl= elections_json[0].medianaranja_link;
 
 	var animando=false;
