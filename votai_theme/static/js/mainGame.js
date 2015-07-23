@@ -771,9 +771,9 @@ var app = (function(){
 			if(mobile){
 				//$(".afinidad").css("background-color","#002B15");
 				$(".afiniImg").show();
-				$(".afiT").show();
-				$(".afinidad").scrollTop(0);
+				$(".afiT").show();				
 				aH = parseFloat($(".afiniImg").css("height"));
+				$(".afinidad").scrollTop(aH);
 			}else{
 				$(".afiniSide").show();
 				//$(".afiniImg").show();
