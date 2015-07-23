@@ -675,18 +675,28 @@ button:focus {
 	text-align:right;
 	width:100%;	
 }
-.menu,.menu a{
+.menu {
 	color:black;
-	font-size:0.9em;
-	line-height:1px;
 }
-.menu hr{		
-	line-height:1px;
-	margin-top:19px;
-	margin-bottom:10px;
-	box-shadow: 0px -1px #999;	
-	
+
+.menu ul {
+	margin: 1em 0 0 0;
+	padding: 0;
 }
+
+.menu a {
+	padding: 1em;
+	background: #454;
+	display: block;
+	border-radius: 1em;
+	margin: 1em;
+	color: white;
+}
+
+.menu li {
+	list-style: none;
+}
+
 .descubriendo{
 	font-family: yqsFont;
 }
@@ -1550,11 +1560,6 @@ font-size: 2em;
 		top:200%;
 		text-align:right;
 		width:100%;	
-	}
-	.menu,.menu a{
-		color:black;
-		font-size:0.9em;
-		line-height:1px;
 	}
 	.descubriendo{
 		font-family: yqsFont;

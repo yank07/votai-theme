@@ -10,6 +10,8 @@ elections_json = {% elections_json %};
 </script>
 <div id="telon" style=""><img class="loading" src="{% static 'img/loading.gif' %}"></div>
 <div id="sideLeft">
+                <div class="menu" id="menuDesk">
+
         <div class="descubriendo">
                 <h4>Descubriendo<br/> con qu&#233; candidato coincid&#237;s m&#225;s...</h4>
         <select name="elecci&#243;n" id="eleccion"></select>
@@ -19,17 +21,13 @@ elections_json = {% elections_json %};
                 <span style="font-size:1.5em;vertical-align:middle;">Jugar</span>
         </button>
         </div>
-        	<div class="menu" id="menuDesk">
-                <hr>
-		<a onclick="location.reload()"><b>Comenzar de nuevo</b></a><br/>
-		<hr>
-		<a><b>Compartir con amigos</b></a><br/>
-		<a><b>{% get_flatpages as about_pages %}</b></a><br/>
-		<hr>
-		{% for page in about_pages %}
-		<a href="/pages{{ page.url }}"><b>{{ page.title }}</b></a><br/>
-		<hr>
-		{% endfor %}
+                <ul class="sidemenu" id="sidemenuDesk">
+                <li>
+		<a onclick="location.reload()"><b>Volver a jugar</b></a></li>
+		<li>
+		<a id="bCompartir"><b>Compartir</b></a></li>
+		<li><a id="bNosotros">Acerca de YQS</a></li>
+		<li><a id="bTodos" href="/election/pre-candidato-a-presidente" style="display:none">Todos los candidatos</a></li>
 	</div>
 </div>
 
@@ -123,18 +121,25 @@ elections_json = {% elections_json %};
 		</div>	
 		<div class="menu" id="menuMob">
 		<img src="{% static 'img/YQSlogo.png' %}" class='imgHeader'>
-		<div style="margin-top:10px">&nbsp;</div>
-		<hr>
-		<a onclick="location.reload()"><b>Comenzar de nuevo</b></a><br/>
-		<hr>
-		<a><b>Compartir con amigos</b></a><br/>
-		<a><b>{% get_flatpages as about_pages %}</b></a><br/>
-		<hr>
-		{% for page in about_pages %}
-		<a href="/pages{{ page.url }}"><b>{{ page.title }}</b></a><br/>
-		<hr>
-		{% endfor %}
-		</div>
+
+        <div class="descubriendo">
+                <h4>Descubriendo<br/> con qu&#233; candidato coincid&#237;s m&#225;s...</h4>
+        <select name="elecci&#243;n" id="eleccion"></select>
+        <br/>
+        <br/>
+        <button type="button" class="bEmpez">
+                <span style="font-size:1.5em;vertical-align:middle;">Jugar</span>
+        </button>
+        </div>
+                <ul class="submenu" id="submenuMob">
+                <li>
+                <a onclick="location.reload()"><b>Volver a jugar</b></a></li>
+                <li>
+                <a id="bCompartir"><b>Compartir</b></a></li>
+                <li><a id="bNosotros">Acerca de YQS</a></li>
+                <li><a id="bTodos" href="/election/pre-candidato-a-presidente" style="display:none">Todos los candidatos</a></li>
+        </ul>
+</div>
 		<div class="share"><div data-social-share-privacy='true'></div></div>	
 	</div>
 	<div class="preguntas">
