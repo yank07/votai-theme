@@ -9,9 +9,8 @@ function getDayCount(){
 
 $(".faltan").html("Calendario electoral: faltan <span class='dias'>"+getDayCount()+" d&#237;as</span> para las PASO");
  var elecUrl="/election/pre-candidato-a-presidente";
-if (window.elections_json) {
-       
-        var jsonUrl= elections_json[0].medianaranja_link;
+ var jsonUrl= elections_json[0].medianaranja_link;
+if (window.elections_json) {        
 
         var options_eleccion = '';
         options_eleccion += '<option value="' + elecUrl + '"><h4>Elige tu distrito</h4><\/option>';
