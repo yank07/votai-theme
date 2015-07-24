@@ -1519,7 +1519,7 @@ function loadGame(){
 					}
 					
 					if(aH*cant>$("#game").width()){
-						$(".afinidad").css("overflow-x","scroll");
+						//$(".afinidad").css("overflow-x","scroll");
 						$(".afiniImg").css("width",(aH*cant)+"px");
 						var cl = 0.5*((aH*cant)-parseFloat($(".afinidad").css("width")));
 						$(".afiniImg").css("left",-cl+"px");
@@ -1688,12 +1688,12 @@ function loadGame(){
 		$("#game").css("top","0px");
 		$("#telon").css("top","0px");
 		$("#inicio").css("top","0px");
-		$(".afinidad").css("overflow-x","auto");
 		$(".afinidad").css("overflow-y","hidden");
 		$("#homecontent").hide();
 		if(pregCount>0){
 			$(".afiT").show();
 			$(".afiniImg").show();
+			$(".afinidad").css("overflow-x","auto");
 		}
 	}
 	
@@ -1704,11 +1704,13 @@ function loadGame(){
 		$(".footer").show();
 		$("#sideLeft").show();
 		$("#inicioD").hide();
-		if(pregCount>0)$(".afiniSide").show();
+		if(pregCount>0){
+			$(".afiniSide").show();
+			$(".afinidad").css("overflow-y","auto");
+		}
 		$(".bMenuH").hide();
 		$(".afiT").hide();
 		$(".afiniImg").hide();
-		$(".afinidad").css("overflow-y","auto");
 		$(".afinidad").css("overflow-x","hidden");
 		$("#game").css("top",gameTop+"px");
 		$("#telon").css("top",gameTop+"px");
