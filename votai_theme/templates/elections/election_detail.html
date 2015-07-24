@@ -49,7 +49,12 @@ elections_json = {% elections_json %};
 			{% endif %}
 			
 			<p class="text-center">
-				<a href="{% url 'candidate_detail_view' election_slug=election.slug slug=candidate.id %}">{{candidate.name}}</a>
+				<a href="{% url 'candidate_detail_view' election_slug=election.slug slug=candidate.id %}">
+					{{candidate.name}} 
+					<br/>
+					<span style="color: #888; font-size: 0.8em">{{candidate.extra_info.partido}}</span>
+				</a>
+				<br/>
 				{% if not candidate.has_answered %}{% no_ha_respondido_twitter_button %}{% endif %}
 			</p>
 
