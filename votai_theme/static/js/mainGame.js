@@ -1854,12 +1854,12 @@ function loadGame(){
 			$("#vOp").hide();
 
 			$(".encSi").click(function(){
-				_gaq.push(['_setCustomVar',1,'Encuesta','si',2]);
+				_gaq.push(['_setCustomVar',1,'Encuesta','si',1]);
 				getMail();
 			});
 
 			$(".encNo").click(function(){
-				_gaq.push(['_setCustomVar',1,'Encuesta','no',2]);
+				_gaq.push(['_setCustomVar',1,'Encuesta','no',1]);
 				getMail();				
 			});
 
