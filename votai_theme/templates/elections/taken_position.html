@@ -1,9 +1,9 @@
 {% load i18n %}
-{% if taken_position %}
+{% if taken_position.position %}
         {{taken_position.position.label}}
-	<!--p>
-	 {{taken_position.position.description}}
-	</p-->
+	<p>
+	 {{taken_position.description}}
+	</p>
 
 	{% if taken_position.sources.length > 1 %}
         <ul>
