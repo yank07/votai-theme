@@ -1,4 +1,8 @@
 {% load i18n %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% load votainteligente_extras %}
+
 {% if taken_position.position %}
         {{taken_position.position.label}}
 	<p>
@@ -16,4 +20,6 @@
 	{% endif %}
 {% else %}
     {% trans "Esta(e) candidata(o) aún no responde" %} 
+    {#%  with twitter = "hola" %#}
+    {#% no_ha_respondido_twitter_button %#}
 {% endif %}
