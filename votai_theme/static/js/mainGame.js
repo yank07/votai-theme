@@ -1276,14 +1276,14 @@ var app = (function(){
 						}else{
 							posBG+="<div class='chatBoxHeader' id='chatNo'>";
 						}				
-						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" <span style='font-size:0.6em;vertical-align:middle;'>"+candidatos[canInd]["candidate_partido"]+"</span>"+ </h3></div>";
+						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" <span style='font-size:0.6em;vertical-align:middle;'>"+candidatos[canInd]["candidate_partido"]+"</span>"+ "</h3></div>";
 						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+anTxt+candTxt+"</p></div></div></div>";
 					//$(".posNom"+i).css("top",$(".chatBG"+i).offset().top);
 					}else{
 						posBG+="<div class='chatLeft'><div class='chatIMG'>";
 						posBG+="<img id='fCand' class='rFoto' style='background-color:"+candidatos[canInd]["candidate_color"]+";-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-o-filter:grayscale(100%);-ms-filter:grayscale(100%);' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowLeft'>&nbsp;</div><div class='chatBoxLeft'>";
 						posBG+="<div class='chatBoxHeader' id='chatSR'>";						
-						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" <span style='font-size:0.6em;vertical-align:middle;'>"+candidatos[canInd]["candidate_partido"]+"</span>"+ " </h3></div>";
+						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" <span style='font-size:0.6em;vertical-align:middle;'>"+candidatos[canInd]["candidate_partido"]+"</span>"+ "</h3></div>";
 						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+"*El candidato no respondi\u00f3 esta pregunta"+"</p></div></div></div>";
 					}
 				}else{
