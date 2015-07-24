@@ -796,6 +796,7 @@ var app = (function(){
 					var canInd = punParcial[i][1];
 					//console.log("Puntaje "+(candidatos[canInd]["candidate_name"])+": "+(punParcial[i][0]));								
 					$(".cFoto"+i).attr("src",fotos[canInd].src);
+					$(".cFoto"+i).attr("title",candidatos[canInd]["candidate_name"]);
 					$(".cFoto"+i).css("background-color",candidatos[canInd]["candidate_color"]);
 					var fW = 0;
 					if(punParcial[i][2]>0){
