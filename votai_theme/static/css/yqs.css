@@ -259,8 +259,8 @@ font-weight: bold;
 	height:50px;
 } 
 body{
-	//background-color:#86e895;
-	background-color:#dddddd;
+	background-color:#86e895;
+	//background-color:#dddddd;
 	overflow:auto;
 	text-align:center;
 }
@@ -1506,10 +1506,6 @@ font-size: 2em;
 	}
 }
 @media only screen and (max-width:449px){
-	body{
-		background-color:#86e895;
-		//background-color:#dddddd;
-	}
 	.imgInicio{
 		width:172px;
 		height:37px;
