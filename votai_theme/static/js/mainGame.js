@@ -774,11 +774,13 @@ var app = (function(){
 				$(".afiT").show();				
 				aH = parseFloat($(".afiniImg").css("height"));
 				$(".afinidad").scrollLeft(2.25*aH);
+				$(".afinidad").css("overflow-x","auto");
 			}else{
 				$(".afiniSide").show();
 				//$(".afiniImg").show();
 				$(".afinidad2").scrollTop(0);
 				aH = parseFloat($(".afiniImg2").css("width"));
+				$(".afinidad").css("overflow-y","auto");
 			}
 			punParcial.sort(function(a, b){
 					return b[0] - a[0];					
