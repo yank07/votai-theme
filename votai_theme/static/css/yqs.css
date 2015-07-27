@@ -259,8 +259,8 @@ font-weight: bold;
 	height:50px;
 } 
 body{
-	background-color:#86e895;
-	//background-color:#dddddd;
+	//background-color:#86e895;
+	background-color:#dddddd;
 	overflow:auto;
 	text-align:center;
 }
@@ -411,7 +411,7 @@ button:focus {
 	color:white;
 }
 .posturas::-webkit-scrollbar {
- 	width: 5px;
+ 	width: 8px;
 	height: 5px;
 	background-color: #222;    
 	left:-50%;
@@ -429,6 +429,7 @@ button:focus {
 	overflow: auto;
 	overflow-x: hidden;
 	display:block;
+	padding-right:10px;
 }
 .chatLeft
 {
@@ -655,6 +656,12 @@ button:focus {
 	overflow:hidden;
 	background-color:rgba(0, 0, 0, 0));
 	padding-bottom: 10px;
+	-webkit-touch-callout: text;
+	-webkit-user-select: text;
+	-khtml-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
 }
 [class^="detalleButton"]{
 	border:none;
