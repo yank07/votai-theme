@@ -1923,6 +1923,7 @@ function loadGame(){
 				if(mobile){
 					if($(".intermedio").is(':visible')){
 						closeIntermedio();
+						console.log("cerrando intermedio");
 						$("#menuMob").hide();
 						$(".afiniCand").hide();
 						$.fn.socialSharePrivacy.settings.title = "Jugu&#233; a YoQuieroSaber";
