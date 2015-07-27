@@ -1920,21 +1920,20 @@ function loadGame(){
 			});
 
 			$(".bCompartir").click(function(){
-				console.log("compartir");
 				if(mobile){
-					console.log("mobile");
 					if($(".intermedio").is(':visible')){
 						closeIntermedio();
-						console.log("cerrando intermedio");
-						$("#menuMob").hide();
-						$(".afiniCand").hide();
-						$.fn.socialSharePrivacy.settings.title = "Jugu&#233; a YoQuieroSaber";
-						$.fn.socialSharePrivacy.settings.description = shareTxt;
-						$.fn.socialSharePrivacy.settings.body = shareTxt;
-						$(".share").show();
-						openIntermedio();
+						setTimeout(function () {
+							$("#menuMob").hide();
+							$(".afiniCand").hide();
+							$.fn.socialSharePrivacy.settings.title = "Jugu&#233; a YoQuieroSaber";
+							$.fn.socialSharePrivacy.settings.description = shareTxt;
+							$.fn.socialSharePrivacy.settings.body = shareTxt;
+							$(".share").show();
+							openIntermedio();
+						}, 1000);
+						
 					}else{
-						console.log("no intermedio");
 						$("#menuMob").hide();
 						$(".afiniCand").hide();
 						$.fn.socialSharePrivacy.settings.title = "Jugu&#233; a YoQuieroSaber";
