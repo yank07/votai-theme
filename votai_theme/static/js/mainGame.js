@@ -1939,7 +1939,7 @@ function loadGame(){
 				showOpt();
 			});
 			$("#vOp").click(function() {
-				showOpt();
+				if(!animando)showOpt();
 			});
 
 			$(".closeBtn").click(function() {				
