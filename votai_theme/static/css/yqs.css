@@ -775,7 +775,8 @@ font-size: 2em;
 	font-size:0.9em;
 }
 #menuMob{
-	width: 80vw;
+	//width: 80vw;
+	width: 100%;
 	margin-top: 20vh;
 	//margin-left: 10vw;
 }
