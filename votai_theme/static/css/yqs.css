@@ -777,7 +777,7 @@ font-size: 2em;
 #menuMob{
 	width: 80vw;
 	margin-top: 20vh;
-	margin-left: 10vw;
+	//margin-left: 10vw;
 }
 #menuMob a:hover {
   text-decoration: none;
