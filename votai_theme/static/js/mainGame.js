@@ -1931,7 +1931,8 @@ function loadGame(){
 							$.fn.socialSharePrivacy.settings.body = shareTxt;
 							$(".share").show();
 							openIntermedio();
-						}, 1000);
+							console.log("compartir mobile")
+						}, 1500);
 						
 					}else{
 						$("#menuMob").hide();
