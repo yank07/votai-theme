@@ -758,6 +758,8 @@ var app = (function(){
 		$(".sobreFondo1").children("img").hide();
 		$(".sobreChicos").hide();
 		$(".sobreCerrado").hide()
+		$(".tapaCerrada").show();
+		$(".sobreTapa2").show();
 
 		// Escribe el texto de la siguiente pregunta
 		//$(".tPreg").html(categorias[pregCount%categorias.length]["Texto"][categorias[pregCount%categorias.length]["orden"][parseInt(pregCount/categorias.length)]]);
@@ -938,6 +940,7 @@ var app = (function(){
 	
 		//var sH =parseFloat($(".sobreFondo1").css("height"));
 		var sH =tarjeH100*h*0.9*0.65*sobreF1HFact;
+		$( ".sobreTapa2" ).css("height",sH+"px");
 		
 		$( ".sobreTapa2" ).tween({
 			height:{
@@ -1170,6 +1173,14 @@ var app = (function(){
 		});		
 		
 		$.play();	
+		setTimeout(function () {
+			$("#vOp").css("width",h*tarjeH100);
+			$("#vOp").css("width",h*tarjeH100);
+			$("#vSi").css("height",h*tarjeH100*0.9);
+			$("#vSi").css("height",h*tarjeH100*0.9);
+			$("#vNo").css("width",h*tarjeH100);
+			$("#vNo").css("height",h*tarjeH100*0.9);
+		}, 2000);
 	};
 
 	// #Animación muestra el resultado a partir del voto elegido
@@ -1941,28 +1952,32 @@ function loadGame(){
 
 			$(".bSaltear").click(function() {
 				//console.log("saltear");
-				resetSacudir();
-				lastPreg = pregCount;
-				pregCount++;
-				if(pregCount>=MaxPreg){
-					pregCount=MaxPreg-1;
-					resuFinal=true;	
-					pregResult();
+				if(!animando){
+					resetSacudir();
+					lastPreg = pregCount;
+					pregCount++;
+					if(pregCount>=MaxPreg){
+						pregCount=MaxPreg-1;
+						resuFinal=true;	
+						pregResult();
+					}
+					$("#vSi").hide();
+					$("#vNo").hide();
+					nextQuest();				
 				}
-				$("#vSi").hide();
-				$("#vNo").hide();
-				nextQuest();				
 			});
 
 			$(".bBack").click(function() {
 				//console.log("saltear");
-				resetSacudir();
-				lastPreg = pregCount;
-				pregCount--;
-				if(pregCount<=0)pregCount=0;
-				$("#vSi").hide();
-				$("#vNo").hide();
-				nextQuest();				
+				if(!animando){
+					resetSacudir();
+					lastPreg = pregCount;
+					pregCount--;
+					if(pregCount<=0)pregCount=0;
+					$("#vSi").hide();
+					$("#vNo").hide();
+					nextQuest();
+				}
 			});
 			//$(".bBack").hide();
 			$(".bBack").css("visibility", "hidden");
