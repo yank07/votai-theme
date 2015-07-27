@@ -765,6 +765,8 @@ var app = (function(){
 		//$(".tPreg").html(categorias[pregCount%categorias.length]["Texto"][categorias[pregCount%categorias.length]["orden"][parseInt(pregCount/categorias.length)]]);
 		$(".tPreg").html(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_text"]);
 		resizeFont($(".tPreg"));
+
+		animando = true;
 		
 		if(pregCount>0){
 			//$(".bBack").show();
@@ -1180,6 +1182,7 @@ var app = (function(){
 			$("#vSi").css("height",h*tarjeH100*0.9);
 			$("#vNo").css("width",h*tarjeH100);
 			$("#vNo").css("height",h*tarjeH100*0.9);
+			animando=false;
 		}, 2000);
 	};
 
