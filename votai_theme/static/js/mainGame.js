@@ -1919,7 +1919,7 @@ function loadGame(){
 				openIntermedio();					
 			});
 
-			$("#bCompartir").click(function(){
+			$(".bCompartir").click(function(){
 				console.log("compartir");
 				if(mobile){
 					console.log("mobile");
