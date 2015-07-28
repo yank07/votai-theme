@@ -1557,12 +1557,20 @@ function loadGame(){
 
 					$(".afiniImg").html(afCont);
 					$(".afiniImg2").html(afCont);
+	
+					if (document.location.search.indexOf("telon=1") == -1) {
+						$("#game").show();
 
-					$("#inicio").hide();
-					$("#game").show();
-					pregResize();
-					nextQuest();
+						pregResize();
+						nextQuest();
+					}
+					else {
 
+						$("#inicio").show();
+
+					}
+                                        $("#telon").hide();
+		
 					$("img#fCand").click(function(){
 						var cant = candidatos.length;
 						for(var i=0;i<cant;i++){
@@ -1573,18 +1581,6 @@ function loadGame(){
 						}	
 					});
 
-					//rejugar=false;
-
-					/*$("div.chatimg").click(function(){
-						console.log("ACA");
-						var cant = candidatos.length;
-						for(var i=0;i<cant;i++){
-							if($(this).attr("src")==fotos[i].src){
-								showAfinidad(i);
-								break;
-							}
-						}			
-					});*/
 
 				});
 
@@ -2072,7 +2068,7 @@ function loadGame(){
 			//});
 			//
 
-			$("#telon").hide();
+			//$("#telon").hide();
 
 			$(".bJugar").click(function() {
 				jugar();
