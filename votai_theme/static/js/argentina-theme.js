@@ -23,6 +23,9 @@ if (window.elections_json) {
 
         $( "select#eleccion" ).change( function(){
                 elecUrl=$( "select#eleccion option:selected").val();
+		if ($(".game-cta").length > 0) {
+			location.href=elecUrl;
+		}
         });
 
         function jugar(){
