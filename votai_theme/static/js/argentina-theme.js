@@ -21,7 +21,7 @@ if (window.elections_json) {
         });
         $("select#eleccion").html(options_eleccion);
 
-        $( "select#eleccion" ).change( function(){
+        $( "select#eleccion,#menuMob select" ).change( function(){
                 elecUrl=$( "select#eleccion option:selected").val();
 		if ($(".game-cta").length > 0) {
 			location.href=elecUrl;
@@ -31,7 +31,8 @@ if (window.elections_json) {
         function jugar(){
 
         //url = "/theme/election/pre-candidato-a-presidente/media-naranja.json";
-
+                console.log(elecUrl);
+                break;
                 location.href="/theme"+elecUrl+"/media-naranja";
                 jsonUrl=elecUrl+"/media-naranja.json";
 
