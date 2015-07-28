@@ -9,11 +9,11 @@
 	 {{taken_position.description}}
 	</p>
 
-	{% if taken_position.sources.length > 1 %}
+	{% if taken_position.sources.all %}
         <ul>
         {% for source in taken_position.sources.all %}
             
-            <li><a href="{{source.url}}">{{source.note}}</a></li>
+            <li><a href="{{source.url}}" target="_blank">{{source.note}}</a></li>
             
         {% endfor %}
         </ul>
