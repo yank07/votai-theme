@@ -13,7 +13,7 @@
         <ul>
         {% for source in taken_position.sources.all %}
             
-            <li><a href="{{source.url}}" target="_blank">{{source.note}}</a></li>
+            <li><a href="{{source.url}}" target="_blank">{% if source.note %}{{source.note}}{% else %}{{source.url}}{% endif %}</a></li>
             
         {% endfor %}
         </ul>
