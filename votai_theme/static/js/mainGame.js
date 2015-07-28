@@ -1956,6 +1956,32 @@ function loadGame(){
 				}
 			});
 
+			$(".bNosotros").click(function(){
+				if(mobile){
+					if($(".intermedio").is(':visible')){
+						closeIntermedio();
+						setTimeout(function () {
+							$("#menuMob").hide();
+							$(".afiniCand").hide();
+							$(".about").show();
+							openIntermedio();
+							console.log("compartir mobile")
+						}, 1500);
+						
+					}else{
+						$("#menuMob").hide();
+						$(".afiniCand").hide();
+						$(".about").show();
+						openIntermedio();					
+					}
+				}else{
+					$("#menuMob").hide();
+					$(".afiniCand").hide();
+					$(".about").show();
+					openIntermedio();
+				}
+			});			
+
 			$(".rejugar").click(function(){
 				rejugar=true;
 				location.reload();
