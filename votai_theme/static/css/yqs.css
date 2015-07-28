@@ -1105,7 +1105,6 @@ font-size: 2em;
 }
 .afiniCHead{
 	//width:75%;
-	height:90px;
 	margin-top:5%;
 	margin-bottom:10px;
 	margin-left:5%;
@@ -1123,6 +1122,37 @@ font-size: 2em;
 	margin-left:10%;
 	margin-right: 5%;
 }
+
+
+.afiniBio:before {
+content: "leer mas...";
+position: absolute;
+right: 0;
+background: white;
+color: black;
+border-radius: 5px;
+padding: 0px 5px;
+font-family: yqsFont;
+}
+.afiniBio {
+clear: both;
+margin: 2em 0 2em 2em;
+height: 1.5em;  
+overflow: hidden;
+position: relative;
+cursor: pointer;
+}
+ 
+.afiniBio.abierta:before {
+        content: "ocultar";
+        bottom: 0;
+	cursor: pointer;
+}
+.afiniBio.abierta {
+        height: auto;
+        cursor: default;
+}
+
 .coincide{
 	//margin-top:5%;
 }

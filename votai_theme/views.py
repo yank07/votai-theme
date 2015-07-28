@@ -71,6 +71,7 @@ class MedianaranjaJsonView(MediaNaranjaView):
             candidate_dict = {'candidate_id': candidate.id,
                               'candidate_name': candidate.name,
                               'candidate_pic': imurl,
+			      'candidate_bio': candidate.biography,
                               'positions': []
                               }
             for key in candidate.extra_info.keys():

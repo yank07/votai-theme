@@ -1399,7 +1399,13 @@ var app = (function(){
 
 		$(".afiniCImg").attr("src",fotos[candN].src);
 		$(".afiniCImg").css("background-color",candidatos[candN]["candidate_color"]);
-		$(".afiniCNom").html(candidatos[candN]["candidate_name"]+"<br/><span style='font-size:0.6em;vertical-align:middle;'>"+candidatos[candN]["candidate_partido"]+"</span>");
+                $(".afiniCNom").html(candidatos[candN]["candidate_name"]+"<br/><span style='font-size:0.6em;vertical-align:middle;'>"+candidatos[candN]["candidate_partido"]+"</span>");
+
+                $(".afiniBio").html(candidatos[candN]["candidate_bio"]);
+
+		$(".afiniBio").off().click(function() {
+			$(".afiniBio").toggleClass("abierta");
+		})
 
 		var isCoin = false;
 		var isNCoin = false;
