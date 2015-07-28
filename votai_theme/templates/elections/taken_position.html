@@ -5,19 +5,17 @@
 
 {% if taken_position.position %}
         {{taken_position.position.label}}
-	<p>
+	<p class="position_description">
 	 {{taken_position.description}}
-	</p>
 
 	{% if taken_position.sources.all %}
-        <ul>
         {% for source in taken_position.sources.all %}
             
-            <li><a href="{{source.url}}" target="_blank">{% if source.note %}{{source.note}}{% else %}Fuente{% endif %}</a></li>
+            (<a href="{{source.url}}" target="_blank">{% if source.note %}{{source.note}}{% else %}Fuente{% endif %}</a>)
             
         {% endfor %}
-        </ul>
 	{% endif %}
+	</p>
 {% else %}
     {% trans "Esta(e) candidata(o) aún no responde" %} 
     {#%  with twitter = "hola" %#}

@@ -14,8 +14,8 @@
 
 {% block mainelection %}
 	<div class="container-profile">
-		<div>
-			<h3>{{ candidate.name }}</h3>
+		<div style="display:none">
+			{{ candidate.name }}
 		</div>
 
 		<div class="profile-candidate">
@@ -78,9 +78,27 @@
 
 				</div>
 				<div class="col-md-5">
+					 <h3>{{ candidate.name }}</h3>
+
 					<table class="table">
 						{% include 'elections/personal_data_candidate.html' with candidate=candidate %}
 					</table>			
+
+                                <div class="antecedentes col-md-12">
+                                        <div class="info">
+                                        {% for background_category in election.can_election.backgroundcategory_set.all %}
+                                                {% for background in background_category.background_set.all %}
+                                                        {% for background_candidate in background.backgroundcandidate_set.all %}
+                                                                {{background_candidate.value}}
+                                                        {% endfor %}
+                                                {% endfor %}
+                                        {% endfor %}
+
+
+                                        {{ candidate.biography|markdown }}
+                                        </div>
+                                </div>
+
 				</div>
 				
 				<div class="col-md-4 social-side">
@@ -94,23 +112,6 @@
 				</div>
 			</div>
 			
-			<div class="row">
-
-				<div class="antecedentes col-md-12">
-					<div class="info">
-					{% for background_category in election.can_election.backgroundcategory_set.all %}
-			 			{% for background in background_category.background_set.all %}
-			 				{% for background_candidate in background.backgroundcandidate_set.all %}
-				 				{{background_candidate.value}}
-			 				{% endfor %}
-			 			{% endfor %}
-			 		{% endfor %}
-
-			 		
-					{{ candidate.biography|markdown }}
-			 		</div>
-			 	</div>
-			</div>
 		</div>
 
 	</div>
@@ -170,14 +171,3 @@
 	<script type="text/javascript" src="{% static 'js/video.js' %}"></script>
 {% endblock mainelection %}
 
-{% block extrajs %}
-	$(document).ready(function() {
-		$('div.antecedentes div.info').expander({
-			expandText: '<i class="icon-chevron-down"></i>',
-			userCollapseText: '<i class="icon-chevron-up"></i>',
-			slicePoint: 180,
-		});
-
-		$('.pop-fuente').popover();
-	});
-{% endblock extrajs %}
