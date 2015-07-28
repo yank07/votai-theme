@@ -914,7 +914,10 @@ font-size: 2em;
 	margin-left: 35%;
 }
 .about2{
-	margin-top:20%;
+	margin-top: 20%;
+    color: white;
+    text-align: left;
+    margin-left: 10px;
 }
 .recorrido{
 	text-align:center;		
