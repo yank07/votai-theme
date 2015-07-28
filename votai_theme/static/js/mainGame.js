@@ -1904,6 +1904,7 @@ function loadGame(){
 			$(".bShare").hide();
 			$(".rejugar").hide();
 			$(".share").hide();
+			$(".about2").hide();
 
 			$(".bMenuH").click(function(){
 				$("#menuMob").show();
@@ -1914,6 +1915,7 @@ function loadGame(){
 			$(".bShare").click(function(){								
 				$("#menuMob").hide();
 				$(".afiniCand").hide();
+				$(".about2").hide();
 				$.fn.socialSharePrivacy.settings.title = "Jugu&#233; a YoQuieroSaber";
 				$.fn.socialSharePrivacy.settings.description = shareTxt;
 				$.fn.socialSharePrivacy.settings.body = shareTxt;
@@ -1928,6 +1930,7 @@ function loadGame(){
 						setTimeout(function () {
 							$("#menuMob").hide();
 							$(".afiniCand").hide();
+							$(".about2").hide();
 							$.fn.socialSharePrivacy.settings.title = "Jugu&#233; a YoQuieroSaber";
 							$.fn.socialSharePrivacy.settings.description = shareTxt;
 							$.fn.socialSharePrivacy.settings.body = shareTxt;
@@ -1939,6 +1942,7 @@ function loadGame(){
 					}else{
 						$("#menuMob").hide();
 						$(".afiniCand").hide();
+						$(".about2").hide();
 						$.fn.socialSharePrivacy.settings.title = "Jugu&#233; a YoQuieroSaber";
 						$.fn.socialSharePrivacy.settings.description = shareTxt;
 						$.fn.socialSharePrivacy.settings.body = shareTxt;
@@ -1948,6 +1952,7 @@ function loadGame(){
 				}else{
 					$("#menuMob").hide();
 					$(".afiniCand").hide();
+					$(".about2").hide();
 					$.fn.socialSharePrivacy.settings.title = "Jugu&#233; a YoQuieroSaber";
 					$.fn.socialSharePrivacy.settings.description = shareTxt;
 					$.fn.socialSharePrivacy.settings.body = shareTxt;
@@ -1963,7 +1968,8 @@ function loadGame(){
 						setTimeout(function () {
 							$("#menuMob").hide();
 							$(".afiniCand").hide();
-							$(".about").show();
+							$(".share").hide();
+							$(".about2").show();
 							openIntermedio();
 							console.log("compartir mobile")
 						}, 1500);
@@ -1971,13 +1977,15 @@ function loadGame(){
 					}else{
 						$("#menuMob").hide();
 						$(".afiniCand").hide();
-						$(".about").show();
+						$(".share").hide();
+						$(".about2").show();
 						openIntermedio();					
 					}
 				}else{
 					$("#menuMob").hide();
 					$(".afiniCand").hide();
-					$(".about").show();
+					$(".share").hide();
+					$(".about2").show();
 					openIntermedio();
 				}
 			});			
