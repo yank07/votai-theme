@@ -914,11 +914,23 @@ font-size: 2em;
 	margin-left: 35%;
 }
 .about2{
-	margin-top: 20vh;
-    	color: white;
-    	text-align: left;
-    	margin-left: 10px;
-	overflow-y:auto;
+	height: 100vh;
+	margin-top: 50px;
+	color: white;
+	text-align: left;
+	margin-left: 15px;
+	margin-right: 15px;
+	overflow-y: auto;
+}
+.about2::-webkit-scrollbar {
+ 	width: 5px;
+	height: 5px;
+	background-color: #222;    
+}
+.about2::-webkit-scrollbar-thumb {
+	background: white;
+	//-webkit-border-radius: 0px;
+	height:10px;
 }
 .recorrido{
 	text-align:center;		
