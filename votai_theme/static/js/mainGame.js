@@ -1158,6 +1158,14 @@ var app = (function(){
 				$("#vNo").css("zIndex","1");
 				$("#vNo").css("left","0px");
 				$("#vNo").css("top","0px");
+				
+				$("#vOp").css("width",h*tarjeH100);
+				$("#vOp").css("width",h*tarjeH100);
+				$("#vSi").css("height",h*tarjeH100*0.9);
+				$("#vSi").css("height",h*tarjeH100*0.9);
+				$("#vNo").css("width",h*tarjeH100);
+				$("#vNo").css("height",h*tarjeH100*0.9);
+
 				//$(".nElec").show();
 				esperando=true;
 				setTimeout(function () {
