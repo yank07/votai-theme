@@ -913,6 +913,14 @@ font-size: 2em;
 	margin-top: 20%;
 	margin-left: 35%;
 }
+.share p{
+	width: 100%;
+	font-family: yqsFont;
+	color: white;
+	font-size: 1.5em;
+	margin-bottom: 2em;
+	margin-left: -25%;
+}
 .about2{
 	height: 80vh;
 	margin-top: 65px;
