@@ -922,8 +922,8 @@ font-size: 2em;
 	margin-left: -25%;
 }
 .about2{
-	height: 80vh;
-	margin-top: 65px;
+	height: 85vh;
+	margin-top: 28px;
 	color: white;
 	text-align: left;
 	margin-left: 15px;
@@ -943,6 +943,11 @@ font-size: 2em;
 
 .about2 h2 {
 	font-family: yqsFont;
+	margin-top: 0;
+}
+
+.about2 h2:first {
+	margin-left: 50px;
 }
 
 .about2 a img {
@@ -958,6 +963,8 @@ font-size: 2em;
 	color: black;
 	font-size: 0.9em;
 }
+
+
 
 .recorrido{
 	text-align:center;		
