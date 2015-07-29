@@ -940,6 +940,11 @@ font-size: 2em;
 	//-webkit-border-radius: 0px;
 	height:10px;
 }
+
+.about2 h2 {
+	font-family: yqsFont;
+}
+
 .recorrido{
 	text-align:center;		
 }
