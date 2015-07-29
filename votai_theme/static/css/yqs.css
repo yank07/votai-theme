@@ -946,7 +946,7 @@ font-size: 2em;
 	margin-top: 0;
 }
 
-.about2 h2:first {
+.about2 h2.yqs-title {
 	margin-left: 50px;
 }
 
