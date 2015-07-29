@@ -945,6 +945,20 @@ font-size: 2em;
 	font-family: yqsFont;
 }
 
+.about2 a img {
+	float: left;
+	margin: 0.5em;
+}
+
+.quienes-hacemos {
+	margin-right: 1em;
+	background: white; 
+	padding: 1em; 
+	border-radius: 1em; 
+	color: black;
+	font-size: 0.9em;
+}
+
 .recorrido{
 	text-align:center;		
 }
