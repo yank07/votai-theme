@@ -1191,7 +1191,7 @@ var app = (function(){
 			$("#vNo").css("width",h*tarjeH100);
 			$("#vNo").css("height",h*tarjeH100*0.9);
 			animando=false;
-		}, 2000);
+		}, 4000);
 	};
 
 	// #Animación muestra el resultado a partir del voto elegido
