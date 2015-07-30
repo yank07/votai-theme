@@ -1325,7 +1325,7 @@ var app = (function(){
 							candTxt = "<br><button type=button class='detalleButton"+canInd+"' style='margin-top:4px;border:none'>+</button><div class=detalle"+canInd+" style='display:none;'>"+candTxt+"</div>";
 							onclick = "onclick='showDetalle("+canInd+")'";
 						}
-						posBG+="<div class='chatRight'><div class='chatPhotoRight' "+onclick+">";
+						posBG+="<div class='chatRight'><div class='chatPhotoRight'>";
 						posBG+="<img id='fCand' class='rFoto' style='background-color:"+candidatos[canInd]["candidate_color"]+";' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowRight'>&nbsp;</div>";
 						posBG+="<div class='chatBoxRight'>";
 						var ansId = qresp.answer_id;
