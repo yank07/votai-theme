@@ -605,9 +605,6 @@ button:focus {
 {
 	margin-left:100px;
 }
-.postu[onclick] {
-	cursor: pointer;
-}
 
 .chatBoxRight
 {
@@ -748,7 +745,7 @@ button:focus {
 	height:1em;
 	overflow:hidden;
 }
-[class^="postu-"] {
+.postu {
 	text-align:left;
 	color:black;
 	font-size:1.0em;
@@ -758,6 +755,12 @@ button:focus {
 	background-color:rgba(0, 0, 0, 0));
 	padding-bottom: 10px;
 }
+
+.postu[onclick] {
+	cursor: pointer;
+}
+
+
 [class^="detalle"] {
 	text-align:left;
 	color:black;
