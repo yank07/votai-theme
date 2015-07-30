@@ -1211,7 +1211,7 @@ var app = (function(){
 			var segundos = true;
 
 			for(var i=0;i<cant;i++){
-				var invTotal = 1/(valorPuntos[0]*punParcial[0][2]);
+				var invTotal = 1/(valorPuntos[0]*punParcial[i][2]);
 				
 				var canInd = punParcial[i][1];
 				//console.log("Pun Preg "+candidatos[canInd]["candidate_name"]+": "+punParcial[i]);
