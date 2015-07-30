@@ -476,14 +476,12 @@ button:focus {
 	left:0;
 	top:0;
 	padding-top:5px;
-	//width:100%;
-	//height:100%;
+	display: none;
 	width:450px;
 	height:560px;
 	top:150px;
 	border-radius: 1.8em;
 	background-color:#86e895;	
-	//z-index:0;
 	overflow:hidden;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -1714,7 +1712,6 @@ cursor: pointer;
 		width:100%;
 		height:100%;
 		border-radius: 0px;
-		display: none;
 	}
 	#tarjeta1,#tarjeta2{
 		height:207px;
