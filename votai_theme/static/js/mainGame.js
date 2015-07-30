@@ -1381,9 +1381,11 @@ var app = (function(){
 			onStop: function( element ){
 				$(".intermedio").hide();
 				//console.log("closeInter");
+				$(".afiniBio").removeClass("abierta");
 			}
 		});
 		$.play();	
+
 	}
 
 
@@ -1486,6 +1488,7 @@ var app = (function(){
 		$(".noCoincide").html(htNC);
 		$(".noResp").html(htNTR);
 		$(".afiniCand").scrollTop(0);
+		$("#about2").hide();
 	}
 
 function loadGame(){
@@ -2021,7 +2024,7 @@ function loadGame(){
 				closeOpt();
 			});
 
-			$(".closeInter").click(function() {
+			$(".closeInter,.intermedio-gap").click(function() {
 				resetSacudir();
 				closeIntermedio();
 			})

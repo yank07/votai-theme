@@ -794,12 +794,22 @@ button:focus {
 	position:absolute;
 	top:0px;
 	left:-100%;
-	background-color:#444;
 	width:100%;
 	height:100%;
 	text-align:center;
 	display:block;	
 	z-index:51;
+}
+
+.intermedio-content {
+	background-color:#444;	
+	width: 90%;
+	float: left;
+}
+
+.intermedio-gap {
+	width: 10%;
+	float: left;
 }
 
 .closeInter {
