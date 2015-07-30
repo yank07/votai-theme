@@ -83,29 +83,6 @@ var app = (function(){
 
 	var shareTxt = "";
 
-	//reemplazar carateres por html ascii codes
-	/*function getCleanText(some_text) {
-		var clean_text = some_text;
-		clean_text = clean_text.replace("¿", "&#191;"); 
-
-		clean_text = clean_text.replace("Á", "&#193;"); 
-		clean_text = clean_text.replace("É", "&#201;"); 
-		clean_text = clean_text.replace("Í", "&#205;"); 
-		clean_text = clean_text.replace("Ó", "&#211;"); 
-		clean_text = clean_text.replace("Ú", "&#218;"); 
-
-		clean_text = clean_text.replace("á", "&#225;"); 
-		clean_text = clean_text.replace("é", "&#233;"); 
-		clean_text = clean_text.replace("í", "&#237;"); 
-		clean_text = clean_text.replace("ó", "&#243;"); 
-		clean_text = clean_text.replace("ú", "&#250;"); 
-
-		clean_text = clean_text.replace("Ñ", "&#209;"); 
-		clean_text = clean_text.replace("ñ", "&#241;"); 
-
-		return clean_text;
-	}*/
-
 	function puntajeCalc(userR){
 		var cant = candidatos.length;
 		for(var i=0;i<cant;i++){
@@ -168,8 +145,50 @@ var app = (function(){
 			}
 			
 		}	
+
+		punParcial.sort(function(a, b){
+			return b[0] - a[0];					
+		});
 	}
 
+	function ordenarAfinidad(){
+		var aH = 0;
+		if(mobile){
+			aH = parseFloat($(".afiniImg").css("height"));
+		}else{
+			aH = parseFloat($(".afiniImg2").css("width"));
+		}
+		var cant = candidatos.length;		
+		var invMaxPunt = 1/(valorPuntos[0]);		
+		for(var i=0;i<cant;i++){
+			var canInd = punParcial[i][1];
+			//console.log("Puntaje "+(candidatos[canInd]["candidate_name"])+": "+(punParcial[i][0]));								
+			$(".cFoto"+i).attr("src",fotos[canInd].src);
+			$(".cFoto"+i).attr("title",candidatos[canInd]["candidate_name"]);
+			$(".cFoto"+i).css("background-color",candidatos[canInd]["candidate_color"]);
+			var fW = 0;
+			if(punParcial[i][2]>0){
+				fW = (aH*0.5)+(aH*0.5)*(punParcial[i][0])*invMaxPunt;
+				$(".cFoto"+i).css({
+				    '-webkit-filter':'grayscale(0%)',
+				    '-moz-filter': 'grayscale(0%)',
+				    '-o-filter': 'grayscale(0%)',
+				    '-ms-filter': 'grayscale(0%)'
+				});
+			}else{
+				fW = (aH*0.5);
+				$(".cFoto"+i).css({
+				    '-webkit-filter':'grayscale(100%)',
+				    '-moz-filter': 'grayscale(100%)',
+				    '-o-filter': 'grayscale(100%)',
+				    '-ms-filter': 'grayscale(100%)'
+				});
+			}
+			$(".cFoto"+i).css("width",fW+"px");
+			$(".cFoto"+i).css("height",fW+"px");
+		}
+	}
+	
 	
 
 	function GetUrlValue(varsearch){
@@ -786,45 +805,9 @@ var app = (function(){
 				aH = parseFloat($(".afiniImg2").css("width"));
 				$(".afinidad").css("overflow-y","auto");
 			}
-			punParcial.sort(function(a, b){
-					return b[0] - a[0];					
-			});
 			
-			if(userRes[pregCount-1]>-1){
-				var cant = candidatos.length;
-				//console.log($(".afinidad").height());
-				//var aH = $(".afinidad").height()*h*0.008;
-							
-				//console.log("preg respon: "+punParcial[0][2]);
-				//var invMaxPunt = 1/(punParcial[0][0]);
-				var invMaxPunt = 1/(valorPuntos[0]);			
-				for(var i=0;i<cant;i++){
-					var canInd = punParcial[i][1];
-					//console.log("Puntaje "+(candidatos[canInd]["candidate_name"])+": "+(punParcial[i][0]));								
-					$(".cFoto"+i).attr("src",fotos[canInd].src);
-					$(".cFoto"+i).attr("title",candidatos[canInd]["candidate_name"]);
-					$(".cFoto"+i).css("background-color",candidatos[canInd]["candidate_color"]);
-					var fW = 0;
-					if(punParcial[i][2]>0){
-						fW = (aH*0.5)+(aH*0.5)*(punParcial[i][0])*invMaxPunt;
-						$(".cFoto"+i).css({
-						    '-webkit-filter':'grayscale(0%)',
-						    '-moz-filter': 'grayscale(0%)',
-						    '-o-filter': 'grayscale(0%)',
-						    '-ms-filter': 'grayscale(0%)'
-						});
-					}else{
-						fW = (aH*0.5);
-						$(".cFoto"+i).css({
-						    '-webkit-filter':'grayscale(100%)',
-						    '-moz-filter': 'grayscale(100%)',
-						    '-o-filter': 'grayscale(100%)',
-						    '-ms-filter': 'grayscale(100%)'
-						});
-					}
-					$(".cFoto"+i).css("width",fW+"px");
-					$(".cFoto"+i).css("height",fW+"px");
-				}
+			if(userRes[pregCount-1]>-1){				
+				ordenarAfinidad();
 			}
 		}else{
 			//$(".bBack").hide();
@@ -1223,29 +1206,29 @@ var app = (function(){
 
 			var cant = candidatos.length;
 			var posBG="";
-			puntajes.sort(function(a, b){
-				return b[0] - a[0];					
-			});
 
-			var invTotal = 1/(valorPuntos[0]*puntajes[0][2]);
-			//console.log("Mayor Puntaje: "+(valorPuntos[0]*puntajes[0][2]))	
+
 			var segundos = true;
 
 			for(var i=0;i<cant;i++){
-				var canInd = puntajes[i][1];
-				//console.log("Pun Preg "+candidatos[canInd]["candidate_name"]+": "+puntajes[i]);
+				//var invTotal = 1/(valorPuntos[0]*punParcial[i][2]);
 				
-				if(i==0||puntajes[0][0]==puntajes[i][0]){
+				var canInd = punParcial[i][1];
+				//console.log("Pun Preg "+candidatos[canInd]["candidate_name"]+": "+punParcial[i]);
+
+				if(punParcial[i][0]<0)punParcial[i][0]=0;
+				
+				if(i==0||punParcial[0][0]==punParcial[i][0]){
 					posBG+="<div class='resuCand1'>";
 					posBG+="<div class='resuIMG1'><img id='fCand' class='rFoto' style='margin-right:0px;background-color:"+candidatos[canInd]["candidate_color"]+";' src="+candidatos[canInd]["candidate_pic"]+" ></div>";
 					posBG+="<div class='resuDatos1'>";
-					posBG+="<div class='resuPor1'>"+parseInt(puntajes[i][0]*invTotal*100)+"%</div>";
+					posBG+="<div class='resuPor1'>"+parseInt(punParcial[i][0])+"%</div>";
 					posBG+="<div class='resuNom1'>"+candidatos[canInd]["candidate_name"]+"<br/></div>";
-					posBG+="<div class='resuBarra'><div class='barraLlena' style='width:"+parseInt(puntajes[i][0]*invTotal*100)+"%;background-color:"+candidatos[canInd]["candidate_color"]+";'>&nbsp;</div><div class='barraVacia' style='width:"+(100-parseInt(puntajes[i][0]*invTotal*100))+"%;'>&nbsp;</div></div>";
+					posBG+="<div class='resuBarra'><div class='barraLlena' style='width:"+parseInt(punParcial[i][0])+"%;background-color:"+candidatos[canInd]["candidate_color"]+";'>&nbsp;</div><div class='barraVacia' style='width:"+(100-parseInt(punParcial[i][0]))+"%;'>&nbsp;</div></div>";
 					posBG+="</div>";
 					posBG+="</div>";
 
-					shareTxt+=parseInt(puntajes[i][0]*invTotal*100)+"% de afinidad con "+candidatos[canInd]["candidate_name"]+"\n\r";
+					shareTxt+=parseInt(punParcial[i][0])+"% de afinidad con "+candidatos[canInd]["candidate_name"]+"\n\r";
 
 				}else{
 					if(segundos){
@@ -1257,14 +1240,15 @@ var app = (function(){
 					posBG+="<div class='resuIMG2'><img id='fCand' class='rFoto' style='margin-right:0px;background-color:"+candidatos[canInd]["candidate_color"]+";' src="+candidatos[canInd]["candidate_pic"]+" ></div>";
 					posBG+="<div class='resuDatos2'>";
 					posBG+="<div class='resuNom2'>"+candidatos[canInd]["candidate_name"]+"<br/></div>";
-					posBG+="<div class='resuBarra'><div class='barraLlena' style='width:"+parseInt(puntajes[i][0]*invTotal*100)+"%;background-color:"+candidatos[canInd]["candidate_color"]+";'>&nbsp;</div><div class='barraVacia' style='width:"+(100-parseInt(puntajes[i][0]*invTotal*100))+"%;'>&nbsp;</div></div>";
-					posBG+="<div class='resuPor2'>"+parseInt(puntajes[i][0]*invTotal*100)+"%</div>";
+					posBG+="<div class='resuBarra'><div class='barraLlena' style='width:"+parseInt(punParcial[i][0])+"%;background-color:"+candidatos[canInd]["candidate_color"]+";'>&nbsp;</div><div class='barraVacia' style='width:"+(100-parseInt(punParcial[i][0]))+"%;'>&nbsp;</div></div>";
+					posBG+="<div class='resuPor2'>"+parseInt(punParcial[i][0])+"%</div>";
 					posBG+="</div>";
 					posBG+="</div>";					
 				}
 				
 			}
 			$(".posturas").html(posBG);
+			ordenarAfinidad();
 		}else{
 		
 			$(".pregResu").html(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_text"]);
