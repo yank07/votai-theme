@@ -1292,7 +1292,7 @@ var app = (function(){
 						}
 						posBG+="<div class='chatLeft'><div class='chatIMG'>";
 						posBG+="<img id='fCand' class='rFoto' style='background-color:"+candidatos[canInd]["candidate_color"]+";' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowLeft'>&nbsp;</div>";
-						posBG+="<div class='chatBoxLeft' "+onclick+">";
+						posBG+="<div class='chatBoxLeft'>";
 						var ansId = qresp.answer_id;
 						qresp = $.grep(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["answers"], function(e){ return e.answer_id == ansId; })[0];						
 						var anTxt = qresp.answer_text;
@@ -1305,7 +1305,7 @@ var app = (function(){
 							posBG+="<div class='chatBoxHeader' id='chatNo'>";
 						}				
 						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" <span style='font-size:0.6em;vertical-align:middle;'>"+candidatos[canInd]["candidate_partido"]+"</span>"+ "</h3></div>";
-						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+anTxt+candTxt+"</p></div></div></div>";
+						posBG+="<div class='chatBoxContent'><p class='postu postu-"+i+"' "+onclick+">"+anTxt+candTxt+"</p></div></div></div>";
 					//$(".posNom"+i).css("top",$(".chatBG"+i).offset().top);
 					}else{
 						posBG+="<div class='chatLeft'><div class='chatIMG'>";
@@ -1327,7 +1327,7 @@ var app = (function(){
 						}
 						posBG+="<div class='chatRight'><div class='chatPhotoRight' "+onclick+">";
 						posBG+="<img id='fCand' class='rFoto' style='background-color:"+candidatos[canInd]["candidate_color"]+";' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowRight'>&nbsp;</div>";
-						posBG+="<div class='chatBoxRight' "+onclick+">";
+						posBG+="<div class='chatBoxRight'>";
 						var ansId = qresp.answer_id;
 						qresp = $.grep(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["answers"], function(e){ return e.answer_id == ansId; })[0];						
 						var anTxt = qresp.answer_text;
@@ -1340,7 +1340,7 @@ var app = (function(){
 							posBG+="<div class='chatBoxHeader' id='chatNo'>";
 						}
 						posBG+="<h3 class=posNom"+i+" >"+candidatos[canInd]["candidate_name"]+" <span style='font-size:0.6em;vertical-align:middle;'>"+candidatos[canInd]["candidate_partido"]+"</span>"+ " </h3></div>";
-						posBG+="<div class='chatBoxContent'><p class=postu-"+i+">"+anTxt+candTxt+"</p></div></div></div>";
+						posBG+="<div class='chatBoxContent'><p class='postu postu-"+i+"' "+onclick+">"+anTxt+candTxt+"</p></div></div></div>";
 					}else{
 						posBG+="<div class='chatRight'><div class='chatPhotoRight'>";
 						posBG+="<img id='fCand' class='rFoto' style='background-color:"+candidatos[canInd]["candidate_color"]+";-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-o-filter:grayscale(100%);-ms-filter:grayscale(100%);' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowRight'>&nbsp;</div><div class='chatBoxRight'>";

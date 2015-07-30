@@ -605,17 +605,13 @@ button:focus {
 {
 	margin-left:100px;
 }
-.chatBoxLeft[onclick] {
+.postu[onclick] {
 	cursor: pointer;
 }
 
 .chatBoxRight
 {
 	margin-right:100px;
-}
-
-.chatBoxRight[onclick] {
-	cursor: pointer;
 }
 
 .chatBoxHeader
