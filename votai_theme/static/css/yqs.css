@@ -813,6 +813,7 @@ button:focus {
 	float: left;
 	height: 100%;
 	cursor: pointer;
+	background: rgba(128,128,128,0.7);
 }
 
 .closeInter {
