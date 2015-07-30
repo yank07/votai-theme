@@ -1526,7 +1526,7 @@ function loadGame(){
 
 					categorias = eleccion["categories"];
 					candidatos = eleccion["candidates"];
-					$(".nElec").html(eleccion["election_name"]);
+					$(".nElec,.election_name_content").html(eleccion["election_name"]);
 					//console.log(candidatos);
 					//
 					//MaxPreg = preguntas["Nro_Preguntas"];
@@ -1599,7 +1599,7 @@ function loadGame(){
 
 	function filter(questions,election_name) {
 		if (election_name == "Pre-candidatos a Gobernador de Entre Ríos") {
-			var new_questions;
+			var new_questions = [];
 			for (q in questions) {
 				if (questions[q].question_id != 11) {
 					new_questions.push(question[q]);
