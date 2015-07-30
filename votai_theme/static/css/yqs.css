@@ -799,7 +799,7 @@ button:focus {
 	height:100%;
 	text-align:center;
 	display:block;	
-	z-index:50;
+	z-index:51;
 }
 
 .closeInter {
@@ -968,7 +968,6 @@ font-size: 2em;
 }
 
 .about2 a img {
-	float: left;
 	margin: 0.5em;
 }
 
