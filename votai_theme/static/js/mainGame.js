@@ -86,22 +86,22 @@ var app = (function(){
 	//reemplazar carateres por html ascii codes
 	/*function getCleanText(some_text) {
 		var clean_text = some_text;
-		clean_text = clean_text.replace("ø", "&#191;"); 
+		clean_text = clean_text.replace("¬ø", "&#191;"); 
 
-		clean_text = clean_text.replace("¡", "&#193;"); 
-		clean_text = clean_text.replace("…", "&#201;"); 
-		clean_text = clean_text.replace("Õ", "&#205;"); 
-		clean_text = clean_text.replace("”", "&#211;"); 
-		clean_text = clean_text.replace("⁄", "&#218;"); 
+		clean_text = clean_text.replace("√Å", "&#193;"); 
+		clean_text = clean_text.replace("√â", "&#201;"); 
+		clean_text = clean_text.replace("√ç", "&#205;"); 
+		clean_text = clean_text.replace("√ì", "&#211;"); 
+		clean_text = clean_text.replace("√ö", "&#218;"); 
 
-		clean_text = clean_text.replace("·", "&#225;"); 
-		clean_text = clean_text.replace("È", "&#233;"); 
-		clean_text = clean_text.replace("Ì", "&#237;"); 
-		clean_text = clean_text.replace("Û", "&#243;"); 
-		clean_text = clean_text.replace("˙", "&#250;"); 
+		clean_text = clean_text.replace("√°", "&#225;"); 
+		clean_text = clean_text.replace("√©", "&#233;"); 
+		clean_text = clean_text.replace("√≠", "&#237;"); 
+		clean_text = clean_text.replace("√≥", "&#243;"); 
+		clean_text = clean_text.replace("√∫", "&#250;"); 
 
-		clean_text = clean_text.replace("—", "&#209;"); 
-		clean_text = clean_text.replace("Ò", "&#241;"); 
+		clean_text = clean_text.replace("√ë", "&#209;"); 
+		clean_text = clean_text.replace("√±", "&#241;"); 
 
 		return clean_text;
 	}*/
@@ -136,11 +136,11 @@ var app = (function(){
 				puntajes[i][0]+=valorPuntos[3];
 				punPreg[i][0]=valorPuntos[3];
 				puntajes[i][2]++;
-			}else if(parseInt(userR*0.5)==parseInt(candR*0.5)){//Si no coincide exacto pero est· en el mismo sentido, entonces el segundo mayor puntaje
+			}else if(parseInt(userR*0.5)==parseInt(candR*0.5)){//Si no coincide exacto pero est√° en el mismo sentido, entonces el segundo mayor puntaje
 				puntajes[i][0]+=valorPuntos[1];
 				punPreg[i][0]=valorPuntos[1];
 				puntajes[i][2]++;
-			}else{//Finalmente, si no coincide el sentido, puede ser el tercer mejor puntaje o el cuarto y ˙ltimo
+			}else{//Finalmente, si no coincide el sentido, puede ser el tercer mejor puntaje o el cuarto y √∫ltimo
 				if(Math.abs(userR-candR)==1){
 					puntajes[i][0]+=valorPuntos[2];
 					punPreg[i][0]=valorPuntos[2];
@@ -775,12 +775,12 @@ var app = (function(){
 			if(mobile){
 				//$(".afinidad").css("background-color","#002B15");
 				$(".afiniImg").show();
-				$(".afiT").show();				
+				$(".afiT .realAfinidad").show();				
 				aH = parseFloat($(".afiniImg").css("height"));
 				$(".afinidad").scrollLeft(2.25*aH);
 				$(".afinidad").css("overflow-x","auto");
 			}else{
-				$(".afiniSide").show();
+				$(".afiniSide").fadeIn();
 				//$(".afiniImg").show();
 				$(".afinidad2").scrollTop(0);
 				aH = parseFloat($(".afiniImg2").css("width"));
@@ -832,7 +832,7 @@ var app = (function(){
 		}
 
 
-		//#Anima los puntos que muestran por quÈ pregunta vas
+		//#Anima los puntos que muestran por qu√© pregunta vas
 		var pun = "#p"+pregCount;
 		$( pun ).tween({
 			width:{
@@ -1062,7 +1062,7 @@ var app = (function(){
 		$("#vSi").css("left",center+"px");
 		$("#vSi").css("top",offset.top+5+"px");
 
-		// #AnimaciÛn de apariciÛn de las opciones de voto
+		// #Animaci√≥n de aparici√≥n de las opciones de voto
 		$( "#vSi" ).tween({		
 			top:{
 				start: offset.top+5+h*tarjeH100*0.45,
@@ -1118,7 +1118,7 @@ var app = (function(){
 		$("#vNo").css("left",($("#vNo").width()*-1.0)+"px");
 		$("#vNo").css("top",offset.top+5+"px");
 
-		// #AnimaciÛn de apariciÛn de las opciones de voto
+		// #Animaci√≥n de aparici√≥n de las opciones de voto
 		$( "#vNo" ).tween({		
 			top:{
 				start: offset.top+5+h*tarjeH100*0.45,
@@ -1194,7 +1194,7 @@ var app = (function(){
 		}, 4000);
 	};
 
-	// #AnimaciÛn muestra el resultado a partir del voto elegido
+	// #Animaci√≥n muestra el resultado a partir del voto elegido
 	function pregResult(){
 		$(".preguntas").hide();
 		$(".posturas").hide();
@@ -1251,7 +1251,7 @@ var app = (function(){
 					if(segundos){
 						posBG+="<br>";
 						segundos=false;
-						shareTxt+="&#191;Cu·l es tu candidato?";
+						shareTxt+="&#191;Cu√°l es tu candidato?";
 					}
 					posBG+="<div class='resuCand2'>";
 					posBG+="<div class='resuIMG2'><img id='fCand' class='rFoto' style='margin-right:0px;background-color:"+candidatos[canInd]["candidate_color"]+";' src="+candidatos[canInd]["candidate_pic"]+" ></div>";
@@ -1532,7 +1532,10 @@ function loadGame(){
 					//MaxPreg = preguntas["Nro_Preguntas"];
 					var cant = candidatos.length;
 
-					for(var i=0;i<categorias.length;i++)shuffle(categorias[i]["questions"]);
+					for(var i=0;i<categorias.length;i++) {
+						filter(categorias[i]["questions"],data.election_name);
+						shuffle(categorias[i]["questions"]);
+					}
 					
 
 					var afCont="";
@@ -1592,6 +1595,18 @@ function loadGame(){
 
 				});
 
+	}
+
+	function filter(questions,election_name) {
+		if (election_name == "Pre-candidatos a Gobernador de Entre R√≠os") {
+			var new_questions;
+			for (q in questions) {
+				if (questions[q].question_id != 11) {
+					new_questions.push(question[q]);
+				}
+			}
+		}
+		return questions = new_questions;
 	}
 
 	function openOpt(){
@@ -1717,7 +1732,7 @@ function loadGame(){
 		$(".afinidad").css("overflow-y","hidden");
 		$("#homecontent").hide();
 		if(pregCount>0){
-			$(".afiT").show();
+			$(".afiT .realAfinidad").show();
 			$(".afiniImg").show();
 			$(".afinidad").css("overflow-x","auto");
 		}
@@ -1735,7 +1750,7 @@ function loadGame(){
 			$(".afinidad").css("overflow-y","auto");
 		}
 		$(".bMenuH").hide();
-		$(".afiT").hide();
+		$(".afiT .realAfinidad").hide();
 		$(".afiniImg").hide();
 		$(".afinidad").css("overflow-x","hidden");
 		$("#game").css("top",gameTop+"px");
@@ -1756,7 +1771,7 @@ function loadGame(){
 		$(".afiniSide").css("height",(0.9*$("#game").height())+"px");				
 	}
 
-	return {//funcion de inicio de la aplicaciÛn
+	return {//funcion de inicio de la aplicaci√≥n
 		init : function(){
 			
 			w = $("#game").width();
@@ -1796,7 +1811,7 @@ function loadGame(){
 				$(".afiniSide").hide();
 				$("#homecontent").hide();
 				if(pregCount>0){
-					$(".afiT").show();
+					$(".afiT .realAfinidad").show();
 				}
 			}else{
 				$("#inicioD").hide();
@@ -1875,7 +1890,7 @@ function loadGame(){
 			$(".intermedio").hide();
 			$(".afinidad").css("background-color",$("#game").css("background-color"));
 			$(".afiniImg").hide();
-			$(".afiT").hide();
+			$(".afiT .realAfinidad").hide();
 			$(".opciones").hide();
 			$("#vSi").hide();
 			$("#vNo").hide();
