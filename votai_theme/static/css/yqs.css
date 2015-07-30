@@ -939,11 +939,11 @@ font-size: 2em;
 	margin-left: -25%;
 }
 .about2{
-	height: 85vh;
+	height: 90%;
 	margin-top: 28px;
 	color: white;
 	text-align: left;
-	margin-left: 15px;
+	margin-left: 45px;
 	margin-right: 15px;
 	overflow-y: auto;
 }
@@ -961,10 +961,6 @@ font-size: 2em;
 .about2 h2 {
 	font-family: yqsFont;
 	margin-top: 0;
-}
-
-.about2 h2.yqs-title {
-	margin-left: 50px;
 }
 
 .about2 a img {
