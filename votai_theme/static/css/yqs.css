@@ -805,11 +805,14 @@ button:focus {
 	background-color:#444;	
 	width: 90%;
 	float: left;
+	height: 100%;
 }
 
 .intermedio-gap {
 	width: 10%;
 	float: left;
+	height: 100%;
+	cursor: pointer;
 }
 
 .closeInter {
