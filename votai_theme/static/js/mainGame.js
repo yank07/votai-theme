@@ -1602,7 +1602,7 @@ function loadGame(){
 			var new_questions = [];
 			for (q in questions) {
 				if (questions[q].question_id != 11) {
-					new_questions.push(question[q]);
+					new_questions.push(questions[q]);
 				}
 			}
 		}
