@@ -148,12 +148,13 @@ var app = (function(){
 	}
 
 	function ordenarAfinidad(){
-		var cant = candidatos.length;
-		//console.log($(".afinidad").height());
-		//var aH = $(".afinidad").height()*h*0.008;
-					
-		//console.log("preg respon: "+punParcial[0][2]);
-		//var invMaxPunt = 1/(punParcial[0][0]);
+		var aH = 0;
+		if(mobile){
+			aH = parseFloat($(".afiniImg").css("height"));
+		}else{
+			aH = parseFloat($(".afiniImg2").css("width"));
+		}
+		var cant = candidatos.length;		
 		var invMaxPunt = 1/(valorPuntos[0]);			
 		for(var i=0;i<cant;i++){
 			var canInd = punParcial[i][1];
