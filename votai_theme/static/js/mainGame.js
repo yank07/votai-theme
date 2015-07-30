@@ -148,6 +148,10 @@ var app = (function(){
 	}
 
 	function ordenarAfinidad(){
+		punParcial.sort(function(a, b){
+			return b[0] - a[0];					
+		});
+
 		var aH = 0;
 		if(mobile){
 			aH = parseFloat($(".afiniImg").css("height"));
@@ -155,7 +159,7 @@ var app = (function(){
 			aH = parseFloat($(".afiniImg2").css("width"));
 		}
 		var cant = candidatos.length;		
-		var invMaxPunt = 1/(valorPuntos[0]);			
+		var invMaxPunt = 1/(valorPuntos[0]);		
 		for(var i=0;i<cant;i++){
 			var canInd = punParcial[i][1];
 			//console.log("Puntaje "+(candidatos[canInd]["candidate_name"])+": "+(punParcial[i][0]));								
@@ -801,9 +805,6 @@ var app = (function(){
 				aH = parseFloat($(".afiniImg2").css("width"));
 				$(".afinidad").css("overflow-y","auto");
 			}
-			punParcial.sort(function(a, b){
-					return b[0] - a[0];					
-			});
 			
 			if(userRes[pregCount-1]>-1){				
 				ordenarAfinidad();
