@@ -605,10 +605,19 @@ button:focus {
 {
 	margin-left:100px;
 }
+.chatBoxLeft[onclick] {
+	cursor: pointer;
+}
+
 .chatBoxRight
 {
 	margin-right:100px;
 }
+
+.chatBoxRight[onclick] {
+	cursor: pointer;
+}
+
 .chatBoxHeader
 {
 	color: white;
@@ -770,13 +779,14 @@ button:focus {
 	user-select: text;
 }
 
-.chatBoxLeft,
 [class^="detalleButton"]{
 	cursor: pointer;
 	border:none;
 	background-color:#aaa;
 	border-radius:0.5em;
 }
+
+
 .intermedio{
 	position:absolute;
 	top:0px;
@@ -1202,7 +1212,7 @@ height: 1.5em;
 overflow: hidden;
 position: relative;
 cursor: pointer;
-padding: 0 4em 0 1em;
+padding: 0 4em 1em 0;
 }
  
 .afiniBio.abierta:before {
