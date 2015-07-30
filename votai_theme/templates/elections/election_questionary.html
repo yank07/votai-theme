@@ -13,7 +13,7 @@
 {% block mainelection %}
 <div id="questionary">
 	<div class="questionary">		
-		<h1>Cuestionario completo</h1>
+		<h1>{% trans "Cuestionario"%}: {{election}}</h1>
 		{% for category in election.categories.all %}
 		<div class="panel panel-default">
 			<div class="panel-heading">{{category.name}}</div>
