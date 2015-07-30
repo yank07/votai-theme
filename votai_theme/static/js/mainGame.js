@@ -1562,6 +1562,8 @@ function loadGame(){
 
 					$(".afiniImg").html(afCont);
 					$(".afiniImg2").html(afCont);
+
+					var mobile = $.browser.mobile;;
 	
 					if (document.location.search.indexOf("telon=1") == -1 && !mobile) {
 						$("#game").show();
