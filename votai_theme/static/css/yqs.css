@@ -125,7 +125,11 @@ margin-top: -41px;
 }
 
 
-
+div.question-answer div.row.hidden-xs {
+	border-top: 4px solid #EFE;
+	padding: 1em 0px;
+	margin-bottom: 1em;
+}
 
 #listaGobernadores {
 	list-style: none;
