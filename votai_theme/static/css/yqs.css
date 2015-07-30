@@ -8,8 +8,16 @@
    src: url(../fonts/POLITICA_BOLD.TTF);
    font-weight: bold;
 }
-html,body {
+
+html {
 	padding-top: 0;	
+	height: 100%;
+}
+
+body {
+	padding-top: 0;	
+	min-height: 100%;
+	height: auto;
 }
 
 a{
@@ -137,14 +145,12 @@ margin-top: -41px;
 }
 
 #telon{
-	position:absolute;
+	position:fixed;
 	left:0px;
 	top:0px;
-	//width:450px;
-	//height:560px;
+	padding-top: 40px;
 	width:100%;
-	height:500%;
-	z-index=10000;
+	height:100%;
 	background-color:#86e895;
 	z-index:10000;	
 	text-align:center;
@@ -476,14 +482,12 @@ button:focus {
 	left:0;
 	top:0;
 	padding-top:5px;
-	//width:100%;
-	//height:100%;
+	display: none;
 	width:450px;
 	height:560px;
 	top:150px;
 	border-radius: 1.8em;
 	background-color:#86e895;	
-	//z-index:0;
 	overflow:hidden;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -601,10 +605,12 @@ button:focus {
 {
 	margin-left:100px;
 }
+
 .chatBoxRight
 {
 	margin-right:100px;
 }
+
 .chatBoxHeader
 {
 	color: white;
@@ -739,7 +745,7 @@ button:focus {
 	height:1em;
 	overflow:hidden;
 }
-[class^="postu-"] {
+.postu {
 	text-align:left;
 	color:black;
 	font-size:1.0em;
@@ -749,6 +755,12 @@ button:focus {
 	background-color:rgba(0, 0, 0, 0));
 	padding-bottom: 10px;
 }
+
+.postu[onclick] {
+	cursor: pointer;
+}
+
+
 [class^="detalle"] {
 	text-align:left;
 	color:black;
@@ -765,11 +777,15 @@ button:focus {
 	-ms-user-select: text;
 	user-select: text;
 }
+
 [class^="detalleButton"]{
+	cursor: pointer;
 	border:none;
 	background-color:#aaa;
 	border-radius:0.5em;
 }
+
+
 .intermedio{
 	position:absolute;
 	top:0px;
@@ -781,16 +797,17 @@ button:focus {
 	display:block;	
 	z-index:50;
 }
+
 .closeInter {
 	width: 10px;
 	height: 50px;
 	position: absolute;
-	top: 5%;
-	left: 5%;
-	background: url(../img/chatArrow.png) no-repeat;
-	background-size: 100%;
+	top: 4%;
+	left: 0;
+	background: #666 url(../img/chatArrow.png) no-repeat center center;
 	z-index: 51;
 	border: none;
+	padding: 30px 20px;
 }
 
 #right{
@@ -913,12 +930,59 @@ font-size: 2em;
 	margin-top: 20%;
 	margin-left: 35%;
 }
-.about2{
-	margin-top: 20%;
-    color: white;
-    text-align: left;
-    margin-left: 10px;
+.share p{
+	width: 100%;
+	font-family: yqsFont;
+	color: white;
+	font-size: 1.5em;
+	margin-bottom: 2em;
+	margin-left: -25%;
 }
+.about2{
+	height: 85vh;
+	margin-top: 28px;
+	color: white;
+	text-align: left;
+	margin-left: 15px;
+	margin-right: 15px;
+	overflow-y: auto;
+}
+.about2::-webkit-scrollbar {
+ 	width: 5px;
+	height: 5px;
+	background-color: #222;    
+}
+.about2::-webkit-scrollbar-thumb {
+	background: white;
+	//-webkit-border-radius: 0px;
+	height:10px;
+}
+
+.about2 h2 {
+	font-family: yqsFont;
+	margin-top: 0;
+}
+
+.about2 h2.yqs-title {
+	margin-left: 50px;
+}
+
+.about2 a img {
+	float: left;
+	margin: 0.5em;
+}
+
+.quienes-hacemos {
+	margin-right: 1em;
+	background: white; 
+	padding: 1em; 
+	border-radius: 1em; 
+	color: black;
+	font-size: 0.9em;
+}
+
+
+
 .recorrido{
 	text-align:center;		
 }
@@ -1147,6 +1211,7 @@ height: 1.5em;
 overflow: hidden;
 position: relative;
 cursor: pointer;
+padding: 0 4em 1em 0;
 }
  
 .afiniBio.abierta:before {
@@ -1157,6 +1222,7 @@ cursor: pointer;
 .afiniBio.abierta {
         height: auto;
         cursor: default;
+        padding-right: 0;
 }
 
 .coincide{
@@ -1546,8 +1612,14 @@ cursor: pointer;
 	font-family:yqsFont;
 	font-size:2em;
 	color:black;
-	
+ 	z-index:3;
 }
+
+.afiT .election_name {
+	color: #555;
+	font-size: 0.7em;
+}
+
 .afinidad{
 	position:absolute;
 	top:85%;
@@ -1600,7 +1672,8 @@ cursor: pointer;
 	margin-left:50px;
 	width:120px;
 	height:60%;
-	background-color:#dddddd;	
+	background-color:#dddddd;
+	display: none;	
 }
 
 .afinidad2{	
@@ -1690,14 +1763,14 @@ cursor: pointer;
 }
 
 @media only screen and (min-width:768px){
-	.ng-scope{
-		height:750px;
+	.container{
+		min-height: 617px;
 	}
 	body{
 		background-color:#dddddd;
 	}
 	#telon{
-		height:560px;
+		height:100%;
 		width:100%;
 	}
 	#inicioD{
@@ -1840,7 +1913,11 @@ cursor: pointer;
 		font-size:1.0em;
 	}
 	.afiT{
-		top:80%;
+		top: 91%;
+		z-index: 50;
+		left: 0;
+		width: 100%;
+		text-align: center;
 	}
 	.afinidad{
 		top:95%;

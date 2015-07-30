@@ -11,7 +11,7 @@ from django.core.urlresolvers import reverse
 @register.simple_tag
 def elections_json():
     expected_elections = []
-    for election in Election.objects.filter(searchable=True):
+    for election in Election.objects.filter(searchable=True, uses_soul_mate=True):
         tags = []
         for tag in election.tags.all():
             tags.append(tag.name)
