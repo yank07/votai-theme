@@ -803,13 +803,13 @@ button:focus {
 
 .intermedio-content {
 	background-color:#444;	
-	width: 90%;
+	width: 86%;
 	float: left;
 	height: 100%;
 }
 
 .intermedio-gap {
-	width: 10%;
+	width: 14%;
 	float: left;
 	height: 100%;
 	cursor: pointer;

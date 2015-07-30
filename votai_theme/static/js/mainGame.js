@@ -1390,6 +1390,7 @@ var app = (function(){
 
 
 	function showAfinidad(candN){
+		$("#about2").hide();
 		$("#menuMob").hide();
 		$(".afiniCand").show();	
 
