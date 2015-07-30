@@ -1215,6 +1215,8 @@ var app = (function(){
 				
 				var canInd = punParcial[i][1];
 				//console.log("Pun Preg "+candidatos[canInd]["candidate_name"]+": "+punParcial[i]);
+
+				if(punParcial[i][0]<0)punParcial[i][0]=0;
 				
 				if(i==0||punParcial[0][0]==punParcial[i][0]){
 					posBG+="<div class='resuCand1'>";
