@@ -13,7 +13,7 @@
 {% block mainelection %}
 <div id="questionary">
 	<div class="questionary">		
-
+		<h1>Cuestionario completo</h1>
 		{% for category in election.categories.all %}
 		<div class="panel panel-default">
 			<div class="panel-heading">{{category.name}}</div>
@@ -34,11 +34,11 @@
 									<li>
 									{% with candidate=taken_position.person %}
 										{% if candidate.image %}
-											{% thumbnail candidate.image "100x100" crop="center" as im %}
+											{% thumbnail candidate.image "50x50" crop="center"  format="PNG" as im %}
 											<a href="{% url 'candidate_detail_view' election_slug=election.slug slug=candidate.id %}"><img src="{{im.url}}" height="100" width="100" alt="{{candidate.name}}" border="0" class="img-responsive" title="{{candidate.name}}"></a>
 											{% endthumbnail %}
 										{% else %}
-											{% thumbnail "http://votainteligente.cl/static/img/candidate-default.jpg" "100x100" crop="center" as im %}
+											{% thumbnail candidate.image "50x50" crop="center"  format="PNG" as im %}
 											<a href="{% url 'candidate_detail_view' election_slug=election.slug slug=candidate.id %}"><img src="{{im.url}}"  height="100" width="100" alt="{{candidate.name}}" border="0" class="img-responsive" title="{{candidate.name}}"></a>
 											{% endthumbnail %}
 										{% endif %}
