@@ -769,7 +769,10 @@ button:focus {
 	-ms-user-select: text;
 	user-select: text;
 }
+
+.chatBoxLeft,
 [class^="detalleButton"]{
+	cursor: pointer;
 	border:none;
 	background-color:#aaa;
 	border-radius:0.5em;
@@ -785,16 +788,17 @@ button:focus {
 	display:block;	
 	z-index:50;
 }
+
 .closeInter {
 	width: 10px;
 	height: 50px;
 	position: absolute;
-	top: 5%;
-	left: 5%;
-	background: url(../img/chatArrow.png) no-repeat;
-	background-size: 100%;
+	top: 4%;
+	left: 0;
+	background: #666 url(../img/chatArrow.png) no-repeat center center;
 	z-index: 51;
 	border: none;
+	padding: 30px 20px;
 }
 
 #right{
@@ -1198,6 +1202,7 @@ height: 1.5em;
 overflow: hidden;
 position: relative;
 cursor: pointer;
+padding: 0 4em 0 1em;
 }
  
 .afiniBio.abierta:before {
@@ -1208,6 +1213,7 @@ cursor: pointer;
 .afiniBio.abierta {
         height: auto;
         cursor: default;
+        padding-right: 0;
 }
 
 .coincide{
