@@ -1563,7 +1563,7 @@ function loadGame(){
 					$(".afiniImg").html(afCont);
 					$(".afiniImg2").html(afCont);
 	
-					if (document.location.search.indexOf("telon=1") == -1) {
+					if (document.location.search.indexOf("telon=1") == -1 && !mobile) {
 						$("#game").show();
 
 						pregResize();
@@ -1574,7 +1574,8 @@ function loadGame(){
 						$("#inicio").show();
 
 					}
-                                        $("#telon").hide();
+                    
+                    $("#telon").hide();
 		
 					$("img#fCand").click(function(){
 						var cant = candidatos.length;
@@ -2123,6 +2124,13 @@ function loadGame(){
 
 			$(".bJugar").click(function() {
 				jugar();
+			});
+
+			$(".bInicio").click(function() {
+				pregResize();
+				nextQuest();
+				$("#inicio").hide();
+
 			});
 
 
