@@ -17,7 +17,6 @@
 	{% endif %}
 	</p>
 {% else %}
-    {% trans "Esta(e) candidata(o) aún no responde" %} 
-    {#%  with twitter = "hola" %#}
-    {#% no_ha_respondido_twitter_button %#}
+    {% trans "Aún no tenemos la respouesta de esta(e) candidata(o)." %} 
+     {% include 'elections/twitter/answer_this_question.html' with taken_position=taken_position candidate=candidate %}
 {% endif %}
