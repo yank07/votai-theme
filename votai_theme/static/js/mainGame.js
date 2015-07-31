@@ -1024,6 +1024,7 @@ var app = (function(){
 			onStop: function(){
 				$( "#vOp" ).css("width",(tarjeH100*h)+"px");
 				$( "#vOp" ).css("height",(tarjeH100*h*0.9)+"px");
+				$( "#vOp" ).css("font-size",tar3FS+"em");
 				$("#vOp").css("position","relative");
 				$("#vOp").css("left","0px");
 				$("#vOp").css("top","0px");
@@ -1146,10 +1147,13 @@ var app = (function(){
 				
 				$( "#vOp" ).css("width",(tarjeH100*h)+"px");
 				$( "#vOp" ).css("height",(tarjeH100*h*0.9)+"px");
+				$( "#vOp" ).css("font-size",tar3FS+"em");
 				$( "#vSi" ).css("width",(tarjeH100*h)+"px");
 				$( "#vSi" ).css("height",(tarjeH100*h*0.9)+"px");
+				$( "#vSi" ).css("font-size",tar12FS+"em");
 				$( "#vNo" ).css("width",(tarjeH100*h)+"px");
 				$( "#vNo" ).css("height",(tarjeH100*h*0.9)+"px");
+				$( "#vNo" ).css("font-size",tar12FS+"em");
 
 				//$(".nElec").show();
 				esperando=true;
@@ -1172,10 +1176,13 @@ var app = (function(){
 			if(!animando){
 				$( "#vOp" ).css("width",(tarjeH100*h)+"px");
 				$( "#vOp" ).css("height",(tarjeH100*h*0.9)+"px");
+				$( "#vOp" ).css("font-size",tar3FS+"em");
 				$( "#vSi" ).css("width",(tarjeH100*h)+"px");
 				$( "#vSi" ).css("height",(tarjeH100*h*0.9)+"px");
+				$( "#vSi" ).css("font-size",tar12FS+"em");
 				$( "#vNo" ).css("width",(tarjeH100*h)+"px");
 				$( "#vNo" ).css("height",(tarjeH100*h*0.9)+"px");
+				$( "#vNo" ).css("font-size",tar12FS+"em");
 			}
 		}, 4000);
 	};
