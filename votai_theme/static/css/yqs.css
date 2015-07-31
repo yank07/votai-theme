@@ -457,6 +457,7 @@ button:focus {
 	width:300px;
 	color:black;
 }
+.bInicio,
 .bJugar{
 	top:66%;
 	background-color:#da3b75;	

@@ -2129,6 +2129,7 @@ function loadGame(){
 			});
 
 			$(".bInicio").click(function() {
+				$("#game").show();
 				pregResize();
 				nextQuest();
 				$("#inicio").hide();
