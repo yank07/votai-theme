@@ -1022,6 +1022,8 @@ var app = (function(){
 				effect:'easeInOut'
 			},
 			onStop: function(){
+				$( "#vOp" ).css("width",(tarjeH100*h)+"px");
+				$( "#vOp" ).css("height",(tarjeH100*h*0.9)+"px");
 				$("#vOp").css("position","relative");
 				$("#vOp").css("left","0px");
 				$("#vOp").css("top","0px");
@@ -1167,12 +1169,12 @@ var app = (function(){
 		
 		$.play();	
 		setTimeout(function () {
-			$("#vOp").css("width",h*tarjeH100);
-			$("#vOp").css("width",h*tarjeH100);
-			$("#vSi").css("height",h*tarjeH100*0.9);
-			$("#vSi").css("height",h*tarjeH100*0.9);
-			$("#vNo").css("width",h*tarjeH100);
-			$("#vNo").css("height",h*tarjeH100*0.9);
+			$( "#vOp" ).css("width",(tarjeH100*h)+"px");
+			$( "#vOp" ).css("height",(tarjeH100*h*0.9)+"px");
+			$( "#vSi" ).css("width",(tarjeH100*h)+"px");
+			$( "#vSi" ).css("height",(tarjeH100*h*0.9)+"px");
+			$( "#vNo" ).css("width",(tarjeH100*h)+"px");
+			$( "#vNo" ).css("height",(tarjeH100*h*0.9)+"px");
 			animando=false;
 		}, 4000);
 	};
