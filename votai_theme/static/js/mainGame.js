@@ -29,7 +29,7 @@ var app = (function(){
 	var lastPreg;
 	var resuFinal=false;
 
-	var MaxPreg=8;
+	var MaxPreg=14;
 	var valorPuntos = [100,66,33,0];
 
 	//var elecUrl="/election/pre-candidato-a-presidente";
@@ -1203,13 +1203,13 @@ var app = (function(){
 		
 	
 		$(".resultados").show();
-		if(resuFinal){		
+		if(resuFinal || resuAnterior){		
 			//console.log("TERMINO");
 			$(".pregResu").html("Resultado");
 			$(".pregResu").css("font-size","3em");
 			$(".pregResu").css("padding-top","5%");
 			$(".posturasBG").css("text-align","right");
-			$("#fcand")
+			$(".bResultados").hide();
 			$(".bShare").show();
 			$(".rejugar").show();
 			postuAlt=0.3;
@@ -1540,6 +1540,12 @@ function loadGame(){
 						filter(categorias[i]["questions"],data.election_name);
 						shuffle(categorias[i]["questions"]);
 					}
+
+					$(".dots.template").hide();
+					for(var i=0;i<MaxPreg;i++) {
+						var newDot = $(".dots.template").clone().removeClass("template").attr("id","p"+i).css("display","");
+						$(".dots.template").parent().append(newDot);
+					}
 					
 
 					var afCont="";
@@ -1710,6 +1716,7 @@ function loadGame(){
 		$(".encSi").show();
 		$(".encNo").show();
 		$(".sigue").hide();
+		$(".bResultados").hide();
 	}
 
 	function getMail(){
@@ -2111,6 +2118,17 @@ function loadGame(){
 					nextQuest();
 					$(".resultados").hide();
 				}				
+			});
+
+			$(".bResultados").click(function() {								
+				$(".tapaCerrada").show()
+				$(".preguntas").show();
+				pregResize();
+				lastPreg = pregCount;
+				pregCount++;
+				resuIntermedio=true;
+				pregResult();
+				resuIntermedio=false;
 			});
 
 			//console.log("ACA");
