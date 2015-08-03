@@ -94,26 +94,42 @@ elections_json = {% elections_json %};
 		<button type="button" class="encNo">No</button>
 
 		<div class="correoU">
-			Si quer&#233;s dejanos tu mail<br>para enviarte m&#225;s informaci&#243;n antes de las elecciones:<br><br>
-		<input type="text" name="correo" id="inCorreo">		
+			<form>
+			<p>
+			<label for="inCorreo">Si quer&#233;s dejanos tu mail<br>para enviarte m&#225;s informaci&#243;n antes de las elecciones:</label>
+			</p>
+			<input type="text" name="correo" id="inCorreo" />		
+			</form>
 		</div>
 
 		<button type="button" class="enviar">Enviar</button>
-		<div class="resuFooter">
-		<button type="button" class="bShare">
-		<span style="font-size:1.3em;vertical-align:middle;">Compartir</span>
-		<img src="{% static 'img/share.png' %}" width=20px height=20px style="margin-left:4px;">
-		</button>
-			
-		<button type="button" class="sigue">
-		<span style="font-size:1.2em;vertical-align:middle;">Siguiente</span>
-		<span style="font-size:2.4em; vertical-align:middle;margin-left:2px;"><b>&#20;&#20;>></b></span>
-		</button>
 
-		<button type="button" class="rejugar">
-		<span style="font-size:1.3em;vertical-align:middle;">Re-Jugar</span>
-		<img src="{% static 'img/reload.png' %}" width=30px height=30px>
-		</button>	
+		<div class="resuFooter">
+			<p class="message-accuracy" style="display: none">Seguí contestando para mayor presición</p>
+			<button type="button" class="bShare secondaryButton">
+			<span style="font-size:1.3em;vertical-align:middle;">Compartir</span>
+			<img src="{% static 'img/share.png' %}" width=20px height=20px style="margin-left:4px;">
+			</button>
+				
+			<button type="button" class="vuelve secondaryButton">
+			<span style="font-size:2.4em; vertical-align:middle;margin-left:2px;"><b>&lt;&lt;&#20;&#20;</b></span>
+			<span style="font-size:1.2em;vertical-align:middle;">Volver</span>
+			</button>
+				
+			<button type="button" class="sigue mainButton">
+			<span style="font-size:1.2em;vertical-align:middle;">Siguiente</span>
+			<span style="font-size:2.4em; vertical-align:middle;margin-left:2px;"><b>&#20;&#20;>></b></span>
+			</button>
+
+			<button type="button" class="bResultados secondaryButton">
+			<span style="font-size:1.2em;vertical-align:middle;">Resultados</span>
+			<span style="font-size:2.4em; vertical-align:middle;margin-left:2px;"><b>&#20;&#20;>></b></span>
+			</button>
+
+			<button type="button" class="rejugar secondaryButton">
+			<span style="font-size:1.3em;vertical-align:middle;">Re-Jugar</span>
+			<img src="{% static 'img/reload.png' %}" width="30px" height="30px"/>
+			</button>	
 		</div>
 	</div>
 	<div class="intermedio">
@@ -192,14 +208,7 @@ elections_json = {% elections_json %};
 	<div class="row" id="encabezado">
 		<div class="recorrido">
 			<ul>
-				<div class="dots" id="p0"></div>
-				<div class="dots" id="p1"></div>
-				<div class="dots" id="p2"></div>
-				<div class="dots" id="p3"></div>
-				<div class="dots" id="p4"></div>
-				<div class="dots" id="p5"></div>
-				<div class="dots" id="p6"></div>
-				<div class="dots" id="p7"></div>
+				<div class="dots template"></div>
 			</ul>
 		</div>
 
