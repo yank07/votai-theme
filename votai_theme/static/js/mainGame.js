@@ -1,8 +1,13 @@
-/*function hideDetalle(eleNum){
-	$(".detalle"+eleNum).hide();
-	$(".detalleButton"+eleNum).html("+");
-	$(".detalleButton"+eleNum).click(hideDetalle(eleNum));
-};*/
+/** mainGame.js
+* Esta es la funcionalidad principal del juego de YoQuieroSaber
+* Authors: Juan Pablo Amato, Martín Szyszlican
+* TODO:
+* * Poner el selector en la elección actual en desktop
+* * Poner un link al sitio completo en mobile cuando no es iframe
+* * Ver qué pasa con las preguntas salteadas porque la categoría no tiene suficientes preguntas
+* * Ver qué pasa que no se puede volver atrás después de haber llegado a resuFinal
+*/
+
 function showDetalle(eleNum){
 	if ($(".detalle"+eleNum).is(':visible')) { 
 		$(".detalle"+eleNum).hide();
@@ -23,7 +28,7 @@ var app = (function(){
 	var pregCount=0;
 	var lastPreg;
 
-	var MaxPreg=14;
+	var MaxPreg=0;
 	var valorPuntos = [100,66,33,0];
 
 	var animando=false;
@@ -67,7 +72,7 @@ var app = (function(){
 	var tar12FS = 4;
 	var tar3FS = 2;
 
-	var shareTxt = "";
+	var shareTxt = "#YoQuieroSaber";
 
 	function puntajeCalc(userR){
 		var cant = candidatos.length;
@@ -727,14 +732,26 @@ var app = (function(){
 	
 	function nextQuest(){		
 
+		$(".message-accuracy").hide();
+
 		$(".sobreFondo1").children("img").hide();
 		$(".sobreChicos").hide();
 		$(".sobreCerrado").hide()
 		$(".tapaCerrada").show();
 		$(".sobreTapa2").show();
 
+		currentPreg = parseInt(pregCount/categorias.length);
+		category_questions = categorias[pregCount%categorias.length]["questions"];
+		while (category_questions.length <= currentPreg) {
+			pregCount++;
+			currentPreg = parseInt(pregCount/categorias.length);
+			category_questions = categorias[pregCount%categorias.length]["questions"];			
+		}
+		preguntaActual = category_questions[currentPreg];
+		console.log(currentPreg,preguntaActual,category_questions);
+
 		// Escribe el texto de la siguiente pregunta
-		$(".tPreg").html(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_text"]);
+		$(".tPreg").html(preguntaActual["question_text"]);
 		resizeFont($(".tPreg"));
 
 		animando = true;
@@ -1122,6 +1139,15 @@ var app = (function(){
 	};
 
 	function pregResultFinal() {
+		app.currentSection = "resultFinal";
+		console.log(pregCount,MaxPreg,pregCount>=MaxPreg);
+		if(pregCount>=MaxPreg){
+			$(".message-accuracy").hide();
+		}
+		else {
+			$(".message-accuracy").show();			
+		}
+
 		$(".preguntas").hide();
 		$(".posturas").hide();
 		$(".resuFooter").hide();
@@ -1445,7 +1471,9 @@ function loadGame(){
 					for(var i=0;i<categorias.length;i++) {
 						filter(categorias[i]["questions"],data.election_name);
 						shuffle(categorias[i]["questions"]);
+						MaxPreg += categorias[i]["questions"].length;
 					}
+					console.log(MaxPreg);
 
 					$(".dots.template").hide();
 					for(var i=0;i<MaxPreg;i++) {
@@ -1490,7 +1518,7 @@ function loadGame(){
                     
                     $("#telon").hide();
 		
-					$.on("img#fCand","click",function(){
+					$("#game").on("click","img#fCand",function(){
 						for(var i=0;i<candidatos.length;i++){
 							var f1 = $(this).attr("src").split("/");
 							var f2 = fotos[i].src.split("/");
@@ -1606,6 +1634,7 @@ function loadGame(){
 		$(".encSi").show();
 		$(".encNo").show();
 		$(".sigue").hide();
+		$(".vuelve").hide();
 		$(".bResultados").hide();
 	}
 
@@ -1613,6 +1642,9 @@ function loadGame(){
 		$(".pregResu").css("font-size","2.5em");
 		$(".pregResu").css("height","30%");
 		$(".pregResu").html("<div style='width:100%;height:50%;'>&nbsp;</div>&#161;Gracias!");	
+		// if () {
+		// 	$(".posturas").show().html("<p><a href="">Más información sobre esta elección</a></p>");	
+		// }
 		$(".pregResu").css("visibility", "hidden");
 		$(".encSi").hide();
 		$(".encNo").hide();
@@ -1832,6 +1864,10 @@ function loadGame(){
 			});
 
 			$(".bCompartir").click(function(){
+				$.fn.socialSharePrivacy("option","title","Jugu&#233; a YoQuieroSaber");
+				$.fn.socialSharePrivacy("option","description","shareTxt");
+				$.fn.socialSharePrivacy("option","body","shareTxt");
+
 				if(mobile){
 					if($(".intermedio").is(':visible')){
 						closeIntermedio();
@@ -1839,9 +1875,6 @@ function loadGame(){
 							$("#menuMob").hide();
 							$(".afiniCand").hide();
 							$(".about2").hide();
-							$.fn.socialSharePrivacy.settings.title = "Jugu&#233; a YoQuieroSaber";
-							$.fn.socialSharePrivacy.settings.description = shareTxt;
-							$.fn.socialSharePrivacy.settings.body = shareTxt;
 							$(".share").show();
 							openIntermedio();
 							console.log("compartir mobile")
@@ -1851,9 +1884,6 @@ function loadGame(){
 						$("#menuMob").hide();
 						$(".afiniCand").hide();
 						$(".about2").hide();
-						$.fn.socialSharePrivacy.settings.title = "Jugu&#233; a YoQuieroSaber";
-						$.fn.socialSharePrivacy.settings.description = shareTxt;
-						$.fn.socialSharePrivacy.settings.body = shareTxt;
 						$(".share").show();
 						openIntermedio();					
 					}
@@ -1861,9 +1891,6 @@ function loadGame(){
 					$("#menuMob").hide();
 					$(".afiniCand").hide();
 					$(".about2").hide();
-					$.fn.socialSharePrivacy.settings.title = "Jugu&#233; a YoQuieroSaber";
-					$.fn.socialSharePrivacy.settings.description = shareTxt;
-					$.fn.socialSharePrivacy.settings.body = shareTxt;
 					$(".share").show();
 					openIntermedio();
 				}
@@ -1967,17 +1994,26 @@ function loadGame(){
 				lastPreg = pregCount;
 				pregCount++;
 
-				if(pregCount>=MaxPreg){
-					pregCount=MaxPreg;
-					if(!resuFinal){
-						pregResultFinal();
-					}else{
-						encuesta();
-					}
+				if(app.currentSection=="resultFinal"){
+					encuesta();
+				}
+				else if(pregCount>=MaxPreg){
+					pregResultFinal();
 				}else{
 					nextQuest();
 					$(".resultados").hide();
 				}				
+			});
+
+			$(".vuelve").click(function() {								
+				app.currentSection="preguntas"
+				$(".tapaCerrada").show()
+				$(".preguntas").show();
+				pregResize();
+				// lastPreg = pregCount;
+				// pregCount++;
+				nextQuest();
+				$(".resultados").hide();
 			});
 
 			$(".bResultados").click(function() {								
