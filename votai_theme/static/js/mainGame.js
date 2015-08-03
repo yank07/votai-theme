@@ -1518,7 +1518,7 @@ function loadGame(){
                     
                     $("#telon").hide();
 		
-					$("#game").on("click","img#fCand",function(){
+					$("#game,.afiniSide").on("click","img#fCand",function(){
 						for(var i=0;i<candidatos.length;i++){
 							var f1 = $(this).attr("src").split("/");
 							var f2 = fotos[i].src.split("/");
