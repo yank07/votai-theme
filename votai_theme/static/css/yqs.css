@@ -163,7 +163,15 @@ div.question-answer div.row.hidden-xs {
 	width:75px;
 	height:75px;
 	margin-top:150px;
+	background: url("/static/img/loading.gif");
+	background-size: cover;
+	display: inline-block;
 }
+
+p.message-accuracy {
+	margin: -8px 0 2px 0;
+}
+
 header{
 	width:100%;
 	height:auto;	
@@ -926,21 +934,6 @@ font-size: 2em;
 	border-color: white;
 }
 
-/*.bShare{
-	position:absolute;
-	width:44px;
-	height:47px;
-	top:5%;
-	left:80%;
-	background-color:#da3b75;	
-	background-size: 100%;
-	//color:#40d9b3;
-	color:#fff;
-	border: none;
-	background: url(../img/share.png) no-repeat;
-	//width:226px;
-	//height:74px;
-}*/
 .share{
 	margin-top: 20%;
 	margin-left: 35%;
@@ -1001,7 +994,7 @@ font-size: 2em;
 	display: inline-block;
 	margin: 0 0 0 0;
 	padding-top: 20px;
-	padding-left: 0;
+	padding-left: 40px;
 	height: 7%;
 	width:85%;
 	list-style: none;	
@@ -1143,17 +1136,10 @@ font-size: 2em;
 	top:100%;
 	width:100%;
 	height:100%;
-	z-index:30;
+	z-index:52;
 	background-color:#444;
 }
 .afiniCand{
-	/*position:absolute;
-	text-align:center;
-	vertical-align:middle;
-	top:10%;
-	left:10%;
-	width:80%;
-	height:90%;*/
 	width:95%;
 	padding-right: 5%;
 	height:85%;
@@ -1593,7 +1579,7 @@ padding: 0 4em 1em 0;
 
 .afiT{
 	position:absolute;
-	top:78%;
+	top:75%;
 	left:2%;
 	font-family:yqsFont;
 	font-size:2em;
@@ -1694,15 +1680,13 @@ padding: 0 4em 1em 0;
 	.sobreFrente,.sobreChicos,.sobreFondo1,.sobreFondo2,.sobreCerrado,.tapaCerrada{
 		top:50%;
 	}
-	.sigue{
-		height:30px;
-		border-radius:0.75em;
+	
+	.mainButton,.secondaryButton{
+		height: 30px;
+		border-radius: 0.75em;
+		line-height: 28px;
 	}
-	.rejugar,.bShare{
-		height:30px;
-		border-radius:0.75em;
-	}
-	.rejugar img,.bShare img{
+	.secondaryButton img{
 		width:10px;
 		height:10px;
 	}
@@ -1730,15 +1714,10 @@ padding: 0 4em 1em 0;
 		//top:389px;
 		top:82vh;
 	}
-	.sigue{
-		width:100px;
+	.mainButton,.secondaryButton {
 		font-size:1em;
 	}
-	.rejugar,.bShare{
-		width:100px;
-		font-size:1em;
-	}
-	.rejugar img,.bShare img{
+	.secondaryButton img{
 		width:15px;
 		height:15px;
 	}
@@ -1746,6 +1725,13 @@ padding: 0 4em 1em 0;
 		margin-left:60px;
 		margin-right:60px;
 	}
+	.dots{
+		width: 10px;
+		height: 10px;
+		border-radius: 12px;
+		margin: 0 0.5%;
+	}
+	
 }
 
 @media only screen and (min-width:768px){
@@ -1851,11 +1837,6 @@ padding: 0 4em 1em 0;
 	.recorrido ul {
 		padding-top: 20px;
 	}	
-	.dots{
-		width: 12px;
-		height: 12px;
-		border-radius: 12px;
-	}
 	.pregResu{
 		font-size:1.6em;
 		padding-top:3%;
@@ -1916,28 +1897,4 @@ padding: 0 4em 1em 0;
 	.afPreg{
 		padding-right:15px;
 	}
-	/*.sigue{
-		top:85%;
-	}*/
 }
-
-//@media only screen and (min-width:481px){
-//}
-//@media only screen and (min-width:768px){
-//}
-//@media only screen and (min-width:2000px){
-	/* for sumo sized (mac) screens */
-//}
-//@media only screen and (max-device-width:480px){
-	/* styles for mobile browsers smaller than 480px; (iPhone) */
-//}
-//@media only screen and (device-width:768px){
-	/* default iPad screens */
-//}
-/* different techniques for iPad screening */
-//@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
-	/* For portrait layouts only */
-//}
-//@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
-	/* For landscape layouts only */
-//}

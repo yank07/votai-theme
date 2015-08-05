@@ -24,6 +24,8 @@ var app = (function(){
 	var eleccion = {};
 	var categorias = {};
 	var candidatos = {};
+	var preguntas = [];
+	var preguntaActual = {};
 
 	var pregCount=0;
 	var lastPreg;
@@ -81,16 +83,14 @@ var app = (function(){
 			var cInd = puntajes[i][1];
 			//se define el mismo indice para el puntaje parcial de esta pregunta
 			punPreg[i][1]=cInd;
-			//Id de la respuesta del candidato
-			var pregId = categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_id"];
-			//console.log("0: "+$.grep(candidatos[cInd]["positions"], function(e){ return e.question_id == pregId; }));
+
 			var qresp = {};
-			qresp = $.grep(candidatos[cInd]["positions"], function(e){ return e["question_id"] == pregId; })[0];
+			qresp = $.grep(candidatos[cInd]["positions"], function(e){ return e["question_id"] == preguntaActual["question_id"]; })[0];
 			if(qresp!=null){
 				//console.log(qresp);
 				var ansId = qresp.answer_id;
 				//console.log("A: "+ansId);			
-				qresp = $.grep(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["answers"], function(e){ return e.answer_id == ansId; })[0];
+				qresp = $.grep(preguntaActual["answers"], function(e){ return e.answer_id == ansId; })[0];
 				var candR = qresp.answer_value;
 				//console.log("B: "+candR);
 						
@@ -192,23 +192,37 @@ var app = (function(){
 	}
 	
 	
-	function shuffle(array) {
-		var currentIndex = array.length, temporaryValue, randomIndex ;
+	function shuffle(categorias) {
+		var preguntas = [];
+
+		//Ir por todas las categorias
+		for (c in categorias) {
+			categoria = categorias[c];
+			for (q in categorias[c].questions) {
+				var pregunta = categorias[c].questions[q];
+
+				//Agregar la pregunta al array en orden lineal
+				preguntas.push(pregunta);	
+			}
+		}
+
+		//Ahora desordenar el array de preguntas
+		var currentIndex = preguntas.length;
+		var temporaryValue, randomIndex ;
 
 		// While there remain elements to shuffle...
 		while (0 !== currentIndex) {
-
 			// Pick a remaining element...
 			randomIndex = Math.floor(Math.random() * currentIndex);
 			currentIndex -= 1;
 
 			// And swap it with the current element.
-			temporaryValue = array[currentIndex];
-			array[currentIndex] = array[randomIndex];
-			array[randomIndex] = temporaryValue;
+			temporaryValue = preguntas[currentIndex];
+			preguntas[currentIndex] = preguntas[randomIndex];
+			preguntas[randomIndex] = temporaryValue;
 		}
-
-		return array;
+		console.log(preguntas);
+		return preguntas;
 	}
 
 	function resizeFont(element){
@@ -226,7 +240,6 @@ var app = (function(){
 
 		punSize = parseFloat($("#p7").css("height"));
 		var dM = w<=480?w*0.001:w*0.02;
-		$(".dots").css("margin-right",dM+"px");
 		$("#p"+pregCount).css("width",punSize*factorDot+"px");
 		$("#p"+pregCount).css("height",punSize*factorDot+"px");
 
@@ -740,15 +753,8 @@ var app = (function(){
 		$(".tapaCerrada").show();
 		$(".sobreTapa2").show();
 
-		currentPreg = parseInt(pregCount/categorias.length);
-		category_questions = categorias[pregCount%categorias.length]["questions"];
-		while (category_questions.length <= currentPreg) {
-			pregCount++;
-			currentPreg = parseInt(pregCount/categorias.length);
-			category_questions = categorias[pregCount%categorias.length]["questions"];			
-		}
-		preguntaActual = category_questions[currentPreg];
-		console.log(currentPreg,preguntaActual,category_questions);
+		preguntaActual = preguntas[pregCount];
+		console.log(preguntaActual);
 
 		// Escribe el texto de la siguiente pregunta
 		$(".tPreg").html(preguntaActual["question_text"]);
@@ -1163,7 +1169,7 @@ var app = (function(){
 			$(".posturasBG").css("text-align","right");
 			$(".bResultados").hide();
 			$(".bShare").show();
-			$(".rejugar").show();
+			$(".rejugar").hide();
 
 			var cant = candidatos.length;
 			var posBG="";
@@ -1230,7 +1236,7 @@ var app = (function(){
 			$(".bShare").hide();
 			$(".rejugar").hide();
 		
-			$(".pregResu").html(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_text"]);
+			$(".pregResu").html(preguntas[pregCount]["question_text"]);
 			$(".pregResu").css("font-size",resuFS);
 			resizeFont($(".pregResu"));
 			var cant = candidatos.length;
@@ -1242,9 +1248,8 @@ var app = (function(){
 				var canInd = punPreg[i][1];
 				//console.log("Pun Preg "+candidatos[canInd]["candidate_name"]+": "+punPreg[i]);
 				if(i%2==0){	
-					var pregId = categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_id"];
 					var qresp = {};
-					qresp = $.grep(candidatos[canInd]["positions"], function(e){ return e.question_id == pregId; })[0];
+					qresp = $.grep(candidatos[canInd]["positions"], function(e){ return e.question_id == preguntaActual["question_id"] })[0];
 					if(qresp!=null){
 						var candTxt = qresp.answer_text;
 						var onclick = "";
@@ -1256,7 +1261,7 @@ var app = (function(){
 						posBG+="<img id='fCand' class='rFoto' style='background-color:"+candidatos[canInd]["candidate_color"]+";' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowLeft'>&nbsp;</div>";
 						posBG+="<div class='chatBoxLeft'>";
 						var ansId = qresp.answer_id;
-						qresp = $.grep(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["answers"], function(e){ return e.answer_id == ansId; })[0];						
+						qresp = $.grep(preguntas[pregCount]["answers"], function(e){ return e.answer_id == ansId; })[0];						
 						var anTxt = qresp.answer_text;
 						//console.log(qresp);
 						//console.log("Texto: "+anTxt);
@@ -1276,9 +1281,8 @@ var app = (function(){
 						posBG+="<div class='chatBoxContent'><p class='postu postu-"+i+"'>"+"*El candidato no respondi\u00f3 esta pregunta"+"</p></div></div></div>";
 					}
 				}else{
-					var pregId = categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["question_id"];
 					var qresp = {};
-					qresp = $.grep(candidatos[canInd]["positions"], function(e){ return e.question_id == pregId; })[0];
+					qresp = $.grep(candidatos[canInd]["positions"], function(e){ return e.question_id == preguntaActual["question_id"]; })[0];
 					if(qresp!=null){
 						var candTxt = qresp.answer_text;
 						var onclick = "";
@@ -1290,7 +1294,7 @@ var app = (function(){
 						posBG+="<img id='fCand' class='rFoto' style='background-color:"+candidatos[canInd]["candidate_color"]+";' src="+candidatos[canInd]["candidate_pic"]+" ></div><div class='chatArrowRight'>&nbsp;</div>";
 						posBG+="<div class='chatBoxRight'>";
 						var ansId = qresp.answer_id;
-						qresp = $.grep(categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["answers"], function(e){ return e.answer_id == ansId; })[0];						
+						qresp = $.grep(preguntas[pregCount]["answers"], function(e){ return e.answer_id == ansId; })[0];						
 						var anTxt = qresp.answer_text;
 						var r = qresp.answer_value;
 						if(r<2){
@@ -1377,13 +1381,12 @@ var app = (function(){
 		
 		for(var i=0;i<userRes.length;i++){
 			if(userRes[i]>-1){
-				var pregId = categorias[i%categorias.length]["questions"][parseInt(i/categorias.length)]["question_id"];
-				var qTxt = categorias[i%categorias.length]["questions"][parseInt(i/categorias.length)]["question_text"];
+				var qTxt = preguntas[i]["question_text"];
 				var qresp = {};
-				qresp = $.grep(candidatos[candN]["positions"], function(e){ return e.question_id == pregId; })[0];
+				qresp = $.grep(candidatos[candN]["positions"], function(e){ return e.question_id == preguntas[i]["question_id"]; })[0];
 				if(qresp!=null){
 					var ansId = qresp.answer_id;
-					qresp = $.grep(categorias[i%categorias.length]["questions"][parseInt(i/categorias.length)]["answers"], function(e){ return e.answer_id == ansId; })[0];						
+					qresp = $.grep(preguntas[i]["answers"], function(e){ return e.answer_id == ansId; })[0];						
 					var anTxt = qresp.answer_text;
 					//console.log(qresp);
 					//console.log("Texto: "+anTxt);
@@ -1468,11 +1471,10 @@ function loadGame(){
 
 					var cant = candidatos.length;
 
-					for(var i=0;i<categorias.length;i++) {
-						filter(categorias[i]["questions"],data.election_name);
-						shuffle(categorias[i]["questions"]);
-						MaxPreg += categorias[i]["questions"].length;
-					}
+					preguntas = shuffle(categorias);
+					preguntas = filter(preguntas);
+					MaxPreg = preguntas.length;
+
 					console.log(MaxPreg);
 
 					$(".dots.template").hide();
@@ -1536,15 +1538,18 @@ function loadGame(){
 	}
 
 	function filter(questions,election_name) {
+		var new_questions = [];
 		if (election_name == "Pre-candidatos a Gobernador de Entre Ríos") {
-			var new_questions = [];
 			for (q in questions) {
 				if (questions[q].question_id != 11) {
 					new_questions.push(questions[q]);
 				}
 			}
 		}
-		return questions = new_questions;
+		else {
+			new_questions = questions;			
+		}
+		return new_questions;
 	}
 
 	function openOpt(){
@@ -1585,7 +1590,7 @@ function loadGame(){
 		//console.log("opciones");
 		for(var i=0;i<cantOp;i++){
 			
-			$(".op"+(i+1)).html("<span>"+categorias[pregCount%categorias.length]["questions"][parseInt(pregCount/categorias.length)]["answers"][i]["answer_text"]+"</span>");
+			$(".op"+(i+1)).html("<span>"+preguntas[pregCount]["answers"][i]["answer_text"]+"</span>");
 			$(".op"+(i+1)).children("span").css("height",$(".op"+(i+1)).css("height"));
 			if(!opScroll){						
 				var lH = parseFloat($(".op"+(i+1)).children("span").css("height"))*1.0;
@@ -1628,6 +1633,8 @@ function loadGame(){
 		$(".preguntas").hide();
 		$(".resultados").show();
 		$(".posturas").hide();
+		$(".message-accuracy").hide();
+		$(".rejugar").show();
 		$(".pregResu").css("font-size","2.0em");
 		$(".pregResu").css("height","250px");
 		$(".pregResu").html("<div style='width:100%;height:150px;'>&nbsp;</div>&#191;Te inform&#243; el juego?");	
