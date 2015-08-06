@@ -1227,8 +1227,8 @@ var app = (function(){
 
 		setTimeout(function () {
 			$(".resultados").show();
-			$(".posturas").scrollTop(0);
 	        $(".posturas").show();   
+			$(".posturas").scrollTop(0);
 			$(".resuFooter").show();
 	 	}, 500);
 
