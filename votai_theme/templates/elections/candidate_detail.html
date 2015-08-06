@@ -37,7 +37,7 @@
 					</div>
 					
 					{% if candidate.image %}
-					<!-- <a class="btn btn-default button_pic hidden-xs" data-toggle="modal" href="#myCandidate" style="margin-bottom:5px" onClick="ga('send', 'event', 'support-candidate', 'click');"><i class="icon-camera"></i> {% trans "Da la cara por tu candidato" %}</a>
+					<a class="btn btn-default button_pic hidden-xs" data-toggle="modal" href="#myCandidate" style="margin-bottom:5px" onClick="ga('send', 'event', 'support-candidate', 'click');"><i class="icon-camera"></i> {% trans "Da la cara por tu candidato" %}</a>
 					
 					<div class="modal fade" id="myCandidate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-dialog">
@@ -72,7 +72,7 @@
 								</div>
 							</div>
 						</div>
-					</div> -->
+					</div>
 					<!-- /.modal -->
 					{% endif %}
 
@@ -166,6 +166,7 @@
 	<script type="text/javascript">
 	var API_KEY = '{{ 'client_id'|website_imgur }}';
 	var candidate_name = '{{candidate.name}}';
+	var hashtags="DoyLaCara,YoQuieroSaber";
 	var twitter_url = '{% url_domain %}{% url 'candidate_detail_view' election_slug=election.slug slug=candidate.id %}';
 	</script>
 	<script type="text/javascript" src="{% static 'js/video.js' %}"></script>
