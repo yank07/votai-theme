@@ -27,7 +27,7 @@ Por favor siga las instricciones de instalación disponibles en:
 	http://github.com/ciudadanointeligente/votainteligente-portal-electoral
 
 Debe configurar el theme en el archivo local_settings.py de votainteligente para que este funcione, ejemplo:
-	THEME=votai_theme
+	THEME = 'votai_theme'
 
 El theme debe estar instalado en el mismo entorno virtual (virtualenv) que el votainteligente, esto se realiza con el siguiente comando:
 
