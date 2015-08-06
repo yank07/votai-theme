@@ -1885,7 +1885,7 @@ padding: 0 4em 1em 0;
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
-  background: rgba(232, 98, 86, 0.8) url(../img/cd-top-arrow.svg) no-repeat center 50%;
+  background: #787 url(../img/cd-top-arrow.svg) no-repeat center 50%;
   visibility: hidden;
   opacity: 0;
   -webkit-transition: opacity .3s 0s, visibility 0s .3s;
@@ -1907,7 +1907,7 @@ padding: 0 4em 1em 0;
   opacity: .5;
 }
 .no-touch .cd-top:hover {
-  background-color: #e86256;
+  background-color: #454;
   opacity: 1;
 }
 @media only screen and (min-width: 768px) {

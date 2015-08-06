@@ -40,11 +40,11 @@
 									{% with candidate=taken_position.person %}
 										{% if candidate.image %}
 											{% thumbnail candidate.image "50x50" crop="center"  format="PNG" as im %}
-											<a href="{% url 'candidate_detail_view' election_slug=election.slug slug=candidate.id %}"><img src="{{im.url}}" height="50" width="50" alt="{{candidate.name}}" border="0" class="img-responsive" title="{{candidate.name}}" style="background-color: {% candidate_extra_info candidate 'color' %} "></a>
+											<a href="{% url 'candidate_detail_view' election_slug=election.slug slug=candidate.id %}" title="Ver perfil completo de {{candidate.name}}"><img src="{{im.url}}" height="50" width="50" alt="{{candidate.name}}" border="0" class="img-responsive" title="{{candidate.name}}" style="background-color: {% candidate_extra_info candidate 'color' %} "></a>
 											{% endthumbnail %}
 										{% else %}
 											{% thumbnail candidate.image "50x50" crop="center"  format="PNG" as im %}
-											<a href="{% url 'candidate_detail_view' election_slug=election.slug slug=candidate.id %}"><img src="{{im.url}}"  height="50" width="50" alt="{{candidate.name}}" border="0" class="img-responsive" title="{{candidate.name}}" style="background-color: {% candidate_extra_info candidate 'color' %} "></a>
+											<a href="{% url 'candidate_detail_view' election_slug=election.slug slug=candidate.id %}" title="Ver perfil completo de {{candidate.name}}"><img src="{{im.url}}"  height="50" width="50" alt="{{candidate.name}}" border="0" class="img-responsive" title="{{candidate.name}}" style="background-color: {% candidate_extra_info candidate 'color' %} "></a>
 											{% endthumbnail %}
 										{% endif %}
 										<span>{{candidate.name}}</span>
@@ -66,11 +66,11 @@
 								{% for taken_position in position.taken_positions.all %}
 									{% with candidate=taken_position.person %}
 										{% if forloop.first %}
-											<a href="{% url 'candidate_detail_view' election_slug=election.slug slug=candidate.id %}">{{candidate.name}}</a>
+											<a href="{% url 'candidate_detail_view' election_slug=election.slug slug=candidate.id %}" title="Ver perfil completo de {{candidate.name}}">{{candidate.name}}</a>
 										{% elif forloop.last %}
-											{% trans "y" %} <a href="{% url 'candidate_detail_view' election_slug=election.slug slug=candidate.id %}">{{candidate.name}}</a>
+											{% trans "y" %} <a href="{% url 'candidate_detail_view' election_slug=election.slug slug=candidate.id %}" title="Ver perfil completo de {{candidate.name}}">{{candidate.name}}</a>
 										{% else %}
-											, <a href="{% url 'candidate_detail_view' election_slug=election.slug slug=candidate.id %}">{{candidate.name}}</a>
+											, <a href="{% url 'candidate_detail_view' election_slug=election.slug slug=candidate.id %}" title="Ver perfil completo de {{candidate.name}}">{{candidate.name}}</a>
 										{% endif %}
 									{% endwith %}
 								{% endfor %}
