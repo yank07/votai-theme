@@ -1683,6 +1683,7 @@ padding: 0 4em 1em 0;
 	}
 	.mainButton,.secondaryButton {
 		font-size:1em;
+		padding: 0 0.35em;
 	}
 	.secondaryButton img{
 		width:15px;
