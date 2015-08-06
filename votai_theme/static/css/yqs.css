@@ -1058,24 +1058,18 @@ font-size: 2em;
 	//padding-bottom:10%;	
 }
 
-[class*="col-"] {
-}
 #tarjeta1,#tarjeta2,#tarjeta3{
 	padding-top:5px;
 	height:277px;
-}
-#tarjeta1{
-	text-align:right;
-}
-#tarjeta2{
-	text-align:left;
-}
-#tarjeta3{
 	text-align:center;
-	padding-top: 0px;
-	margin-left: -5px;
-	margin-right: -5px;
 }
+
+#tarjeta3{
+	padding-left: 1px;
+	padding-right: 0;
+	width: 31.5%;
+}
+
 .voto{
 	border: none;
 }
@@ -1816,7 +1810,6 @@ padding: 0 4em 1em 0;
 	}
 	#tarjeta1,#tarjeta2{
 		padding-top:40px;
-		//height:50%;
 		height:277px;
 	}
 
