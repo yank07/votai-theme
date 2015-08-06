@@ -5,11 +5,11 @@ votai-theme
 .. image:: https://badge.fury.io/py/votai-theme.png
     :target: https://badge.fury.io/py/votai-theme
 
-.. image:: https://travis-ci.org/yoquierosaber/votai-theme.png?branch=master
-    :target: https://travis-ci.org/yoquierosaber/votai-theme
+.. image:: https://travis-ci.org/YoQuieroSaber/votai-theme.svg?branch=master
+    :target: https://travis-ci.org/YoQuieroSaber/votai-theme
 
-.. image:: https://coveralls.io/repos/yoquierosaber/votai-theme/badge.png?branch=master
-    :target: https://coveralls.io/r/yoquierosaber/votai-theme?branch=master
+.. image:: https://coveralls.io/repos/YoQuieroSaber/votai-theme/badge.png?branch=master
+    :target: https://coveralls.io/r/YoQuieroSaber/votai-theme?branch=master
 
 Tema de la instnancia de Vota Inteligente para YoQuieroSaber Argentina, elecciones 2015. Incluye el juego de Yo Quiero Saber.
 
