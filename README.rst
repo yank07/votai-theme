@@ -84,11 +84,11 @@ Está disponible una API REST en:
 Esta API provee acceso a diferentes objetos y es conformante con el standard Popolo.
 
 Además se provee una API para el juego, que está disponible dentro de cada elección
-	http://www.yoquierosaber.org/theme/election/pre-candidato-a-presidente/media-naranja.json
-	http://www.yoquierosaber.org/theme/election/pre-candidato-a-gobenador-de-tucuman/media-naranja.json
-	http://www.yoquierosaber.org/theme/election/pre-candidato-a-gobenador-de-buenos-aires/media-naranja.json
-	http://www.yoquierosaber.org/theme/election/pre-candidato-a-gobenador-de-entre-rios/media-naranja.json
-	http://www.yoquierosaber.org/theme/election/pre-candidato-a-gobenador-de-san-juan/media-naranja.json
+	* http://www.yoquierosaber.org/theme/election/pre-candidato-a-presidente/media-naranja.json
+	* http://www.yoquierosaber.org/theme/election/pre-candidato-a-gobenador-de-tucuman/media-naranja.json
+	* http://www.yoquierosaber.org/theme/election/pre-candidato-a-gobenador-de-buenos-aires/media-naranja.json
+	* http://www.yoquierosaber.org/theme/election/pre-candidato-a-gobenador-de-entre-rios/media-naranja.json
+	* http://www.yoquierosaber.org/theme/election/pre-candidato-a-gobenador-de-san-juan/media-naranja.json
 
 
 Estos datos están disponibles bajo licencia CC-BY-SA
