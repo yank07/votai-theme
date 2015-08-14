@@ -326,8 +326,9 @@ footer h3{
 	color:#e4324c;
 }
 .calendario{
-	font-size:2.5em;	
-	background-color:#cccccc;
+	font-size:2em;	
+	background-color:#bbb;
+	color: black;
 	text-align:center;	
 	padding:20px;
 }
@@ -335,11 +336,37 @@ footer h3{
 {
 	margin-top:0px;
 	color: #353535;
-	font-size: 1em;
+	font-size: 1.1em;
+	font-family:yqsFont;
 }
-.faltan{
+.calendario {
 	font-family:yqsFont;
 	margin-bottom: 0px;
+}
+
+.calendario ul {
+	margin: 0.5em 0;
+	padding: 0;
+	list-style: none;
+	vertical-align: middle;
+}
+
+.calendario li a {
+	background: white;
+	display: block;
+	min-height: 2.4em;
+	line-height: 1.2em;
+	padding: 0.3em;
+	border-radius: 0.5em;
+}
+
+.votas {
+	clear: both;
+	font-size: 1em;
+}
+
+.fecha-distancia {
+	font-weight: bold;
 }
 
 .about{
