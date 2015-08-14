@@ -23,15 +23,11 @@ Por favor siga las instricciones de instalación disponibles en:
 Debe configurar el theme en el archivo local_settings.py de votainteligente para que este funcione, ejemplo:
 	THEME = 'votai_theme'
 
-El theme debe estar instalado en el mismo entorno virtual (virtualenv) que el votainteligente, esto se realiza con el siguiente comando:
+En entornos de desarrollo, será necesario ejecutar el siguiente comando para actualizar los cambios:
 
-Install votai-theme::
+	python setup.py install
 
-    pip install votai-theme
-
-Then use it in a project::
-
-    import votai-theme
+Asegurarse de estar en la carpeta del theme y con el virtualenv activado.
 
 Features
 --------
@@ -42,19 +38,6 @@ Features
 * Múltiples elecciones simultáneas
 * Funcionalidad de compartir en redes sociales con generación reducida de sombra (SocialSharePrivacy)
 * Theme y juego responsive y compatible con la mayoría de dispositivos.
-
-
-Deploy
-------
-
-Configuración propuesta
-* nginx como servidor web para elementos estáticos y cache
-* nginx funciona como proxy a una aplicación python
-* esta aplicación python es iniciada por supervisord
-* el intérprete de python utilizado es uwsgi
-
-Por favor revisar las configuraciones sugeridas para nginx, supervisor y autodeploy en el repositorio yqs-tools:
-	https://github.com/YoQuieroSaber/yqs-tools
 
 
 Datos
@@ -92,6 +75,30 @@ Además se provee una API para el juego, que está disponible dentro de cada ele
 
 
 Estos datos están disponibles bajo licencia CC-BY-SA
+
+
+
+Deploy
+------
+
+Configuración propuesta
+* nginx como servidor web para elementos estáticos y cache
+* nginx funciona como proxy a una aplicación python
+* esta aplicación python es iniciada por supervisord
+* el intérprete de python utilizado es uwsgi
+
+Por favor revisar las configuraciones sugeridas para nginx, supervisor y autodeploy en el repositorio yqs-tools:
+	https://github.com/YoQuieroSaber/yqs-tools
+
+
+Para usarlo en un nuevo proyecto (que no sea vota inteligente), es necesario que el proyecto incluya el theme en los requerimientos e importarlo dentro del archivo .py que quiera utilizarlo.
+
+    import votai-theme
+
+El theme debe estar instalado en el mismo entorno virtual (virtualenv) que el votainteligente. Esto se realiza con el siguiente comando:
+
+    pip install votai-theme
+
 
 Bug reports
 -----------
