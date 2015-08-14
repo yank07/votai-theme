@@ -1020,19 +1020,25 @@ font-size: 2em;
 	position: relative;
 	display: inline-block;
 	margin: 0 0 0 0;
-	padding-top: 20px;
-	padding-left: 40px;
+	padding: 20px 0 0 0;
 	height: 7%;
 	width:85%;
 	list-style: none;	
 }
 
+@media (max-width: 768px) {
+	.recorrido ul {
+		padding-left: 40px;
+	}
+}
+
+
 .dots {
 	display: inline-block;
 	width: 12px;
 	height: 12px;
-	margin-right:1%;
-	margin-left:1%;
+	margin-right:0.6%;
+	margin-left:0.6%;
 	text-indent: -999em;
 	border: 1px solid #86e895;
 	border-radius: 12px;
@@ -1829,9 +1835,6 @@ padding: 0 4em 1em 0;
 		padding-left:48px;
 		padding-right:48px;
 	}
-	.recorrido ul {
-		padding-top: 20px;
-	}	
 	.pregResu{
 		font-size:1.6em;
 		padding-top:3%;
