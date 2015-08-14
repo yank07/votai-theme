@@ -39,6 +39,16 @@ Features
 * Funcionalidad de compartir en redes sociales con generación reducida de sombra (SocialSharePrivacy)
 * Theme y juego responsive y compatible con la mayoría de dispositivos.
 
+Releases
+--------
+
+El branch master incluye el código estable que está funcionando en www.yoquierosaber.org, además se realizan modificaciones de desarrollo en el branch dev.
+
+Cada vez que se llega a un nivel estable con nuevas funciones, se realiza un nuevo release. Puede ver el último release en la página de releases
+	https://github.com/YoQuieroSaber/votai-theme/releases
+
+Relase del 15/ago/2015: 1.1.443
+	https://github.com/YoQuieroSaber/votai-theme/releases/tag/1.1.443
 
 Datos
 -----
