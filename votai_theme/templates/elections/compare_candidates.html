@@ -29,7 +29,7 @@
 				<option value=""></option>
 				{% for candidato in election.candidates.all %}
 					{% if second_candidate.id != candidato.id %}
-				<option value="{{candidato.id}}" {% if candidato.id and candidato.id == first_candidate.id %}selected="selected"{% endif %}>{{candidato.name}}</option>
+				<option value="{{candidato.id}}" {% if candidato.id and candidato.id == first_candidate.id %}selected="selected"{% endif %}>{{candidato.name}} {% if candidato.did_not_pass_primaries == True %} no superó las internas (PASO){% endif %}</option>
 					{% endif %}
 				{% endfor %}
 				<i class="icon-chevron-down"></i>
@@ -40,7 +40,7 @@
 				<option value=""></option>
 				{% for candidato in election.candidates.all %}
 					{% if first_candidate.id != candidato.id %}
-				<option value="{{candidato.id}}" {% if candidato.id and candidato.id == second_candidate.id %}selected="selected"{% endif %}>{{candidato.name}}</option>
+				<option value="{{candidato.id}}" {% if candidato.id and candidato.id == second_candidate.id %}selected="selected"{% endif %}>{{candidato.name}} {% if candidato.did_not_pass_primaries == True %} no superó las internas (PASO){% endif %}</option>
 					{% endif %}
 				{% endfor %}
 			</select>
@@ -53,7 +53,7 @@
 				{% for category in election.categories.all %}
 
 				<div class="panel panel-default">
-					<div class="panel-heading" id="{{category.slug}}">{{category.name}}</div>
+					<div class="panel-heading" id="{{category.slug}}">{{category.name}} {% if candidato.did_not_pass_primaries == True %} (no superó las internas PASO){% endif %}</div>
 					<div class="panel-body">
 					{% for topic in category.topics.all %}
 						<div class="row">

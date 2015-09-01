@@ -1456,9 +1456,14 @@ var app = (function(){
 function loadGame(){
 		
 	var url="/theme"+elecUrl+"/media-naranja.json";
+
 	if (/theme\/election\/(.*)\//.test(location.href)) {
 		election = /theme\/election\/([^\/]*)\//.exec(location.href)[1];
 		url =  "/theme/election/"+election+"/media-naranja.json";
+	}
+
+	if (GetUrlValue("show_all_candidates")) {
+		url+="?show_all_candidates="+GetUrlValue("show_all_candidates");
 	}
 
 					$.getJSON( url, function( data ) {			
@@ -1466,7 +1471,13 @@ function loadGame(){
 
 					categorias = eleccion["categories"];
 					candidatos = eleccion["candidates"];
-					$(".nElec,.election_name_content").html(eleccion["election_name"]);
+
+					election_name = eleccion["election_name"];
+					if (GetUrlValue("show_all_candidates")) {
+						election_name+=" (incluye pre-candidatos)";
+					}
+
+					$(".nElec,.election_name_content").html(election_name);
 					//console.log(candidatos);
 
 					var cant = candidatos.length;

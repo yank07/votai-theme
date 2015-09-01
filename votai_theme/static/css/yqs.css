@@ -282,8 +282,25 @@ padding: 0;
 	background: #454;
 	color: white;
 	clear: both;
-	margin-top: 1em;
+	margin: 1em 0;
 	font-family: yqsFont;
+	font-size: 2em;
+}
+
+.did_not_pass_primaries_True {
+	border-radius: 1em;
+	font-size: 0.9em;
+	zoom: 0.9;
+	background: #bbb;
+	padding: 1em;
+	opacity: 0.7;
+}
+
+.did_not_pass_primaries_True .soulmate-link {
+	background: white;
+	color: black;
+	font-size: 1.3em;
+	padding: 0.3em;
 }
 
 .soulmate-link b{
@@ -922,10 +939,6 @@ line-height: 2em;
 height: auto;
 width: auto;
 background-color: #5a7;
-}
-
-.soulmate-link {
-font-size: 2em;
 }
 
 .bEmpez{
