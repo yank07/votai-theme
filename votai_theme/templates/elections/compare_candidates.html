@@ -29,7 +29,7 @@
 				<option value=""></option>
 				{% for candidato in election.candidates.all %}
 					{% if second_candidate.id != candidato.id %}
-				<option value="{{candidato.id}}" {% if candidato.id and candidato.id == first_candidate.id %}selected="selected"{% endif %}>{{candidato.name}} {% if candidato.did_not_pass_primaries == True %} no superó las internas (PASO){% endif %}</option>
+				<option value="{{candidato.id}}" {% if candidato.id and candidato.id == first_candidate.id %}selected="selected"{% endif %}>{{candidato.name}} {% if candidato.did_not_pass_primaries == True %} (no superó las internas PASO){% endif %}</option>
 					{% endif %}
 				{% endfor %}
 				<i class="icon-chevron-down"></i>
@@ -40,7 +40,7 @@
 				<option value=""></option>
 				{% for candidato in election.candidates.all %}
 					{% if first_candidate.id != candidato.id %}
-				<option value="{{candidato.id}}" {% if candidato.id and candidato.id == second_candidate.id %}selected="selected"{% endif %}>{{candidato.name}} {% if candidato.did_not_pass_primaries == True %} no superó las internas (PASO){% endif %}</option>
+				<option value="{{candidato.id}}" {% if candidato.id and candidato.id == second_candidate.id %}selected="selected"{% endif %}>{{candidato.name}} {% if candidato.did_not_pass_primaries == True %} (no superó las internas PASO){% endif %}</option>
 					{% endif %}
 				{% endfor %}
 			</select>
