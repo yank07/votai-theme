@@ -31,7 +31,7 @@ jQuery(document).ready(function($){
         //Calendario electoral
         $(".fecha-distancia").each(function(i,el) {
                 dateParts = $(el).text().split('/');
-                date = new Date(dateParts[1] + "-" + dateParts[0] + "-" + dateParts[2]);
+                date = new Date(dateParts[1] + "/" + dateParts[0] + "/" + dateParts[2]);
                 $(el).text(getDayCount(date) + " días");
         });
 
