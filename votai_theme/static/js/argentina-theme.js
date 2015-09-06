@@ -1,5 +1,5 @@
-var elecUrl="/election/pre-candidato-a-gobernador-de-tucuman";
-var jsonUrl= "/theme/election/pre-candidato-a-gobernador-de-tucuman/media-naranja.json";
+var elecUrl="/election/pre-candidato-a-presidente";
+var jsonUrl= "/theme/election/pre-candidato-a-presidente/media-naranja.json";
 
 jQuery(document).ready(function($){
         // browser window scroll (in pixels) after which the "back to top" link is shown
@@ -31,7 +31,7 @@ jQuery(document).ready(function($){
         //Calendario electoral
         $(".fecha-distancia").each(function(i,el) {
                 dateParts = $(el).text().split('/');
-                date = new Date(dateParts[1] + "-" + dateParts[0] + "-" + dateParts[2]);
+                date = new Date(dateParts[1] + "/" + dateParts[0] + "/" + dateParts[2]);
                 $(el).text(getDayCount(date) + " días");
         });
 

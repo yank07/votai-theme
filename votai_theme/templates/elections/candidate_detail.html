@@ -5,6 +5,7 @@
 {% load markdown_deux_tags %}
 {% load votainteligente_extras %}
 {% load thumbnail %}
+{% load yqs_extras %}
 
 {% block url_face_to_face %}{% url 'face_to_face_one_candidate_detail_view' slug=election.slug slug_candidate_one=candidate.id %}{% endblock url_face_to_face %}
 
@@ -78,8 +79,7 @@
 
 				</div>
 				<div class="col-md-5">
-					 <h3>{{ candidate.name }}</h3>
-
+					 <h3>{{ candidate.name }} {% if candidate.did_not_pass_primaries == True %} (no superó las internas PASO){% endif %}</h3>
 					<table class="table">
 						{% include 'elections/personal_data_candidate.html' with candidate=candidate %}
 					</table>			

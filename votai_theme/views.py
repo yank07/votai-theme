@@ -6,7 +6,6 @@ from votai_theme.models import AnswerValue
 from sorl.thumbnail import get_thumbnail
 from django.views.decorators.clickjacking import xframe_options_exempt
 
-
 class juegoView(SoulMateDetailView):
     @xframe_options_exempt
     def dispatch(self, *args, **kwargs):
@@ -57,7 +56,16 @@ class MedianaranjaJsonView(MediaNaranjaView):
                     question_dict['answers'].append(position_dict)
                 category_dict['questions'].append(question_dict)
             response['categories'].append(category_dict)
-        for candidate in election.candidates.all():
+
+
+        candidates = election.candidates.all();
+
+        show_all_candidates = self.request.GET.get('show_all_candidates', "False")
+
+        if show_all_candidates == "False":
+          candidates = candidates.exclude(did_not_pass_primaries=True)
+
+        for candidate in candidates:
 
             imurl = candidate.extra_info['portrait_photo']
             try:
@@ -71,6 +79,7 @@ class MedianaranjaJsonView(MediaNaranjaView):
             candidate_dict = {'candidate_id': candidate.id,
                               'candidate_name': candidate.name,
                               'candidate_pic': imurl,
+                              'did_not_pass_primaries': candidate.did_not_pass_primaries,
 			      'candidate_bio': candidate.biography,
                               'positions': []
                               }
