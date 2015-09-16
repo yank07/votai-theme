@@ -29,8 +29,8 @@ class MedianaranjaJsonView(MediaNaranjaView):
             'election_id': election.id,
             "election_name": election.name,
             "district": election.area.name,
-            "level": election.extra_info['nivel'],
-            "post": election.extra_info['cargo'],
+            # "level": election.extra_info['nivel'],
+            # "post": election.extra_info['cargo'],
             "categories": [],
             "candidates": []
 
