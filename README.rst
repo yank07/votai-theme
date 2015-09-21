@@ -70,14 +70,17 @@ Update the tables with migrations
 
 Asegúrese de que el theme en el archivo local_settings.py de votainteligente para que este funcione, ejemplo:
 	vi votainteligente/local_settings.py
+	
 	THEME = 'votai_theme'
 
 Clone the theme in another directory
 	cd ..
+	
 	git clone https://github.com/YoQuieroSaber/votai-theme.git
 
 En entornos de desarrollo, será necesario ejecutar el siguiente comando para actualizar los cambios, asegurándose de estar en la carpeta del theme y con el virtualenv activado.
 	cd votai-theme
+	
 	python setup.py install
 
 
