@@ -10,24 +10,6 @@ votai-theme
 
 Tema de la instnancia de Vota Inteligente para YoQuieroSaber Argentina, elecciones 2015. Incluye el juego de Yo Quiero Saber.
 
-Descripción
-----------
-
-Este tema funciona como un módulo de django utilizado por el votainteligente-portal-electoral.
-
-Por favor siga las instricciones de instalación disponibles en:
-	http://github.com/YoQuieroSaber/votainteligente-portal-electoral
-
-	[este es el fork local de http://github.com/ciudadanointeligente/votainteligente-portal-electoral, por favor reportar incidencias en orígen]
-
-Debe configurar el theme en el archivo local_settings.py de votainteligente para que este funcione, ejemplo:
-	THEME = 'votai_theme'
-
-En entornos de desarrollo, será necesario ejecutar el siguiente comando para actualizar los cambios:
-
-	python setup.py install
-
-Asegurarse de estar en la carpeta del theme y con el virtualenv activado.
 
 Features
 --------
@@ -49,6 +31,59 @@ Cada vez que se llega a un nivel estable con nuevas funciones, se realiza un nue
 
 Relase del 15/ago/2015: 1.1.443
 	https://github.com/YoQuieroSaber/votai-theme/releases/tag/1.1.443
+
+
+Instalación
+----------
+
+Este tema funciona como un módulo de django utilizado por el votainteligente-portal-electoral.
+
+Ante cualquier duda siga las instrucciones en:
+	http://github.com/YoQuieroSaber/votainteligente-portal-electoral
+
+Para instalar los requerimientos básicos:
+	sudo apt-get install virtualenv virtualenvwrapper python git g++ imagemagick
+
+Clone votainteligente somewhere in your system.
+	git clone https://github.com/YoQuieroSaber/votainteligente-portal-electoral.git
+
+Enter the installation directory
+	cd votainteligente-portal-electoral
+
+Create a virtual environment
+	virtualenv votainteligente
+
+Activate your virtual environment
+	source votainteligente/bin/activate
+
+Install the requirements that votainteligente needs in the current virtualenvironment
+	pip install -r requirements.txt
+
+It might take some time to get all installed. ImageMagick can cause problems to install, but it's needed.
+
+Create the database and tables.
+	python manage.py syncdb
+
+Update the tables with migrations
+	python manage.py migrate
+
+
+Asegúrese de que el theme en el archivo local_settings.py de votainteligente para que este funcione, ejemplo:
+	vi votainteligente/local_settings.py
+	
+	THEME = 'votai_theme'
+
+Clone the theme in another directory
+	cd ..
+	
+	git clone https://github.com/YoQuieroSaber/votai-theme.git
+
+En entornos de desarrollo, será necesario ejecutar el siguiente comando para actualizar los cambios, asegurándose de estar en la carpeta del theme y con el virtualenv activado.
+	cd votai-theme
+	
+	python setup.py install
+
+
 
 Datos
 -----
