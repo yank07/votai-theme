@@ -42,7 +42,7 @@ Ante cualquier duda siga las instrucciones en:
 	http://github.com/YoQuieroSaber/votainteligente-portal-electoral
 
 Para instalar los requerimientos básicos:
-	sudo apt-get install virtualenv virtualenvwrapper python git g++ imagemagick
+	sudo apt-get install virtualenv virtualenvwrapper python git g++ 
 
 Clone votainteligente somewhere in your system.
 	git clone https://github.com/YoQuieroSaber/votainteligente-portal-electoral.git
@@ -56,10 +56,19 @@ Create a virtual environment
 Activate your virtual environment
 	source votainteligente/bin/activate
 
+Algunos de los módulos de python resultan difíciles de instalar, por favor verifique que funcionan pgmagick y Pillow antes de continuar.
+	sudo apt-get install libgraphicsmagick++1-dev libgraphicsmagick++3 libboost-python-dev python-pgmagick python-dev libpython-dev libevent-dev graphicsmagick imagemagick libmagickcore-dev libmagickwand-dev
+	pip install pgmagick
+	pip install Pillow
+
+Si recibe algún error, refiérase a la documentación de pgmagick http://pythonhosted.org/pgmagick/tutorial.html#installation
+
+Una vez que esté instalado pgmagick y pillow, instale todos los requerimientos.
+
 Install the requirements that votainteligente needs in the current virtualenvironment
 	pip install -r requirements.txt
 
-It might take some time to get all installed. ImageMagick can cause problems to install, but it's needed.
+It might take some time to get all installed.
 
 Create the database and tables.
 	python manage.py syncdb
@@ -100,7 +109,7 @@ Comando para importar datos
 	./manage.py loaddata data-20150815.json
 
 
-Nota: Aún no se ha intentado re-crear el sitio a partir de estos datos.
+Nota: Importar los datos no está funcionando actualmente https://github.com/YoQuieroSaber/votai-theme/issues/60
 
 
 API
