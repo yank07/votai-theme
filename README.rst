@@ -58,7 +58,9 @@ Activate your virtual environment
 
 Algunos de los módulos de python resultan difíciles de instalar, por favor verifique que funcionan pgmagick y Pillow antes de continuar.
 	sudo apt-get install libgraphicsmagick++1-dev libgraphicsmagick++3 libboost-python-dev python-pgmagick python-dev libpython-dev libevent-dev graphicsmagick imagemagick libmagickcore-dev libmagickwand-dev
+
 	pip install pgmagick
+
 	pip install Pillow
 
 Si recibe algún error, refiérase a la documentación de pgmagick http://pythonhosted.org/pgmagick/tutorial.html#installation
