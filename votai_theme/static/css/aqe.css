@@ -1,0 +1,235 @@
+header, footer {
+    background-color: #da6d2a;
+        overflow: hidden;
+}
+
+footer {
+	 background-color:#6C6C6C;
+}
+
+.about h4 {
+    font-size: 1.0em;
+    color: #FFF;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.calendario li a {
+    background: white;
+    display: block;
+    min-height: 2.4em;
+    line-height: 1.2em;
+    padding: 0.3em;
+    border-radius: 4px;
+}
+
+ select, select[size="0"], select[size="1"] {
+    border-radius: 0px;
+    border-color: white;
+    background-color: white;
+    border-color: white;
+    width: 100%;
+    padding: 10px;
+}
+
+.logo-aque {
+    position: absolute;
+    top: 0px;
+    left: 86px;
+    background-color: rgba(236, 229, 203, 0.7);
+    width: 200px;
+}
+
+#telon {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    padding-top: 40px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(244, 122, 47, 0.73);
+    z-index: 10000;
+    text-align: center;
+}
+
+.imgInicio {
+    width: 345px;
+    height: auto;
+}
+
+#bgtop {
+    width: 100%;
+    background: url("http://aquieneselegimos.org.py/images/banner.jpg") no-repeat top center;
+    /* height: 240px; */
+}
+
+
+.list-inline>li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-right: 1px solid white;
+}
+
+.list-inline>li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-right: 1px solid white;
+}
+
+
+#headermenu a:hover {
+    color:  #5B5A5E;;
+    padding: 0 0.5em;
+        text-decoration: none;
+}
+
+
+
+#headermenu {
+       margin-top: 0.5em;
+    font-family: 'Open Sans', OpenSansRegular, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    padding-left: 22%;
+    float: left;}
+
+    .votoLogo {
+    	width: 56px;
+    }
+
+
+body {
+
+	font-family: 'Open Sans', OpenSansRegular, Arial, Helvetica, sans-serif;
+}
+
+.menu a {
+    padding: 1em;
+    background: #f47a2f;
+    display: block;
+    border-radius: 3px;
+    margin: 1em;
+    color: white;
+}
+
+#game {
+   
+    background-color: #5b5a5e;	
+    
+}
+
+.pre-urna {
+   
+    background-color: #5b5a5e;
+}
+
+.urna1, .urna2 {
+    
+    background-color: #5b5a5e;
+    
+}
+
+.bSaltear#nav1 {
+ 
+    background-color: #5b5a5e;
+  
+}
+
+.pregunta {
+    margin-top: 10px;
+    text-align: center;
+    color: #fff;
+    background-color: #5b5a5e;
+}
+
+.tPreg {
+   
+    color: white;
+}
+
+#vSi {
+    background-color: #99BC3F;
+        color: white;
+}
+
+    #vNo {
+    background-color:  #8E2431;
+        color: white;
+}
+
+#vOp {
+   background-color: #FFBB00;
+        color: white;
+}
+
+.bEmpez {
+    background-color: #FFBB00;}
+
+
+
+ .soulmate-link {
+    text-align: center;
+    border-radius: .2em;
+    padding: 1em;
+    background: #f47a2f;
+    color: white;
+    clear: both;
+    margin: 1em 0;
+    font-family: yqsFont;
+    font-size: 2em;
+}
+
+.soulmate-link .bEmpez {
+    padding: 0.5em 2.3em 0.8em;
+    font-size: 1em;
+    line-height: 2em;
+    color: #2B1010;
+    height: auto;
+    width: auto;
+    background-color: #ece5cb;
+}
+
+.soulmate-link b {
+    color: #5b5a5e;
+}
+
+#election .nav-candidator .list-inline>li a {
+    background: #5b5a5e;
+    color: white;
+    text-decoration: none;
+    border-radius: .4em;
+    padding: 1em 3em;
+    margin: 1em;
+    font-size: 1.5em;
+}
+
+
+.panel-default>.panel-heading {
+    background-color: #4f4e52;
+}
+
+   
+
+
+@media only screen and (min-width: 768px){
+#game {
+    width: 450px;
+    height: 560px;
+    top: 100px;
+        border-radius: 0.4em;
+}
+
+body {
+   /* background-color: #dddddd;*/
+    background: #ece5cb;
+}
+
+.container {
+    min-height: 617px;
+    padding-top: 30px;
+}
+
+}
+
+

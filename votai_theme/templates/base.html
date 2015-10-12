@@ -41,6 +41,7 @@
     <link rel="stylesheet" href="{% static 'css/chosen.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/yqs.css' %}">
+     <link rel="stylesheet" href="{% static 'css/aqe.css' %}">
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
     <link type="text/plain" rel="author" href="{% static 'humans.txt' %}" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -49,30 +50,24 @@
   </head>
   <body data-ng-app="votainteligente">
     <header>
-      <div class="hLogo"><span></span><a href="/"><img src="{% static 'img/YQSlogo.png' %}" class='imgHeader'></a></div>
+      
       <ul class="list-inline" id="headermenu">
+        <li> <img src="{% static 'img/logo.png' %}" class="logo-aque"> </li>
         <li>
-          <a href="/election/pre-candidato-a-presidente">Presidentes</a>
+          <img src="{% static 'img/voto.png' %}" class="votoLogo">
+          <a href="/election/nueva-eleccion/">Municipales CDE</a>
         </li>
         <li>
-          <a href="/pages/gobernadores">Gobernadores</a>
+          <img src="{% static 'img/voto.png' %}" class="votoLogo">
+          <a href="/election/segunda-eleccion/">Municipales Asunción</a>
         </li>
-        <li>
-          <a href="http://investigacion.yoquierosaber.org/posts">Otros cargos</a>
-        <li>
-          <a href="http://investigacion.yoquierosaber.org/">Investigación colectiva</a>
-        </li>
-        <li>
-          <a href="/pages/medios/">Medios</a>
-        </li>
-        <li>
-          <a href="/pages/nosotros/">Nosotros</a>
-        </li>
+       
+         
       </ul>
       <div class="header__nav__social">
         <a href="https://www.facebook.com/YoQuieroSaber">Facebook</a>
         <a href="https://twitter.com/YoQuieroSaberAR">Twitter</a>
-        <a href="http://taringa.net/YoQuieroSaber15">Taringa</a>
+       
       </div>
     </header>
       <div id="wrapper">
@@ -94,49 +89,56 @@
         <div class="calendario">
           <h3 class="faltan">Calendario electoral</h3>
           <ul class="row">
-            <li class="col-sm-8"><a href="/election/pre-candidato-a-presidente">Elecciones generales en <span class="fecha-distancia">25/10/2015</span></a></li>
-            <li class="col-sm-4"><a href="/pages/gobernadores">Todas las elecciones</a></li>
+            <li class="col-sm-12"><a href="">Elecciones Municipales en <span class="fecha-distancia">15/11/2015</span></a></li>
+           
           </ul>
-          <p class="votas">
-            ¿Votás? Contanos en <a href="http://www.twitter.com/YoQuieroSaberAr">twitter @YoQuieroSaberAr</a> hashtag #YoQuieroSaber
-          </p>
+       
         </div>
-        <button class="colabora"><a href="http://investigacion.yoquierosaber.org/">Colabor&#225; con nuestra investigaci&#243;n colectiva</a></button>
+        
 				<div class="about">
-          <div class="footer__bylines">
-            <h4>Hecho por</h4>
+          <div class="col-md-6">
+              <h4>Implementado por</h4>
             <p>
-              <a href="http://www.congresointeractivo.org"><img src="/static/img/logo-congreso-interactivo.png" width="107" height="40" alt="Congreso Interactivo"></a>
-              <a href="http://ar.okfn.org"><img src="/static/img/logo-okf-argentina.png" width="172" height="40" alt="Open Knowledge Argentina"></a>
-              <a href="http://twitter.com/dataconcepcion"><img src="/static/img/logo-datos-concepcion.png" width="35" height="40" alt="Datos Concepción"></a>
-              <a href="http://www.directoriolegislativo.org/"><img src="/static/img/logo-directorio-legislativo.png" width="130" height="40" alt="Directorio Legislativo"></a>
+              <a href="http://www.congresointeractivo.org"><img src="/static/img/cird-logo.png"  ></a>
+              
             </p>
-            <h4>Socios</h4>
+             <h4>SOBRE A QUIÉNES ELEGIMOS</h4>
             <p>
-              <a href="http://www.taringa.net">Taringa</a> &middot;
-              <a href="http://www.acij.org.ar">ACIJ</a> &middot;
-              <a href="http://www.conciencia.org">Asociación Conciencia</a> &middot;
-              <a href="http://www.we-me.org">We-Me</a> &middot;
-              <a href="http://www.utdt.edu/ver_contenido.php?id_contenido=9095&amp;id_item_menu=17559">Acción Social DiTella</a>
+              <a href="http://aquieneselegimos.org.py/quienes-somos.php">Quiénes somos</a> &middot;
+              <a href="http://aquieneselegimos.org.py/contactenos.php">Contáctenos</a> &middot;
+              <a href="http://aquieneselegimos.org.py/registro.php">Registrarse</a> &middot;
+              
             </p>
-            <p>
-              <h4>Apoyado por </h4>
-            </p>
-            <div style="background: white; padding: 1em; padding-bottom: 0.5em; border-radius: 1em">
-                  <a href="http://hackslabs.org/"><img src="{% static 'img/logo-hl.png' %}" alt="hackslabs"></a> 
-                  <a href="http://www.worldbank.org/"><img src="{% static 'img/logo-wb.png' %}" alt="World Bank"></a> 
-                  <a href="http://www.icfj.org/" style="zoom: 0.8;"><img src="{% static 'img/logo-icfj.png' %}" alt="ICFJ"></a>       
-            </div>
-            <h4>Desarrollado por </h4>
-            <p>
-              <a href="https://mysociety.org">mySociety</a> &middot;
-              <a href="http://www.ciudadanointeligente.org">Ciudadano Inteligente</a> &middot;
-              <a href="http://www.clinica-web.com.ar">Clínica Web</a>
-            </p>
-            <p>
-              <a href="/pages/nosotros/">Todos los colaboradores y voluntarios</a>
-            </p>
+
           </div>
+
+           
+
+
+          <div class="col-md-6">
+
+
+            <h4>Codigo Basado en</h4>
+
+            <p>
+                <a href="http://www.yoquierosaber.org/"><img src="/static/img/YQSlogo.png" style="    width: 250px;    margin-bottom: 23px;"> </a>
+            </p>
+
+
+            <h4>FORO CIUDADANO Y DEBATES</h4>
+            <p>
+              <a href="http://aquieneselegimos.org.py/foro-ciudadano-preguntas.php">Preguntá a una autoridad</a> &middot;
+              <a href="http://aquieneselegimos.org.py/foro-ciudadano-reclamos.php">Formulá un reclamo</a> &middot;
+              <a href="http://aquieneselegimos.org.py/foro-ciudadano-proyectos.php">Propone un proyecto</a>
+            </p>
+         
+
+
+          </div>
+
+
+          
+           
 
 				</div>
       </footer> 

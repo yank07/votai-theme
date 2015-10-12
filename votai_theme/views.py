@@ -62,8 +62,8 @@ class MedianaranjaJsonView(MediaNaranjaView):
 
         show_all_candidates = self.request.GET.get('show_all_candidates', "False")
 
-        if show_all_candidates == "False":
-          candidates = candidates.exclude(did_not_pass_primaries=True)
+     #   if show_all_candidates == "False":
+      #    candidates = candidates.exclude(did_not_pass_primaries=True)
 
         for candidate in candidates:
 
@@ -79,7 +79,7 @@ class MedianaranjaJsonView(MediaNaranjaView):
             candidate_dict = {'candidate_id': candidate.id,
                               'candidate_name': candidate.name,
                               'candidate_pic': imurl,
-                              'did_not_pass_primaries': candidate.did_not_pass_primaries,
+                      #        'did_not_pass_primaries': candidate.did_not_pass_primaries,
 			      'candidate_bio': candidate.biography,
                               'positions': []
                               }

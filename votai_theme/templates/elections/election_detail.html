@@ -14,32 +14,25 @@
 elections_json = {% elections_json %};
 </script>
 
-<div class="descubIni" style="overflow: hidden">
-           <div class="col-md-1" id="inviDC3"></div>
-<div class="col-md-6" id="inviDC1">Informate sobre los pre-candidatos nacionales y de tu provincia</div>
-        <div class="col-md-4" id="inviDC2"><select name="elecci&#243;n" id="eleccion"></select></div>
-</div>
 
 
-{% regroup election.candidates.all|dictsort:"did_not_pass_primaries" by did_not_pass_primaries as elections  %}
-	{% for candidates in elections %}
 
-	<div class="candidate_group did_not_pass_primaries_{{ candidates.grouper }}">
+
+
+	<div class="candidate_group">
 	    <div>
-	            <h2 class="text-center">{{ election }} {% if candidates.grouper == True %} que no superaron las internas (PASO){% endif %}</h2>
+	            <h2 class="text-center">{{ election }} </h2>
 	    </div>
 		<div class="game-cta">
 			{% if 'soulmate'|val_navbars and election.uses_soul_mate  %}
 			<div class="soulmate-link">
 			    <p class="soulmate-text">
-				    {% if candidates.grouper == True %}
-				    Jugá con todos los candidatos, incluso los que no superaron las primarias (PASO)
-				    {% else %}
-				    Descubr&#237; con cuál de los <b>{{ election }}</b> coincid&#237;s m&#225;s...
-				    {% endif %}
+				   
+				    Descubr&#237; con cuál de los candidatos de  <b>{{ election }}</b> coincid&#237;s m&#225;s...
+				  
 			    </p>
-				<a class="bEmpez" href="{% url 'soul_mate_detail_view' slug=election.slug  %}?show_all_candidates={{ candidates.grouper }}" accesskey="n" title="{% trans "1/2 Naranja" %} (Alt+n)">
-					<span style="font-size:1.5em;vertical-align:middle;">{% trans "1/2 Naranja" %}</span>
+				<a class="bEmpez" href="{% url 'soul_mate_detail_view' slug=election.slug  %}?show_all_candidates={{ candidates.grouper }}" accesskey="n" title="{% trans "Jugar" %} (Alt+n)">
+					<span style="font-size:1.5em;vertical-align:middle;">{% trans "Jugar" %}</span>
 				</a>
 			</div>
 			{% endif %}
@@ -49,7 +42,7 @@ elections_json = {% elections_json %};
 		<div class="row">
 			<div class="container-candidates">
 
-				{% for candidate in candidates.list|dictsort:"candidate.name" %}
+				{% for candidate in election.candidates.all %}
 				<div class="col-md-2">
 					
 					{% if candidate.image %}
@@ -101,7 +94,7 @@ elections_json = {% elections_json %};
                 </div>
         </div>
     </div>
-	{% endfor %}
+
 
 </div>
 
