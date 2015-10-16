@@ -13,39 +13,15 @@ class AnswerValueInline(admin.TabularInline):
     extra = 1
     max_num = 1
 
-class YQSPositionAdmin(admin.ModelAdmin):
-    inlines = [TakenPositionInline, AnswerValueInline, ]
-    search_fields = ['label', 'topic__label', 'topic__category__name']
-
-admin.site.unregister(Position)
-admin.site.register(Position, YQSPositionAdmin)
-
-
-class YQSPosition(Position):
+class Topic(Topic):
     def save(self, *args, **kwargs):
-        super(YQSPosition, self).save(*args, **kwargs)
-        for candidate in self.topic.election.candidates.all():
-            TakenPosition.objects.get_or_create(topic=self.topic, position=self, person=candidate)
+        super(YQSTopic, self).save(*args, **kwargs)
+        for candidate in self.election.candidates.all():
+            Topic.objects.get_or_create(topic=self.topic, position=null, person=candidate)
 
 
     class Meta:
         proxy = True
 
-
-class YQSPositionForm(forms.ModelForm):
-    model = YQSPosition
-
-
-class YQSPositionInline(admin.TabularInline):
-    model = YQSPosition
-    form = YQSPositionForm
-
-
-class TopicAdmin(admin.ModelAdmin):
-    inlines = [YQSPositionInline, ]
-    form = TopicModelForm
-    list_display = ('__str__', 'election')
-    search_fields = ['label', 'category__name']
-
-admin.site.unregister(Topic)
-admin.site.register(Topic, TopicAdmin)
+# admin.site.unregister(Topic)
+admin.site.register(Topic)
