@@ -13,6 +13,15 @@ class AnswerValueInline(admin.TabularInline):
     extra = 1
     max_num = 1
 
+
+class YQSPositionAdmin(admin.ModelAdmin):
+    inlines = [TakenPositionInline, AnswerValueInline, ]
+    search_fields = ['label', 'topic__label', 'topic__category__name']
+
+admin.site.unregister(Position)
+admin.site.register(Position, YQSPositionAdmin) 
+
+
 class Topic(Topic):
     def save(self, *args, **kwargs):
         super(YQSTopic, self).save(*args, **kwargs)
@@ -23,5 +32,4 @@ class Topic(Topic):
     class Meta:
         proxy = True
 
-# admin.site.unregister(Topic)
 admin.site.register(Topic)
