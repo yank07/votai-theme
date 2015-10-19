@@ -1161,6 +1161,7 @@ var app = (function(){
 	        $(".posturas").show();   
 			$(".resuFooter").show();
 			$(".posturas").scrollTop(0);
+			$(".resultados").show();
 	 	}, 500);
 
 			$(".pregResu").html("Resultado");
@@ -1971,12 +1972,16 @@ function loadGame(){
 					resetSacudir();
 					lastPreg = pregCount;
 					pregCount++;
+					console.log("saltear",pregCount,MaxPreg);
 					if(pregCount>=MaxPreg){
 						pregResultFinal();
 					}
+					else {
+						nextQuest();
+					}
 					$("#vSi").hide();
 					$("#vNo").hide();
-					nextQuest();				
+									
 				}
 			});
 
@@ -2029,7 +2034,7 @@ function loadGame(){
 				$(".preguntas").show();
 				pregResize();
 				// lastPreg = pregCount;
-				// pregCount++;
+				pregCount--;
 				nextQuest();
 				$(".resultados").hide();
 			});
