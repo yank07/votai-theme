@@ -7,13 +7,16 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('elections', '0009_topic'),
-        ('votai_theme', '0001_initial'),
+        ('elections', '0022_auto_20151016_1825'),
+        ('votai_theme', '0003_extrainfotopic'),
     ]
 
     operations = [
-        migrations.CreateModel(
+        migrations.DeleteModel(
             name='Topic',
+        ),
+        migrations.CreateModel(
+            name='YQSTopic',
             fields=[
             ],
             options={
