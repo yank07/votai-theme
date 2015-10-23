@@ -1,0 +1,19 @@
+Cambios para Paraguay
+
+en argentina-theme.js
+
+var elecUrl="/election/nueva-eleccion";
+var jsonUrl= "/theme/election/nueva-eleccion/media-naranja.json";
+
+
+en Views.py
+
+comentar todo lo que tenga que ver con  
+
+did_not_pass_primaries
+
+
+em election_detail.html
+
+Quitar el bucle que separa los que pasaron las primarias
+

@@ -1,5 +1,5 @@
-var elecUrl="/election/nueva-eleccion";
-var jsonUrl= "/theme/election/nueva-eleccion/media-naranja.json";
+var elecUrl="/election/asuncion";
+var jsonUrl= "/theme/election/asuncion/media-naranja.json";
 
 jQuery(document).ready(function($){
         // browser window scroll (in pixels) after which the "back to top" link is shown
