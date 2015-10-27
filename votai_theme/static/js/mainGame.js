@@ -1514,7 +1514,7 @@ function loadGame(){
 					preguntas = shuffle(categorias);
 
 					//Descomentar para desactivar el límite de preguntas
-					//MaxPreg = preguntas.length;
+					MaxPreg = preguntas.length;
 
 					$(".dots.template").hide();
 					for(var i=0;i<MaxPreg;i++) {
