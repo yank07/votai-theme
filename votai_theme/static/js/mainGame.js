@@ -1610,12 +1610,57 @@ function loadGame(){
 
 	function showOpt(){
 		openOpt();
+		$(".op1").html("");
+		$(".op2").html("");
+		$(".op3").html("");
+		$(".op4").html("");
+		//console.log(preguntas);
+		
+		has_question = [0,0,0,0];
+		number_questions = preguntas[pregCount]["answers"].length;
+		for(var j=0;j<number_questions;j++){
 
-		//console.log("opciones");
-		for(var i=0;i<cantOp;i++){
+			if(preguntas[pregCount]["answers"][j]["answer_value"] != 'undefined'){
+
+				has_question[preguntas[pregCount]["answers"][j]["answer_value"]]=1;
+				
+  
+			}		
+		
+
+		};
+
+		for(var y= 0; y<4;y++){
+
+			if (has_question[y]==0){
+				$(".bOp"+(y+1)).hide();
+				console.log("removido");
+
+			}
+			else {
+
+				$(".bOp"+(y+1)).show();
+			}
+
 			
-			$(".op"+(i+1)).html("<span>"+preguntas[pregCount]["answers"][i]["answer_text"]+"</span>");
-			$(".op"+(i+1)).children("span").css("height",$(".op"+(i+1)).css("height"));
+
+		};
+
+
+
+		//console.log(has_question);
+
+		for(var i=0;i<cantOp;i++){
+			//console.log("hola2");
+			//console.log(i);
+			//console.log(preguntas[pregCount]["answers"][i]);
+
+
+			//preguntas[pregCount]["answers"].idexOf()
+		
+			
+			$(".op"+(preguntas[pregCount]["answers"][i]["answer_value"]+1)).html("<span>"+preguntas[pregCount]["answers"][i]["answer_text"]+"</span>");
+			$(".op"+(preguntas[pregCount]["answers"][i]["answer_value"]+1)).children("span").css("height",$(".op"+(i+1)).css("height"));
 			if(!opScroll){						
 				var lH = parseFloat($(".op"+(i+1)).children("span").css("height"))*1.0;
 				var fS = 20;
