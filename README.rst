@@ -10,6 +10,16 @@ votai-theme
 
 Tema de la instnancia de Vota Inteligente para YoQuieroSaber Argentina, elecciones 2015. Incluye el juego de Yo Quiero Saber.
 
+La base de datos utilizada para la version de Paraguay se encuentra en el archivo datospy.json
+
+Para importar la base de datos correr el comando
+
+python manage.py loaddata datospy.json
+
+La configuracion del servidor apache esta en el archivp 000-default.conf
+
+
+
 
 Features
 --------
