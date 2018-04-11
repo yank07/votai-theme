@@ -63,6 +63,25 @@ header, footer {
 .menu a {
    background-color: #f47a2e;
 }
+
+.logo-aque {
+    position: absolute;
+    top: 0px;
+    left: 86px;
+     background-color: transparent;
+    width: 130px;
+    filter: brightness(100);
+}
+
+.about {
+    max-width: 800px;
+    text-align: left;
+    margin: auto;
+}
+
+#compare-candidates select{
+   background: #bbb;
+}
     </style>
 
 
@@ -73,24 +92,24 @@ header, footer {
       <ul class="list-inline" id="headermenu">
        <a href="http://juego.aquieneselegimos.org.py/"> <li> <img src="{% static 'img/logoAque.svg' %}" class="logo-aque"> </li></a>
         <li>
-          <img src="{% static 'img/voto.png' %}" class="votoLogo">
-          <a href="http://juego.aquieneselegimos.org.py/election/elecciones-generales">Ver Presidenciables </a>
+          <img src="{% static 'img/presidente.png' %}" class="votoLogo">
+          <a href="election/elecciones-generales">Ver Presidenciables </a>
         </li>
         <li>
-          <img src="{% static 'img/voto.png' %}" class="votoLogo">
-          <a href="http://juego.aquieneselegimos.org.py/election/elecciones-generales/face-to-face">Cara a Cara</a>
+          <img src="{% static 'img/debate.png' %}" class="votoLogo">
+          <a href="election/elecciones-generales/face-to-face">Cara a Cara</a>
         </li>
 
         <li>
-          <img src="{% static 'img/voto.png' %}" class="votoLogo">
-          <a href="http://juego.aquieneselegimos.org.py/election/elecciones-generales/soul-mate">Juego/a>
+          <img src="{% static 'img/naranja.png' %}" class="votoLogo">
+          <a href="election/elecciones-generales/soul-mate">Descubrí tu media naranja</a>
         </li>
        
          
       </ul>
       <div class="header__nav__social">
-        <a href="https://www.facebook.com/YoQuieroSaber">Facebook</a>
-        <a href="https://twitter.com/YoQuieroSaberAR">Twitter</a>
+        <a href="https://www.facebook.com/aquieneselegimos">Facebook</a>
+        <a href="https://twitter.com/aqepy">Twitter</a>
        
       </div>
     </header>
@@ -102,13 +121,13 @@ header, footer {
           {% endblock %}
         </div>
       </div>
-      <div class="share-sidebar">
+     <!--  <div class="share-sidebar">
       <p class="share-title">Compartir</p>
       <div data-social-share-privacy="true" data-order="facebook fbshare mail twitter gplus"  data-options='{
               "language" : "es",
           }'></div>
       </div>
-
+ -->
       <footer class="footer">
         <div class="calendario">
           <h3 class="faltan">Calendario electoral</h3>
@@ -123,15 +142,15 @@ header, footer {
           <div class="col-md-8">
               <h4>Implementado por</h4>
            <p>
-              <a href="http://www.congresointeractivo.org"><img src="/static/img/cird-logo.png" style="width: 91px;"></a>
-              <a href="http://girolabs.com/"><img src="/static/img/Girolabs-Blanco.png" style=" width: 100px;"></a>
+              <a href="http://www.congresointeractivo.org"><img src="/static/img/CirdLogoBlanco.png" style="width: 91px;"></a>
+              <a href="http://girolabs.com/"><img src="/static/img/GirolabsLogoBlanco.png" style=" width: 200px;"></a>
               
             </p>
              <h4>SOBRE A QUIÉNES ELEGIMOS</h4>
             <p>
-              <a href="http://aquieneselegimos.org.py/quienes-somos.php">Quiénes somos</a> &middot;
-              <a href="http://aquieneselegimos.org.py/contactenos.php">Contáctenos</a> &middot;
-              <a href="http://aquieneselegimos.org.py/registro.php">Registrarse</a> &middot;
+              <a href="http://aquieneselegimos.org.py/acerca-de">Quiénes somos</a> &middot;
+              <a href="http://aquieneselegimos.org.py/contacto">Contáctenos</a> &middot;
+            
               
             </p>
 
@@ -152,9 +171,9 @@ header, footer {
 
             <h4>FORO CIUDADANO Y DEBATES</h4>
             <p>
-              <a href="http://aquieneselegimos.org.py/foro-ciudadano-preguntas.php">Preguntá a una autoridad</a> &middot;
-              <a href="http://aquieneselegimos.org.py/foro-ciudadano-reclamos.php">Formulá un reclamo</a> &middot;
-              <a href="http://aquieneselegimos.org.py/foro-ciudadano-proyectos.php">Propone un proyecto</a>
+              <a href="http://aquieneselegimos.org.py/foro-ciudadano">Preguntá a una autoridad</a> &middot;
+              <a href="http://aquieneselegimos.org.py/foro-ciudadano">Formulá un reclamo</a> &middot;
+              <a href="http://aquieneselegimos.org.py/foro-ciudadano">Propone un proyecto</a>
             </p>
          
 
