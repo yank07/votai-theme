@@ -5,6 +5,20 @@
 {% load flatpages %}
 {% load yqs_extras %}
 
+
+<style type="text/css">
+	
+	.imgHeader {
+    vertical-align: middle;
+    width: 232.43px;
+  height: auto;
+      filter: brightness(100);
+}
+
+#inicio {
+	height: auto;
+}
+</style>
 <script type="text/javascript">
 elections_json = {% elections_json %};
 </script>
@@ -149,24 +163,27 @@ elections_json = {% elections_json %};
 					
 			</div>	
 			<div class="menu" id="menuMob">
-				<img src="{% static 'img/YQSlogo.png' %}" class='imgHeader'>
+				<img src="{% static 'img/logoAque.svg' %}" class='imgHeader'>
 
 		        <div class="descubriendo">
-		                <h4>Descubriendo<br/> con qu&#233; candidato coincid&#237;s m&#225;s...</h4>
-		        <select name="elecci&#243;n" id="eleccion"></select>
+		                <!-- <h4>Descubriendo<br/> con qu&#233; candidato coincid&#237;s m&#225;s...</h4> -->
+		        <!-- <select name="elecci&#243;n" id="eleccion"></select> -->
 		        <br/>
 		        <br/>
-		        <button type="button" class="bEmpez">
+		       <!--  <button type="button" class="bEmpez">
 		                <span style="font-size:1.5em;vertical-align:middle;">Jugar</span>
 		        </button>
-		        </div>
+		        --> </div>
 		                <ul class="submenu" id="submenuMob">
-		                <li>
+		               <!--  <li>
 		                <a onclick="location.reload()"><b>Volver a jugar</b></a></li>
-		                <li>
+		                <li> -->
 		                <!-- <a class="bCompartir"><b>Compartir</b></a></li> -->
-				<li><a class="bNosotros"><b>Ir a A quíenes elegimos</b></a></li>
-		                <li><a id="bTodos" href="/election/pre-candidato-a-presidente" style="display:none">Todos los candidatos</a></li>
+		        <li><a href="http://juego.aquieneselegimos.org.py/election/elecciones-generales/"><b>Ver Presidenciables</b></a></li>
+				<li><a href="http://aquieneselegimos.org.py/"><b>Ir a A quíenes elegimos</b></a></li>
+				
+
+		                <!-- <li><a id="bTodos" href="/election/pre-candidato-a-presidente" style="display:none">Todos los candidatos</a></li> -->
 		        </ul>
 	  	    </div>
 			<div class="share">
