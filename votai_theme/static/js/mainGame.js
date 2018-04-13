@@ -30,7 +30,7 @@ var app = (function(){
 	var pregCount=0;
 	var lastPreg;
 
-	var MaxPreg=8;
+	var MaxPreg=10;
 	var valorPuntos = [100,66,33,0];
 
 	var animando=false;
@@ -1514,7 +1514,7 @@ function loadGame(){
 					preguntas = shuffle(categorias);
 
 					//Descomentar para desactivar el límite de preguntas
-					MaxPreg = preguntas.length;
+					//MaxPreg = preguntas.length;
 
 					$(".dots.template").hide();
 					for(var i=0;i<MaxPreg;i++) {
